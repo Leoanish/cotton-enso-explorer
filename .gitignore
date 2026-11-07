@@ -1,0 +1,8 @@
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+data/raw/ersst/*.nc
+data/geo/_*.json
+data/raw/_original_downloads/
+.transfer/
