@@ -4,7 +4,7 @@
 
 **Live dashboard:** https://leoanish.github.io/cotton-enso-explorer/
 **Code and data:** https://github.com/Leoanish/cotton-enso-explorer
-**Author:** Anish Bhattarai · **Licence:** MIT · **Data built:** 7 November 2026
+**Author:** Anish Bhattarai · **Licence:** MIT · **Data built:** 12 November 2026 (ONI through ASO 2026)
 
 > **About the numbers in this guide.** Unless a sentence says otherwise, figures quoted here use the dashboard's default settings: *All years · All events · per year*. Changing the settings (⚙ button) changes the numbers on screen. The AI assistant can always compute the live figure for any setting with its data tools — when this guide and a tool disagree, the tool reflects the current settings and wins.
 
@@ -43,7 +43,7 @@ Keywords: countries, US, USA, United States, Brazil, India, Argentina, China, Au
 
 1. **Pick a place** — the whole country, a state, or a county.
 2. **Read the effect** — a percentage such as **−12.5%**. It means: *in El Niño (or La Niña) years, this place's cotton yield landed, on average, 12.5% further below its own normal level than it did in neutral years.* Negative = worse than a normal year, positive = better.
-3. **Check the confidence** — each effect comes with a *90% confidence range*. If the whole range is on one side of zero (for example −18.2% to −6.1%) the result is labelled **confident**. If the range crosses zero (for example −4.9% to +6.4%) it is **uncertain**: the data cannot tell the effect apart from no effect.
+3. **Check the confidence** — each effect comes with a *90% confidence range*. If the whole range is on one side of zero (for example −19.2% to −5.7%) the result is labelled **confident**. If the range crosses zero (for example −4.7% to +6.6%) it is **uncertain**: the data cannot tell the effect apart from no effect.
 
 Keywords: how to read, interpretation, percentage meaning, negative positive, effect, confident, uncertain, quick start, three steps
 
@@ -75,7 +75,7 @@ Scientists track ENSO with a single number, the **Oceanic Niño Index (ONI)**, p
 
 **Example:** if the average sea temperature in the Niño 3.4 box over November, December and January is 1.8 °C warmer than normal, the NDJ ONI is +1.8 — strong El Niño conditions.
 
-The dashboard's ONI series runs from DJF 1950 to **JJA 2026** (June–July–August 2026, the latest value when the data were built). The most recent values were rising quickly (MAM 2026 +0.46, AMJ +0.95, MJJ +1.39, JJA +1.80 °C), meaning **El Niño conditions were developing in 2026**, but this had not yet lasted the five seasons needed to count as a completed event in the dashboard, and there is no 2026 cotton harvest data yet.
+The dashboard's ONI series runs from DJF 1950 to **ASO 2026** (August–September–October 2026), identical to NOAA's official file (checked value by value on 12 November 2026). The latest values climb steeply — AMJ 2026 +0.95, MJJ +1.39, JJA +1.80, JAS +2.16, ASO **+2.46 °C** — so **an El Niño is under way in 2026**. It has now lasted five seasons and appears in the dashboard as event **EN2026, "2026– (ongoing)"**, classed *strong so far*; its end, duration and final strength will change as NOAA adds seasons. There is no 2026 cotton harvest data yet, so it does not affect any yield result.
 
 Keywords: ONI, Oceanic Niño Index, Niño 3.4, Nino34, index, sea surface temperature anomaly, SST, 3-month running mean, DJF, JFM, NDJ, JAS, season codes, threshold 0.5, ERSST, NOAA CPC, latest ONI, current conditions, 2026 El Niño
 
@@ -117,9 +117,9 @@ In the dashboard, "Strong+" means strong *and* very strong together.
 
 Keywords: strength, intensity, weak, moderate, strong, very strong, strong+, category, peak held three seasons, classification
 
-### 2.6 All 42 events, 1950–2024
+### 2.6 All 43 events, 1950–2026
 
-**22 El Niño events** (11 weak, 4 moderate, 4 strong, 3 very strong) and **20 La Niña events** (10 weak, 7 moderate, 3 strong, none very strong). Typical gap between the starts of two El Niños ≈ **3.4 years**; between two La Niñas ≈ **3.8 years**.
+**23 El Niño events** (11 weak, 4 moderate, 5 strong — including the ongoing 2026 event — and 3 very strong) and **20 La Niña events** (10 weak, 7 moderate, 3 strong, none very strong). 42 events are complete; one (2026) is still running. Typical gap between the starts of two El Niños ≈ **3.4 years**; between two La Niñas ≈ **3.8 years**.
 
 | ID | Type | Label | Start → End | Seasons | Peak (°C, when) | Strength |
 |---|---|---|---|---|---|---|
@@ -165,10 +165,11 @@ Keywords: strength, intensity, weak, moderate, strong, very strong, strong+, cat
 | LN2020 | La Niña | 2020–21 | ASO 2020 → MAM 2021 | 8 | −1.11 (OND 2020) | moderate |
 | LN2021 | La Niña | 2021–23 | ASO 2021 → DJF 2023 | 17 | −0.91 (OND 2021) | weak |
 | EN2023 | El Niño | 2023–24 | MJJ 2023 → MAM 2024 | 11 | +1.99 (NDJ 2023) | strong |
+| EN2026 | El Niño | 2026– (ongoing) | AMJ 2026 → ASO 2026 *(so far)* | 5+ | +2.46 (ASO 2026, so far) | strong *(provisional)* |
 
 Notes: some La Niñas came in back-to-back runs ("double-dip" or "triple-dip"), e.g. 1998–2001, 2020–23. The 2021–23 La Niña is classed weak because its strongest stretch was −0.91 °C. The strongest event in the record is the 2014–16 El Niño (+2.59 °C), then 1997–98 (+2.37 °C) and 1982–83 (+2.14 °C).
 
-Keywords: list of events, all events, event table, history, 1997-98, 2015-16, 1982-83, 2023-24, 2010-11, double dip, triple dip, strongest El Niño, strongest La Niña, how many events, 42 events, 22 El Niño, 20 La Niña, gap between events, frequency
+Keywords: list of events, all events, event table, history, 2026 El Niño, ongoing event, current El Niño, 1997-98, 2015-16, 1982-83, 2023-24, 2010-11, double dip, triple dip, strongest El Niño, strongest La Niña, how many events, 43 events, 23 El Niño, 20 La Niña, gap between events, frequency
 
 ### 2.7 How ENSO usually affects weather in the cotton regions
 
@@ -360,28 +361,25 @@ Why subtract neutral years? Because even after detrending, neutral years do not 
 
 Keywords: effect, phase effect, El Niño effect, La Niña effect, vs neutral, compared with neutral, difference, how the main number is calculated, average deviation, impact size, percent change
 
-### 4.4 Step 4 — Confidence ranges (bootstrap)
+### 4.4 Step 4 — Confidence ranges (how sure can we be?)
 
-Averages from a few years can be lucky or unlucky. A **90% confidence range** shows how much the effect could plausibly change if history had dealt slightly different years.
+Averages from a handful of years can be lucky or unlucky. A **90% confidence range** shows how far the true effect could plausibly be from the number we measured, given how many years we have and how much they vary.
 
-How it is computed — the **bootstrap**:
-1. Take the list of phase-year deviations (e.g. India's 11 El Niño years) and the list of neutral-year deviations (29 years).
-2. Draw a **random sample with replacement** of the same size from each list (some years appear twice, some not at all) and compute the effect for that pretend history.
-3. Repeat **400 times** → 400 plausible effects.
-4. Sort them; the 5th percentile and the 95th percentile are the ends of the **90% range**.
+**How it is computed — the Welch t-interval** (a standard textbook method for comparing two group averages whose spreads may differ):
+1. Take the deviations in the phase years (e.g. India's 11 El Niño years) and in the neutral years (29 years).
+2. Measure how much each group varies (its variance) and divide by its size. Adding the two gives the *uncertainty of the difference* (its squared standard error, SE²).
+3. The range is **effect ± t × SE**, where *t* comes from Student's t-distribution for 90% two-sided confidence with the Welch–Satterthwaite degrees of freedom. *t* is larger when there are few years (about 2.35 with 3 degrees of freedom, about 1.7 with 30), which automatically widens the range for small samples.
 
-A fixed random seed is used, so the same settings always give the same range.
+**Worked example (India, El Niño):** effect −12.5%, standard error ≈ 3.9 percentage points, about 19 degrees of freedom so t ≈ 1.73 → range **−19.2% to −5.7%**. The whole range is below zero → **confident**.
+**US, La Niña:** −1.2%, range **−7.0% to +4.6%** → crosses zero → **uncertain**.
 
-- If the range lies **entirely below or above zero** → **confident**. India El Niño: **−18.2% to −6.1%** → confident.
-- If it **crosses zero** → **uncertain**. US La Niña: **−6.6% to +4.6%** → uncertain.
+**Why Welch and not the bootstrap?** Earlier versions resampled the years 400 times (a "percentile bootstrap"). An audit on 12 November 2026 showed that method was **too generous with few years**: when each place's years were shuffled at random — so there was no real ENSO effect — it still called 17–22% of places with 3–7 event years "confident", instead of the 10% a 90% range should give. The Welch interval gave **about 10% at every sample size** (11.2% with 3–4 years, 9.5–9.8% otherwise), so the dashboard switched to it. It is also exact: the same data always give the same range, with no random draws. Effects (the main numbers) did not change; only ranges and some confident/uncertain labels did. The dashboard's numbers were checked against an independent calculation in Python/SciPy: 14,244 ranges, 0 differences.
 
-Ranges need at least 3 phase observations and 3 neutral years. Few years (typical of counties with only 6–8 event years) → wide ranges → rarely confident. States and countries usually have narrower ranges.
+Rules: a range needs at least 3 phase observations and 3 neutral years. "Confident" means the range excludes zero, equivalent to a two-sided Welch t-test with p < 0.10. The CSV export also lists that p-value.
 
-A **Welch t-test p-value** is also computed internally and appears in the CSV export, but the dashboard's "confident" label uses the bootstrap range.
+**What "confident" does and does not mean.** It means the difference is larger than year-to-year noise would usually produce. It does **not** prove that ENSO caused it, and it is a per-place statement: when ~600 counties are tested, about 10% (≈60) will be "confident" by chance alone, half of them in each direction. So look for **clusters** of confident areas well above that chance level — India's El Niño losses (30 confident-negative districts of 144, versus ≈7 expected by chance) are such a cluster.
 
-Plain-language meaning: "confident" does **not** prove ENSO caused the change; it means the difference is too consistent to be explained by random year-to-year noise alone.
-
-Keywords: confidence, confidence interval, 90% range, bootstrap, resampling, 400 resamples, significant, significance, confident, uncertain, p-value, Welch t-test, statistics, how sure, error bars, uncertainty
+Keywords: confidence, confidence interval, 90% range, Welch, t-interval, t-test, standard error, significant, significance, confident, uncertain, p-value, statistics, how sure, error bars, uncertainty, bootstrap, audit, calibration, false positives, chance
 
 ### 4.5 Per year vs per event weighting
 
@@ -432,9 +430,9 @@ Keywords: before during after, lag, year after, recovery, bounce back, two years
 
 The **strength panel** (Trends tab) splits each phase into weak, moderate and strong+ events and shows each group's effect vs neutral with its 90% range. It deliberately **ignores** the strength threshold setting so you can see every group at once (it still respects the year range and weighting).
 
-**Example (India, El Niño):** weak −15.1% (3 years, uncertain), moderate −9.0% (4, confident), strong+ −13.9% (4, confident). All negative — El Niño of any strength tends to hurt Indian cotton.
+**Example (India, El Niño):** weak −15.1% (3 years, range −47.4 to +17.2, uncertain), moderate −9.0% (4, −15.2 to −2.8, confident), strong+ −13.9% (4, −24.7 to −3.2, confident). All negative — El Niño of any strength tends to hurt Indian cotton.
 
-**Example (US, La Niña):** weak +15.9% (only 2 years, no range), moderate −6.4% (9 years, confident), strong+ +2.0% (4, uncertain). The damage does **not** simply grow with strength.
+**Example (US, La Niña):** weak +15.9% (only 2 years, no range), moderate −6.4% (9 years, −12.9 to +0.1, just uncertain), strong+ +2.0% (4, uncertain). No strength class is confident, and the effect does **not** grow with strength.
 
 Small groups (2–4 years) are fragile — one unusual harvest can flip them.
 
@@ -450,32 +448,30 @@ Keywords: phase trends, slope, linear trend, regression, OLS, standard error, yi
 
 The Compare tab splits the world by the **equator** and the **prime meridian** into four quadrants: **NW** (north-west), **NE**, **SW**, **SE**. Each mapped cotton area falls into one by its coordinates: US → NW, India → NE, Brazil and Argentina → SW (no areas in SE because Australia is not included).
 
-Each quadrant's number is the **harvested-area-weighted average** of its areas' effects (areas need ≥ 3 phase observations and ≥ 5 neutral years), with a 90% range from **300 bootstrap resamples of the areas**.
+How the figure is computed: areas need ≥ 3 phase observations and ≥ 5 neutral years. For each country in the quadrant, the dashboard builds a **harvested-area-weighted yearly series** of those areas' deviations, then computes the phase effect and its Welch range on that series (so the uncertainty reflects the **number of event years**). Countries in the same quadrant (Brazil and Argentina in SW) are combined by their total harvested area. Earlier versions resampled *areas* instead, which treated hundreds of neighbouring counties as independent evidence and made the ranges far too narrow; that was corrected on 12 November 2026.
 
-**Default results, El Niño:** NW **+2.5%** (622 US counties, range +1.8 to +3.2), NE **−14.5%** (144 Indian districts, −16.4 to −12.4), SW **−1.1%** (202 Brazilian+Argentine areas, −2.0 to −0.1).
-**La Niña:** NW −0.9% (−1.5 to −0.2), NE −0.4% (−2.5 to +2.1), SW −0.3% (−1.0 to +0.5).
+**Results (default settings), El Niño:** NW **+2.2%** (−2.5 to +7.0, uncertain; 622 US counties), NE **−14.3%** (−21.2 to −7.5, **confident**; 144 Indian districts), SW **−0.3%** (−7.0 to +6.4, uncertain; 202 Brazilian and Argentine areas).
+**La Niña:** NW −0.4% (−6.5 to +5.7), NE −1.3% (−9.0 to +6.4), SW −2.4% (−7.2 to +2.4) — all uncertain.
 
-Note: quadrant ranges are narrow because they resample *areas*, not years, and many neighbouring areas share the same weather — so treat "confident" here more loosely. The hemisphere *timing* (4.1, 2.8) matters more than east/west.
+The card also counts how many areas in the quadrant have a negative effect ("with a loss"). The hemisphere *timing* (4.1, 2.8) matters more than east/west.
 
-Keywords: quadrants, NW, NE, SW, SE, hemisphere, north south, east west, globe split, area weighted average, Compare tab, regional pattern
+Keywords: quadrants, NW, NE, SW, SE, hemisphere, north south, east west, globe split, area weighted, Compare tab, regional pattern, spatial correlation
 
 ### 4.12 How the "Overview" cards are chosen
 
-Overview shows about nine cards for the selected country, all computed live from the settings:
+Overview shows about nine cards for the selected country, all computed live from the settings. Headlines are worded to match the evidence: anything not confident says so.
 1. **La Niña · national** and 2. **El Niño · national** — the national effect, with its range, number of years, how many fell below trend, worst and best year.
-3. **Most sensitive state** for each phase — among states with ≥ 5 phase observations and ≥ 8 neutral years, confident effects first, then the most negative.
-4. **Hardest-hit area** — the most negative *confident* county/municipality/district/department (≥ 5 observations).
+3. **States** — for each phase, the state with the most negative effect (among states with ≥ 5 phase observations and ≥ 8 neutral years), flagged "uncertain" when its range crosses zero.
+4. **Hardest-hit local area** — the most negative *confident* county/municipality/district/department (≥ 5 observations), for whichever phase has more confident losses. The card also says how many areas are confidently negative and how many would be **expected by chance** (5% of those tested), so you can judge whether there is a real cluster.
 5. **Worst event** — the event whose affected crop years had the lowest national deviation.
-6. **La Niña by strength** — weak / moderate / strong+.
-7. **After a La Niña** — event-year → 1-year-after deviation.
+6. **La Niña by strength** — weak / moderate / strong+; it only says "stronger hurts more" if the effect gets steadily more negative *and* at least one class is confident.
+7. **After a La Niña** — event-year → 1-year-after deviation; it only says "bounces back" or "still below trend" when the change is larger than 3 points.
 8. **Irrigation** (US only) — non-irrigated vs irrigated La Niña effect.
 9. **Quadrant teaser** — the country's quadrant vs the others.
 
 Clicking a card opens the tab that holds its evidence.
 
-Note on the "most sensitive state" card: it can show a *positive* number — "sensitive" means the biggest confident response in either direction.
-
-Keywords: Overview cards, findings, how cards are chosen, most sensitive state, hardest hit, worst event, irrigation card, what the data says
+Keywords: Overview cards, findings, how cards are chosen, most affected state, hardest hit, worst event, irrigation card, what the data says, chance expectation
 
 ---
 
@@ -485,59 +481,59 @@ Keywords: Overview cards, findings, how cards are chosen, most sensitive state, 
 
 | Country | El Niño effect (90% range) | La Niña effect (90% range) |
 |---|---|---|
-| 🇮🇳 India | **−12.5%** (−18.2 to −6.1) **confident** · 11 years, 10 events | −1.6% (−9.1 to +5.2) uncertain · 14 years |
-| 🇧🇷 Brazil | −1.7% (−8.1 to +4.5) uncertain · 12 years | −2.8% (−7.8 to +1.9) uncertain · 17 years |
-| 🇺🇸 United States | +0.9% (−4.9 to +6.4) uncertain · 15 years | −1.2% (−6.6 to +4.6) uncertain · 15 years |
-| 🇦🇷 Argentina | +2.5% (−5.9 to +10.6) uncertain · 16 years | +1.3% (−5.4 to +9.1) uncertain · 19 years |
+| 🇮🇳 India | **−12.5%** (−19.2 to −5.7) **confident** · 11 years, 10 events | −1.6% (−9.1 to +6.0) uncertain · 14 years |
+| 🇧🇷 Brazil | −1.7% (−8.2 to +4.9) uncertain · 12 years | −2.8% (−8.0 to +2.4) uncertain · 17 years |
+| 🇺🇸 United States | +0.9% (−4.7 to +6.6) uncertain · 15 years | −1.2% (−7.0 to +4.6) uncertain · 15 years |
+| 🇦🇷 Argentina | +2.5% (−6.2 to +11.2) uncertain · 16 years | +1.3% (−6.4 to +9.1) uncertain · 19 years |
 
-**The clearest, most robust finding:** **El Niño hurts Indian cotton** — about 12% below a normal year nationally, confident, and consistent across weak, moderate and strong events. This matches El Niño's known tendency to weaken the Indian summer monsoon. 113 of 144 Indian districts have a negative El Niño effect and 39 are confidently negative.
+**The clearest, most robust finding:** **El Niño hurts Indian cotton** — about 12.5% below a normal year nationally, confident, and negative for weak, moderate and strong events alike. This matches El Niño's known tendency to weaken the Indian summer monsoon. It is also a genuine *cluster*: 113 of 144 Indian districts have a negative El Niño effect and **30 are confidently negative**, against about 7 expected by chance. Gujarat, Maharashtra and Telangana are each confident at state level.
 
-For the US, Brazil and Argentina, **national** effects are small and uncertain — positive and negative regional effects cancel out. The signal lives at the **state and county** level (5.2–5.5).
+For the US, Brazil and Argentina, **national** effects are small and uncertain. At county level the number of confident areas is close to what chance alone would give (for example US La Niña: 40 confident losses of 622 counties versus ≈31 by chance), so individual county results there should be read as hints, not findings.
 
 Keywords: main results, key findings, headline, summary of results, which country is most affected, India El Niño, national effects, comparison table, conclusion
 
 ### 5.2 United States results
 
-- National: El Niño +0.9% (uncertain), La Niña −1.2% (uncertain). Neutral years average 0.3% from trend; national mean yield 705 kg/ha.
-- **Worst ENSO harvest:** La Niña 1950–51 (crop year 1950, −16.9%). Others: El Niño 1968–69 (1969, −14.4%), El Niño 1951 (−11.8%), La Niña 1970–72 (1971, −12.0%), La Niña 1998–2000 (−10.6%), El Niño 2014–16 (2015, −10.3%). **Best:** El Niño 1963 (+24.7%), La Niña 1964 (+21.4%).
-- **States:** Florida is the most La Niña-sensitive (−9.2%, confident); Tennessee shows a confident El Niño gain (+9.5%); Arizona a confident La Niña gain (+3.9%). Texas: El Niño −1.9%, La Niña +0.3% (both uncertain).
-- **Counties:** 314 of 622 counties are below zero in La Niña years; 50 are confidently negative and 43 confidently positive — a patchwork. Hardest-hit confident La Niña counties: **Colorado County, TX −29.1%**, Onslow, NC −27.6%, Grant, OK −26.4%. For El Niño only 7 counties are confidently negative (worst Medina, TX −17.5%) and 99 confidently positive.
-- **By strength (La Niña):** moderate −6.4% (confident), weak +15.9% (2 yrs), strong+ +2.0%. **El Niño:** weak −11.2% (confident), moderate +10.1% (confident), strong+ +2.6%.
-- **Irrigation (1972–2018, La Niña):** non-irrigated **+7.6%** vs irrigated **−3.7%**, both uncertain. Caution: yields are per *harvested* acre; in drought years many dryland fields are abandoned and not harvested, so the surviving fields look better than the whole crop really was.
+- National: El Niño +0.9% (−4.7 to +6.6, uncertain), La Niña −1.2% (−7.0 to +4.6, uncertain). Neutral years average 0.3% from trend; national mean yield 705 kg/ha.
+- **Worst ENSO harvest:** La Niña 1950–51 (crop year 1950, −16.9%). Others: El Niño 1968–69 (1969, −14.4%), La Niña 1970–72 (1971, −12.0%), El Niño 1951 (−11.8%), La Niña 1998–2000 (−10.6%), El Niño 2014–16 (2015, −10.3%). **Best:** El Niño 1963 (+24.7%), La Niña 1964 (+21.4%).
+- **States:** only two have a confident effect — Tennessee gains in El Niño years (+9.5%) and Arizona in La Niña years (+3.9%). Florida fares worst in La Niña years (−9.2%) and New Mexico in El Niño years (−4.9%), both uncertain. Texas: El Niño −1.9%, La Niña +0.3% (both uncertain).
+- **Counties:** La Niña — 314 of 622 counties are below zero; 40 are confidently negative and 29 confidently positive, close to the ≈31 per side expected by chance, so the county pattern is mostly noise. Largest confident La Niña losses: **Colorado County, TX −29.1%**, Onslow, NC −27.6%, Grant, OK −26.4%. El Niño — only 1 county is confidently negative (Greenlee, AZ −11.3%) while 72 are confidently positive, well above chance: El Niño years lean slightly *favourable* for many US counties.
+- **By strength:** El Niño weak −11.2% (4 years, confident), moderate +10.1% (uncertain), strong+ +2.6% (uncertain). La Niña weak +15.9% (2 years), moderate −6.4% (9 years, −12.9 to +0.1, just uncertain), strong+ +2.0%.
+- **Irrigation (1972–2018, La Niña):** non-irrigated +7.6% vs irrigated −3.7%, **both uncertain** — no confident difference. Note that yields are per *harvested* acre; abandoned dryland fields in drought years are not counted.
 - **Example year:** 2011 (La Niña 2010–11, Texas drought): Texas yield 666 kg/ha vs trend 739 → −9.8%; national −3.4%.
 
-Keywords: United States results, US findings, Texas, Florida, Tennessee, Georgia, Mississippi, Colorado County, US worst year, US La Niña, US El Niño, irrigation result, dryland, 2011 drought
+Keywords: United States results, US findings, Texas, Florida, Tennessee, Arizona, Colorado County, US worst year, US La Niña, US El Niño, irrigation result, dryland, 2011 drought
 
 ### 5.3 India results
 
-- National: **El Niño −12.5% (confident)**; La Niña −1.6% (uncertain). Neutral mean +1.6%; national mean yield 251 kg/ha.
+- National: **El Niño −12.5% (−19.2 to −5.7, confident)**; La Niña −1.6% (−9.1 to +6.0, uncertain). Neutral mean +1.6%; national mean yield 251 kg/ha.
 - **Worst ENSO harvest:** El Niño 2002–03 (crop year 2002, **−34.9%**), then El Niño 2014–16 (2015, −24.6%), La Niña 1998–2000 (−18.9%), El Niño 1997 (−14.2%). Best: La Niña 2007–08 (2007, +25.9%).
-- **States, El Niño:** Gujarat **−21.6%**, Maharashtra **−18.6%**, Telangana **−15.1%** (all confident); Andhra Pradesh −12.0%, Rajasthan −10.3%, Punjab −9.0% (uncertain).
-- **States, La Niña:** Rajasthan +16.9% and Karnataka +15.6% (confident gains); Orissa −13.2%, Telangana −9.0% (uncertain).
-- **Districts:** worst confident El Niño: **Latur, Maharashtra −55.0%**, North Arcot Vellore, Tamil Nadu −41.2%, Nasik, Maharashtra −40.2%. Worst confident La Niña: North Arcot Vellore −37.6%, Mahabubnagar (Telangana) −36.1%, Rangareddy −34.4%.
-- **After El Niño:** during −10.8% → 1 yr after +0.8% → 2 yrs after +4.5% (recovers).
-- **By strength (El Niño):** weak −15.1%, moderate −9.0% (confident), strong+ −13.9% (confident).
+- **States, El Niño (confident):** Gujarat **−21.6%** (−35.8 to −7.4), Maharashtra **−18.6%**, Telangana **−15.1%**. Uncertain: Andhra Pradesh −12.0%, Rajasthan −10.3%, Punjab −9.0%.
+- **States, La Niña:** Rajasthan +16.9% and Karnataka +15.6% (confident gains); Orissa −13.2% fares worst (uncertain).
+- **Districts:** 30 of 144 are confidently negative in El Niño years (≈7 expected by chance) — a real cluster. Largest: **Latur, Maharashtra −55.0%** (−80.1 to −30.0), North Arcot Vellore, Tamil Nadu −41.2%, Nasik, Maharashtra −40.2%. In La Niña years only 6 are confidently negative (about chance).
+- **Around El Niño:** during −10.7% → 1 yr after +0.8% → 2 yrs after +4.5% (recovers).
+- **By strength (El Niño):** weak −15.1% (uncertain, 3 years), moderate −9.0% (confident), strong+ −13.9% (confident).
 
 Keywords: India results, Indian cotton, monsoon, Gujarat, Maharashtra, Telangana, Latur, 2002 drought, El Niño India, worst year India, Indian districts, Rajasthan, Karnataka
 
 ### 5.4 Brazil results
 
-- National: El Niño −1.7%, La Niña −2.8% (both uncertain). National mean yield 1,759 kg lint/ha.
+- National: El Niño −1.7% (−8.2 to +4.9), La Niña −2.8% (−8.0 to +2.4), both uncertain. National mean yield 1,759 kg lint/ha.
 - **Worst ENSO harvest:** El Niño 1986–88 (harvest 1987, **−25.0%**); then La Niña 1995–96 (1996, −20.1%), El Niño 1997–98 (1998, −18.0%), La Niña 1998–2000 (−11.9%). Best: El Niño 1991–92 (1992, +15.1%).
-- **States:** Tocantins shows a confident La Niña gain (+12.8%); Minas Gerais a confident El Niño gain (+6.2%). Mato Grosso, the biggest producer: El Niño −1.0%, La Niña −4.7% (uncertain).
-- **Municipalities:** worst confident La Niña: Uberlândia (MG) −18.8%, Buritizeiro (MG) −15.2%, Comodoro (MT) −13.0%. Worst confident El Niño: Dianópolis (TO) −78.3% (only 4 years — fragile), Iguatu (CE) −20.3%, Juscimeira (MT) −19.8%.
-- **By strength (La Niña):** weak −4.3%, moderate −4.8%, strong+ +5.3% (confident).
+- **States:** confident effects only for Tocantins (La Niña +12.8%) and Minas Gerais (El Niño +6.2%). Ceará fares worst in La Niña years (−9.4%) and Maranhão in El Niño years (−5.7%), both uncertain. Mato Grosso, the biggest producer: El Niño −1.0%, La Niña −4.7% (uncertain).
+- **Municipalities:** confident La Niña losses in 9 of 147 (≈7 by chance) — Uberlândia (MG) −18.8%, Buritizeiro (MG) −15.2%, Comodoro (MT) −13.0%. Confident El Niño losses in 3 of 134 (≈7 by chance), e.g. Dianópolis (TO) −78.3% on only 4 years — fragile.
+- **By strength (La Niña):** weak −4.3%, moderate −4.8% (both uncertain), strong+ +5.3% (3 years, confident).
 - Interpretation: Brazil's modern cerrado cotton (centre-west) sits outside the strongest ENSO rainfall zones, and the industry's rapid geographic shift makes older years less comparable.
 
 Keywords: Brazil results, Brazilian cotton, Mato Grosso, Bahia, Minas Gerais, Tocantins, Uberlândia, 1987, worst year Brazil, cerrado, Brazil El Niño, Brazil La Niña
 
 ### 5.5 Argentina results
 
-- National: El Niño +2.5%, La Niña +1.3% (both uncertain). National mean yield 479 kg lint/ha.
+- National: El Niño +2.5% (−6.2 to +11.2), La Niña +1.3% (−6.4 to +9.1), both uncertain. National mean yield 479 kg lint/ha.
 - **Worst ENSO harvest:** La Niña 2011–12 (harvest 2012, **−20.5%**); then La Niña 1998–2000 (−14.1%), El Niño 1997–98 (1998, −13.9%), El Niño 2004–05 (2005, −13.8%). Best: El Niño 1977–78 (1978, +27.2%), El Niño 2018–19 (2019, +24.7%).
-- **Provinces:** Córdoba (+14.3%) and San Luis (+12.4%) show confident La Niña gains (each is a single department); Misiones El Niño −9.7% (uncertain). Chaco, the biggest: El Niño +0.1%, La Niña +1.9%.
-- **Departments:** worst confident La Niña: Pilcomayo (Formosa) −15.3%, Pilagás (Formosa) −12.4%. Worst confident El Niño: Garay (Santa Fe) −18.2%, General Paz (Corrientes) −10.4%, 2 de Abril (Chaco) −9.3%.
-- **By strength (El Niño):** weak **+13.2%** (confident), moderate −2.5%, strong+ **−7.5%** (confident) — weak El Niños bring helpful rain, strong ones too much (flooding, disease, harvest problems).
+- **Provinces:** only Córdoba has a confident effect (La Niña +14.3%, a single department). Catamarca (La Niña −9.7%) and Misiones (El Niño −9.7%) fare worst, both uncertain. Chaco, the biggest: El Niño +0.1%, La Niña +1.9%.
+- **Departments:** confident La Niña losses in only 2 of 71 (≈4 by chance): Pilcomayo (Formosa) −15.3%, Pilagás (Formosa) −12.4%. No department has a confident El Niño loss.
+- **By strength (El Niño):** weak **+13.2%** (confident), moderate −2.5%, strong+ **−7.5%** (confident) — weak El Niños tend to bring helpful rain, strong ones too much (flooding, disease, harvest problems).
 
 Keywords: Argentina results, Argentine cotton, Chaco, Formosa, Santiago del Estero, Córdoba, 2012 drought, worst year Argentina, strong El Niño flooding, Argentina El Niño, Argentina La Niña
 
@@ -560,12 +556,12 @@ Keywords: same event, across countries, compare countries, 1997-98 impact, 2015 
 
 ### 5.7 Is this publishable? Strengths and limitations
 
-**Strengths:** four countries, ~1,000 subnational areas, up to 76 years; season-aware event assignment; consistent units; robust detrending; uncertainty shown everywhere; fully reproducible from public data.
+**Strengths:** four countries, ~1,000 subnational areas, up to 76 years; season-aware event assignment; consistent units; robust detrending; calibrated uncertainty shown everywhere; fully reproducible from public data; independently audited (events, phases, detrending and all 17,100 effect calculations re-derived in Python with zero differences; ONI identical to NOAA's official file).
 
 **Limitations to keep in mind:**
 - **Correlation, not causation.** ENSO is not the only thing happening in a year (pests like boll weevil or pink bollworm, prices, policy, other climate modes such as the Indian Ocean Dipole).
 - **Small samples.** 10–20 events per phase; county-level results are noisy.
-- **Many places tested.** With ~1,000 areas, some will look "confident" by chance (about 10% at a 90% range if there were no real effect). Focus on consistent patterns, not single counties.
+- **Many places tested.** With ~1,000 areas, about 10% will look "confident" by chance even with no real effect (this was verified by shuffling years: the 90% Welch ranges flag ≈10%). Overall 11% of area-phase results are confident, so outside India's El Niño cluster most single-county results are not distinguishable from chance. Focus on clusters and states, not single counties.
 - **Yield per harvested area** hides abandoned fields (important for US dryland).
 - **Seed-cotton conversion** in Brazil/Argentina uses a fixed turnout.
 - **Year after events** overlaps other events.
@@ -636,7 +632,7 @@ Keywords: Data tab, table, year by year, download, CSV, export, spreadsheet, met
 ### 6.6 Events tab
 
 Global (not country-specific):
-- **KPI tiles:** record length (1950–2026), number of El Niño and La Niña events by strength, typical gap (≈3.4 / 3.8 years), **latest ONI** and current state (e.g. "+1.80 °C · El Niño conditions · JJA 2026").
+- **KPI tiles:** record length (1950–2026), number of El Niño (23, incl. the ongoing 2026 event) and La Niña (20) events by strength, typical gap (≈3.4 / 3.8 years), **latest ONI** and current state ("+2.46 °C · El Niño conditions · ASO 2026").
 - **Event chips** to pick an event.
 - **Oceanic Niño Index chart 1950 → today:** orange area above +0.5 °C, blue below −0.5 °C; events outlined; a **gold playhead** marks the season the globe shows. Click anywhere to jump the globe.
 - **ENSO on the globe:** an animated globe of the **observed sea-surface temperature anomaly** (ERSST v5 vs the 1991–2020 average, 4° grid) — a red tongue along the equator = El Niño, blue = La Niña. The **Niño 3.4 box** is outlined. **Dots** are cotton areas coloured by that crop year's deviation (green above trend, red below). A **badge** names the event and season. **Ocean in Nov–Jan / Jul–Sep** chooses the season (Nov–Jan = event peak, best for Brazil/Argentina; Jul–Sep = US/India growing season). **Play: All years / Weak / Moderate / Strong+** animates through years with those events; **▶ Play** starts/stops. **Typical impact zones** toggles dashed circles marking usual wetter/drier regions for the event type, with a list of the zones.
@@ -706,9 +702,9 @@ Keywords: architecture, how it works, proxy, Cloudflare Worker, API key, securit
 
 - **Anomaly** — difference from normal. SST anomaly = temperature minus the long-term average for that place and season.
 - **Area-weighted / production-weighted** — big areas count more in an average.
-- **Bootstrap** — repeatedly resampling the data with replacement to see how much a result could vary.
+- **Welch t-interval** — a range for the difference between two averages that allows the two groups to vary by different amounts; used for every 90% range.
 - **Bt cotton** — genetically modified cotton resistant to bollworms; spread in India after 2002.
-- **Confidence range (90%)** — the span covering the middle 90% of bootstrap results.
+- **Confidence range (90%)** — effect ± t × standard error (Welch); a range built this way contains the true effect about 90% of the time.
 - **Confident / uncertain** — whether that range excludes zero.
 - **Crop year** — the year a crop is harvested (US, India: the planting year; Brazil, Argentina: the harvest year of a season that started the previous calendar year).
 - **Detrending** — removing the slow long-term change to isolate year-to-year swings.
@@ -727,7 +723,7 @@ Keywords: architecture, how it works, proxy, Cloudflare Worker, API key, securit
 - **Neutral year** — a crop year with no qualifying El Niño or La Niña.
 - **Niño 3.4** — Pacific box 5°N–5°S, 170°W–120°W.
 - **ONI** — Oceanic Niño Index, the 3-month mean Niño 3.4 SST anomaly.
-- **p-value** — probability of a difference this large if there were no real effect (from a Welch t-test; in CSV only).
+- **p-value** — probability of a difference at least this large if there were no real effect (Welch t-test; in the CSV). "Confident" ⇔ p < 0.10.
 - **Phase** — El Niño, La Niña or neutral.
 - **Quadrant** — NW/NE/SW/SE quarter of the globe.
 - **RONI** — Relative Oceanic Niño Index (newer NOAA index).
@@ -747,6 +743,8 @@ Keywords: glossary, definitions, terms, dictionary, jargon, what does it mean
 
 **Q: Why is a county faded on the map?** Its 90% range crosses zero — the data cannot tell its effect from no effect.
 
+**Q: Can I trust a single "confident" county?** Cautiously. About 1 in 10 places will look confident by chance, so a lone confident county among neutral neighbours may be a fluke. Clusters (many confident neighbours, or a confident state) are much stronger evidence.
+
 **Q: Why is a county grey?** It has fewer than three El Niño (or La Niña) years in the current settings.
 
 **Q: The effect changed when I changed settings — which one is "true"?** None is uniquely true; each answers a slightly different question. If the sign and size hold across settings (e.g. India El Niño), trust it more.
@@ -765,7 +763,7 @@ Keywords: FAQ, questions, national vs county, faded, grey, changing settings, ne
 
 **Q: Why does the US 1997 crop count for the 1997–98 El Niño but Brazil's 1998 crop?** Growing windows: the US crop grew May–Oct 1997, Brazil's Dec 1997–May 1998.
 
-**Q: Why are there no 2026 results?** Harvest data for 2026 are not available yet, and the 2026 warming had not yet become a completed event in the data.
+**Q: Why are there no 2026 results?** The 2026 El Niño is in the data as an ongoing event, but no 2026 harvest data are available yet. US and Indian 2026 crops grew during it, and Brazil's and Argentina's 2027 harvests will.
 
 **Q: Can I get the raw data?** Yes — Data tab CSVs, or the GitHub repo (`data/raw` for originals, `data/processed/dashboard_data.json` for the processed data).
 

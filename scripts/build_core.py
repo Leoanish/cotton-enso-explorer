@@ -53,6 +53,9 @@ for i,e in enumerate(events):
     e['id'] = f"{'EN' if e['type']=='El Niño' else 'LN'}{e['startYear']}"
     # label like 1997-98
     e['label'] = f"{e['startYear']}–{str(e['endYear'])[2:]}" if e['endYear']!=e['startYear'] else str(e['startYear'])
+    # an event still running in the latest ONI season is provisional: its end, duration and strength can still change
+    e['ongoing'] = bool(e['b'] == len(vals)-1)
+    if e['ongoing']: e['label'] = f"{e['startYear']}– (ongoing)"
 # gaps between consecutive events (onset to onset) of same type & any type
 for i,e in enumerate(events):
     e['gapFromPrevAny'] = round(e['start_t']-events[i-1]['end_t'],2) if i>0 else None

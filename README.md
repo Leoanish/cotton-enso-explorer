@@ -36,7 +36,7 @@ Settings (years, which event strengths count, per-year vs per-event weighting, U
 | Brazil | Municipality | 147 | 1974–2025 | Dec (prev. yr)–May |
 | India | District | 144 | 1966–2019 | Jun–Nov |
 | Argentina | Department | 72 | 1970–2025 | Nov (prev. yr)–Apr |
-| ENSO | — | 42 events (22 El Niño, 20 La Niña) | 1950–2026 | — |
+| ENSO | — | 43 events (23 El Niño incl. the ongoing 2026 event, 20 La Niña) | 1950–ASO 2026 | — |
 
 All yields are shown as **kg lint per hectare**. Brazil and Argentina report seed cotton, converted with a fixed ginning turnout (0.40 and 0.33); their levels are approximate, while their % deviations are unaffected.
 
@@ -46,7 +46,7 @@ All yields are shown as **kg lint per hectare**. Brazil and Argentina report see
 2. **Which crop year an event hits** — each crop year takes the mean ONI over that country's growing window, so one event can land on different harvests north and south of the equator.
 3. **Detrending** — each place gets a robust LOWESS trend through its own yields; a year's deviation is yield ÷ trend − 1.
 4. **Effect** — mean deviation in El Niño (or La Niña) years minus the mean in neutral years. Optionally one observation per event rather than per year.
-5. **Confidence** — 90% bootstrap range (400 resamples). *Confident* means the range excludes zero.
+5. **Confidence** — 90% Welch t-interval for the difference between phase and neutral years. *Confident* means the range excludes zero. Calibrated by shuffling each place's years: ≈10% of places are flagged when there is no real effect, as a 90% range should give.
 6. **Aggregates** — state and national series are production ÷ harvested area across all reporting areas.
 
 The full method, inclusion rules and caveats are in the dashboard's **Data → Method** section, and — explained step by step for non-specialists, with worked examples — in **[docs/knowledge_base.md](docs/knowledge_base.md)**.
@@ -89,6 +89,7 @@ scripts/
   build_data.py            full build: + Argentina, US irrigation splits, Brazil 1974–99, polygons
   build_sst.py             ERSST v5 → seasonal anomaly fields
   build_page.py            assembles index.html
+  check_calibration.py     checks that the 90% ranges flag ≈10% of places when years are shuffled
   fetch_ersst.sh           downloads ERSST v5 (only needed for build_sst.py)
 data/
   raw/                     original downloads, gzipped, one folder per provider
