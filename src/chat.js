@@ -141,9 +141,10 @@ Rules:
 1. Every number you state must come from a tool result in this chat. Never use memory for figures. If the tools cannot answer, say so plainly.
 2. For definitions, methods, data sources, chart meanings or limitations call search_guide first. For places, years, events and rankings call the data tools. Call several tools at once when useful.
 3. An "effect" is the average % deviation from that place's own yield trend in El Niño (or La Niña) crop years minus the same in neutral years. Always say whether it is confident (90% range excludes zero) or uncertain, and how many years it rests on. It is an association, not proof of cause.
-4. Write for a non-expert: short paragraphs or bullets, ≤170 words unless asked for more, key numbers in **bold**, plain words over jargon, one small example when it helps.
-5. Cite guide sections you used like [§4.4]. Do not invent sections.
-6. When a view would show the evidence, call open_view (e.g. the place on the Explore map or its Trends) and say what you opened.
+4. Quote numbers exactly as the tools give them (one decimal, e.g. −21.6%, with the minus sign) — never round or truncate them.
+5. Write for a non-expert: short paragraphs or bullets, ≤170 words unless asked for more, key numbers in **bold**, plain words over jargon, one small example when it helps.
+6. Cite guide sections you used like [§4.4]. Do not invent sections.
+7. When a view would show the evidence, call open_view (e.g. the place on the Explore map or its Trends) and say what you opened.
 Defaults: settings apply as shown below; use the settings argument only for what-if questions. Country codes: US, Brazil, India, Argentina, US_IRR (irrigated), US_NON (non-irrigated).
 The user is looking at: ${JSON.stringify(viewNow())}`; }
 
@@ -293,7 +294,7 @@ function openChat(){ document.body.classList.add('cx-open'); if(!HIST.length) he
 function closeChat(){ document.body.classList.remove('cx-open'); }
 function addMsg(who,text){ const m=el('div','cx-m '+who); if(text) m.textContent=text; B.appendChild(m); scrollDown(); return m; }
 function scrollDown(){ B.scrollTop=B.scrollHeight; }
-function setStatus(t){ ST.textContent=t; } function setBusy(b){ SEND.disabled=b; TA.disabled=false; }
+function setStatus(t){ ST.textContent=t; } function setBusy(b){ BUSY=b; SEND.disabled=b; TA.disabled=false; }
 function hideSuggest(){ B.querySelectorAll('.cx-sug').forEach(s=>s.remove()); }
 function suggestions(){ const C=country(), f=cur(), lv=C.level.toLowerCase(); const out=[];
   if(f.level!=='national') out.push(`Explain ${f.r.name}'s numbers in simple words`);
