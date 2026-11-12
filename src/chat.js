@@ -196,7 +196,7 @@ async function ask(q){
     const foot=el('div','cx-foot'); foot.textContent=`${(model||'').replace('openai/','')} · computed from this dashboard's data`; box.appendChild(foot);
     HIST.push({role:'user',content:q},{role:'assistant',content:final.slice(0,1600)});
   }catch(e){ ans.innerHTML=errHtml(e); }
-  setStatus(''); setBusy(false); scrollDown();
+  setStatus(''); setBusy(false); scrollDown(); try{ TA.focus(); }catch(e){}
 }
 function errHtml(e){
   if(e.code==='setup') return setupHtml();
@@ -242,7 +242,10 @@ const CSS=`
 body.cx-open .cx{transform:none}
 .cx-h{display:flex;align-items:center;gap:10px;padding:14px 14px 12px 18px;border-bottom:1px solid var(--line)} .cx-h .t{flex:1;min-width:0} .cx-h b{font-size:15px;display:block} .cx-h small{color:var(--ink-3);font-size:11.5px}
 .cx-h button{border:1px solid var(--line);background:var(--panel-2);color:var(--ink-2);width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:14px} .cx-h button:hover{color:var(--ink)}
-.cx-b{flex:1;overflow:auto;padding:14px 16px 6px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth}
+.cx-b{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:14px 16px 6px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+.cx-b::-webkit-scrollbar{width:8px} .cx-b::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:8px}
+.cx-down{position:absolute;right:22px;bottom:150px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line-2);background:var(--panel-2);color:var(--ink);cursor:pointer;font-size:16px;box-shadow:var(--shadow);display:none;z-index:2} .cx-down.show{display:block}
+.cx-m.user{scroll-margin-top:10px}
 .cx-m{max-width:100%;font-size:13.5px;line-height:1.55} .cx-m.user{align-self:flex-end;background:var(--panel-2);border:1px solid var(--line-2);padding:8px 12px;border-radius:14px 14px 4px 14px;max-width:85%;white-space:pre-wrap}
 .cx-m.bot{align-self:stretch} .cx-md p{margin:0 0 8px} .cx-md ul,.cx-md ol{margin:0 0 8px;padding-left:20px} .cx-md li{margin:2px 0} .cx-md h4{margin:10px 0 4px;font-size:13px}
 .cx-md code{background:var(--panel-2);padding:1px 5px;border-radius:5px;font-size:12px} .cx-md pre{background:var(--panel-2);padding:8px;border-radius:8px;overflow:auto;font-size:12px} .cx-md a{color:var(--accent)} .cx-md hr{border:0;border-top:1px solid var(--line);margin:10px 0}
@@ -275,12 +278,13 @@ function build(){
       <button id="cxCfgBtn" title="Connection settings">⚙</button><button id="cxNew" title="New conversation">⟲</button><button id="cxClose" title="Close">✕</button></div>
     <div class="cx-cfg" id="cxCfg"></div>
     <div class="cx-b" id="cxBody"></div>
-    <div class="cx-status" id="cxStatus"></div>
+    <button class="cx-down" id="cxDown" title="Jump to the latest message">↓</button><div class="cx-status" id="cxStatus"></div>
     <div class="cx-in"><textarea id="cxIn" rows="1" placeholder="Ask about any place, event or number…"></textarea><button id="cxSend" title="Send">↑</button></div>
     <div class="cx-note">AI can make mistakes. Every figure is computed by the dashboard — click the steps above an answer to see the raw results.</div>
     <div class="cx-sec" id="cxSec"><div class="hd"><span class="cx-sec-t"></span><button onclick="this.closest('.cx-sec').classList.remove('open')">✕</button></div><div class="cx-sec-b"></div><a target="_blank" rel="noopener">Open in the full guide ↗</a></div>`;
   document.body.appendChild(p);
   B=p.querySelector('#cxBody'); TA=p.querySelector('#cxIn'); SEND=p.querySelector('#cxSend'); ST=p.querySelector('#cxStatus');
+  const DN=p.querySelector('#cxDown'); DN.onclick=()=>{ B.scrollTop=B.scrollHeight; }; B.addEventListener('scroll',()=>DN.classList.toggle('show',B.scrollHeight-B.scrollTop-B.clientHeight>120));
   p.querySelector('#cxClose').onclick=closeChat; p.querySelector('#cxNew').onclick=()=>{ if(BUSY) return; HIST=[]; hello(); };
   p.querySelector('#cxCfgBtn').onclick=()=>{ const c=p.querySelector('#cxCfg'); c.classList.toggle('open'); if(c.classList.contains('open')) cfgHtml(); };
   SEND.onclick=()=>{ const q=TA.value; TA.value=''; autoGrow(); ask(q); };
