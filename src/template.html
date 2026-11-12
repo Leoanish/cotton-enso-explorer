@@ -119,6 +119,18 @@ input[type=checkbox]{accent-color:var(--accent)}
 #crumbs .cty{display:contents} body.global #countryTabs{display:none} body.global .allc{display:flex} body.global #crumbs .cty{display:none}
 @media(max-width:700px){.navgrp{display:none}}
 .stack{display:grid;grid-template-columns:1fr;gap:14px}
+.src-hero{display:flex;gap:18px;align-items:center;flex-wrap:wrap;background:linear-gradient(135deg,color-mix(in srgb,var(--nina) 9%,var(--panel)),color-mix(in srgb,var(--nino) 9%,var(--panel)));border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:4px 0 18px}
+.src-hero>div:first-child{flex:1;min-width:280px} .src-hero h2{margin:0 0 6px;font-size:18px} .src-hero p{margin:0;color:var(--ink-2);font-size:13.5px;line-height:1.55;max-width:760px}
+.src-hero-links{display:flex;gap:8px;flex-wrap:wrap} .src-hero-links a{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line-2);background:var(--panel);border-radius:9px;padding:7px 12px} .src-hero-links a:hover{border-color:var(--accent);color:var(--accent)} .src-hero-links a.primary{background:var(--accent);color:#111;border-color:transparent}
+.src-group{margin:0 0 22px} .src-group>h3{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);margin:0 0 10px;display:flex;align-items:center;gap:8px} .src-group>h3::after{content:'';flex:1;height:1px;background:var(--line)}
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+.src{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.src .hd{display:flex;align-items:flex-start;gap:10px} .src .ic{font-size:20px;line-height:1;width:28px;text-align:center;flex:none;margin-top:2px} .src .nm{font-weight:700;font-size:14.5px;line-height:1.3} .src .pub{font-size:12px;color:var(--ink-3);margin-top:2px}
+.src .use{font-size:13px;color:var(--ink-2);line-height:1.5}
+.src .kv3{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:12px} .src .kv3 span{color:var(--ink-3)} .src .kv3 b{color:var(--ink);font-weight:600}
+.src .links{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto} .src .links a{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line-2);background:var(--panel-2);border-radius:8px;padding:5px 9px} .src .links a:hover{border-color:var(--accent);color:var(--accent)} .src .links a.primary{background:var(--accent);color:#111;border-color:transparent}
+.src .note{font-size:11.5px;color:var(--ink-3);line-height:1.5;border-top:1px dashed var(--line);padding-top:8px} .src .note b{color:var(--ink-2)}
+.src .note.warn{color:var(--ink-2)} .src .note.warn::before{content:'ⓘ ';color:var(--accent)}
 </style>
 </head>
 <body>
@@ -131,7 +143,7 @@ input[type=checkbox]{accent-color:var(--accent)}
   </header>
   <div class="ctrlbar">
     <nav class="subtabs" id="subtabs">
-      <span class="navgrp">By country</span><button data-t="findings" class="active">Overview</button><button data-t="map">Explore</button><button data-t="area">Trends</button><button data-t="data">Data</button><span class="navsep"></span><span class="navgrp">All countries</span><button data-t="events">Events</button><button data-t="compare">Compare</button>
+      <span class="navgrp">By country</span><button data-t="findings" class="active">Overview</button><button data-t="map">Explore</button><button data-t="area">Trends</button><button data-t="data">Data</button><span class="navsep"></span><span class="navgrp">All countries</span><button data-t="events">Events</button><button data-t="compare">Compare</button><button data-t="sources">Sources</button>
     </nav>
     <div class="globals">
       <div class="search"><input type="search" id="regionSearch" placeholder="Search place…  ⌘K" autocomplete="off"><ul id="searchList"></ul></div>
@@ -224,6 +236,11 @@ input[type=checkbox]{accent-color:var(--accent)}
       <div class="card"><div class="card-title"><h2>Countries side by side</h2><span class="hint">National, production-weighted</span><div class="controls"><button class="btn sm" data-png="natChart">⤓</button></div></div>
         <div id="natCards" class="cards" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))"></div><div id="natChart" style="margin-top:12px"></div></div>
     </div>
+  </section>
+
+  <section data-tab="sources">
+    <div class="src-hero"><div><h2>Where every number comes from</h2><p>Every dataset behind this dashboard is public. Each card links to the official publisher, the exact file or query we used, and our copy in the GitHub repository — so you can check any figure or rebuild the whole thing yourself.</p></div><div class="src-hero-links" id="srcHeroLinks"></div></div>
+    <div id="srcGroups"></div>
   </section>
 
   <section data-tab="data">

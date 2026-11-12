@@ -24,6 +24,7 @@ An interactive, single-file dashboard that links 75 years of the El Niño–Sout
 | **Data** | one place | Year-by-year table, CSV export, full method |
 | **Events** | all countries | ONI record 1950 → today, event list, and an animated globe of **observed sea-surface temperature** (NOAA ERSST v5) with cotton areas recoloured each year |
 | **Compare** | all countries | Four-quadrant (NW / NE / SW / SE) analysis, pinned places, most sensitive areas, countries side by side |
+| **Sources** | all countries | Every dataset with its publisher, coverage, units, and links to the official source, the exact file or query used, and our copy in this repo |
 
 Settings (years, which event strengths count, per-year vs per-event weighting, US irrigated / non-irrigated) apply everywhere. Links encode the current view, so you can share an exact state of the dashboard.
 
@@ -63,6 +64,8 @@ The full method, inclusion rules and caveats are in the dashboard's **Data → M
 | ICRISAT District Level Database | Cotton area & production by district | `data/raw/icrisat/` |
 | Ministerio de Economía (Argentina) — Estimaciones Agrícolas | Algodón by departamento | `data/raw/magyp/` |
 | Boundaries | US counties & states ([us-atlas](https://github.com/topojson/us-atlas)), world ([world-atlas](https://github.com/topojson/world-atlas) / Natural Earth), Brazil municipalities & states (IBGE, via [`rschapo/pam-dashboard`](https://github.com/rschapo/pam-dashboard)), India districts ([`udit-001/india-maps-data`](https://github.com/udit-001/india-maps-data)), Argentina departments ([`mgaitan/departamentos_argentina`](https://github.com/mgaitan/departamentos_argentina)) | `data/raw/boundaries/`, `data/geo/` |
+
+> **Note on the ENSO index.** NOAA's Climate Prediction Center now also publishes an ERSST v6-based ONI and, since NWS Public Information Statement 26-05, uses the Relative Oceanic Niño Index (RONI) for official ENSO monitoring. This project uses the ERSST v5 ONI, which CPC continues to update monthly ([ONI v5 table](https://cpc.ncep.noaa.gov/products/analysis_monitoring/enso/oni/v5/), [RONI table](https://cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/v5/)).
 
 The IBGE 2000–2025 tables were taken from a SIDRA export in [`elisiara/agrodata`](https://github.com/elisiara/agrodata); the 1974–1999 table was pulled directly from the SIDRA API. ICRISAT files come from the GitHub mirrors [`2026ak05087/ML`](https://github.com/2026ak05087/ML) (1966–2017) and [`KalaRenganathan/causal-ml-crop-yield`](https://github.com/KalaRenganathan/causal-ml-crop-yield) (1990–2019). Each source remains under its own terms; please cite the original providers.
 

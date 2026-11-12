@@ -2,7 +2,7 @@ const DATA = JSON.parse(document.getElementById('DATA').textContent);
 const GEO = JSON.parse(document.getElementById('GEO').textContent);
 const META = { US:{flag:'🇺🇸', name:'United States'}, BR:{flag:'🇧🇷', name:'Brazil'}, IN:{flag:'🇮🇳', name:'India'}, AR:{flag:'🇦🇷', name:'Argentina'} };
 const ORDER = ['US','BR','IN','AR'];
-const TABS = ['findings','map','area','events','compare','data'];
+const TABS = ['findings','map','area','events','compare','data','sources'];
 const S = { cc:'US', a1:null, sel:null, metric:'yield', mapStyle:'choro', showLevel:'region', minYear:0, event:null, minInt:'weak', hemPhase:'La Niña', tab:'findings', trendView:'yield', rankPhase:'La Niña', pins:[], sort:{col:'year',dir:-1}, weight:'year', mask:true, zoom:null };
 const INT_RANK={weak:0,moderate:1,strong:2,'very strong':3};
 const passes=p=> !p.event || INT_RANK[p.intensity]>=INT_RANK[S.minInt];
@@ -469,6 +469,65 @@ document.getElementById('globeZones').onchange=e=>{ G.zones=e.target.checked; gl
 seg('globeStr','s',v=>{ G.str=v; renderGlobe(); });
 seg('globeSeason','s',v=>{ G.season=v; globeFrame(); });
 
+
+// ---------- sources tab
+const REPO='https://github.com/Leoanish/cotton-enso-explorer';
+const RAWDIR=p=>`${REPO}/tree/main/${p}`;
+function renderSources(){
+  const C=DATA.countries, n=cc=>C[cc]?C[cc].regions.length:0, yr=cc=>C[cc]?`${C[cc].yearRange[0]}–${C[cc].yearRange[1]}`:'–';
+  const L=(href,label,primary)=>`<a href="${href}" target="_blank" rel="noopener"${primary?' class="primary"':''}>${label} ↗</a>`;
+  document.getElementById('srcHeroLinks').innerHTML=L(REPO,'GitHub repository',true)+L(`${REPO}/tree/main/data/raw`,'All raw data')+L(`${REPO}#rebuilding`,'How to rebuild');
+  const groups=[
+   {t:'ENSO — the climate signal',items:[
+     {ic:'🌊',nm:'Oceanic Niño Index (ONI)',pub:'NOAA Climate Prediction Center',use:'3-month running mean of sea-surface temperature anomaly in the Niño 3.4 region. Defines every El Niño and La Niña event, its strength, and which crop years it touched.',
+      kv:[['Coverage',`${DATA.oni.year[0]} → ${DATA.oni.season[DATA.oni.season.length-1]} ${DATA.oni.year[DATA.oni.year.length-1]}, every season`],['Unit','°C anomaly'],['Threshold','±0.5 °C for ≥ 5 seasons = event']],
+      links:[L('https://cpc.ncep.noaa.gov/products/analysis_monitoring/enso/oni/v5/','Official ONI table',true),L('https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt','Data file'),L('https://github.com/ahuang11/oni','Mirror we pulled'),L(RAWDIR('data/raw/noaa'),'Our copy')],
+      notes:[['warn','NOAA now publishes an ERSST v6-based ONI and, since NWS statement 26-05, uses the <b>Relative ONI (RONI)</b> for official ENSO monitoring. This dashboard uses the ERSST v5 ONI, which CPC still updates monthly. '+L('https://cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/v5/','RONI table')]]},
+     {ic:'🌡️',nm:'ERSST v5 sea-surface temperature',pub:'NOAA NCEI · served by NOAA PSL',use:'Monthly global sea-surface temperature on a 2° grid. We compute Nov–Jan and Jul–Sep anomalies against 1991–2020 for every year and show them on the animated globe.',
+      kv:[['Coverage','1854 → present, monthly; we use 1950–2025'],['Grid','2° (shown at 4°)'],['File','sst.mnmean.nc, ~160 MB']],
+      links:[L('https://www.ncei.noaa.gov/products/extended-reconstructed-sst','Official product page',true),L('https://psl.noaa.gov/thredds/catalog/Datasets/noaa.ersst.v5/catalog.html','File catalog'),L(RAWDIR('data/raw/ersst'),'How to download')],
+      notes:[['','Too large for GitHub, so the repo stores the processed fields (<b>data/processed/sst_fields.json</b>) and a one-line script that re-downloads the original.']]},
+     {ic:'🗺️',nm:'Typical El Niño / La Niña impact zones',pub:'NOAA Climate.gov, after the Climate Prediction Center',use:'The dashed "usually wetter / usually drier" circles on the globe. Drawn by hand from NOAA\'s published global-impact maps — a schematic, not data for any particular year.',
+      kv:[['Type','Schematic, not measured'],['Seasons','Dec–Feb and Jun–Aug patterns']],
+      links:[L('https://www.climate.gov/news-features/featured-images/global-impacts-el-nino-and-la-nina','NOAA impact maps',true)]}
+   ]},
+   {t:'Cotton yields — the crop response',items:[
+     {ic:'🇺🇸',nm:'USDA NASS Quick Stats',pub:'U.S. Department of Agriculture, National Agricultural Statistics Service',use:'Upland cotton yield (lb/acre) and harvested acres by county, from the annual survey program, plus the irrigated / non-irrigated splits behind the Practice setting.',
+      kv:[['Coverage',`${n('US')} counties, ${yr('US')}; irrigation splits ${yr('US_IRR')}`],['Unit','lb/acre × 1.121 → kg lint/ha'],['Query','Survey · Crops · Field crops · Cotton · Yield / Area harvested · County']],
+      links:[L('https://quickstats.nass.usda.gov/','Quick Stats',true),L('https://quickstats.nass.usda.gov/api','API documentation'),L(RAWDIR('data/raw/usda_nass'),'Our copy (6 files)')],
+      notes:[['','Public domain (U.S. Government work). Counties reported under "Other (combined) counties" are excluded because they can\'t be mapped.']]},
+     {ic:'🇧🇷',nm:'IBGE — Produção Agrícola Municipal (PAM)',pub:'Instituto Brasileiro de Geografia e Estatística',use:'Harvested area and production of algodão herbáceo (seed cotton) for every município. Table 5457 covers 2000 onward; table 1612 supplies 1974–1999.',
+      kv:[['Coverage',`${n('BR')} municipalities, ${yr('BR')}`],['Unit','t seed cotton → × 0.40 ginning turnout → kg lint/ha'],['Variables','214 production · 216 area harvested · product 2688']],
+      links:[L('https://sidra.ibge.gov.br/Tabela/5457','SIDRA table 5457',true),L('https://sidra.ibge.gov.br/Tabela/1612','SIDRA table 1612'),L('https://apisidra.ibge.gov.br/values/t/1612/n6/all/v/214,216/p/1990/c81/2688','Example API query'),L('https://github.com/elisiara/agrodata','2000–2025 export'),L(RAWDIR('data/raw/ibge'),'Our copy')],
+      notes:[['','Seed-cotton yields are converted with one fixed turnout, so Brazilian yield <i>levels</i> are approximate; the % effects are unaffected.']]},
+     {ic:'🇮🇳',nm:'ICRISAT District Level Database (DLD)',pub:'International Crops Research Institute for the Semi-Arid Tropics',use:'Cotton area and production by district, compiled by ICRISAT from Indian government statistics and harmonised to fixed district boundaries.',
+      kv:[['Coverage',`${n('IN')} districts, ${yr('IN')}`],['Unit','170-kg bales → tonnes → kg lint/ha'],['Files','1966–2017 apportioned + 1990–2019 series']],
+      links:[L('http://data.icrisat.org/dld/index.html','ICRISAT DLD',true),L('https://github.com/2026ak05087/ML','1966–2017 mirror'),L('https://github.com/KalaRenganathan/causal-ml-crop-yield','1990–2019 mirror'),L(RAWDIR('data/raw/icrisat'),'Our copy')],
+      notes:[['','The two series are joined at 1990 only where district codes and names match.']]},
+     {ic:'🇦🇷',nm:'Estimaciones Agrícolas — algodón',pub:'Ministerio de Economía (Argentina), Dirección de Estimaciones Agrícolas',use:'Area sown and harvested, production and yield of cotton by departamento for every campaign.',
+      kv:[['Coverage',`${n('AR')} departments, ${yr('AR')}`],['Unit','t seed cotton → × 0.33 ginning turnout → kg lint/ha'],['Season label','harvest year (2019/20 campaign → 2020)']],
+      links:[L('https://datos.magyp.gob.ar/dataset/estimaciones-agricolas','Open-data portal',true),L(RAWDIR('data/raw/magyp'),'Our copy')],
+      notes:[['','Rows with an undefined department ("sin definir") are excluded because they can\'t be mapped.']]}
+   ]},
+   {t:'Maps & boundaries',items:[
+     {ic:'🧭',nm:'U.S. counties and states',pub:'U.S. Census Bureau via us-atlas',use:'County shapes and centroids for the US map.',kv:[['Scale','1:10,000,000']],links:[L('https://github.com/topojson/us-atlas','us-atlas',true)]},
+     {ic:'🌍',nm:'World countries',pub:'Natural Earth via world-atlas',use:'Country outlines on the globe and quadrant maps.',kv:[['Scale','1:110,000,000']],links:[L('https://github.com/topojson/world-atlas','world-atlas',true),L('https://www.naturalearthdata.com/','Natural Earth')]},
+     {ic:'🧭',nm:'Brazil municipalities & states',pub:'IBGE boundaries, via pam-dashboard',use:'Município shapes and state outlines for Brazil.',kv:[['Format','GeoJSON']],links:[L('https://github.com/rschapo/pam-dashboard','pam-dashboard',true),L(RAWDIR('data/raw/boundaries'),'Our copy')]},
+     {ic:'🧭',nm:'India districts',pub:'Census 2011 boundaries, via india-maps-data',use:'District shapes, matched to ICRISAT districts by census code.',kv:[['Format','GeoJSON']],links:[L('https://github.com/udit-001/india-maps-data','india-maps-data',true),L(RAWDIR('data/raw/boundaries'),'Our copy')]},
+     {ic:'🧭',nm:'Argentina departments',pub:'via departamentos_argentina',use:'Department shapes and province outlines, matched by province and name.',kv:[['Format','GeoJSON']],links:[L('https://github.com/mgaitan/departamentos_argentina','departamentos_argentina',true),L(RAWDIR('data/raw/boundaries'),'Our copy')]}
+   ]},
+   {t:'What we did to the data',items:[
+     {ic:'⚙️',nm:'Processing & method',pub:'This project',use:'Matching each crop year to an event through its country\'s growing window, detrending every area\'s yields, computing effects against neutral years, and the 90% bootstrap ranges.',
+      kv:[['Scripts','scripts/build_core.py, build_data.py, build_sst.py'],['Rebuild','make all  (≈ 15 s)']],
+      links:[`<a href="#" onclick="setTab('data');setTimeout(()=>document.getElementById('foot').scrollIntoView({behavior:'smooth'}),200);return false;" class="primary">Full method ↓</a>`,L(`${REPO}/tree/main/scripts`,'Scripts'),L(`${REPO}/tree/main/data/processed`,'Processed data')]},
+     {ic:'📄',nm:'Cite this dashboard',pub:'Bhattarai, A. (2026). Cotton × ENSO Explorer.',use:'If you use the dashboard or its harmonised dataset, please cite it and the original providers above.',
+      kv:[['Code licence','MIT'],['Data','each source under its own terms']],
+      links:[L(`${REPO}/blob/main/CITATION.cff`,'Citation file',true),L(`${REPO}/blob/main/LICENSE`,'Licence')]}
+   ]}
+  ];
+  document.getElementById('srcGroups').innerHTML=groups.map(g=>`<div class="src-group"><h3>${g.t}</h3><div class="src-grid">${g.items.map(s=>`<div class="src"><div class="hd"><div class="ic">${s.ic}</div><div><div class="nm">${s.nm}</div><div class="pub">${s.pub}</div></div></div><div class="use">${s.use}</div>${s.kv?`<div class="kv3">${s.kv.map(([k,v])=>`<span>${k}</span><b>${v}</b>`).join('')}</div>`:''}<div class="links">${s.links.join('')}</div>${(s.notes||[]).map(([c,x])=>`<div class="note ${c}">${x}</div>`).join('')}</div>`).join('')}</div></div>`).join('');
+}
+
 // ---------- compare tab
 function renderCompare(){ renderHemis();
   const host=document.getElementById('pinCards'); const chart=document.getElementById('pinChart');
@@ -553,7 +612,7 @@ function setupSearch(){
 // ---------- tabs & controls
 window.setTab=function(t){ if(G.playing){ G.playing=false; clearInterval(G.timer); const b=document.getElementById('globePlay'); if(b) b.textContent='▶ Play'; } S.tab=t; document.querySelectorAll('#subtabs button').forEach(b=>b.classList.toggle('active',b.dataset.t===t)); document.querySelectorAll('section[data-tab]').forEach(s=>s.classList.toggle('active',s.dataset.tab===t)); window.scrollTo({top:0}); renderTab(); writeHash(); };
 document.getElementById('subtabs').onclick=e=>{ const b=e.target.closest('button'); if(b) setTab(b.dataset.t); };
-function renderTab(){ const t=S.tab; const glob=(t==='events'||t==='compare'); document.body.classList.toggle('global',glob); cur(); renderCrumbs(); if(t==='findings') renderFindings(); else if(t==='map'){ renderSelection(); renderMap(); } else if(t==='area') renderSelection(); else if(t==='events'){ renderKPIs(); renderONI(); renderEventsStrip(); renderGlobe(); renderCadence(); renderPhaseStrip(); renderEventCountries(); } else if(t==='compare') renderCompare(); else if(t==='data'){ renderSelection(); renderFoot(); } }
+function renderTab(){ const t=S.tab; const glob=(t==='events'||t==='compare'||t==='sources'); document.body.classList.toggle('global',glob); cur(); renderCrumbs(); if(t==='findings') renderFindings(); else if(t==='map'){ renderSelection(); renderMap(); } else if(t==='area') renderSelection(); else if(t==='events'){ renderKPIs(); renderONI(); renderEventsStrip(); renderGlobe(); renderCadence(); renderPhaseStrip(); renderEventCountries(); } else if(t==='compare') renderCompare(); else if(t==='sources') renderSources(); else if(t==='data'){ renderSelection(); renderFoot(); } }
 function seg(id,attr,fn){ document.getElementById(id).onclick=e=>{ const b=e.target.closest('button'); if(!b||b.disabled) return; document.querySelectorAll('#'+id+' button').forEach(x=>x.classList.toggle('active',x===b)); fn(b.dataset[attr]); }; }
 seg('rangeSeg','r',v=>{ S.minYear=v==='all'?0:+v; renderAll(); });
 seg('intSeg','i',v=>{ S.minInt=v; renderAll(); });
