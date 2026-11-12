@@ -476,7 +476,7 @@ const RAWDIR=p=>`${REPO}/tree/main/${p}`;
 function renderSources(){
   const C=DATA.countries, n=cc=>C[cc]?C[cc].regions.length:0, yr=cc=>C[cc]?`${C[cc].yearRange[0]}–${C[cc].yearRange[1]}`:'–';
   const L=(href,label,primary)=>`<a href="${href}" target="_blank" rel="noopener"${primary?' class="primary"':''}>${label} ↗</a>`;
-  document.getElementById('srcHeroLinks').innerHTML=L(REPO,'GitHub repository',true)+L(`${REPO}/tree/main/data/raw`,'All raw data')+L(`${REPO}#rebuilding`,'How to rebuild');
+  document.getElementById('srcHeroLinks').innerHTML=L(REPO,'GitHub repository',true)+L(`${REPO}/tree/main/data/raw`,'All raw data')+L(`${REPO}/blob/main/docs/knowledge_base.md`,'Full guide: every method, step by step')+L(`${REPO}#rebuilding`,'How to rebuild');
   const groups=[
    {t:'ENSO — the climate signal',items:[
      {ic:'🌊',nm:'Oceanic Niño Index (ONI)',pub:'NOAA Climate Prediction Center',use:'3-month running mean of sea-surface temperature anomaly in the Niño 3.4 region. Defines every El Niño and La Niña event, its strength, and which crop years it touched.',
@@ -572,7 +572,7 @@ function renderFoot(){
   document.getElementById('foot').innerHTML=`<h4>Method</h4>
   <b>Events.</b> NOAA's Oceanic Niño Index (3-month running mean of ERSSTv5 anomalies, Niño 3.4). An event is ≥5 consecutive overlapping seasons at or beyond ±0.5 °C; strength is the peak category held for ≥3 seasons (weak &lt;1.0, moderate 1.0–1.4, strong 1.5–1.9, very strong ≥2.0 °C). Using hundredths merges a few back-to-back events (e.g. 2014–16) relative to CPC's table.<br>
   <b>Which crop year an event hits.</b> Each crop year takes the mean ONI over the country's growing window — ${Object.entries(DATA.windows).map(([k,v])=>`<b>${k}</b> ${v}`).join('; ')}. ≥ +0.5 and overlapping an El Niño → El Niño year; ≤ −0.5 and overlapping a La Niña → La Niña year; otherwise neutral. So "El Niño years" are the harvests whose growing season ran during the event.<br>
-  <b>Event strength.</b> "Moderate+" (default) leaves crop years tied to weak events out of every group, so they neither dilute the signal nor pose as neutral years. Strength is the event's peak category, not that year's ONI.<br>
+  <b>Event strength.</b> "All" (default) counts every event; "Moderate+" or "Strong+" leave crop years tied to weaker events out of every group, so they neither dilute the signal nor pose as neutral years. Strength is the event's peak category, not that year's ONI.<br>
   <b>Yield deviation.</b> Each place gets a robust LOWESS trend through its own yields (span ≈ 14 years, min 35% of the series); deviation = yield ÷ trend − 1, clipped to −95…+250%. Phase effect = mean deviation in phase years − mean in neutral years. "Per event" averages a multi-year event into one observation.<br>
   <b>Confidence.</b> 90% bootstrap range: 400 resamples of the phase observations and of the neutral years; "confident" when the range excludes zero. Small n widens the range — a county with 6 La Niña years will rarely be confident; states and countries usually are.<br>
   <b>After the event.</b> The one and two crop years following each event's last affected year, averaged over events. They can overlap the next event, so treat them as indicative.<br>

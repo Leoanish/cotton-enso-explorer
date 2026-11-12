@@ -19,8 +19,15 @@ geo = json.dumps({
     'WORLD': L('world.json'),
 }, separators=(',', ':'))
 app = open(SRC / 'app.js').read()
+# AI assistant: the guide it searches, and the URL of the key-holding proxy (chat-proxy/PROXY_URL, one line; blank = off)
+kb = json.dumps(open(ROOT / 'docs' / 'knowledge_base.md').read(), ensure_ascii=False)
+purl_f = ROOT / 'chat-proxy' / 'PROXY_URL'
+purl = open(purl_f).read().strip() if purl_f.exists() else ''
+assert all(c not in purl for c in "'\"\\<> "), 'PROXY_URL must be a plain https URL'
+chat = open(SRC / 'chat.js').read()
+if purl: chat = chat.replace("'/*CHAT_PROXY*/'", repr(purl), 1)
 for k, v in [('/*D3*/', d3), ('/*DATA*/', data.replace('</', '<\\/')), ('/*GEO*/', geo.replace('</', '<\\/')),
-             ('/*SST*/', sst), ('/*APP*/', app)]:
+             ('/*SST*/', sst), ('/*APP*/', app), ('/*KB*/', kb.replace('</', '<\\/')), ('/*CHAT*/', chat)]:
     assert k in tpl, k
     tpl = tpl.replace(k, v, 1)
 open(ROOT / 'index.html', 'w').write(tpl)

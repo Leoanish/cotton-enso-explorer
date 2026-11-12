@@ -1,0 +1,22 @@
+name = "cotton-enso-chat"
+main = "worker.js"
+compatibility_date = "2025-06-01"
+
+[vars]
+# Only these web pages may use the proxy (comma-separated, no trailing slash).
+ALLOWED_ORIGINS = "https://leoanish.github.io"
+# Models tried in order; the next one is used when the first is rate-limited or down.
+MODELS = "openai/gpt-oss-120b,openai/gpt-oss-20b"
+# Set to "1" to also allow http://localhost while testing.
+ALLOW_LOCALHOST = "0"
+
+# Optional per-visitor limit (20 requests / minute / IP). Uncomment to enable.
+# [[ratelimits]]
+# name = "LIMITER"
+# namespace_id = "1001"
+#   [ratelimits.simple]
+#   limit = 20
+#   period = 60
+
+# The Groq key is NOT stored here. Add it as a secret:
+#   npx wrangler secret put GROQ_API_KEY

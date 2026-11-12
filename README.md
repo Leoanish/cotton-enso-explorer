@@ -49,7 +49,13 @@ All yields are shown as **kg lint per hectare**. Brazil and Argentina report see
 5. **Confidence** — 90% bootstrap range (400 resamples). *Confident* means the range excludes zero.
 6. **Aggregates** — state and national series are production ÷ harvested area across all reporting areas.
 
-The full method, inclusion rules and caveats are in the dashboard's **Data → Method** section.
+The full method, inclusion rules and caveats are in the dashboard's **Data → Method** section, and — explained step by step for non-specialists, with worked examples — in **[docs/knowledge_base.md](docs/knowledge_base.md)**.
+
+## Ask the data — AI assistant
+
+The ✦ **Ask the data** button opens a chat with an open-weight model (OpenAI's `gpt-oss-120b`, served by [Groq](https://groq.com)). It does not answer from memory: it calls tools that run *in the page* on the dashboard's own data — place statistics, single years, events, rankings, quadrants, what-if settings — and searches [the guide](docs/knowledge_base.md) for methods and definitions. It can also open the matching view for you. Every tool call and its raw result can be expanded under the answer.
+
+The Groq key never reaches the browser: requests go through a small Cloudflare Worker in [`chat-proxy/`](chat-proxy/) that keeps the key as a secret and only answers this site. Set-up takes three commands — see [chat-proxy/README.md](chat-proxy/README.md). Until it is deployed, visitors can paste their own Groq key in the chat's ⚙ (stored only in their browser).
 
 > **Status:** exploratory. Before drawing formal conclusions, see *Limitations* below.
 
@@ -73,7 +79,9 @@ The IBGE 2000–2025 tables were taken from a SIDRA export in [`elisiara/agrodat
 
 ```
 index.html                 the dashboard (self-contained; this is what GitHub Pages serves)
-src/                       template.html + app.js — the dashboard source
+src/                       template.html + app.js (dashboard) + chat.js (AI assistant)
+docs/knowledge_base.md     the complete plain-language guide (also what the assistant searches)
+chat-proxy/                Cloudflare Worker holding the Groq key; PROXY_URL = its address
 scripts/
   paths.py                 all paths, relative to the repo
   build_geo.py             simplified boundaries and centroids → data/geo/
@@ -108,7 +116,7 @@ A full rebuild takes about 15 seconds and reproduces the published `index.html` 
 2. **Settings → Pages → Build and deployment → Source: Deploy from a branch → `main` / `(root)`**.
 3. The dashboard appears at `https://<username>.github.io/<repo-name>/` within a minute or two.
 
-`index.html` is a single 4.4 MB file with everything inlined, so it also works offline — open it straight from disk.
+`index.html` is a single 4.6 MB file with everything inlined, so it also works offline — open it straight from disk.
 
 ## Limitations
 
