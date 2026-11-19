@@ -1,13 +1,14 @@
 cff-version: 1.2.0
 message: "If you use this dashboard or its harmonised dataset, please cite it and the original data providers listed in the README."
-title: "Cotton × ENSO Explorer: subnational cotton yield responses to El Niño and La Niña in the United States, Brazil, India and Argentina"
+title: "Cotton × ENSO Explorer: subnational cotton yield responses to El Niño and La Niña in the United States, Brazil, India and Argentina, with exploratory layers for China, Pakistan and Australia"
 authors:
   - family-names: Bhattarai
     given-names: Anish
-version: 1.0.0
-date-released: 2026-11-06
+version: 1.1.0
+date-released: 2026-11-17
 license: MIT
 type: software
+abstract: "Built with Claude (Anthropic) as an AI collaborator for code, data processing and documentation; see the Contributors section of the README."
 keywords:
   - cotton
   - ENSO

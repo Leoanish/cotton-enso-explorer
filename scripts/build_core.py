@@ -194,8 +194,20 @@ def load_india():
     df=pd.concat([o,n]).sort_values(['Dist Code','Year'])
     df=df[(df.area>0)&(df['prod']>0)]
     df=df.rename(columns={'Dist Code':'code','Year':'year','State Name':'admin1','Dist Name':'name','LATITUDE':'lat','LONGITUDE':'lon'})
+    # ICRISAT unit error: Rajasthan production for 2012-13..2015-16 and 2017-18 is in bales/1000 x 0.17 (i.e. too small by
+    # 1000/170). Ministry of Agriculture DES data and neighbouring years both show it; correct by x 1000/170.
+    bad=(df['admin1'].str.lower()=='rajasthan')&(df['year'].isin([2012,2013,2014,2015,2017]))
+    df.loc[bad,'prod']=df.loc[bad,'prod']*1000/170
     df['area']=df['area']*1000; df['prod']=df['prod']*1000  # ha, tonnes (lint)
     df['yield']=df['prod']*1000/df['area']  # kg/ha
+    # 2020-2024 extension from UPAg (calibrated per district on the 2013-2019 overlap; see scripts/extend_india.py)
+    ext_f=F['icrisat_new'].parent.parent/'india_des'/'india_icrisat_ext_2020_2024.csv'
+    if ext_f.exists():
+        ex=pd.read_csv(ext_f); meta2=df.drop_duplicates('code').set_index('code')
+        ex=ex[ex.code.isin(meta2.index)].copy()
+        for col in ['name','admin1','lat','lon']: ex[col]=ex.code.map(meta2[col])
+        ex['area']=ex['area']*1000; ex['prod']=ex['prod']*1000; ex['yield']=ex['prod']*1000/ex['area']
+        df=pd.concat([df,ex[df.columns.intersection(ex.columns)]]).sort_values(['code','year'])
     df=df[df['yield']<3000]  # drop implausible
     df['name']=df['name'].str.title(); df['admin1']=df['admin1'].str.title()
     return df

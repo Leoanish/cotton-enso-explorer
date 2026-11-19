@@ -37,7 +37,7 @@ const KB = (()=>{ const out=[]; let part=''; const lines=KB_MD.split('\n'); let 
 
 // ---------------------------------------------------------------- helpers over the dashboard
 const r1 = x => (x==null||isNaN(x)) ? null : Math.round(x*10)/10;
-const CCA={us:'US',usa:'US',unitedstates:'US',america:'US',unitedstatesofamerica:'US',brazil:'BR',brasil:'BR',br:'BR',india:'IN',in:'IN',argentina:'AR',ar:'AR',usirr:'US_IRR',irrigated:'US_IRR',usirrigated:'US_IRR',irrigatedus:'US_IRR',usnon:'US_NON',nonirrigated:'US_NON',usnonirrigated:'US_NON',dryland:'US_NON',rainfed:'US_NON',usdryland:'US_NON'};
+const CCA={china:'CN',cn:'CN',prc:'CN',pakistan:'PK',pk:'PK',australia:'AU',au:'AU',us:'US',usa:'US',unitedstates:'US',america:'US',unitedstatesofamerica:'US',brazil:'BR',brasil:'BR',br:'BR',india:'IN',in:'IN',argentina:'AR',ar:'AR',usirr:'US_IRR',irrigated:'US_IRR',usirrigated:'US_IRR',irrigatedus:'US_IRR',usnon:'US_NON',nonirrigated:'US_NON',usnonirrigated:'US_NON',dryland:'US_NON',rainfed:'US_NON',usdryland:'US_NON'};
 function resolveCC(x){ if(!x) return null; if(DATA.countries[x]) return x; const k=norm(x); if(CCA[k]) return CCA[k]; for(const cc in DATA.countries) if(norm(DATA.countries[cc].name)===k) return cc; return null; }
 const SET_FROM = o => { o=o||{}; const s={}; if(o.years!=null&&o.years!=='') s.minYear=(o.years==='all'||+o.years<=1950)?0:+o.years; if(o.events) s.minInt=o.events==='all'?'weak':(o.events==='strong'?'strong':o.events==='moderate'?'moderate':'weak'); if(o.count) s.weight=o.count==='event'?'event':'year'; return s; };
 function withSettings(o,fn){ const save={minYear:S.minYear,minInt:S.minInt,weight:S.weight}; try{ Object.assign(S,SET_FROM(o)); return fn(); } finally{ Object.assign(S,save); } }
@@ -45,7 +45,7 @@ const settingsNow = () => ({years:S.minYear?S.minYear+'→':'all', events:S.minI
 
 function findPlaces(q,cc){
   const raw=String(q||'').trim(); const [p0,p1]=raw.split(',').map(s=>s&&s.trim()); const k=norm(p0||''), st=p1?norm(p1):null;
-  const ccs=cc?[cc]:ORDER.filter(c=>DATA.countries[c]); const hits=[];
+  const ccs=cc?[cc]:ORDERX(); const hits=[];
   for(const c of ccs){ const C=DATA.countries[c];
     if(!k||['national','country','nation','whole','all'].includes(k)||norm(C.name)===k||resolveCC(p0)===c){ hits.push({cc:c,r:C.national,level:'national',score:4}); continue; }
     for(const a of C.admin1){ const n=norm(a.name); const s=n===k?3.5:n.startsWith(k)?2:n.includes(k)?1:0; if(s) hits.push({cc:c,r:a,level:'state',score:s}); }
@@ -54,7 +54,7 @@ function findPlaces(q,cc){
   hits.sort((a,b)=>b.score-a.score||(b.r.areaMean||0)-(a.r.areaMean||0)); return hits;
 }
 function resolvePlace(country,place){
-  const cc=resolveCC(country); if(country&&!cc) return {error:`Unknown country "${country}". Use US, Brazil, India, Argentina, US_IRR (irrigated) or US_NON (non-irrigated).`};
+  const cc=resolveCC(country); if(country&&!cc) return {error:`Unknown country "${country}". Use US, Brazil, India, Argentina, China, Pakistan, US_IRR (irrigated) or US_NON (non-irrigated).`};
   const hits=findPlaces(place,cc||(place?null:S.cc)); if(!hits.length) return {error:`No place matching "${place}"${cc?' in '+DATA.countries[cc].name:''}. Try find_place.`};
   const top=hits.filter(h=>h.score===hits[0].score).filter((h,i,a)=>a.findIndex(x=>x.r===h.r)===i);
   const here=top.filter(h=>h.cc===S.cc);
@@ -103,7 +103,7 @@ const TOOLS={
       return {...placeLabel(h),year:+a.year,phase:ph?ph.phase:'Neutral',event:ev?`${ev.id} (${ev.type} ${ev.label})`:null,strength:ph&&ph.intensity,growing_window_mean_oni_c:ph?ph.oni:null,yield:Math.round(h.r.yield_[i]),trend:Math.round(h.r.trend[i]),pct_from_trend:h.r.anom[i],harvested_ha:h.r.area&&h.r.area[i]!=null?Math.round(h.r.area[i]):null,unit:C.unit}; }},
   get_event:{d:'Details of one ENSO event and how it hit cotton: national % from trend in each country\'s affected crop years plus the worst/best states. Give country to also get the worst/best local areas there; give place for one place.',p:{event:{type:'string',description:'id like EN1997 / LN2010, or "2015 El Niño", "1998-00 La Niña"'},country:{type:'string'},place:{type:'string'}},req:['event'],
     run:a=>{ const E=resolveEvent(a.event); if(!E.e) return E; const e=E.e; const out={event:evShort(e),by_country:[]};
-      for(const cc of ORDER){ const C=DATA.countries[cc]; if(!C) continue; const ys=eventYears(e.id,cc); if(!ys.length){ out.by_country.push({country:C.name,crop_years:[],note:'no crop year assigned to this event (growing season ONI not beyond ±0.5, or outside the data years)'}); continue; }
+      for(const cc of ORDERX()){ const C=DATA.countries[cc]; if(!C) continue; const ys=eventYears(e.id,cc); if(!ys.length){ out.by_country.push({country:C.name,crop_years:[],note:'no crop year assigned to this event (growing season ONI not beyond ±0.5, or outside the data years)'}); continue; }
         const st=C.admin1.map(s=>({name:s.name,pct:evAnom(s,ys)})).filter(x=>x.pct!=null).sort((x,y)=>x.pct-y.pct);
         out.by_country.push({country:C.name,crop_years:ys,national_pct_from_trend:evAnom(C.national,ys),worst_states:st.slice(0,3),best_states:st.slice(-3).reverse()}); }
       const cc=resolveCC(a.country); if(cc){ const C=DATA.countries[cc]; const ys=eventYears(e.id,cc); if(ys.length){ const ar=C.regions.map(g=>({name:g.name,state:g.admin1,pct:evAnom(g,ys)})).filter(x=>x.pct!=null).sort((x,y)=>x.pct-y.pct); out.areas_in_country={country:C.name,level:C.level,crop_years:ys,areas_with_data:ar.length,below_trend:ar.filter(x=>x.pct<0).length,worst:ar.slice(0,5),best:ar.slice(-5).reverse()}; } }
@@ -119,8 +119,10 @@ const TOOLS={
   country_summary:{d:'National El Niño and La Niña effects for all countries side by side (plus US irrigated and non-irrigated), with ranges and the worst ENSO harvest.',p:{settings:SETTINGS_PROP},req:[],
     run:a=>withSettings(a.settings,()=>({settings:settingsNow(),countries:Object.keys(DATA.countries).map(cc=>{ const C=DATA.countries[cc]; const st=statsFor(C.national,cc); const f=o=>o.n?{effect_pct:r1(o.diff),range90:o.ci?o.ci.map(r1):null,confident:!!o.sig,obs:o.nUnits,events:o.nEvents}:null; let worst=null; for(const e of DATA.events){ const ys=eventYears(e.id,cc).filter(y=>y>=S.minYear); if(!ys.length) continue; const v=evAnom(C.national,ys); if(v!=null&&(!worst||v<worst.pct)) worst={event:`${e.type} ${e.label}`,crop_years:ys,pct:v}; }
       return {country:C.name,code:cc,years:C.yearRange.join('–'),mean_yield:Math.round(st.yieldMean),unit:C.unit,el_nino:f(st['El Niño']),la_nina:f(st['La Niña']),worst_enso_harvest:worst}; })}))},
-  quadrants:{d:'Area-weighted average effect in the NW (US), NE (India), SW (Brazil, Argentina) and SE quadrants of the globe for one phase.',p:{phase:{type:'string',enum:['El Niño','La Niña']},settings:SETTINGS_PROP},req:['phase'],
+  quadrants:{d:'Area-weighted average effect in the NW (US), NE (India, Pakistan, China), SW (Brazil, Argentina) and SE quadrants of the globe for one phase.',p:{phase:{type:'string',enum:['El Niño','La Niña']},settings:SETTINGS_PROP},req:['phase'],
     run:a=>withSettings(a.settings,()=>{ const h=hemStats(a.phase); const o={}; for(const [k,v] of Object.entries(h)) o[k]=v?{effect_pct:r1(v.mean),range90:v.ci.map(r1),areas:v.n,below_zero:v.below,countries:v.countries.map(c=>DATA.countries[c].name)}:'no cotton areas'; return {phase:a.phase,quadrants:o,settings:settingsNow()}; })},
+  continents:{d:'Area-weighted effect for North America (US), South America (Brazil, Argentina), Asia (India, Pakistan, China) and Australia for one phase, with each country\'s contribution.',p:{phase:{type:'string',enum:['El Niño','La Niña']},settings:SETTINGS_PROP},req:['phase'],
+    run:a=>withSettings(a.settings,()=>{ const h=contStats(a.phase); const o={}; for(const [k,v] of Object.entries(h)) o[k]=v?{effect_pct:r1(v.mean),range90:v.ci.map(r1),confident:(v.ci[0]>0||v.ci[1]<0),areas:v.n,below_zero:v.below,countries:v.parts.map(x=>({country:DATA.countries[x.cc].name,exploratory:isExpl(x.cc),effect_pct:r1(x.d),area_share_pct:Math.round(x.share*100),phase_years:x.nY}))}:'no data'; return {phase:a.phase,continents:o,exploratory_included:S.explore,settings:settingsNow()}; })},
   open_view:{d:'Change what the user sees in the dashboard: tab, country, place, event, map metric and settings. Use it to show the evidence for your answer.',p:{tab:{type:'string',enum:['overview','explore','trends','data','events','compare','sources']},country:{type:'string'},place:{type:'string'},event:{type:'string'},map_metric:{type:'string',enum:['yield','la_nina','el_nino']},years:{type:'string'},events:{type:'string',enum:['all','moderate','strong']},count:{type:'string',enum:['year','event']}},req:[],
     run:a=>{ const TAB={overview:'findings',explore:'map',map:'map',trends:'area',data:'data',events:'events',compare:'compare',sources:'sources'}; const done=[];
       if(a.country){ const cc=resolveCC(a.country); if(!cc) return {error:'Unknown country'}; if(cc!==S.cc){ S.cc=cc; S.a1=null; S.sel=null; S.zoom=null; } done.push('country '+DATA.countries[cc].name); }
@@ -136,7 +138,7 @@ const TOOL_SCHEMAS=Object.entries(TOOLS).map(([name,t])=>({type:'function',funct
 const TAB_NAMES={findings:'Overview',map:'Explore',area:'Trends',data:'Data',events:'Events',compare:'Compare',sources:'Sources'};
 function viewNow(){ const f=cur(); const C=country(); return {tab:TAB_NAMES[S.tab],country:C.name,place:f.r.name,level:f.level==='region'?C.level:f.level==='admin1'?'state':'national',state:f.level==='region'?f.r.admin1:undefined,event:S.event||undefined,map_metric:S.metric,settings:settingsNow()}; }
 
-function systemPrompt(){ return `You are the guide inside the "Cotton × ENSO Explorer" dashboard, which links El Niño/La Niña to cotton yields in the US, Brazil, India and Argentina by country, state and county/municipality/district/department.
+function systemPrompt(){ return `You are the guide inside the "Cotton × ENSO Explorer" dashboard, which links El Niño/La Niña to cotton yields in the US, Brazil, India and Argentina (core) plus China and Pakistan (exploratory layers, marked β: shorter or patchier official records) by country, state/zone and county/municipality/district/department/province, and by continent.
 Rules:
 1. Every number you state must come from a tool result in this chat. Never use memory for figures. If the tools cannot answer, say so plainly.
 2. For definitions, methods, data sources, chart meanings or limitations call search_guide first. For places, years, events and rankings call the data tools. Call several tools at once when useful.
@@ -145,7 +147,7 @@ Rules:
 5. Write for a non-expert: short paragraphs or bullets, ≤170 words unless asked for more, key numbers in **bold**, plain words over jargon, one small example when it helps.
 6. Cite guide sections you used like [§4.4]. Do not invent sections.
 7. When a view would show the evidence, call open_view (e.g. the place on the Explore map or its Trends) and say what you opened.
-Defaults: settings apply as shown below; use the settings argument only for what-if questions. Country codes: US, Brazil, India, Argentina, US_IRR (irrigated), US_NON (non-irrigated).
+Defaults: settings apply as shown below; use the settings argument only for what-if questions. Country codes: US, Brazil, India, Argentina, China, Pakistan, US_IRR (irrigated), US_NON (non-irrigated). When you report China or Pakistan, say they are exploratory layers.
 The user is looking at: ${JSON.stringify(viewNow())}`; }
 
 // ---------------------------------------------------------------- model call

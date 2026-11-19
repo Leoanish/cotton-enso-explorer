@@ -1,0 +1,1311 @@
+year,prov,yield_kgha,ysrc,area_kha,asrc,area_w,area_flag
+1961,Anhui,158.0,compilation,,,363.0,interpolated/held
+1962,Anhui,143.0,compilation,,,363.0,interpolated/held
+1963,Anhui,180.0,compilation,,,363.0,interpolated/held
+1964,Anhui,353.0,compilation,,,363.0,interpolated/held
+1965,Anhui,390.0,compilation,,,363.0,interpolated/held
+1966,Anhui,390.0,compilation,,,363.0,interpolated/held
+1967,Anhui,375.0,compilation,,,363.0,interpolated/held
+1968,Anhui,435.0,compilation,,,363.0,interpolated/held
+1969,Anhui,330.0,compilation,,,363.0,interpolated/held
+1970,Anhui,375.0,compilation,,,363.0,interpolated/held
+1971,Anhui,398.0,compilation,,,363.0,interpolated/held
+1972,Anhui,420.0,compilation,,,363.0,interpolated/held
+1973,Anhui,480.0,compilation,,,363.0,interpolated/held
+1974,Anhui,495.0,compilation,,,363.0,interpolated/held
+1975,Anhui,428.0,compilation,,,363.0,interpolated/held
+1976,Anhui,428.0,compilation,,,363.0,interpolated/held
+1977,Anhui,375.0,compilation,,,363.0,interpolated/held
+1978,Anhui,353.0,compilation,,,363.0,interpolated/held
+1979,Anhui,323.0,compilation,,,363.0,interpolated/held
+1980,Anhui,375.0,compilation,,,363.0,interpolated/held
+1981,Anhui,473.0,compilation,,,363.0,interpolated/held
+1982,Anhui,480.0,compilation,,,363.0,interpolated/held
+1983,Anhui,593.0,compilation,,,363.0,interpolated/held
+1984,Anhui,698.0,compilation,,,363.0,interpolated/held
+1985,Anhui,705.0,compilation,,,363.0,interpolated/held
+1986,Anhui,795.0,compilation,,,363.0,interpolated/held
+1987,Anhui,825.0,compilation,,,363.0,interpolated/held
+1988,Anhui,765.0,compilation,,,363.0,interpolated/held
+1989,Anhui,675.0,compilation,,,363.0,interpolated/held
+1990,Anhui,810.0,compilation,,,363.0,interpolated/held
+1991,Anhui,675.0,compilation,,,363.0,interpolated/held
+1992,Anhui,625.0,compilation,,,363.0,interpolated/held
+1993,Anhui,736.0,compilation,,,363.0,interpolated/held
+1994,Anhui,582.0,compilation,,,363.0,interpolated/held
+1995,Anhui,680.0,compilation,,,363.0,interpolated/held
+1996,Anhui,653.0,compilation,,,363.0,interpolated/held
+1997,Anhui,754.0,compilation,,,363.0,interpolated/held
+1998,Anhui,733.0,compilation,,,363.0,interpolated/held
+1999,Anhui,643.0,compilation,,,363.0,interpolated/held
+2000,Anhui,888.0,compilation,,,363.0,interpolated/held
+2001,Anhui,983.0,compilation,363.0,NBS yearbook 2002 sown area,363.0,official
+2002,Anhui,1049.0,compilation,,,368.86,interpolated/held
+2003,Anhui,618.0,compilation,,,374.72,interpolated/held
+2004,Anhui,1033.0,compilation,,,380.58,interpolated/held
+2005,Anhui,864.0,compilation,,,386.44,interpolated/held
+2006,Anhui,1040.0,NBS yearbook,392.3,NBS yearbook,392.3,official
+2007,Anhui,996.0,NBS yearbook,375.5,NBS yearbook,375.5,official
+2008,Anhui,967.0,compilation,375.4,NBS yearbook output / yield,375.4,official
+2009,Anhui,984.0,NBS yearbook,351.6,NBS yearbook,351.6,official
+2010,Anhui,918.0,NBS yearbook,344.2,NBS yearbook,344.2,official
+2011,Anhui,1079.0,NBS yearbook,350.3,NBS yearbook,350.3,official
+2012,Anhui,964.1,NBS yearbook,304.9,NBS yearbook,304.9,official
+2013,Anhui,880.7,NBS yearbook,285.1,NBS yearbook,285.1,official
+2014,Anhui,993.0,compilation,,,247.63333333333335,interpolated/held
+2015,Anhui,1006.0,compilation,,,210.16666666666669,interpolated/held
+2016,Anhui,1006.0,compilation,,,172.70000000000002,interpolated/held
+2017,Anhui,971.0,compilation,,,135.23333333333335,interpolated/held
+2019,Anhui,921.0,NBS bulletin,60.3,NBS bulletin,60.3,official
+2020,Anhui,800.9,NBS bulletin,51.2,NBS bulletin,51.2,official
+2021,Anhui,845.8,NBS bulletin,34.4,NBS bulletin,34.4,official
+2022,Anhui,844.5,NBS bulletin,30.3,NBS bulletin,30.3,official
+2023,Anhui,894.4,NBS bulletin,22.7,NBS bulletin,22.7,official
+2024,Anhui,916.3,NBS bulletin,20.3,NBS bulletin,20.3,official
+2025,Anhui,936.6,NBS bulletin,18.8,NBS bulletin,18.8,official
+1961,Beijing,180.0,compilation,,,2.9,interpolated/held
+1962,Beijing,225.0,compilation,,,2.9,interpolated/held
+1963,Beijing,345.0,compilation,,,2.9,interpolated/held
+1964,Beijing,383.0,compilation,,,2.9,interpolated/held
+1965,Beijing,473.0,compilation,,,2.9,interpolated/held
+1966,Beijing,345.0,compilation,,,2.9,interpolated/held
+1967,Beijing,330.0,compilation,,,2.9,interpolated/held
+1968,Beijing,473.0,compilation,,,2.9,interpolated/held
+1969,Beijing,293.0,compilation,,,2.9,interpolated/held
+1970,Beijing,300.0,compilation,,,2.9,interpolated/held
+1971,Beijing,308.0,compilation,,,2.9,interpolated/held
+1972,Beijing,338.0,compilation,,,2.9,interpolated/held
+1973,Beijing,503.0,compilation,,,2.9,interpolated/held
+1974,Beijing,555.0,compilation,,,2.9,interpolated/held
+1975,Beijing,473.0,compilation,,,2.9,interpolated/held
+1976,Beijing,195.0,compilation,,,2.9,interpolated/held
+1977,Beijing,405.0,compilation,,,2.9,interpolated/held
+1978,Beijing,255.0,compilation,,,2.9,interpolated/held
+1979,Beijing,278.0,compilation,,,2.9,interpolated/held
+1980,Beijing,458.0,compilation,,,2.9,interpolated/held
+1981,Beijing,338.0,compilation,,,2.9,interpolated/held
+1982,Beijing,503.0,compilation,,,2.9,interpolated/held
+1983,Beijing,593.0,compilation,,,2.9,interpolated/held
+1984,Beijing,900.0,compilation,,,2.9,interpolated/held
+1985,Beijing,855.0,compilation,,,2.9,interpolated/held
+1986,Beijing,735.0,compilation,,,2.9,interpolated/held
+1987,Beijing,900.0,compilation,,,2.9,interpolated/held
+1988,Beijing,810.0,compilation,,,2.9,interpolated/held
+1989,Beijing,960.0,compilation,,,2.9,interpolated/held
+1990,Beijing,1035.0,compilation,,,2.9,interpolated/held
+1991,Beijing,885.0,compilation,,,2.9,interpolated/held
+1992,Beijing,1047.0,compilation,,,2.9,interpolated/held
+1993,Beijing,1044.0,compilation,,,2.9,interpolated/held
+1994,Beijing,910.0,compilation,,,2.9,interpolated/held
+1995,Beijing,781.0,compilation,,,2.9,interpolated/held
+1996,Beijing,936.0,compilation,,,2.9,interpolated/held
+1997,Beijing,1022.0,compilation,,,2.9,interpolated/held
+1998,Beijing,856.0,compilation,,,2.9,interpolated/held
+1999,Beijing,994.0,compilation,,,2.9,interpolated/held
+2000,Beijing,982.0,compilation,,,2.9,interpolated/held
+2001,Beijing,1184.0,compilation,2.9,NBS yearbook 2002 sown area,2.9,official
+2002,Beijing,1128.0,compilation,,,2.6999999999999997,interpolated/held
+2003,Beijing,1077.0,compilation,,,2.5,interpolated/held
+2004,Beijing,1188.0,compilation,,,2.3,interpolated/held
+2005,Beijing,1149.0,compilation,,,2.0999999999999996,interpolated/held
+2006,Beijing,1066.0,NBS yearbook,1.9,NBS yearbook,1.9,official
+2007,Beijing,1185.0,NBS yearbook,1.7,NBS yearbook,1.7,official
+2008,Beijing,1130.0,compilation,0.9,NBS yearbook output / yield,0.9,official
+2009,Beijing,1278.0,NBS yearbook,0.8,NBS yearbook,0.8,official
+2010,Beijing,1157.0,compilation,,,0.8500000000000001,interpolated/held
+2011,Beijing,1170.0,NBS yearbook,0.9,NBS yearbook,0.9,official
+2012,Beijing,1135.0,compilation,,,0.5,interpolated/held
+2013,Beijing,1077.9,NBS yearbook,0.1,NBS yearbook,0.1,official
+2014,Beijing,1027.0,compilation,,,0.1,interpolated/held
+2015,Beijing,1045.0,compilation,,,0.1,interpolated/held
+2016,Beijing,1164.0,compilation,,,0.1,interpolated/held
+2017,Beijing,1140.0,compilation,,,0.1,interpolated/held
+2013,Chongqing,659.5,NBS yearbook,0.1,NBS yearbook,0.1,official
+2007,Fujian,844.0,NBS yearbook,1.2,NBS yearbook,1.2,official
+2009,Fujian,766.0,NBS yearbook,0.0,NBS yearbook,0.0,official
+2013,Fujian,754.7,NBS yearbook,0.1,NBS yearbook,0.1,official
+1961,Gansu,90.0,compilation,,,56.9,interpolated/held
+1962,Gansu,75.0,compilation,,,56.9,interpolated/held
+1963,Gansu,180.0,compilation,,,56.9,interpolated/held
+1964,Gansu,218.0,compilation,,,56.9,interpolated/held
+1965,Gansu,308.0,compilation,,,56.9,interpolated/held
+1966,Gansu,323.0,compilation,,,56.9,interpolated/held
+1967,Gansu,308.0,compilation,,,56.9,interpolated/held
+1968,Gansu,255.0,compilation,,,56.9,interpolated/held
+1969,Gansu,300.0,compilation,,,56.9,interpolated/held
+1970,Gansu,270.0,compilation,,,56.9,interpolated/held
+1971,Gansu,233.0,compilation,,,56.9,interpolated/held
+1972,Gansu,233.0,compilation,,,56.9,interpolated/held
+1973,Gansu,248.0,compilation,,,56.9,interpolated/held
+1974,Gansu,255.0,compilation,,,56.9,interpolated/held
+1975,Gansu,210.0,compilation,,,56.9,interpolated/held
+1976,Gansu,225.0,compilation,,,56.9,interpolated/held
+1977,Gansu,300.0,compilation,,,56.9,interpolated/held
+1978,Gansu,315.0,compilation,,,56.9,interpolated/held
+1979,Gansu,293.0,compilation,,,56.9,interpolated/held
+1980,Gansu,480.0,compilation,,,56.9,interpolated/held
+1981,Gansu,713.0,compilation,,,56.9,interpolated/held
+1982,Gansu,743.0,compilation,,,56.9,interpolated/held
+1983,Gansu,900.0,compilation,,,56.9,interpolated/held
+1984,Gansu,975.0,compilation,,,56.9,interpolated/held
+1985,Gansu,885.0,compilation,,,56.9,interpolated/held
+1986,Gansu,705.0,compilation,,,56.9,interpolated/held
+1987,Gansu,1035.0,compilation,,,56.9,interpolated/held
+1988,Gansu,1080.0,compilation,,,56.9,interpolated/held
+1989,Gansu,1170.0,compilation,,,56.9,interpolated/held
+1990,Gansu,1335.0,compilation,,,56.9,interpolated/held
+1991,Gansu,1545.0,compilation,,,56.9,interpolated/held
+1992,Gansu,1392.0,compilation,,,56.9,interpolated/held
+1993,Gansu,1060.0,compilation,,,56.9,interpolated/held
+1994,Gansu,1173.0,compilation,,,56.9,interpolated/held
+1995,Gansu,1273.0,compilation,,,56.9,interpolated/held
+1996,Gansu,1289.0,compilation,,,56.9,interpolated/held
+1997,Gansu,1581.0,compilation,,,56.9,interpolated/held
+1998,Gansu,1821.0,compilation,,,56.9,interpolated/held
+1999,Gansu,1391.0,compilation,,,56.9,interpolated/held
+2000,Gansu,1656.0,compilation,,,56.9,interpolated/held
+2001,Gansu,1740.0,compilation,56.9,NBS yearbook 2002 sown area,56.9,official
+2002,Gansu,1722.0,compilation,,,60.78,interpolated/held
+2003,Gansu,1660.0,compilation,,,64.66,interpolated/held
+2004,Gansu,1609.0,compilation,,,68.53999999999999,interpolated/held
+2005,Gansu,1728.0,compilation,,,72.42,interpolated/held
+2006,Gansu,1678.0,NBS yearbook,76.3,NBS yearbook,76.3,official
+2007,Gansu,1633.0,NBS yearbook,79.0,NBS yearbook,79.0,official
+2008,Gansu,1692.0,compilation,72.7,NBS yearbook output / yield,72.7,official
+2009,Gansu,1714.0,NBS yearbook,55.4,NBS yearbook,55.4,official
+2010,Gansu,1578.0,NBS yearbook,48.2,NBS yearbook,48.2,official
+2011,Gansu,1585.0,NBS yearbook,47.9,NBS yearbook,47.9,official
+2012,Gansu,1681.8,NBS yearbook,48.2,NBS yearbook,48.2,official
+2013,Gansu,1732.2,NBS yearbook,40.7,NBS yearbook,40.7,official
+2014,Gansu,1692.0,compilation,,,37.13333333333333,interpolated/held
+2015,Gansu,1656.0,compilation,,,33.56666666666667,interpolated/held
+2016,Gansu,1502.0,compilation,,,30.0,interpolated/held
+2017,Gansu,1628.0,compilation,,,26.433333333333337,interpolated/held
+2019,Gansu,1689.5,NBS bulletin,19.3,NBS bulletin,19.3,official
+2020,Gansu,1815.2,NBS bulletin,16.6,NBS bulletin,16.6,official
+2021,Gansu,1882.8,NBS bulletin,16.2,NBS bulletin,16.2,official
+2022,Gansu,1962.2,NBS bulletin,20.3,NBS bulletin,20.3,official
+2023,Gansu,2080.4,NBS bulletin,20.4,NBS bulletin,20.4,official
+2024,Gansu,2115.8,NBS bulletin,22.2,NBS bulletin,22.2,official
+2025,Gansu,2093.6,NBS bulletin,24.2,NBS bulletin,24.2,official
+1961,Guangxi,98.0,compilation,,,1.7,interpolated/held
+1962,Guangxi,98.0,compilation,,,1.7,interpolated/held
+1963,Guangxi,98.0,compilation,,,1.7,interpolated/held
+1964,Guangxi,105.0,compilation,,,1.7,interpolated/held
+1965,Guangxi,105.0,compilation,,,1.7,interpolated/held
+1966,Guangxi,128.0,compilation,,,1.7,interpolated/held
+1967,Guangxi,210.0,compilation,,,1.7,interpolated/held
+1968,Guangxi,233.0,compilation,,,1.7,interpolated/held
+1969,Guangxi,368.0,compilation,,,1.7,interpolated/held
+1970,Guangxi,240.0,compilation,,,1.7,interpolated/held
+1971,Guangxi,225.0,compilation,,,1.7,interpolated/held
+1972,Guangxi,248.0,compilation,,,1.7,interpolated/held
+1973,Guangxi,270.0,compilation,,,1.7,interpolated/held
+1974,Guangxi,285.0,compilation,,,1.7,interpolated/held
+1975,Guangxi,278.0,compilation,,,1.7,interpolated/held
+1976,Guangxi,293.0,compilation,,,1.7,interpolated/held
+1977,Guangxi,300.0,compilation,,,1.7,interpolated/held
+1978,Guangxi,285.0,compilation,,,1.7,interpolated/held
+1979,Guangxi,248.0,compilation,,,1.7,interpolated/held
+1980,Guangxi,255.0,compilation,,,1.7,interpolated/held
+1981,Guangxi,225.0,compilation,,,1.7,interpolated/held
+1982,Guangxi,218.0,compilation,,,1.7,interpolated/held
+1983,Guangxi,225.0,compilation,,,1.7,interpolated/held
+1984,Guangxi,203.0,compilation,,,1.7,interpolated/held
+1985,Guangxi,195.0,compilation,,,1.7,interpolated/held
+1986,Guangxi,240.0,compilation,,,1.7,interpolated/held
+1987,Guangxi,240.0,compilation,,,1.7,interpolated/held
+1988,Guangxi,210.0,compilation,,,1.7,interpolated/held
+1989,Guangxi,225.0,compilation,,,1.7,interpolated/held
+1990,Guangxi,210.0,compilation,,,1.7,interpolated/held
+1991,Guangxi,285.0,compilation,,,1.7,interpolated/held
+1992,Guangxi,229.0,compilation,,,1.7,interpolated/held
+1993,Guangxi,310.0,compilation,,,1.7,interpolated/held
+1994,Guangxi,387.0,compilation,,,1.7,interpolated/held
+1995,Guangxi,391.0,compilation,,,1.7,interpolated/held
+1996,Guangxi,443.0,compilation,,,1.7,interpolated/held
+1997,Guangxi,469.0,compilation,,,1.7,interpolated/held
+1998,Guangxi,436.0,compilation,,,1.7,interpolated/held
+1999,Guangxi,468.0,compilation,,,1.7,interpolated/held
+2000,Guangxi,475.0,compilation,,,1.7,interpolated/held
+2001,Guangxi,576.0,compilation,1.7,NBS yearbook 2002 sown area,1.7,official
+2002,Guangxi,504.0,compilation,,,1.64,interpolated/held
+2003,Guangxi,503.0,compilation,,,1.5799999999999998,interpolated/held
+2004,Guangxi,515.0,compilation,,,1.52,interpolated/held
+2005,Guangxi,536.0,compilation,,,1.46,interpolated/held
+2006,Guangxi,705.0,NBS yearbook,1.4,NBS yearbook,1.4,official
+2007,Guangxi,840.0,NBS yearbook,2.4,NBS yearbook,2.4,official
+2008,Guangxi,890.0,compilation,,,2.3,interpolated/held
+2009,Guangxi,923.0,NBS yearbook,2.2,NBS yearbook,2.2,official
+2010,Guangxi,928.0,NBS yearbook,2.2,NBS yearbook,2.2,official
+2011,Guangxi,974.0,NBS yearbook,2.1,NBS yearbook,2.1,official
+2012,Guangxi,1009.6,NBS yearbook,2.2,NBS yearbook,2.2,official
+2013,Guangxi,1066.5,NBS yearbook,2.3,NBS yearbook,2.3,official
+2014,Guangxi,1083.0,compilation,,,2.0999999999999996,interpolated/held
+2015,Guangxi,1109.0,compilation,,,1.9,interpolated/held
+2016,Guangxi,1127.0,compilation,,,1.7,interpolated/held
+2017,Guangxi,1179.0,compilation,,,1.5,interpolated/held
+2019,Guangxi,1032.4,NBS bulletin,1.1,NBS bulletin,1.1,official
+2020,Guangxi,1025.7,NBS bulletin,1.1,NBS bulletin,1.1,official
+2021,Guangxi,1038.3,NBS bulletin,1.1,NBS bulletin,1.1,official
+2022,Guangxi,1025.6,NBS bulletin,1.0,NBS bulletin,1.0,official
+1961,Guizhou,68.0,compilation,,,2.0,interpolated/held
+1962,Guizhou,68.0,compilation,,,2.0,interpolated/held
+1963,Guizhou,98.0,compilation,,,2.0,interpolated/held
+1964,Guizhou,98.0,compilation,,,2.0,interpolated/held
+1965,Guizhou,113.0,compilation,,,2.0,interpolated/held
+1966,Guizhou,83.0,compilation,,,2.0,interpolated/held
+1967,Guizhou,105.0,compilation,,,2.0,interpolated/held
+1968,Guizhou,120.0,compilation,,,2.0,interpolated/held
+1969,Guizhou,128.0,compilation,,,2.0,interpolated/held
+1970,Guizhou,150.0,compilation,,,2.0,interpolated/held
+1971,Guizhou,165.0,compilation,,,2.0,interpolated/held
+1972,Guizhou,135.0,compilation,,,2.0,interpolated/held
+1973,Guizhou,188.0,compilation,,,2.0,interpolated/held
+1974,Guizhou,218.0,compilation,,,2.0,interpolated/held
+1975,Guizhou,270.0,compilation,,,2.0,interpolated/held
+1976,Guizhou,218.0,compilation,,,2.0,interpolated/held
+1977,Guizhou,300.0,compilation,,,2.0,interpolated/held
+1978,Guizhou,248.0,compilation,,,2.0,interpolated/held
+1979,Guizhou,225.0,compilation,,,2.0,interpolated/held
+1980,Guizhou,233.0,compilation,,,2.0,interpolated/held
+1981,Guizhou,218.0,compilation,,,2.0,interpolated/held
+1982,Guizhou,225.0,compilation,,,2.0,interpolated/held
+1983,Guizhou,233.0,compilation,,,2.0,interpolated/held
+1984,Guizhou,263.0,compilation,,,2.0,interpolated/held
+1985,Guizhou,450.0,compilation,,,2.0,interpolated/held
+1986,Guizhou,225.0,compilation,,,2.0,interpolated/held
+1987,Guizhou,270.0,compilation,,,2.0,interpolated/held
+1988,Guizhou,540.0,compilation,,,2.0,interpolated/held
+1989,Guizhou,255.0,compilation,,,2.0,interpolated/held
+1990,Guizhou,315.0,compilation,,,2.0,interpolated/held
+1991,Guizhou,525.0,compilation,,,2.0,interpolated/held
+1992,Guizhou,384.0,compilation,,,2.0,interpolated/held
+1993,Guizhou,342.0,compilation,,,2.0,interpolated/held
+1994,Guizhou,312.0,compilation,,,2.0,interpolated/held
+1995,Guizhou,335.0,compilation,,,2.0,interpolated/held
+1996,Guizhou,298.0,compilation,,,2.0,interpolated/held
+1997,Guizhou,327.0,compilation,,,2.0,interpolated/held
+1998,Guizhou,498.0,compilation,,,2.0,interpolated/held
+1999,Guizhou,500.0,compilation,,,2.0,interpolated/held
+2000,Guizhou,496.0,compilation,,,2.0,interpolated/held
+2001,Guizhou,356.0,compilation,2.0,NBS yearbook 2002 sown area,2.0,official
+2002,Guizhou,374.0,compilation,,,2.1,interpolated/held
+2003,Guizhou,358.0,compilation,,,2.2,interpolated/held
+2004,Guizhou,399.0,compilation,,,2.3,interpolated/held
+2005,Guizhou,398.0,compilation,,,2.4,interpolated/held
+2006,Guizhou,393.0,NBS yearbook,2.5,NBS yearbook,2.5,official
+2007,Guizhou,401.0,NBS yearbook,2.5,NBS yearbook,2.5,official
+2008,Guizhou,685.0,compilation,1.5,NBS yearbook output / yield,1.5,official
+2009,Guizhou,629.0,NBS yearbook,1.6,NBS yearbook,1.6,official
+2010,Guizhou,660.0,NBS yearbook,1.5,NBS yearbook,1.5,official
+2011,Guizhou,643.0,NBS yearbook,1.6,NBS yearbook,1.6,official
+2012,Guizhou,704.6,NBS yearbook,1.7,NBS yearbook,1.7,official
+2013,Guizhou,587.3,NBS yearbook,1.6,NBS yearbook,1.6,official
+2014,Guizhou,898.0,compilation,,,1.6,interpolated/held
+2015,Guizhou,992.0,compilation,,,1.6,interpolated/held
+2016,Guizhou,1089.0,compilation,,,1.6,interpolated/held
+2017,Guizhou,796.0,compilation,,,1.6,interpolated/held
+1961,Hebei,150.0,compilation,,,418.5,interpolated/held
+1962,Hebei,195.0,compilation,,,418.5,interpolated/held
+1963,Hebei,120.0,compilation,,,418.5,interpolated/held
+1964,Hebei,225.0,compilation,,,418.5,interpolated/held
+1965,Hebei,360.0,compilation,,,418.5,interpolated/held
+1966,Hebei,285.0,compilation,,,418.5,interpolated/held
+1967,Hebei,308.0,compilation,,,418.5,interpolated/held
+1968,Hebei,368.0,compilation,,,418.5,interpolated/held
+1969,Hebei,353.0,compilation,,,418.5,interpolated/held
+1970,Hebei,323.0,compilation,,,418.5,interpolated/held
+1971,Hebei,285.0,compilation,,,418.5,interpolated/held
+1972,Hebei,278.0,compilation,,,418.5,interpolated/held
+1973,Hebei,360.0,compilation,,,418.5,interpolated/held
+1974,Hebei,368.0,compilation,,,418.5,interpolated/held
+1975,Hebei,330.0,compilation,,,418.5,interpolated/held
+1976,Hebei,203.0,compilation,,,418.5,interpolated/held
+1977,Hebei,180.0,compilation,,,418.5,interpolated/held
+1978,Hebei,203.0,compilation,,,418.5,interpolated/held
+1979,Hebei,210.0,compilation,,,418.5,interpolated/held
+1980,Hebei,450.0,compilation,,,418.5,interpolated/held
+1981,Hebei,420.0,compilation,,,418.5,interpolated/held
+1982,Hebei,555.0,compilation,,,418.5,interpolated/held
+1983,Hebei,908.0,compilation,,,418.5,interpolated/held
+1984,Hebei,998.0,compilation,,,418.5,interpolated/held
+1985,Hebei,750.0,compilation,,,418.5,interpolated/held
+1986,Hebei,720.0,compilation,,,418.5,interpolated/held
+1987,Hebei,765.0,compilation,,,418.5,interpolated/held
+1988,Hebei,615.0,compilation,,,418.5,interpolated/held
+1989,Hebei,615.0,compilation,,,418.5,interpolated/held
+1990,Hebei,630.0,compilation,,,418.5,interpolated/held
+1991,Hebei,660.0,compilation,,,418.5,interpolated/held
+1992,Hebei,347.0,compilation,,,418.5,interpolated/held
+1993,Hebei,370.0,compilation,,,418.5,interpolated/held
+1994,Hebei,569.0,compilation,,,418.5,interpolated/held
+1995,Hebei,529.0,compilation,,,418.5,interpolated/held
+1996,Hebei,604.0,compilation,,,418.5,interpolated/held
+1997,Hebei,660.0,compilation,,,418.5,interpolated/held
+1998,Hebei,856.0,compilation,,,418.5,interpolated/held
+1999,Hebei,835.0,compilation,,,418.5,interpolated/held
+2000,Hebei,976.0,compilation,,,418.5,interpolated/held
+2001,Hebei,1002.0,compilation,418.5,NBS yearbook 2002 sown area,418.5,official
+2002,Hebei,986.0,compilation,,,459.4,interpolated/held
+2003,Hebei,898.0,compilation,,,500.3,interpolated/held
+2004,Hebei,994.0,compilation,,,541.2,interpolated/held
+2005,Hebei,1006.0,compilation,,,582.1,interpolated/held
+2006,Hebei,1008.0,NBS yearbook,623.0,NBS yearbook,623.0,official
+2007,Hebei,1066.0,NBS yearbook,680.1,NBS yearbook,680.1,official
+2008,Hebei,1069.0,compilation,689.4,NBS yearbook output / yield,689.4,official
+2009,Hebei,975.0,NBS yearbook,620.5,NBS yearbook,620.5,official
+2010,Hebei,979.0,NBS yearbook,582.2,NBS yearbook,582.2,official
+2011,Hebei,1033.0,NBS yearbook,632.1,NBS yearbook,632.1,official
+2012,Hebei,976.1,NBS yearbook,578.2,NBS yearbook,578.2,official
+2013,Hebei,945.9,NBS yearbook,482.9,NBS yearbook,482.9,official
+2014,Hebei,929.0,compilation,,,436.4,interpolated/held
+2015,Hebei,802.0,compilation,,,389.9,interpolated/held
+2016,Hebei,1035.0,compilation,,,343.4,interpolated/held
+2017,Hebei,1090.0,compilation,,,296.9,interpolated/held
+2019,Hebei,1115.3,NBS bulletin,203.9,NBS bulletin,203.9,official
+2020,Hebei,1102.5,NBS bulletin,189.2,NBS bulletin,189.2,official
+2021,Hebei,1142.4,NBS bulletin,139.8,NBS bulletin,139.8,official
+2022,Hebei,1196.9,NBS bulletin,116.1,NBS bulletin,116.1,official
+2023,Hebei,1207.9,NBS bulletin,86.0,NBS bulletin,86.0,official
+2024,Hebei,1227.0,NBS bulletin,57.9,NBS bulletin,57.9,official
+2025,Hebei,1224.4,NBS bulletin,56.2,NBS bulletin,56.2,official
+1961,Henan,128.0,compilation,,,858.2,interpolated/held
+1962,Henan,120.0,compilation,,,858.2,interpolated/held
+1963,Henan,98.0,compilation,,,858.2,interpolated/held
+1964,Henan,203.0,compilation,,,858.2,interpolated/held
+1965,Henan,255.0,compilation,,,858.2,interpolated/held
+1966,Henan,428.0,compilation,,,858.2,interpolated/held
+1967,Henan,405.0,compilation,,,858.2,interpolated/held
+1968,Henan,360.0,compilation,,,858.2,interpolated/held
+1969,Henan,368.0,compilation,,,858.2,interpolated/held
+1970,Henan,510.0,compilation,,,858.2,interpolated/held
+1971,Henan,435.0,compilation,,,858.2,interpolated/held
+1972,Henan,383.0,compilation,,,858.2,interpolated/held
+1973,Henan,540.0,compilation,,,858.2,interpolated/held
+1974,Henan,465.0,compilation,,,858.2,interpolated/held
+1975,Henan,428.0,compilation,,,858.2,interpolated/held
+1976,Henan,353.0,compilation,,,858.2,interpolated/held
+1977,Henan,353.0,compilation,,,858.2,interpolated/held
+1978,Henan,368.0,compilation,,,858.2,interpolated/held
+1979,Henan,360.0,compilation,,,858.2,interpolated/held
+1980,Henan,645.0,compilation,,,858.2,interpolated/held
+1981,Henan,555.0,compilation,,,858.2,interpolated/held
+1982,Henan,435.0,compilation,,,858.2,interpolated/held
+1983,Henan,795.0,compilation,,,858.2,interpolated/held
+1984,Henan,750.0,compilation,,,858.2,interpolated/held
+1985,Henan,675.0,compilation,,,858.2,interpolated/held
+1986,Henan,645.0,compilation,,,858.2,interpolated/held
+1987,Henan,795.0,compilation,,,858.2,interpolated/held
+1988,Henan,690.0,compilation,,,858.2,interpolated/held
+1989,Henan,630.0,compilation,,,858.2,interpolated/held
+1990,Henan,825.0,compilation,,,858.2,interpolated/held
+1991,Henan,795.0,compilation,,,858.2,interpolated/held
+1992,Henan,528.0,compilation,,,858.2,interpolated/held
+1993,Henan,678.0,compilation,,,858.2,interpolated/held
+1994,Henan,650.0,compilation,,,858.2,interpolated/held
+1995,Henan,770.0,compilation,,,858.2,interpolated/held
+1996,Henan,788.0,compilation,,,858.2,interpolated/held
+1997,Henan,910.0,compilation,,,858.2,interpolated/held
+1998,Henan,911.0,compilation,,,858.2,interpolated/held
+1999,Henan,965.0,compilation,,,858.2,interpolated/held
+2000,Henan,903.0,compilation,,,858.2,interpolated/held
+2001,Henan,964.0,compilation,858.2,NBS yearbook 2002 sown area,858.2,official
+2002,Henan,964.0,compilation,,,846.64,interpolated/held
+2003,Henan,407.0,compilation,,,835.08,interpolated/held
+2004,Henan,700.0,compilation,,,823.52,interpolated/held
+2005,Henan,866.0,compilation,,,811.96,interpolated/held
+2006,Henan,1037.0,NBS yearbook,800.4,NBS yearbook,800.4,official
+2007,Henan,1071.0,NBS yearbook,700.3,NBS yearbook,700.3,official
+2008,Henan,1074.0,compilation,606.1,NBS yearbook output / yield,606.1,official
+2009,Henan,963.0,NBS yearbook,536.9,NBS yearbook,536.9,official
+2010,Henan,957.0,NBS yearbook,467.1,NBS yearbook,467.1,official
+2011,Henan,964.0,NBS yearbook,396.3,NBS yearbook,396.3,official
+2012,Henan,1000.8,NBS yearbook,256.7,NBS yearbook,256.7,official
+2013,Henan,1016.3,NBS yearbook,186.7,NBS yearbook,186.7,official
+2014,Henan,958.0,compilation,,,161.21666666666667,interpolated/held
+2015,Henan,1053.0,compilation,,,135.73333333333332,interpolated/held
+2016,Henan,974.0,compilation,,,110.25,interpolated/held
+2017,Henan,1090.0,compilation,,,84.76666666666667,interpolated/held
+2019,Henan,802.3,NBS bulletin,33.8,NBS bulletin,33.8,official
+2020,Henan,1094.0,NBS bulletin,16.2,NBS bulletin,16.2,official
+2021,Henan,1215.4,NBS bulletin,11.5,NBS bulletin,11.5,official
+2022,Henan,1252.8,NBS bulletin,10.9,NBS bulletin,10.9,official
+2023,Henan,1218.8,NBS bulletin,6.1,NBS bulletin,6.1,official
+2024,Henan,1211.8,NBS bulletin,5.6,NBS bulletin,5.6,official
+2025,Henan,1176.7,NBS bulletin,4.3,NBS bulletin,4.3,official
+1961,Hubei,255.0,compilation,,,346.7,interpolated/held
+1962,Hubei,308.0,compilation,,,346.7,interpolated/held
+1963,Hubei,465.0,compilation,,,346.7,interpolated/held
+1964,Hubei,435.0,compilation,,,346.7,interpolated/held
+1965,Hubei,653.0,compilation,,,346.7,interpolated/held
+1966,Hubei,735.0,compilation,,,346.7,interpolated/held
+1967,Hubei,698.0,compilation,,,346.7,interpolated/held
+1968,Hubei,623.0,compilation,,,346.7,interpolated/held
+1969,Hubei,503.0,compilation,,,346.7,interpolated/held
+1970,Hubei,413.0,compilation,,,346.7,interpolated/held
+1971,Hubei,300.0,compilation,,,346.7,interpolated/held
+1972,Hubei,473.0,compilation,,,346.7,interpolated/held
+1973,Hubei,675.0,compilation,,,346.7,interpolated/held
+1974,Hubei,803.0,compilation,,,346.7,interpolated/held
+1975,Hubei,683.0,compilation,,,346.7,interpolated/held
+1976,Hubei,780.0,compilation,,,346.7,interpolated/held
+1977,Hubei,750.0,compilation,,,346.7,interpolated/held
+1978,Hubei,615.0,compilation,,,346.7,interpolated/held
+1979,Hubei,773.0,compilation,,,346.7,interpolated/held
+1980,Hubei,533.0,compilation,,,346.7,interpolated/held
+1981,Hubei,608.0,compilation,,,346.7,interpolated/held
+1982,Hubei,593.0,compilation,,,346.7,interpolated/held
+1983,Hubei,690.0,compilation,,,346.7,interpolated/held
+1984,Hubei,1125.0,compilation,,,346.7,interpolated/held
+1985,Hubei,1065.0,compilation,,,346.7,interpolated/held
+1986,Hubei,1065.0,compilation,,,346.7,interpolated/held
+1987,Hubei,1020.0,compilation,,,346.7,interpolated/held
+1988,Hubei,810.0,compilation,,,346.7,interpolated/held
+1989,Hubei,750.0,compilation,,,346.7,interpolated/held
+1990,Hubei,1140.0,compilation,,,346.7,interpolated/held
+1991,Hubei,1065.0,compilation,,,346.7,interpolated/held
+1992,Hubei,1203.0,compilation,,,346.7,interpolated/held
+1993,Hubei,874.0,compilation,,,346.7,interpolated/held
+1994,Hubei,904.0,compilation,,,346.7,interpolated/held
+1995,Hubei,1167.0,compilation,,,346.7,interpolated/held
+1996,Hubei,907.0,compilation,,,346.7,interpolated/held
+1997,Hubei,1209.0,compilation,,,346.7,interpolated/held
+1998,Hubei,753.0,compilation,,,346.7,interpolated/held
+1999,Hubei,906.0,compilation,,,346.7,interpolated/held
+2000,Hubei,957.0,compilation,,,346.7,interpolated/held
+2001,Hubei,1077.0,compilation,346.7,NBS yearbook 2002 sown area,346.7,official
+2002,Hubei,1101.0,compilation,,,358.18,interpolated/held
+2003,Hubei,915.0,compilation,,,369.66,interpolated/held
+2004,Hubei,969.0,compilation,,,381.14,interpolated/held
+2005,Hubei,961.0,compilation,,,392.62,interpolated/held
+2006,Hubei,1111.0,NBS yearbook,404.1,NBS yearbook,404.1,official
+2007,Hubei,1084.0,NBS yearbook,513.8,NBS yearbook,513.8,official
+2008,Hubei,918.0,compilation,558.8,NBS yearbook output / yield,558.8,official
+2009,Hubei,1044.0,NBS yearbook,460.7,NBS yearbook,460.7,official
+2010,Hubei,983.0,NBS yearbook,480.2,NBS yearbook,480.2,official
+2011,Hubei,1076.0,NBS yearbook,488.8,NBS yearbook,488.8,official
+2012,Hubei,1153.2,NBS yearbook,472.9,NBS yearbook,472.9,official
+2013,Hubei,1106.1,NBS yearbook,415.6,NBS yearbook,415.6,official
+2014,Hubei,1043.0,compilation,,,373.4666666666667,interpolated/held
+2015,Hubei,1124.0,compilation,,,331.33333333333337,interpolated/held
+2016,Hubei,927.0,compilation,,,289.20000000000005,interpolated/held
+2017,Hubei,897.0,compilation,,,247.0666666666667,interpolated/held
+2019,Hubei,882.0,NBS bulletin,162.8,NBS bulletin,162.8,official
+2020,Hubei,831.7,NBS bulletin,129.7,NBS bulletin,129.7,official
+2021,Hubei,902.4,NBS bulletin,120.7,NBS bulletin,120.7,official
+2022,Hubei,892.4,NBS bulletin,115.8,NBS bulletin,115.8,official
+2023,Hubei,929.9,NBS bulletin,103.3,NBS bulletin,103.3,official
+2024,Hubei,946.0,NBS bulletin,98.4,NBS bulletin,98.4,official
+2025,Hubei,955.3,NBS bulletin,96.7,NBS bulletin,96.7,official
+1961,Hunan,195.0,compilation,,,149.4,interpolated/held
+1962,Hunan,263.0,compilation,,,149.4,interpolated/held
+1963,Hunan,353.0,compilation,,,149.4,interpolated/held
+1964,Hunan,300.0,compilation,,,149.4,interpolated/held
+1965,Hunan,330.0,compilation,,,149.4,interpolated/held
+1966,Hunan,375.0,compilation,,,149.4,interpolated/held
+1967,Hunan,375.0,compilation,,,149.4,interpolated/held
+1968,Hunan,480.0,compilation,,,149.4,interpolated/held
+1969,Hunan,398.0,compilation,,,149.4,interpolated/held
+1970,Hunan,285.0,compilation,,,149.4,interpolated/held
+1971,Hunan,210.0,compilation,,,149.4,interpolated/held
+1972,Hunan,338.0,compilation,,,149.4,interpolated/held
+1973,Hunan,420.0,compilation,,,149.4,interpolated/held
+1974,Hunan,503.0,compilation,,,149.4,interpolated/held
+1975,Hunan,510.0,compilation,,,149.4,interpolated/held
+1976,Hunan,533.0,compilation,,,149.4,interpolated/held
+1977,Hunan,518.0,compilation,,,149.4,interpolated/held
+1978,Hunan,413.0,compilation,,,149.4,interpolated/held
+1979,Hunan,585.0,compilation,,,149.4,interpolated/held
+1980,Hunan,533.0,compilation,,,149.4,interpolated/held
+1981,Hunan,548.0,compilation,,,149.4,interpolated/held
+1982,Hunan,585.0,compilation,,,149.4,interpolated/held
+1983,Hunan,750.0,compilation,,,149.4,interpolated/held
+1984,Hunan,968.0,compilation,,,149.4,interpolated/held
+1985,Hunan,990.0,compilation,,,149.4,interpolated/held
+1986,Hunan,975.0,compilation,,,149.4,interpolated/held
+1987,Hunan,855.0,compilation,,,149.4,interpolated/held
+1988,Hunan,480.0,compilation,,,149.4,interpolated/held
+1989,Hunan,705.0,compilation,,,149.4,interpolated/held
+1990,Hunan,1020.0,compilation,,,149.4,interpolated/held
+1991,Hunan,1110.0,compilation,,,149.4,interpolated/held
+1992,Hunan,1212.0,compilation,,,149.4,interpolated/held
+1993,Hunan,1225.0,compilation,,,149.4,interpolated/held
+1994,Hunan,1139.0,compilation,,,149.4,interpolated/held
+1995,Hunan,1207.0,compilation,,,149.4,interpolated/held
+1996,Hunan,1090.0,compilation,,,149.4,interpolated/held
+1997,Hunan,1448.0,compilation,,,149.4,interpolated/held
+1998,Hunan,969.0,compilation,,,149.4,interpolated/held
+1999,Hunan,1121.0,compilation,,,149.4,interpolated/held
+2000,Hunan,1082.0,compilation,,,149.4,interpolated/held
+2001,Hunan,1271.0,compilation,149.4,NBS yearbook 2002 sown area,149.4,official
+2002,Hunan,1184.0,compilation,,,152.78,interpolated/held
+2003,Hunan,1173.0,compilation,,,156.16,interpolated/held
+2004,Hunan,1210.0,compilation,,,159.54000000000002,interpolated/held
+2005,Hunan,1309.0,compilation,,,162.92000000000002,interpolated/held
+2006,Hunan,1491.0,NBS yearbook,166.3,NBS yearbook,166.3,official
+2007,Hunan,1420.0,NBS yearbook,171.8,NBS yearbook,171.8,official
+2008,Hunan,1350.0,compilation,183.0,NBS yearbook output / yield,183.0,official
+2009,Hunan,1389.0,NBS yearbook,152.6,NBS yearbook,152.6,official
+2010,Hunan,1297.0,NBS yearbook,175.0,NBS yearbook,175.0,official
+2011,Hunan,1180.0,NBS yearbook,192.4,NBS yearbook,192.4,official
+2012,Hunan,1455.5,NBS yearbook,172.2,NBS yearbook,172.2,official
+2013,Hunan,1240.9,NBS yearbook,159.6,NBS yearbook,159.6,official
+2014,Hunan,992.0,compilation,,,143.5,interpolated/held
+2015,Hunan,1187.0,compilation,,,127.4,interpolated/held
+2016,Hunan,1185.0,compilation,,,111.3,interpolated/held
+2017,Hunan,1145.0,compilation,,,95.2,interpolated/held
+2019,Hunan,1299.0,NBS bulletin,63.0,NBS bulletin,63.0,official
+2020,Hunan,1252.2,NBS bulletin,59.5,NBS bulletin,59.5,official
+2021,Hunan,1337.9,NBS bulletin,60.2,NBS bulletin,60.2,official
+2022,Hunan,1273.7,NBS bulletin,64.6,NBS bulletin,64.6,official
+2023,Hunan,1360.3,NBS bulletin,55.9,NBS bulletin,55.9,official
+2024,Hunan,1379.3,NBS bulletin,60.7,NBS bulletin,60.7,official
+2025,Hunan,1393.4,NBS bulletin,60.7,NBS bulletin,60.7,official
+2006,InnerMongolia,1129.0,NBS yearbook,1.8,NBS yearbook,1.8,official
+2007,InnerMongolia,1393.0,NBS yearbook,2.9,NBS yearbook,2.9,official
+2009,InnerMongolia,1447.0,NBS yearbook,0.7,NBS yearbook,0.7,official
+2010,InnerMongolia,1261.0,NBS yearbook,0.8,NBS yearbook,0.8,official
+2011,InnerMongolia,1447.0,NBS yearbook,1.4,NBS yearbook,1.4,official
+2012,InnerMongolia,1495.2,NBS yearbook,1.0,NBS yearbook,1.0,official
+2013,InnerMongolia,1453.8,NBS yearbook,1.1,NBS yearbook,1.1,official
+1961,Jiangsu,315.0,compilation,,,384.0,interpolated/held
+1962,Jiangsu,195.0,compilation,,,384.0,interpolated/held
+1963,Jiangsu,375.0,compilation,,,384.0,interpolated/held
+1964,Jiangsu,623.0,compilation,,,384.0,interpolated/held
+1965,Jiangsu,465.0,compilation,,,384.0,interpolated/held
+1966,Jiangsu,660.0,compilation,,,384.0,interpolated/held
+1967,Jiangsu,638.0,compilation,,,384.0,interpolated/held
+1968,Jiangsu,713.0,compilation,,,384.0,interpolated/held
+1969,Jiangsu,593.0,compilation,,,384.0,interpolated/held
+1970,Jiangsu,878.0,compilation,,,384.0,interpolated/held
+1971,Jiangsu,533.0,compilation,,,384.0,interpolated/held
+1972,Jiangsu,608.0,compilation,,,384.0,interpolated/held
+1973,Jiangsu,765.0,compilation,,,384.0,interpolated/held
+1974,Jiangsu,698.0,compilation,,,384.0,interpolated/held
+1975,Jiangsu,773.0,compilation,,,384.0,interpolated/held
+1976,Jiangsu,698.0,compilation,,,384.0,interpolated/held
+1977,Jiangsu,645.0,compilation,,,384.0,interpolated/held
+1978,Jiangsu,803.0,compilation,,,384.0,interpolated/held
+1979,Jiangsu,900.0,compilation,,,384.0,interpolated/held
+1980,Jiangsu,660.0,compilation,,,384.0,interpolated/held
+1981,Jiangsu,848.0,compilation,,,384.0,interpolated/held
+1982,Jiangsu,848.0,compilation,,,384.0,interpolated/held
+1983,Jiangsu,975.0,compilation,,,384.0,interpolated/held
+1984,Jiangsu,923.0,compilation,,,384.0,interpolated/held
+1985,Jiangsu,810.0,compilation,,,384.0,interpolated/held
+1986,Jiangsu,810.0,compilation,,,384.0,interpolated/held
+1987,Jiangsu,810.0,compilation,,,384.0,interpolated/held
+1988,Jiangsu,930.0,compilation,,,384.0,interpolated/held
+1989,Jiangsu,900.0,compilation,,,384.0,interpolated/held
+1990,Jiangsu,810.0,compilation,,,384.0,interpolated/held
+1991,Jiangsu,1005.0,compilation,,,384.0,interpolated/held
+1992,Jiangsu,783.0,compilation,,,384.0,interpolated/held
+1993,Jiangsu,829.0,compilation,,,384.0,interpolated/held
+1994,Jiangsu,855.0,compilation,,,384.0,interpolated/held
+1995,Jiangsu,994.0,compilation,,,384.0,interpolated/held
+1996,Jiangsu,1106.0,compilation,,,384.0,interpolated/held
+1997,Jiangsu,1157.0,compilation,,,384.0,interpolated/held
+1998,Jiangsu,1110.0,compilation,,,384.0,interpolated/held
+1999,Jiangsu,939.0,compilation,,,384.0,interpolated/held
+2000,Jiangsu,1065.0,compilation,,,384.0,interpolated/held
+2001,Jiangsu,1199.0,compilation,384.0,NBS yearbook 2002 sown area,384.0,official
+2002,Jiangsu,1164.0,compilation,,,378.08,interpolated/held
+2003,Jiangsu,787.0,compilation,,,372.15999999999997,interpolated/held
+2004,Jiangsu,1228.0,compilation,,,366.24,interpolated/held
+2005,Jiangsu,876.0,compilation,,,360.32,interpolated/held
+2006,Jiangsu,1075.0,NBS yearbook,354.4,NBS yearbook,354.4,official
+2007,Jiangsu,1063.0,NBS yearbook,327.4,NBS yearbook,327.4,official
+2008,Jiangsu,1233.0,compilation,264.4,NBS yearbook output / yield,264.4,official
+2009,Jiangsu,1012.0,NBS yearbook,252.0,NBS yearbook,252.0,official
+2010,Jiangsu,1107.0,NBS yearbook,235.8,NBS yearbook,235.8,official
+2011,Jiangsu,1032.0,NBS yearbook,239.3,NBS yearbook,239.3,official
+2012,Jiangsu,1292.1,NBS yearbook,170.6,NBS yearbook,170.6,official
+2013,Jiangsu,1348.5,NBS yearbook,155.2,NBS yearbook,155.2,official
+2014,Jiangsu,646.0,compilation,,,131.26666666666665,interpolated/held
+2015,Jiangsu,846.0,compilation,,,107.33333333333331,interpolated/held
+2016,Jiangsu,1165.0,compilation,,,83.39999999999999,interpolated/held
+2017,Jiangsu,1225.0,compilation,,,59.466666666666654,interpolated/held
+2019,Jiangsu,1350.0,NBS bulletin,11.6,NBS bulletin,11.6,official
+2020,Jiangsu,1269.0,NBS bulletin,8.4,NBS bulletin,8.4,official
+2021,Jiangsu,1362.2,NBS bulletin,5.8,NBS bulletin,5.8,official
+2022,Jiangsu,1396.2,NBS bulletin,4.2,NBS bulletin,4.2,official
+2023,Jiangsu,1454.8,NBS bulletin,3.5,NBS bulletin,3.5,official
+2024,Jiangsu,1469.0,NBS bulletin,3.0,NBS bulletin,3.0,official
+2025,Jiangsu,1526.3,NBS bulletin,2.5,NBS bulletin,2.5,official
+1961,Jiangxi,165.0,compilation,,,70.5,interpolated/held
+1962,Jiangxi,180.0,compilation,,,70.5,interpolated/held
+1963,Jiangxi,420.0,compilation,,,70.5,interpolated/held
+1964,Jiangxi,330.0,compilation,,,70.5,interpolated/held
+1965,Jiangxi,435.0,compilation,,,70.5,interpolated/held
+1966,Jiangxi,398.0,compilation,,,70.5,interpolated/held
+1967,Jiangxi,330.0,compilation,,,70.5,interpolated/held
+1968,Jiangxi,458.0,compilation,,,70.5,interpolated/held
+1969,Jiangxi,390.0,compilation,,,70.5,interpolated/held
+1970,Jiangxi,398.0,compilation,,,70.5,interpolated/held
+1971,Jiangxi,405.0,compilation,,,70.5,interpolated/held
+1972,Jiangxi,435.0,compilation,,,70.5,interpolated/held
+1973,Jiangxi,278.0,compilation,,,70.5,interpolated/held
+1974,Jiangxi,398.0,compilation,,,70.5,interpolated/held
+1975,Jiangxi,368.0,compilation,,,70.5,interpolated/held
+1976,Jiangxi,353.0,compilation,,,70.5,interpolated/held
+1977,Jiangxi,323.0,compilation,,,70.5,interpolated/held
+1978,Jiangxi,308.0,compilation,,,70.5,interpolated/held
+1979,Jiangxi,443.0,compilation,,,70.5,interpolated/held
+1980,Jiangxi,398.0,compilation,,,70.5,interpolated/held
+1981,Jiangxi,450.0,compilation,,,70.5,interpolated/held
+1982,Jiangxi,653.0,compilation,,,70.5,interpolated/held
+1983,Jiangxi,578.0,compilation,,,70.5,interpolated/held
+1984,Jiangxi,855.0,compilation,,,70.5,interpolated/held
+1985,Jiangxi,945.0,compilation,,,70.5,interpolated/held
+1986,Jiangxi,885.0,compilation,,,70.5,interpolated/held
+1987,Jiangxi,960.0,compilation,,,70.5,interpolated/held
+1988,Jiangxi,495.0,compilation,,,70.5,interpolated/held
+1989,Jiangxi,765.0,compilation,,,70.5,interpolated/held
+1990,Jiangxi,810.0,compilation,,,70.5,interpolated/held
+1991,Jiangxi,945.0,compilation,,,70.5,interpolated/held
+1992,Jiangxi,1098.0,compilation,,,70.5,interpolated/held
+1993,Jiangxi,1033.0,compilation,,,70.5,interpolated/held
+1994,Jiangxi,1070.0,compilation,,,70.5,interpolated/held
+1995,Jiangxi,900.0,compilation,,,70.5,interpolated/held
+1996,Jiangxi,1146.0,compilation,,,70.5,interpolated/held
+1997,Jiangxi,1295.0,compilation,,,70.5,interpolated/held
+1998,Jiangxi,702.0,compilation,,,70.5,interpolated/held
+1999,Jiangxi,917.0,compilation,,,70.5,interpolated/held
+2000,Jiangxi,986.0,compilation,,,70.5,interpolated/held
+2001,Jiangxi,1142.0,compilation,70.5,NBS yearbook 2002 sown area,70.5,official
+2002,Jiangxi,1217.0,compilation,,,69.54,interpolated/held
+2003,Jiangxi,1162.0,compilation,,,68.58,interpolated/held
+2004,Jiangxi,1357.0,compilation,,,67.62,interpolated/held
+2005,Jiangxi,1365.0,compilation,,,66.66,interpolated/held
+2006,Jiangxi,1446.0,NBS yearbook,65.7,NBS yearbook,65.7,official
+2007,Jiangxi,1563.0,NBS yearbook,81.9,NBS yearbook,81.9,official
+2008,Jiangxi,1681.0,compilation,66.6,NBS yearbook output / yield,66.6,official
+2009,Jiangxi,1657.0,NBS yearbook,75.4,NBS yearbook,75.4,official
+2010,Jiangxi,1640.0,NBS yearbook,79.9,NBS yearbook,79.9,official
+2011,Jiangxi,1743.0,NBS yearbook,82.0,NBS yearbook,82.0,official
+2012,Jiangxi,1790.4,NBS yearbook,85.0,NBS yearbook,85.0,official
+2013,Jiangxi,1545.8,NBS yearbook,84.7,NBS yearbook,84.7,official
+2014,Jiangxi,1574.0,compilation,,,77.68333333333334,interpolated/held
+2015,Jiangxi,1421.0,compilation,,,70.66666666666667,interpolated/held
+2016,Jiangxi,1486.0,compilation,,,63.650000000000006,interpolated/held
+2017,Jiangxi,1517.0,compilation,,,56.63333333333334,interpolated/held
+2019,Jiangxi,1546.7,NBS bulletin,42.6,NBS bulletin,42.6,official
+2020,Jiangxi,1511.5,NBS bulletin,35.0,NBS bulletin,35.0,official
+2021,Jiangxi,1557.8,NBS bulletin,11.0,NBS bulletin,11.0,official
+2022,Jiangxi,1101.5,NBS bulletin,19.7,NBS bulletin,19.7,official
+2023,Jiangxi,1134.6,NBS bulletin,19.4,NBS bulletin,19.4,official
+2024,Jiangxi,1125.0,NBS bulletin,19.0,NBS bulletin,19.0,official
+2025,Jiangxi,1108.7,NBS bulletin,19.3,NBS bulletin,19.3,official
+2006,Jilin,1868.0,NBS yearbook,1.6,NBS yearbook,1.6,official
+2007,Jilin,943.0,NBS yearbook,1.1,NBS yearbook,1.1,official
+2009,Jilin,1229.0,NBS yearbook,1.6,NBS yearbook,1.6,official
+2010,Jilin,1566.0,NBS yearbook,3.2,NBS yearbook,3.2,official
+2011,Jilin,1812.0,NBS yearbook,6.6,NBS yearbook,6.6,official
+2012,Jilin,1919.0,NBS yearbook,4.2,NBS yearbook,4.2,official
+2013,Jilin,1848.0,NBS yearbook,3.1,NBS yearbook,3.1,official
+1961,Liaoning,105.0,compilation,,,7.3,interpolated/held
+1962,Liaoning,143.0,compilation,,,7.3,interpolated/held
+1963,Liaoning,233.0,compilation,,,7.3,interpolated/held
+1964,Liaoning,270.0,compilation,,,7.3,interpolated/held
+1965,Liaoning,353.0,compilation,,,7.3,interpolated/held
+1966,Liaoning,420.0,compilation,,,7.3,interpolated/held
+1967,Liaoning,413.0,compilation,,,7.3,interpolated/held
+1968,Liaoning,390.0,compilation,,,7.3,interpolated/held
+1969,Liaoning,300.0,compilation,,,7.3,interpolated/held
+1970,Liaoning,353.0,compilation,,,7.3,interpolated/held
+1971,Liaoning,323.0,compilation,,,7.3,interpolated/held
+1972,Liaoning,210.0,compilation,,,7.3,interpolated/held
+1973,Liaoning,285.0,compilation,,,7.3,interpolated/held
+1974,Liaoning,285.0,compilation,,,7.3,interpolated/held
+1975,Liaoning,293.0,compilation,,,7.3,interpolated/held
+1976,Liaoning,90.0,compilation,,,7.3,interpolated/held
+1977,Liaoning,210.0,compilation,,,7.3,interpolated/held
+1978,Liaoning,233.0,compilation,,,7.3,interpolated/held
+1979,Liaoning,435.0,compilation,,,7.3,interpolated/held
+1980,Liaoning,555.0,compilation,,,7.3,interpolated/held
+1981,Liaoning,563.0,compilation,,,7.3,interpolated/held
+1982,Liaoning,503.0,compilation,,,7.3,interpolated/held
+1983,Liaoning,953.0,compilation,,,7.3,interpolated/held
+1984,Liaoning,908.0,compilation,,,7.3,interpolated/held
+1985,Liaoning,615.0,compilation,,,7.3,interpolated/held
+1986,Liaoning,645.0,compilation,,,7.3,interpolated/held
+1987,Liaoning,720.0,compilation,,,7.3,interpolated/held
+1988,Liaoning,615.0,compilation,,,7.3,interpolated/held
+1989,Liaoning,480.0,compilation,,,7.3,interpolated/held
+1990,Liaoning,720.0,compilation,,,7.3,interpolated/held
+1991,Liaoning,765.0,compilation,,,7.3,interpolated/held
+1992,Liaoning,373.0,compilation,,,7.3,interpolated/held
+1993,Liaoning,790.0,compilation,,,7.3,interpolated/held
+1994,Liaoning,652.0,compilation,,,7.3,interpolated/held
+1995,Liaoning,762.0,compilation,,,7.3,interpolated/held
+1996,Liaoning,870.0,compilation,,,7.3,interpolated/held
+1997,Liaoning,773.0,compilation,,,7.3,interpolated/held
+1998,Liaoning,874.0,compilation,,,7.3,interpolated/held
+1999,Liaoning,659.0,compilation,,,7.3,interpolated/held
+2000,Liaoning,763.0,compilation,,,7.3,interpolated/held
+2001,Liaoning,1030.0,compilation,7.3,NBS yearbook 2002 sown area,7.3,official
+2002,Liaoning,994.0,compilation,,,6.18,interpolated/held
+2003,Liaoning,829.0,compilation,,,5.0600000000000005,interpolated/held
+2004,Liaoning,895.0,compilation,,,3.9400000000000004,interpolated/held
+2005,Liaoning,959.0,compilation,,,2.8200000000000003,interpolated/held
+2006,Liaoning,1184.0,NBS yearbook,1.7,NBS yearbook,1.7,official
+2007,Liaoning,1944.0,NBS yearbook,1.0,NBS yearbook,1.0,official
+2008,Liaoning,1411.0,compilation,1.4,NBS yearbook output / yield,1.4,official
+2009,Liaoning,1099.0,NBS yearbook,0.9,NBS yearbook,0.9,official
+2010,Liaoning,1523.0,NBS yearbook,0.7,NBS yearbook,0.7,official
+2011,Liaoning,1822.0,NBS yearbook,0.5,NBS yearbook,0.5,official
+2012,Liaoning,1842.1,NBS yearbook,0.3,NBS yearbook,0.3,official
+2013,Liaoning,1881.4,NBS yearbook,0.5,NBS yearbook,0.5,official
+2014,Liaoning,1554.0,compilation,,,0.5,interpolated/held
+2015,Liaoning,1454.5,compilation,,,0.5,interpolated/held
+2016,Liaoning,1355.0,compilation,,,0.5,interpolated/held
+2017,Liaoning,1810.7,compilation,,,0.5,interpolated/held
+2013,Ningxia,3400.0,NBS yearbook,0.0,NBS yearbook,0.0,official
+1961,Shaanxi,195.0,compilation,,,50.4,interpolated/held
+1962,Shaanxi,233.0,compilation,,,50.4,interpolated/held
+1963,Shaanxi,255.0,compilation,,,50.4,interpolated/held
+1964,Shaanxi,233.0,compilation,,,50.4,interpolated/held
+1965,Shaanxi,428.0,compilation,,,50.4,interpolated/held
+1966,Shaanxi,413.0,compilation,,,50.4,interpolated/held
+1967,Shaanxi,368.0,compilation,,,50.4,interpolated/held
+1968,Shaanxi,263.0,compilation,,,50.4,interpolated/held
+1969,Shaanxi,353.0,compilation,,,50.4,interpolated/held
+1970,Shaanxi,345.0,compilation,,,50.4,interpolated/held
+1971,Shaanxi,413.0,compilation,,,50.4,interpolated/held
+1972,Shaanxi,300.0,compilation,,,50.4,interpolated/held
+1973,Shaanxi,510.0,compilation,,,50.4,interpolated/held
+1974,Shaanxi,368.0,compilation,,,50.4,interpolated/held
+1975,Shaanxi,323.0,compilation,,,50.4,interpolated/held
+1976,Shaanxi,270.0,compilation,,,50.4,interpolated/held
+1977,Shaanxi,390.0,compilation,,,50.4,interpolated/held
+1978,Shaanxi,420.0,compilation,,,50.4,interpolated/held
+1979,Shaanxi,413.0,compilation,,,50.4,interpolated/held
+1980,Shaanxi,338.0,compilation,,,50.4,interpolated/held
+1981,Shaanxi,240.0,compilation,,,50.4,interpolated/held
+1982,Shaanxi,503.0,compilation,,,50.4,interpolated/held
+1983,Shaanxi,158.0,compilation,,,50.4,interpolated/held
+1984,Shaanxi,375.0,compilation,,,50.4,interpolated/held
+1985,Shaanxi,450.0,compilation,,,50.4,interpolated/held
+1986,Shaanxi,765.0,compilation,,,50.4,interpolated/held
+1987,Shaanxi,945.0,compilation,,,50.4,interpolated/held
+1988,Shaanxi,690.0,compilation,,,50.4,interpolated/held
+1989,Shaanxi,690.0,compilation,,,50.4,interpolated/held
+1990,Shaanxi,690.0,compilation,,,50.4,interpolated/held
+1991,Shaanxi,675.0,compilation,,,50.4,interpolated/held
+1992,Shaanxi,400.0,compilation,,,50.4,interpolated/held
+1993,Shaanxi,560.0,compilation,,,50.4,interpolated/held
+1994,Shaanxi,496.0,compilation,,,50.4,interpolated/held
+1995,Shaanxi,548.0,compilation,,,50.4,interpolated/held
+1996,Shaanxi,524.0,compilation,,,50.4,interpolated/held
+1997,Shaanxi,516.0,compilation,,,50.4,interpolated/held
+1998,Shaanxi,649.0,compilation,,,50.4,interpolated/held
+1999,Shaanxi,704.0,compilation,,,50.4,interpolated/held
+2000,Shaanxi,911.0,compilation,,,50.4,interpolated/held
+2001,Shaanxi,989.0,compilation,50.4,NBS yearbook 2002 sown area,50.4,official
+2002,Shaanxi,1004.0,compilation,,,57.14,interpolated/held
+2003,Shaanxi,811.0,compilation,,,63.879999999999995,interpolated/held
+2004,Shaanxi,1027.0,compilation,,,70.62,interpolated/held
+2005,Shaanxi,1107.0,compilation,,,77.36,interpolated/held
+2006,Shaanxi,1035.0,NBS yearbook,84.1,NBS yearbook,84.1,official
+2007,Shaanxi,1007.0,NBS yearbook,89.4,NBS yearbook,89.4,official
+2008,Shaanxi,1185.0,compilation,85.2,NBS yearbook output / yield,85.2,official
+2009,Shaanxi,1388.0,NBS yearbook,62.0,NBS yearbook,62.0,official
+2010,Shaanxi,1361.0,NBS yearbook,50.7,NBS yearbook,50.7,official
+2011,Shaanxi,1341.0,NBS yearbook,50.0,NBS yearbook,50.0,official
+2012,Shaanxi,1391.3,NBS yearbook,48.3,NBS yearbook,48.3,official
+2013,Shaanxi,1577.3,NBS yearbook,36.7,NBS yearbook,36.7,official
+2014,Shaanxi,1366.0,compilation,,,31.500000000000004,interpolated/held
+2015,Shaanxi,1412.0,compilation,,,26.300000000000004,interpolated/held
+2016,Shaanxi,1405.0,compilation,,,21.1,interpolated/held
+2017,Shaanxi,1369.0,compilation,,,15.900000000000002,interpolated/held
+2019,Shaanxi,1399.5,NBS bulletin,5.5,NBS bulletin,5.5,official
+1961,Shandong,83.0,compilation,,,735.4,interpolated/held
+1962,Shandong,105.0,compilation,,,735.4,interpolated/held
+1963,Shandong,158.0,compilation,,,735.4,interpolated/held
+1964,Shandong,180.0,compilation,,,735.4,interpolated/held
+1965,Shandong,293.0,compilation,,,735.4,interpolated/held
+1966,Shandong,308.0,compilation,,,735.4,interpolated/held
+1967,Shandong,308.0,compilation,,,735.4,interpolated/held
+1968,Shandong,323.0,compilation,,,735.4,interpolated/held
+1969,Shandong,345.0,compilation,,,735.4,interpolated/held
+1970,Shandong,563.0,compilation,,,735.4,interpolated/held
+1971,Shandong,608.0,compilation,,,735.4,interpolated/held
+1972,Shandong,323.0,compilation,,,735.4,interpolated/held
+1973,Shandong,405.0,compilation,,,735.4,interpolated/held
+1974,Shandong,293.0,compilation,,,735.4,interpolated/held
+1975,Shandong,383.0,compilation,,,735.4,interpolated/held
+1976,Shandong,248.0,compilation,,,735.4,interpolated/held
+1977,Shandong,240.0,compilation,,,735.4,interpolated/held
+1978,Shandong,248.0,compilation,,,735.4,interpolated/held
+1979,Shandong,308.0,compilation,,,735.4,interpolated/held
+1980,Shandong,728.0,compilation,,,735.4,interpolated/held
+1981,Shandong,720.0,compilation,,,735.4,interpolated/held
+1982,Shandong,720.0,compilation,,,735.4,interpolated/held
+1983,Shandong,818.0,compilation,,,735.4,interpolated/held
+1984,Shandong,1005.0,compilation,,,735.4,interpolated/held
+1985,Shandong,915.0,compilation,,,735.4,interpolated/held
+1986,Shandong,930.0,compilation,,,735.4,interpolated/held
+1987,Shandong,1020.0,compilation,,,735.4,interpolated/held
+1988,Shandong,810.0,compilation,,,735.4,interpolated/held
+1989,Shandong,780.0,compilation,,,735.4,interpolated/held
+1990,Shandong,690.0,compilation,,,735.4,interpolated/held
+1991,Shandong,870.0,compilation,,,735.4,interpolated/held
+1992,Shandong,455.0,compilation,,,735.4,interpolated/held
+1993,Shandong,540.0,compilation,,,735.4,interpolated/held
+1994,Shandong,705.0,compilation,,,735.4,interpolated/held
+1995,Shandong,707.0,compilation,,,735.4,interpolated/held
+1996,Shandong,773.0,compilation,,,735.4,interpolated/held
+1997,Shandong,894.0,compilation,,,735.4,interpolated/held
+1998,Shandong,996.0,compilation,,,735.4,interpolated/held
+1999,Shandong,946.0,compilation,,,735.4,interpolated/held
+2000,Shandong,1037.0,compilation,,,735.4,interpolated/held
+2001,Shandong,1062.0,compilation,735.4,NBS yearbook 2002 sown area,735.4,official
+2002,Shandong,1086.0,compilation,,,774.3199999999999,interpolated/held
+2003,Shandong,994.0,compilation,,,813.24,interpolated/held
+2004,Shandong,1036.0,compilation,,,852.16,interpolated/held
+2005,Shandong,1000.0,compilation,,,891.0799999999999,interpolated/held
+2006,Shandong,1100.0,NBS yearbook,930.0,NBS yearbook,930.0,official
+2007,Shandong,1112.0,NBS yearbook,900.2,NBS yearbook,900.2,official
+2008,Shandong,1312.0,compilation,793.4,NBS yearbook output / yield,793.4,official
+2009,Shandong,1151.0,NBS yearbook,800.2,NBS yearbook,800.2,official
+2010,Shandong,945.0,NBS yearbook,766.1,NBS yearbook,766.1,official
+2011,Shandong,1043.0,NBS yearbook,752.6,NBS yearbook,752.6,official
+2012,Shandong,1012.5,NBS yearbook,689.9,NBS yearbook,689.9,official
+2013,Shandong,922.9,NBS yearbook,672.8,NBS yearbook,672.8,official
+2014,Shandong,1193.0,compilation,,,588.8833333333333,interpolated/held
+2015,Shandong,1059.0,compilation,,,504.96666666666664,interpolated/held
+2016,Shandong,1178.0,compilation,,,421.04999999999995,interpolated/held
+2017,Shandong,1186.0,compilation,,,337.1333333333333,interpolated/held
+2019,Shandong,1158.0,NBS bulletin,169.3,NBS bulletin,169.3,official
+2020,Shandong,1280.6,NBS bulletin,142.9,NBS bulletin,142.9,official
+2021,Shandong,1272.9,NBS bulletin,110.2,NBS bulletin,110.2,official
+2022,Shandong,1277.8,NBS bulletin,113.3,NBS bulletin,113.3,official
+2023,Shandong,1303.9,NBS bulletin,96.5,NBS bulletin,96.5,official
+2024,Shandong,1273.9,NBS bulletin,99.8,NBS bulletin,99.8,official
+2025,Shandong,1250.9,NBS bulletin,102.5,NBS bulletin,102.5,official
+1961,Shanghai,465.0,compilation,,,1.1,interpolated/held
+1962,Shanghai,413.0,compilation,,,1.1,interpolated/held
+1963,Shanghai,608.0,compilation,,,1.1,interpolated/held
+1964,Shanghai,855.0,compilation,,,1.1,interpolated/held
+1965,Shanghai,878.0,compilation,,,1.1,interpolated/held
+1966,Shanghai,930.0,compilation,,,1.1,interpolated/held
+1967,Shanghai,848.0,compilation,,,1.1,interpolated/held
+1968,Shanghai,1185.0,compilation,,,1.1,interpolated/held
+1969,Shanghai,983.0,compilation,,,1.1,interpolated/held
+1970,Shanghai,555.0,compilation,,,1.1,interpolated/held
+1971,Shanghai,578.0,compilation,,,1.1,interpolated/held
+1972,Shanghai,855.0,compilation,,,1.1,interpolated/held
+1973,Shanghai,960.0,compilation,,,1.1,interpolated/held
+1974,Shanghai,893.0,compilation,,,1.1,interpolated/held
+1975,Shanghai,953.0,compilation,,,1.1,interpolated/held
+1976,Shanghai,690.0,compilation,,,1.1,interpolated/held
+1977,Shanghai,683.0,compilation,,,1.1,interpolated/held
+1978,Shanghai,1268.0,compilation,,,1.1,interpolated/held
+1979,Shanghai,953.0,compilation,,,1.1,interpolated/held
+1980,Shanghai,735.0,compilation,,,1.1,interpolated/held
+1981,Shanghai,630.0,compilation,,,1.1,interpolated/held
+1982,Shanghai,743.0,compilation,,,1.1,interpolated/held
+1983,Shanghai,780.0,compilation,,,1.1,interpolated/held
+1984,Shanghai,1133.0,compilation,,,1.1,interpolated/held
+1985,Shanghai,690.0,compilation,,,1.1,interpolated/held
+1986,Shanghai,660.0,compilation,,,1.1,interpolated/held
+1987,Shanghai,750.0,compilation,,,1.1,interpolated/held
+1988,Shanghai,810.0,compilation,,,1.1,interpolated/held
+1989,Shanghai,720.0,compilation,,,1.1,interpolated/held
+1990,Shanghai,945.0,compilation,,,1.1,interpolated/held
+1991,Shanghai,1170.0,compilation,,,1.1,interpolated/held
+1992,Shanghai,964.0,compilation,,,1.1,interpolated/held
+1993,Shanghai,911.0,compilation,,,1.1,interpolated/held
+1994,Shanghai,949.0,compilation,,,1.1,interpolated/held
+1995,Shanghai,1087.0,compilation,,,1.1,interpolated/held
+1996,Shanghai,1382.0,compilation,,,1.1,interpolated/held
+1997,Shanghai,1119.0,compilation,,,1.1,interpolated/held
+1998,Shanghai,1058.0,compilation,,,1.1,interpolated/held
+1999,Shanghai,1092.0,compilation,,,1.1,interpolated/held
+2000,Shanghai,1162.0,compilation,,,1.1,interpolated/held
+2001,Shanghai,1292.0,compilation,1.1,NBS yearbook 2002 sown area,1.1,official
+2002,Shanghai,1233.0,compilation,,,1.12,interpolated/held
+2003,Shanghai,1429.0,compilation,,,1.1400000000000001,interpolated/held
+2004,Shanghai,1612.0,compilation,,,1.16,interpolated/held
+2005,Shanghai,1628.0,compilation,,,1.18,interpolated/held
+2006,Shanghai,1666.0,NBS yearbook,1.2,NBS yearbook,1.2,official
+2007,Shanghai,1793.0,NBS yearbook,1.7,NBS yearbook,1.7,official
+2008,Shanghai,2134.0,compilation,,,1.6,interpolated/held
+2009,Shanghai,1983.0,NBS yearbook,1.5,NBS yearbook,1.5,official
+2010,Shanghai,1454.0,NBS yearbook,2.8,NBS yearbook,2.8,official
+2011,Shanghai,1940.0,NBS yearbook,2.6,NBS yearbook,2.6,official
+2012,Shanghai,1934.4,NBS yearbook,2.0,NBS yearbook,2.0,official
+2013,Shanghai,1955.2,NBS yearbook,2.0,NBS yearbook,2.0,official
+2014,Shanghai,1525.0,compilation,,,2.0,interpolated/held
+2015,Shanghai,1088.0,compilation,,,2.0,interpolated/held
+2016,Shanghai,2977.0,compilation,,,2.0,interpolated/held
+2017,Shanghai,1024.0,compilation,,,2.0,interpolated/held
+1961,Shanxi,240.0,compilation,,,90.1,interpolated/held
+1962,Shanxi,225.0,compilation,,,90.1,interpolated/held
+1963,Shanxi,300.0,compilation,,,90.1,interpolated/held
+1964,Shanxi,338.0,compilation,,,90.1,interpolated/held
+1965,Shanxi,405.0,compilation,,,90.1,interpolated/held
+1966,Shanxi,330.0,compilation,,,90.1,interpolated/held
+1967,Shanxi,323.0,compilation,,,90.1,interpolated/held
+1968,Shanxi,285.0,compilation,,,90.1,interpolated/held
+1969,Shanxi,368.0,compilation,,,90.1,interpolated/held
+1970,Shanxi,75.0,compilation,,,90.1,interpolated/held
+1971,Shanxi,209.0,compilation,,,90.1,interpolated/held
+1972,Shanxi,203.0,compilation,,,90.1,interpolated/held
+1973,Shanxi,383.0,compilation,,,90.1,interpolated/held
+1974,Shanxi,300.0,compilation,,,90.1,interpolated/held
+1975,Shanxi,293.0,compilation,,,90.1,interpolated/held
+1976,Shanxi,255.0,compilation,,,90.1,interpolated/held
+1977,Shanxi,300.0,compilation,,,90.1,interpolated/held
+1978,Shanxi,293.0,compilation,,,90.1,interpolated/held
+1979,Shanxi,293.0,compilation,,,90.1,interpolated/held
+1980,Shanxi,345.0,compilation,,,90.1,interpolated/held
+1981,Shanxi,323.0,compilation,,,90.1,interpolated/held
+1982,Shanxi,540.0,compilation,,,90.1,interpolated/held
+1983,Shanxi,420.0,compilation,,,90.1,interpolated/held
+1984,Shanxi,608.0,compilation,,,90.1,interpolated/held
+1985,Shanxi,600.0,compilation,,,90.1,interpolated/held
+1986,Shanxi,690.0,compilation,,,90.1,interpolated/held
+1987,Shanxi,780.0,compilation,,,90.1,interpolated/held
+1988,Shanxi,750.0,compilation,,,90.1,interpolated/held
+1989,Shanxi,855.0,compilation,,,90.1,interpolated/held
+1990,Shanxi,855.0,compilation,,,90.1,interpolated/held
+1991,Shanxi,765.0,compilation,,,90.1,interpolated/held
+1992,Shanxi,630.0,compilation,,,90.1,interpolated/held
+1993,Shanxi,750.0,compilation,,,90.1,interpolated/held
+1994,Shanxi,657.0,compilation,,,90.1,interpolated/held
+1995,Shanxi,715.0,compilation,,,90.1,interpolated/held
+1996,Shanxi,782.0,compilation,,,90.1,interpolated/held
+1997,Shanxi,649.0,compilation,,,90.1,interpolated/held
+1998,Shanxi,855.0,compilation,,,90.1,interpolated/held
+1999,Shanxi,837.0,compilation,,,90.1,interpolated/held
+2000,Shanxi,1041.0,compilation,,,90.1,interpolated/held
+2001,Shanxi,930.0,compilation,90.1,NBS yearbook 2002 sown area,90.1,official
+2002,Shanxi,1033.0,compilation,,,93.94,interpolated/held
+2003,Shanxi,1002.0,compilation,,,97.78,interpolated/held
+2004,Shanxi,1048.0,compilation,,,101.62,interpolated/held
+2005,Shanxi,1056.0,compilation,,,105.46,interpolated/held
+2006,Shanxi,1080.0,NBS yearbook,109.3,NBS yearbook,109.3,official
+2007,Shanxi,1107.0,NBS yearbook,103.9,NBS yearbook,103.9,official
+2008,Shanxi,1287.0,compilation,83.1,NBS yearbook output / yield,83.1,official
+2009,Shanxi,1146.0,NBS yearbook,73.3,NBS yearbook,73.3,official
+2010,Shanxi,1180.0,NBS yearbook,58.5,NBS yearbook,58.5,official
+2011,Shanxi,1188.0,NBS yearbook,53.0,NBS yearbook,53.0,official
+2012,Shanxi,1257.4,NBS yearbook,37.4,NBS yearbook,37.4,official
+2013,Shanxi,1306.9,NBS yearbook,23.4,NBS yearbook,23.4,official
+2014,Shanxi,1015.0,compilation,,,19.883333333333333,interpolated/held
+2015,Shanxi,1001.0,compilation,,,16.366666666666667,interpolated/held
+2016,Shanxi,1465.0,compilation,,,12.85,interpolated/held
+2017,Shanxi,1400.0,compilation,,,9.333333333333334,interpolated/held
+2019,Shanxi,1307.9,NBS bulletin,2.3,NBS bulletin,2.3,official
+2020,Shanxi,1377.2,NBS bulletin,1.1,NBS bulletin,1.1,official
+1961,Sichuan,113.0,compilation,,,66.4,interpolated/held
+1962,Sichuan,120.0,compilation,,,66.4,interpolated/held
+1963,Sichuan,218.0,compilation,,,66.4,interpolated/held
+1964,Sichuan,368.0,compilation,,,66.4,interpolated/held
+1965,Sichuan,390.0,compilation,,,66.4,interpolated/held
+1966,Sichuan,585.0,compilation,,,66.4,interpolated/held
+1967,Sichuan,585.0,compilation,,,66.4,interpolated/held
+1968,Sichuan,480.0,compilation,,,66.4,interpolated/held
+1969,Sichuan,465.0,compilation,,,66.4,interpolated/held
+1970,Sichuan,473.0,compilation,,,66.4,interpolated/held
+1971,Sichuan,555.0,compilation,,,66.4,interpolated/held
+1972,Sichuan,480.0,compilation,,,66.4,interpolated/held
+1973,Sichuan,555.0,compilation,,,66.4,interpolated/held
+1974,Sichuan,435.0,compilation,,,66.4,interpolated/held
+1975,Sichuan,465.0,compilation,,,66.4,interpolated/held
+1976,Sichuan,315.0,compilation,,,66.4,interpolated/held
+1977,Sichuan,488.0,compilation,,,66.4,interpolated/held
+1978,Sichuan,548.0,compilation,,,66.4,interpolated/held
+1979,Sichuan,443.0,compilation,,,66.4,interpolated/held
+1980,Sichuan,375.0,compilation,,,66.4,interpolated/held
+1981,Sichuan,360.0,compilation,,,66.4,interpolated/held
+1982,Sichuan,600.0,compilation,,,66.4,interpolated/held
+1983,Sichuan,803.0,compilation,,,66.4,interpolated/held
+1984,Sichuan,960.0,compilation,,,66.4,interpolated/held
+1985,Sichuan,900.0,compilation,,,66.4,interpolated/held
+1986,Sichuan,825.0,compilation,,,66.4,interpolated/held
+1987,Sichuan,885.0,compilation,,,66.4,interpolated/held
+1988,Sichuan,660.0,compilation,,,66.4,interpolated/held
+1989,Sichuan,735.0,compilation,,,66.4,interpolated/held
+1990,Sichuan,930.0,compilation,,,66.4,interpolated/held
+1991,Sichuan,990.0,compilation,,,66.4,interpolated/held
+1992,Sichuan,934.0,compilation,,,66.4,interpolated/held
+1993,Sichuan,623.0,compilation,,,66.4,interpolated/held
+1994,Sichuan,514.0,compilation,,,66.4,interpolated/held
+1995,Sichuan,797.0,compilation,,,66.4,interpolated/held
+1996,Sichuan,799.0,compilation,,,66.4,interpolated/held
+1997,Sichuan,771.0,compilation,,,66.4,interpolated/held
+1998,Sichuan,728.0,compilation,,,66.4,interpolated/held
+1999,Sichuan,807.0,compilation,,,66.4,interpolated/held
+2000,Sichuan,840.0,compilation,,,66.4,interpolated/held
+2001,Sichuan,448.0,compilation,66.4,NBS yearbook 2002 sown area,66.4,official
+2002,Sichuan,716.0,compilation,,,58.10000000000001,interpolated/held
+2003,Sichuan,812.0,compilation,,,49.800000000000004,interpolated/held
+2004,Sichuan,924.0,compilation,,,41.5,interpolated/held
+2005,Sichuan,888.0,compilation,,,33.2,interpolated/held
+2006,Sichuan,643.0,NBS yearbook,24.9,NBS yearbook,24.9,official
+2007,Sichuan,774.0,NBS yearbook,22.0,NBS yearbook,22.0,official
+2008,Sichuan,852.0,compilation,18.8,NBS yearbook output / yield,18.8,official
+2009,Sichuan,917.0,NBS yearbook,16.4,NBS yearbook,16.4,official
+2010,Sichuan,876.0,NBS yearbook,16.0,NBS yearbook,16.0,official
+2011,Sichuan,913.0,NBS yearbook,16.4,NBS yearbook,16.4,official
+2012,Sichuan,912.3,NBS yearbook,14.6,NBS yearbook,14.6,official
+2013,Sichuan,942.4,NBS yearbook,13.8,NBS yearbook,13.8,official
+2014,Sichuan,943.0,compilation,,,11.983333333333334,interpolated/held
+2015,Sichuan,971.0,compilation,,,10.166666666666668,interpolated/held
+2016,Sichuan,1105.0,compilation,,,8.350000000000001,interpolated/held
+2017,Sichuan,972.0,compilation,,,6.533333333333334,interpolated/held
+2019,Sichuan,975.1,NBS bulletin,2.9,NBS bulletin,2.9,official
+2020,Sichuan,950.0,NBS bulletin,2.3,NBS bulletin,2.3,official
+2021,Sichuan,960.7,NBS bulletin,2.1,NBS bulletin,2.1,official
+1961,Tianjin,127.0,compilation,,,45.0,interpolated/held
+1962,Tianjin,182.0,compilation,,,45.0,interpolated/held
+1963,Tianjin,229.0,compilation,,,45.0,interpolated/held
+1964,Tianjin,275.0,compilation,,,45.0,interpolated/held
+1965,Tianjin,385.0,compilation,,,45.0,interpolated/held
+1966,Tianjin,308.0,compilation,,,45.0,interpolated/held
+1967,Tianjin,443.0,compilation,,,45.0,interpolated/held
+1968,Tianjin,488.0,compilation,,,45.0,interpolated/held
+1969,Tianjin,180.0,compilation,,,45.0,interpolated/held
+1970,Tianjin,435.0,compilation,,,45.0,interpolated/held
+1971,Tianjin,420.0,compilation,,,45.0,interpolated/held
+1972,Tianjin,210.0,compilation,,,45.0,interpolated/held
+1973,Tianjin,225.0,compilation,,,45.0,interpolated/held
+1974,Tianjin,278.0,compilation,,,45.0,interpolated/held
+1975,Tianjin,270.0,compilation,,,45.0,interpolated/held
+1976,Tianjin,105.0,compilation,,,45.0,interpolated/held
+1977,Tianjin,90.0,compilation,,,45.0,interpolated/held
+1978,Tianjin,120.0,compilation,,,45.0,interpolated/held
+1979,Tianjin,105.0,compilation,,,45.0,interpolated/held
+1980,Tianjin,195.0,compilation,,,45.0,interpolated/held
+1981,Tianjin,225.0,compilation,,,45.0,interpolated/held
+1982,Tianjin,435.0,compilation,,,45.0,interpolated/held
+1983,Tianjin,623.0,compilation,,,45.0,interpolated/held
+1984,Tianjin,863.0,compilation,,,45.0,interpolated/held
+1985,Tianjin,825.0,compilation,,,45.0,interpolated/held
+1986,Tianjin,1005.0,compilation,,,45.0,interpolated/held
+1987,Tianjin,795.0,compilation,,,45.0,interpolated/held
+1988,Tianjin,555.0,compilation,,,45.0,interpolated/held
+1989,Tianjin,735.0,compilation,,,45.0,interpolated/held
+1990,Tianjin,855.0,compilation,,,45.0,interpolated/held
+1991,Tianjin,855.0,compilation,,,45.0,interpolated/held
+1992,Tianjin,566.0,compilation,,,45.0,interpolated/held
+1993,Tianjin,776.0,compilation,,,45.0,interpolated/held
+1994,Tianjin,408.0,compilation,,,45.0,interpolated/held
+1995,Tianjin,651.0,compilation,,,45.0,interpolated/held
+1996,Tianjin,776.0,compilation,,,45.0,interpolated/held
+1997,Tianjin,890.0,compilation,,,45.0,interpolated/held
+1998,Tianjin,1030.0,compilation,,,45.0,interpolated/held
+1999,Tianjin,947.0,compilation,,,45.0,interpolated/held
+2000,Tianjin,1165.0,compilation,,,45.0,interpolated/held
+2001,Tianjin,1414.0,compilation,45.0,NBS yearbook 2002 sown area,45.0,official
+2002,Tianjin,1392.0,compilation,,,51.8,interpolated/held
+2003,Tianjin,1341.0,compilation,,,58.6,interpolated/held
+2004,Tianjin,1385.0,compilation,,,65.4,interpolated/held
+2005,Tianjin,1364.0,compilation,,,72.2,interpolated/held
+2006,Tianjin,1379.0,NBS yearbook,79.0,NBS yearbook,79.0,official
+2007,Tianjin,1380.0,NBS yearbook,67.4,NBS yearbook,67.4,official
+2008,Tianjin,1199.0,compilation,69.2,NBS yearbook output / yield,69.2,official
+2009,Tianjin,1275.0,NBS yearbook,55.7,NBS yearbook,55.7,official
+2010,Tianjin,1211.0,NBS yearbook,52.0,NBS yearbook,52.0,official
+2011,Tianjin,1204.0,NBS yearbook,59.8,NBS yearbook,59.8,official
+2012,Tianjin,1038.9,NBS yearbook,55.4,NBS yearbook,55.4,official
+2013,Tianjin,1237.1,NBS yearbook,39.2,NBS yearbook,39.2,official
+2014,Tianjin,1265.0,compilation,,,35.016666666666666,interpolated/held
+2015,Tianjin,1357.0,compilation,,,30.833333333333336,interpolated/held
+2016,Tianjin,1624.0,compilation,,,26.650000000000002,interpolated/held
+2017,Tianjin,1200.0,compilation,,,22.46666666666667,interpolated/held
+2019,Tianjin,1262.0,NBS bulletin,14.1,NBS bulletin,14.1,official
+2020,Tianjin,1141.5,NBS bulletin,8.8,NBS bulletin,8.8,official
+2021,Tianjin,1085.1,NBS bulletin,3.7,NBS bulletin,3.7,official
+2022,Tianjin,1301.9,NBS bulletin,2.5,NBS bulletin,2.5,official
+2023,Tianjin,1282.8,NBS bulletin,1.1,NBS bulletin,1.1,official
+2024,Tianjin,1338.5,NBS bulletin,0.9,NBS bulletin,0.9,official
+2025,Tianjin,1390.0,NBS bulletin,0.8,NBS bulletin,0.8,official
+1961,Xinjiang,225.0,compilation,,,1129.7,interpolated/held
+1962,Xinjiang,240.0,compilation,,,1129.7,interpolated/held
+1963,Xinjiang,285.0,compilation,,,1129.7,interpolated/held
+1964,Xinjiang,323.0,compilation,,,1129.7,interpolated/held
+1965,Xinjiang,480.0,compilation,,,1129.7,interpolated/held
+1966,Xinjiang,465.0,compilation,,,1129.7,interpolated/held
+1967,Xinjiang,458.0,compilation,,,1129.7,interpolated/held
+1968,Xinjiang,420.0,compilation,,,1129.7,interpolated/held
+1969,Xinjiang,338.0,compilation,,,1129.7,interpolated/held
+1970,Xinjiang,473.0,compilation,,,1129.7,interpolated/held
+1971,Xinjiang,390.0,compilation,,,1129.7,interpolated/held
+1972,Xinjiang,330.0,compilation,,,1129.7,interpolated/held
+1973,Xinjiang,443.0,compilation,,,1129.7,interpolated/held
+1974,Xinjiang,383.0,compilation,,,1129.7,interpolated/held
+1975,Xinjiang,315.0,compilation,,,1129.7,interpolated/held
+1976,Xinjiang,360.0,compilation,,,1129.7,interpolated/held
+1977,Xinjiang,338.0,compilation,,,1129.7,interpolated/held
+1978,Xinjiang,368.0,compilation,,,1129.7,interpolated/held
+1979,Xinjiang,330.0,compilation,,,1129.7,interpolated/held
+1980,Xinjiang,435.0,compilation,,,1129.7,interpolated/held
+1981,Xinjiang,488.0,compilation,,,1129.7,interpolated/held
+1982,Xinjiang,510.0,compilation,,,1129.7,interpolated/held
+1983,Xinjiang,570.0,compilation,,,1129.7,interpolated/held
+1984,Xinjiang,683.0,compilation,,,1129.7,interpolated/held
+1985,Xinjiang,750.0,compilation,,,1129.7,interpolated/held
+1986,Xinjiang,780.0,compilation,,,1129.7,interpolated/held
+1987,Xinjiang,780.0,compilation,,,1129.7,interpolated/held
+1988,Xinjiang,780.0,compilation,,,1129.7,interpolated/held
+1989,Xinjiang,810.0,compilation,,,1129.7,interpolated/held
+1990,Xinjiang,1080.0,compilation,,,1129.7,interpolated/held
+1991,Xinjiang,1170.0,compilation,,,1129.7,interpolated/held
+1992,Xinjiang,1038.0,compilation,,,1129.7,interpolated/held
+1993,Xinjiang,1121.0,compilation,,,1129.7,interpolated/held
+1994,Xinjiang,1176.0,compilation,,,1129.7,interpolated/held
+1995,Xinjiang,1338.0,compilation,,,1129.7,interpolated/held
+1996,Xinjiang,1177.0,compilation,,,1129.7,interpolated/held
+1997,Xinjiang,1301.0,compilation,,,1129.7,interpolated/held
+1998,Xinjiang,1401.0,compilation,,,1129.7,interpolated/held
+1999,Xinjiang,1360.0,compilation,,,1129.7,interpolated/held
+2000,Xinjiang,1438.0,compilation,,,1129.7,interpolated/held
+2001,Xinjiang,1291.0,compilation,1129.7,NBS yearbook 2002 sown area,1129.7,official
+2002,Xinjiang,1565.0,compilation,,,1157.56,interpolated/held
+2003,Xinjiang,1516.0,compilation,,,1185.42,interpolated/held
+2004,Xinjiang,1568.0,compilation,,,1213.28,interpolated/held
+2005,Xinjiang,1615.0,compilation,,,1241.14,interpolated/held
+2006,Xinjiang,1725.0,NBS yearbook,1269.0,NBS yearbook,1269.0,official
+2007,Xinjiang,1690.0,NBS yearbook,1782.8,NBS yearbook,1782.8,official
+2008,Xinjiang,1871.0,compilation,1617.3,NBS yearbook output / yield,1617.3,official
+2009,Xinjiang,1791.0,NBS yearbook,1409.3,NBS yearbook,1409.3,official
+2010,Xinjiang,1697.0,NBS yearbook,1460.8,NBS yearbook,1460.8,official
+2011,Xinjiang,1769.0,NBS yearbook,1638.2,NBS yearbook,1638.2,official
+2012,Xinjiang,2056.8,NBS yearbook,1720.8,NBS yearbook,1720.8,official
+2013,Xinjiang,2047.2,NBS yearbook,1718.3,NBS yearbook,1718.3,official
+2014,Xinjiang,1911.0,compilation,,,1855.3333333333333,interpolated/held
+2015,Xinjiang,1955.0,compilation,,,1992.3666666666666,interpolated/held
+2016,Xinjiang,1980.0,compilation,,,2129.4,interpolated/held
+2017,Xinjiang,2059.0,compilation,,,2266.4333333333334,interpolated/held
+2019,Xinjiang,1969.1,NBS bulletin,2540.5,NBS bulletin,2540.5,official
+2020,Xinjiang,2062.7,NBS bulletin,2501.9,NBS bulletin,2501.9,official
+2021,Xinjiang,2046.4,NBS bulletin,2506.1,NBS bulletin,2506.1,official
+2022,Xinjiang,2158.9,NBS bulletin,2496.9,NBS bulletin,2496.9,official
+2023,Xinjiang,2157.8,NBS bulletin,2369.3,NBS bulletin,2369.3,official
+2024,Xinjiang,2322.8,NBS bulletin,2447.9,NBS bulletin,2447.9,official
+2025,Xinjiang,2378.8,NBS bulletin,2591.6,NBS bulletin,2591.6,official
+1961,Yunnan,128.0,compilation,,,1.0,interpolated/held
+1962,Yunnan,195.0,compilation,,,1.0,interpolated/held
+1963,Yunnan,210.0,compilation,,,1.0,interpolated/held
+1964,Yunnan,300.0,compilation,,,1.0,interpolated/held
+1965,Yunnan,465.0,compilation,,,1.0,interpolated/held
+1966,Yunnan,285.0,compilation,,,1.0,interpolated/held
+1967,Yunnan,330.0,compilation,,,1.0,interpolated/held
+1968,Yunnan,278.0,compilation,,,1.0,interpolated/held
+1969,Yunnan,315.0,compilation,,,1.0,interpolated/held
+1970,Yunnan,300.0,compilation,,,1.0,interpolated/held
+1971,Yunnan,195.0,compilation,,,1.0,interpolated/held
+1972,Yunnan,173.0,compilation,,,1.0,interpolated/held
+1973,Yunnan,203.0,compilation,,,1.0,interpolated/held
+1974,Yunnan,180.0,compilation,,,1.0,interpolated/held
+1975,Yunnan,225.0,compilation,,,1.0,interpolated/held
+1976,Yunnan,233.0,compilation,,,1.0,interpolated/held
+1977,Yunnan,240.0,compilation,,,1.0,interpolated/held
+1978,Yunnan,315.0,compilation,,,1.0,interpolated/held
+1979,Yunnan,315.0,compilation,,,1.0,interpolated/held
+1980,Yunnan,255.0,compilation,,,1.0,interpolated/held
+1981,Yunnan,270.0,compilation,,,1.0,interpolated/held
+1982,Yunnan,233.0,compilation,,,1.0,interpolated/held
+1983,Yunnan,203.0,compilation,,,1.0,interpolated/held
+1984,Yunnan,173.0,compilation,,,1.0,interpolated/held
+1985,Yunnan,195.0,compilation,,,1.0,interpolated/held
+1986,Yunnan,195.0,compilation,,,1.0,interpolated/held
+1987,Yunnan,165.0,compilation,,,1.0,interpolated/held
+1988,Yunnan,225.0,compilation,,,1.0,interpolated/held
+1989,Yunnan,285.0,compilation,,,1.0,interpolated/held
+1990,Yunnan,225.0,compilation,,,1.0,interpolated/held
+1991,Yunnan,255.0,compilation,,,1.0,interpolated/held
+1992,Yunnan,290.0,compilation,,,1.0,interpolated/held
+1993,Yunnan,259.0,compilation,,,1.0,interpolated/held
+1994,Yunnan,284.0,compilation,,,1.0,interpolated/held
+1995,Yunnan,361.0,compilation,,,1.0,interpolated/held
+1996,Yunnan,342.0,compilation,,,1.0,interpolated/held
+1997,Yunnan,399.0,compilation,,,1.0,interpolated/held
+1998,Yunnan,422.0,compilation,,,1.0,interpolated/held
+1999,Yunnan,393.0,compilation,,,1.0,interpolated/held
+2000,Yunnan,440.0,compilation,,,1.0,interpolated/held
+2001,Yunnan,462.0,compilation,1.0,NBS yearbook 2002 sown area,1.0,official
+2002,Yunnan,397.0,compilation,,,0.9333333333333333,interpolated/held
+2003,Yunnan,378.0,compilation,,,0.8666666666666667,interpolated/held
+2004,Yunnan,428.0,compilation,,,0.8,interpolated/held
+2005,Yunnan,393.0,compilation,,,0.7333333333333334,interpolated/held
+2006,Yunnan,803.0,compilation,,,0.6666666666666667,interpolated/held
+2007,Yunnan,751.0,compilation,,,0.6,interpolated/held
+2008,Yunnan,891.0,compilation,,,0.5333333333333333,interpolated/held
+2009,Yunnan,1009.0,compilation,,,0.4666666666666667,interpolated/held
+2010,Yunnan,1237.0,compilation,,,0.4,interpolated/held
+2011,Yunnan,1648.0,compilation,,,0.33333333333333337,interpolated/held
+2012,Yunnan,2414.0,compilation,,,0.2666666666666667,interpolated/held
+2013,Yunnan,1942.3,NBS yearbook,0.2,NBS yearbook,0.2,official
+2014,Yunnan,2341.0,compilation,,,0.2,interpolated/held
+2015,Yunnan,2818.0,compilation,,,0.2,interpolated/held
+2016,Yunnan,1341.0,compilation,,,0.2,interpolated/held
+2017,Yunnan,1892.0,compilation,,,0.2,interpolated/held
+1961,Zhejiang,533.0,compilation,,,27.7,interpolated/held
+1962,Zhejiang,503.0,compilation,,,27.7,interpolated/held
+1963,Zhejiang,698.0,compilation,,,27.7,interpolated/held
+1964,Zhejiang,773.0,compilation,,,27.7,interpolated/held
+1965,Zhejiang,885.0,compilation,,,27.7,interpolated/held
+1966,Zhejiang,803.0,compilation,,,27.7,interpolated/held
+1967,Zhejiang,780.0,compilation,,,27.7,interpolated/held
+1968,Zhejiang,1035.0,compilation,,,27.7,interpolated/held
+1969,Zhejiang,825.0,compilation,,,27.7,interpolated/held
+1970,Zhejiang,383.0,compilation,,,27.7,interpolated/held
+1971,Zhejiang,315.0,compilation,,,27.7,interpolated/held
+1972,Zhejiang,638.0,compilation,,,27.7,interpolated/held
+1973,Zhejiang,638.0,compilation,,,27.7,interpolated/held
+1974,Zhejiang,713.0,compilation,,,27.7,interpolated/held
+1975,Zhejiang,698.0,compilation,,,27.7,interpolated/held
+1976,Zhejiang,608.0,compilation,,,27.7,interpolated/held
+1977,Zhejiang,600.0,compilation,,,27.7,interpolated/held
+1978,Zhejiang,855.0,compilation,,,27.7,interpolated/held
+1979,Zhejiang,773.0,compilation,,,27.7,interpolated/held
+1980,Zhejiang,773.0,compilation,,,27.7,interpolated/held
+1981,Zhejiang,630.0,compilation,,,27.7,interpolated/held
+1982,Zhejiang,915.0,compilation,,,27.7,interpolated/held
+1983,Zhejiang,885.0,compilation,,,27.7,interpolated/held
+1984,Zhejiang,1268.0,compilation,,,27.7,interpolated/held
+1985,Zhejiang,870.0,compilation,,,27.7,interpolated/held
+1986,Zhejiang,945.0,compilation,,,27.7,interpolated/held
+1987,Zhejiang,930.0,compilation,,,27.7,interpolated/held
+1988,Zhejiang,630.0,compilation,,,27.7,interpolated/held
+1989,Zhejiang,690.0,compilation,,,27.7,interpolated/held
+1990,Zhejiang,930.0,compilation,,,27.7,interpolated/held
+1991,Zhejiang,1110.0,compilation,,,27.7,interpolated/held
+1992,Zhejiang,839.0,compilation,,,27.7,interpolated/held
+1993,Zhejiang,950.0,compilation,,,27.7,interpolated/held
+1994,Zhejiang,898.0,compilation,,,27.7,interpolated/held
+1995,Zhejiang,968.0,compilation,,,27.7,interpolated/held
+1996,Zhejiang,1025.0,compilation,,,27.7,interpolated/held
+1997,Zhejiang,768.0,compilation,,,27.7,interpolated/held
+1998,Zhejiang,1033.0,compilation,,,27.7,interpolated/held
+1999,Zhejiang,1068.0,compilation,,,27.7,interpolated/held
+2000,Zhejiang,1100.0,compilation,,,27.7,interpolated/held
+2001,Zhejiang,1143.0,compilation,27.7,NBS yearbook 2002 sown area,27.7,official
+2002,Zhejiang,1195.0,compilation,,,25.82,interpolated/held
+2003,Zhejiang,1193.0,compilation,,,23.94,interpolated/held
+2004,Zhejiang,1213.0,compilation,,,22.060000000000002,interpolated/held
+2005,Zhejiang,1204.0,compilation,,,20.18,interpolated/held
+2006,Zhejiang,1312.0,NBS yearbook,18.3,NBS yearbook,18.3,official
+2007,Zhejiang,1353.0,NBS yearbook,19.2,NBS yearbook,19.2,official
+2008,Zhejiang,1277.0,compilation,,,19.6,interpolated/held
+2009,Zhejiang,1397.0,NBS yearbook,20.0,NBS yearbook,20.0,official
+2010,Zhejiang,1412.0,NBS yearbook,20.5,NBS yearbook,20.5,official
+2011,Zhejiang,1489.0,NBS yearbook,21.5,NBS yearbook,21.5,official
+2012,Zhejiang,1429.2,NBS yearbook,20.9,NBS yearbook,20.9,official
+2013,Zhejiang,1423.0,NBS yearbook,19.6,NBS yearbook,19.6,official
+2014,Zhejiang,1445.0,compilation,,,17.26666666666667,interpolated/held
+2015,Zhejiang,1431.0,compilation,,,14.933333333333334,interpolated/held
+2016,Zhejiang,1470.0,compilation,,,12.600000000000001,interpolated/held
+2017,Zhejiang,1419.0,compilation,,,10.266666666666667,interpolated/held
+2019,Zhejiang,1454.8,NBS bulletin,5.6,NBS bulletin,5.6,official
+2020,Zhejiang,1426.7,NBS bulletin,4.8,NBS bulletin,4.8,official
+2021,Zhejiang,1391.5,NBS bulletin,4.0,NBS bulletin,4.0,official
+2022,Zhejiang,1387.9,NBS bulletin,3.4,NBS bulletin,3.4,official
+2023,Zhejiang,1388.8,NBS bulletin,2.4,NBS bulletin,2.4,official
+2024,Zhejiang,1394.8,NBS bulletin,1.4,NBS bulletin,1.4,official
+2025,Zhejiang,1405.0,NBS bulletin,1.1,NBS bulletin,1.1,official

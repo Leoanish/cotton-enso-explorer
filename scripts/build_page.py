@@ -16,6 +16,9 @@ geo = json.dumps({
     'BR': {'states': L('br_states.json'), 'polys': L('br_polys.json')},
     'IN': {'states': L('in_states.json'), 'polys': L('in_polys.json')},
     'AR': {'states': L('ar_provinces.json'), 'polys': L('ar_polys.json')},
+    'CN': {'states': L('cn_states.json'), 'polys': L('cn_polys.json')},
+    'PK': {'states': L('pk_states.json'), 'polys': L('pk_polys.json')},
+    'AU': {'states': L('au_states.json'), 'polys': L('au_polys.json')},
     'WORLD': L('world.json'),
 }, separators=(',', ':'))
 app = open(SRC / 'app.js').read()

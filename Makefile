@@ -1,6 +1,6 @@
 PY ?= python3
 
-.PHONY: all geo data page sst install
+.PHONY: all geo data page sst install sources video
 
 all: geo data page
 
@@ -20,3 +20,15 @@ page:
 sst:
 	@test -f data/raw/ersst/sst.mnmean.nc || scripts/fetch_ersst.sh
 	$(PY) scripts/build_sst.py
+
+sources:   # re-parse the raw China / Pakistan / India-extension files (only needed if data/raw changes)
+	$(PY) scripts/parse_china.py
+	$(PY) scripts/parse_pakistan_pbs.py data/raw/pakistan/pbs_districts_1981_2008.pdf data/raw/pakistan/pakistan_district_cotton_1981_2008.csv
+	$(PY) scripts/parse_pakistan_punjab.py
+	$(PY) scripts/parse_pakistan_sindh.py
+	$(PY) scripts/parse_pakistan_mnfsr.py
+	$(PY) scripts/extend_india.py
+	$(PY) scripts/parse_australia.py
+
+video:
+	$(PY) scripts/build_video.py

@@ -116,7 +116,7 @@ input[type=checkbox]{accent-color:var(--accent)}
 .navgrp{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);padding:0 4px 0 6px;align-self:center}
 .navsep{width:1px;height:22px;background:var(--line-2);margin:0 8px;align-self:center}
 .allc{display:none;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px} .allc span{font-weight:600;font-size:13px;color:var(--ink);margin-left:4px}
-#crumbs .cty{display:contents} body.global #countryTabs{display:none} body.global .allc{display:flex} body.global #crumbs .cty{display:none}
+.xb{font-size:10px;font-weight:800;color:var(--accent);margin-left:2px;vertical-align:super} .xbanner{background:color-mix(in srgb,var(--accent) 10%,var(--panel));border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));border-radius:10px;padding:8px 12px;font-size:12.5px;color:var(--ink-2);margin:0 0 10px} #crumbs .cty{display:contents} body.global #countryTabs{display:none} body.global .allc{display:flex} body.global #crumbs .cty{display:none}
 @media(max-width:700px){.navgrp{display:none}}
 .stack{display:grid;grid-template-columns:1fr;gap:14px}
 .src-hero{display:flex;gap:18px;align-items:center;flex-wrap:wrap;background:linear-gradient(135deg,color-mix(in srgb,var(--nina) 9%,var(--panel)),color-mix(in srgb,var(--nino) 9%,var(--panel)));border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:4px 0 18px}
@@ -138,7 +138,7 @@ input[type=checkbox]{accent-color:var(--accent)}
   <header class="top">
     <div class="brand"><h1>Cotton × ENSO Explorer</h1><p>How El Niño and La Niña move cotton yields — country, state and county.</p></div>
     <div class="spacer"></div>
-    <div class="tabs" id="countryTabs"></div><div class="allc" id="allCountries">🇺🇸 🇧🇷 🇮🇳 🇦🇷 <span>All four countries</span></div>
+    <div class="tabs" id="countryTabs"></div><div class="allc" id="allCountries">🇺🇸 🇧🇷 🇮🇳 🇦🇷 🇨🇳 🇵🇰 🇦🇺 <span>All countries</span></div>
     <button class="btn" id="themeBtn" title="Toggle theme">☾ / ☀</button>
   </header>
   <div class="ctrlbar">
@@ -152,6 +152,7 @@ input[type=checkbox]{accent-color:var(--accent)}
         <div class="row-s"><div>Years<small>Restrict the analysis window</small></div><div class="seg" id="rangeSeg"><button data-r="all" class="active">All</button><button data-r="1980">1980→</button><button data-r="2000">2000→</button></div></div>
         <div class="row-s"><div>Which events count<small>Weak events are left out of every group</small></div><div class="seg" id="intSeg"><button data-i="weak" class="active">All</button><button data-i="moderate">Moderate+</button><button data-i="strong">Strong+</button></div></div>
         <div class="row-s"><div>Count a multi-year event as<small>Per event averages its crop years</small></div><div class="seg" id="wSeg"><button data-w="year" class="active">per year</button><button data-w="event">per event</button></div></div>
+        <div class="row-s"><div>Exploratory countries β<small>China, Pakistan and Australia in cross-country views</small></div><div class="seg" id="exSeg"><button data-x="on" class="active">Include</button><button data-x="off">Core 4 only</button></div></div>
         <div class="row-s" id="practiceRow"><div>US practice<small>Counties reporting by irrigation, 1972–2018</small></div><div class="seg" id="varSeg"></div></div>
       </div>
     </div>
@@ -221,6 +222,12 @@ input[type=checkbox]{accent-color:var(--accent)}
         <div class="intervals"><div><div class="muted" style="font-size:12px;margin-bottom:4px">Years between same-type events (onset → onset)</div><div id="gapChart"></div></div><div><div class="muted" style="font-size:12px;margin-bottom:4px">Duration vs peak</div><div id="durChart"></div></div></div></div>
       <div class="card"><div class="card-title"><h2>Which crop years count, by country</h2><span class="hint">Each country's growing window decides which harvest an event hits</span></div><div id="phaseStrip"></div><p class="muted" style="font-size:12px;margin:8px 0 0">Each square is a crop year, coloured by the mean ONI over that country's growing window. Line up a column to see one event landing on different harvests north and south of the equator. Faded = weak event, left out by your settings.</p></div>
     </div>
+    <div class="card" style="margin-top:14px"><div class="card-title"><h2>76 winters in under a minute</h2><span class="hint">Animation · every mapped cotton area lit up by its yield in the crop year each ENSO winter touches</span><div class="controls"><a class="btn sm" href="media/enso_cotton_1950_2025.mp4" download>⤓ MP4</a><a class="btn sm" href="media/enso_cotton_1950_2025.gif" download>⤓ GIF</a></div></div>
+      <video id="ensoVideo" controls muted loop playsinline preload="metadata" style="width:100%;border-radius:10px;background:#0e1117;display:block">
+        <source src="media/enso_cotton_1950_2025.mp4" type="video/mp4">
+        <source src="https://leoanish.github.io/cotton-enso-explorer/media/enso_cotton_1950_2025.mp4" type="video/mp4">
+      </video>
+      <div class="cap">Each frame is one winter, 1950–51 to 2025–26. <b>Ocean:</b> observed Nov–Jan sea-surface temperature anomaly (NOAA ERSST v5, vs 1991–2020) — the red or blue tongue in the dashed Niño 3.4 box is El Niño or La Niña. <b>Dots:</b> every mapped cotton area (size = cotton area), coloured by its yield deviation from its own trend in the crop year that winter touches: the northern crop harvested that autumn (US, India, China, Pakistan) and the southern crop harvested the following autumn (Brazil, Argentina, Australia). Hollow = no data that year. Labels give each country's national deviation. Bottom strip: the Oceanic Niño Index with the current winter marked. One year is one draw from the weather — the Compare and Events tabs show what holds up across many events.</div></div>
     <div class="card" style="margin-top:14px"><div class="card-title"><h2 id="evcTitle">Same event, every country</h2><span class="hint">Pick an event above · national % from trend in the crop year(s) it hit</span></div><div id="evCountries"></div></div>
   </section>
 
@@ -228,6 +235,9 @@ input[type=checkbox]{accent-color:var(--accent)}
     <div class="card"><div class="card-title"><h2>Four quadrants of the globe</h2><span class="hint">Does the same event hit NW, NE, SW and SE cotton the same way?</span><div class="controls"><div class="seg" id="hemSeg"><button data-p="La Niña" class="active">La Niña</button><button data-p="El Niño">El Niño</button></div><button class="btn sm" data-png="hemMap">⤓</button></div></div>
       <div class="row"><div><div id="hemMap"></div></div><div id="hemStats"></div></div>
       <div class="cap">The equator and the prime meridian split the globe into four quadrants, and every mapped cotton area falls into one by its coordinates. Each quadrant's figure is the effect for the harvested-area-weighted yearly series of its areas (country by country, then combined by area), with a 90% range that reflects how many event years there are — neighbouring areas share the same weather, so they are not counted as independent evidence. Northern-hemisphere cotton (US, India) grows during the event's build-up; southern cotton (Brazil, Argentina) grows through its peak and decay — that timing, more than longitude, is what to watch.</div></div>
+    <div class="card" style="margin-top:14px"><div class="card-title"><h2>Continents</h2><span class="hint">North America · South America · Asia · Australia — does a continent's cotton move together?</span><div class="controls"><div class="seg" id="contSeg"><button data-p="La Niña" class="active">La Niña</button><button data-p="El Niño">El Niño</button></div><button class="btn sm" data-png="contMap">⤓</button></div></div>
+      <div class="row"><div><div id="contMap"></div></div><div id="contStats"></div></div>
+      <div class="cap">Each country belongs to one continent: <b>North America</b> = United States; <b>South America</b> = Brazil + Argentina; <b>Asia</b> = India + Pakistan + China; <b>Australia</b> = Australia (New South Wales and Queensland). A continent's figure is built like the quadrants: for each country, the harvested-area-weighted yearly series of its mapped areas gives a phase-minus-neutral effect with a Welch range; countries are then combined by cotton area. Countries marked β are exploratory (shorter or patchier official records); switch them off under ⚙ Settings to see the core four only. Each country uses its own growing window, so "La Niña years" are not the same calendar years everywhere.</div></div>
     <div class="card" style="margin-top:14px"><div class="card-title"><h2>Pinned places</h2><span class="hint">Pin up to four from Explore (📌), across countries</span><div class="controls"><button class="btn sm" data-png="pinChart">⤓</button><button class="btn sm" id="clearPins">Clear</button></div></div>
       <div id="pinCards" class="cards"></div><div id="pinChart" style="margin-top:12px"></div></div>
     <div class="row eq" style="margin-top:14px">

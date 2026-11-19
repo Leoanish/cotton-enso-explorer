@@ -1,9 +1,15 @@
 const DATA = JSON.parse(document.getElementById('DATA').textContent);
 const GEO = JSON.parse(document.getElementById('GEO').textContent);
-const META = { US:{flag:'🇺🇸', name:'United States'}, BR:{flag:'🇧🇷', name:'Brazil'}, IN:{flag:'🇮🇳', name:'India'}, AR:{flag:'🇦🇷', name:'Argentina'} };
-const ORDER = ['US','BR','IN','AR'];
+const META = { US:{flag:'🇺🇸', name:'United States'}, BR:{flag:'🇧🇷', name:'Brazil'}, IN:{flag:'🇮🇳', name:'India'}, AR:{flag:'🇦🇷', name:'Argentina'}, CN:{flag:'🇨🇳', name:'China'}, PK:{flag:'🇵🇰', name:'Pakistan'}, AU:{flag:'🇦🇺', name:'Australia'} };
+const ORDER = ['US','BR','IN','AR','CN','PK','AU'].filter(cc=>DATA.countries[cc]);
+// Continents: every country sits wholly in one
+const CONTINENT = { US:'North America', BR:'South America', AR:'South America', IN:'Asia', PK:'Asia', CN:'Asia', AU:'Australia' };
+const CONTS = [['North America','🌎',[-100,40]],['South America','🌎',[-58,-22]],['Asia','🌏',[90,30]],['Australia','🌏',[146,-28]]];
+const isExpl = cc => !!(DATA.countries[cc]&&DATA.countries[cc].exploratory);
+// countries used by cross-country views (exploratory ones can be switched off in Settings)
+const ORDERX = () => ORDER.filter(cc=>S.explore||!isExpl(cc));
 const TABS = ['findings','map','area','events','compare','data','sources'];
-const S = { cc:'US', a1:null, sel:null, metric:'yield', mapStyle:'choro', showLevel:'region', minYear:0, event:null, minInt:'weak', hemPhase:'La Niña', tab:'findings', trendView:'yield', rankPhase:'La Niña', pins:[], sort:{col:'year',dir:-1}, weight:'year', mask:true, zoom:null };
+const S = { cc:'US', a1:null, sel:null, metric:'yield', mapStyle:'choro', showLevel:'region', minYear:0, explore:true, event:null, minInt:'weak', hemPhase:'La Niña', tab:'findings', trendView:'yield', rankPhase:'La Niña', pins:[], sort:{col:'year',dir:-1}, weight:'year', mask:true, zoom:null };
 const INT_RANK={weak:0,moderate:1,strong:2,'very strong':3};
 const passes=p=> !p.event || INT_RANK[p.intensity]>=INT_RANK[S.minInt];
 const eventPasses=e=> INT_RANK[e.intensity]>=INT_RANK[S.minInt];
@@ -71,10 +77,10 @@ function fx(v){ return (v>=0?'+':'')+v.toFixed(1)+'%'; }
 // ---------- header / crumbs / settings
 function renderTabs(){
   const el=document.getElementById('countryTabs'); el.innerHTML='';
-  for(const cc of ORDER){ if(!DATA.countries[cc]) continue; const b=document.createElement('button'); b.innerHTML=`<span class="flag">${META[cc].flag}</span>${META[cc].name}`; if(cc===baseCC(S.cc)) b.classList.add('active'); b.onclick=()=>{ if(baseCC(S.cc)===cc) return; S.cc=cc; S.sel=null; S.a1=null; S.zoom=null; renderAll(); }; el.appendChild(b); }
+  for(const cc of ORDER){ if(!DATA.countries[cc]) continue; const b=document.createElement('button'); b.innerHTML=`<span class="flag">${META[cc].flag}</span>${META[cc].name}${isExpl(cc)?'<sup class="xb" title="Exploratory layer: shorter or patchier official records, coarser units">β</sup>':''}`; if(cc===baseCC(S.cc)) b.classList.add('active'); b.onclick=()=>{ if(baseCC(S.cc)===cc) return; S.cc=cc; S.sel=null; S.a1=null; S.zoom=null; renderAll(); }; el.appendChild(b); }
   const base=country(baseCC(S.cc)); const pr=document.getElementById('practiceRow'); const vs=document.getElementById('varSeg');
   if(base.variants){ pr.style.display='flex'; vs.innerHTML=base.variants.map(([k,l])=>`<button data-v="${k}" class="${S.cc===k?'active':''}">${l}</button>`).join(''); vs.onclick=ev=>{ const b=ev.target.closest('button'); if(!b) return; S.cc=b.dataset.v; if(S.sel&&!regionOf(S.sel)) S.sel=null; if(S.a1&&!admin1Of(S.a1)) S.a1=null; renderAll(); }; } else pr.style.display='none';
-  document.getElementById('settingsSummary').textContent=`${S.minYear?S.minYear+'→':'All years'} · ${S.minInt==='weak'?'all events':S.minInt+' events'}${S.weight==='event'?' · per event':''}${country().variantOf?' · '+country().name.split('· ')[1]:''}`;
+  document.getElementById('settingsSummary').textContent=`${S.minYear?S.minYear+'→':'All years'} · ${S.minInt==='weak'?'all events':S.minInt+' events'}${S.weight==='event'?' · per event':''}${S.explore?'':' · core 4 only'}${country().variantOf?' · '+country().name.split('· ')[1]:''}`;
 }
 function renderCrumbs(){
   const c=country(); const f=cur(); const e=S.event?DATA.events.find(x=>x.id===S.event):null; const pinned=S.pins.some(p=>p.cc===S.cc&&p.id===f.r.id);
@@ -82,7 +88,9 @@ function renderCrumbs(){
   if(S.a1){ h+=`<span class="sep">›</span><button onclick="goLevel('admin1')" ${f.level==='admin1'?'style="color:var(--ink)"':''}>${S.a1}</button>`; }
   if(f.level==='region'){ h+=`<span class="sep">›</span><b>${f.r.name}</b>`; }
   h+=`<span class="muted" style="font-size:12px;margin-left:4px">${f.level==='national'?'whole country':f.level==='admin1'?'state · click the map to open a '+c.level.toLowerCase():c.level}</span>`;
-  h+=`</span>`; if(document.body.classList.contains('global')) h+=`<span class="muted" style="font-size:12.5px">Showing all four countries together${S.tab==='compare'?' · pin places from Explore to compare them here':''}</span>`;
+  const XNOTE={CN:'Exploratory: 15 provinces, 1961–2025 (2018 missing). Area weights before 2019 are official benchmarks (2001, 2006–2013) interpolated between years. Xinjiang (irrigated) is now most of the crop.',PK:'Exploratory: 27 district units (later splits merged back to 1981 boundaries); years 1981–2008, 2010–2018 and 2021–2023. National series uses only years with both Punjab and Sindh.',AU:'Exploratory: two states (New South Wales, Queensland), harvest years 1990–2026 (2025–26 is an ABARES estimate). About 90% of Australian cotton is irrigated, so planted area responds to water allocations more than yield does.'};
+  if(isExpl(baseCC(S.cc))) h+=`<span class="chip" title="${XNOTE[baseCC(S.cc)]||''}" style="margin-left:6px">β exploratory layer</span>`;
+  h+=`</span>`; if(document.body.classList.contains('global')) h+=`<span class="muted" style="font-size:12.5px">Showing ${ORDERX().length} countries together${ORDERX().some(isExpl)?' (incl. exploratory β)':''}${S.tab==='compare'?' · pin places from Explore to compare them here':''}</span>`;
   h+=`<span class="right">${e?`<span class="chip">${e.type} ${e.label} <span class="muted">${e.intensity}</span> <button class="btn ghost sm" onclick="S.event=null;renderAll()" title="Clear event">×</button></span>`:''}<button class="btn sm cty" onclick="togglePin()">${pinned?'📌 Pinned':'📌 Pin'}</button><button class="btn sm" onclick="copyLink()">🔗 Link</button></span>`;
   document.getElementById('crumbs').innerHTML=h;
 }
@@ -149,7 +157,7 @@ function renderCadence(){
   s2.append('g').attr('class','axis').attr('transform',`translate(0,${H2-m2.b})`).call(d3.axisBottom(x2).ticks(8).tickSize(3)); s2.append('g').attr('class','axis').attr('transform',`translate(${m2.l},0)`).call(d3.axisLeft(y2).tickValues([0.5,1,1.5,2,2.5]).tickSize(3)); s2.append('text').attr('x',W2-m2.r).attr('y',H2-4).attr('text-anchor','end').attr('fill',css('--ink-3')).style('font-size','10.5px').text('seasons');
 }
 function renderPhaseStrip(){
-  const host=document.getElementById('phaseStrip'); host.innerHTML=''; const ccs=ORDER.filter(cc=>DATA.countries[cc]); const y0=Math.max(1950,S.minYear), y1=2025; const yrs=d3.range(y0,y1+1);
+  const host=document.getElementById('phaseStrip'); host.innerHTML=''; const ccs=ORDERX(); const y0=Math.max(1950,S.minYear), y1=2025; const yrs=d3.range(y0,y1+1);
   const W=host.clientWidth||900, L=150, rowH=26, gap=8, H=ccs.length*(rowH+gap)+26; const svg=d3.select(host).append('svg').attr('width','100%').attr('viewBox',`0 0 ${W} ${H}`);
   const x=d3.scaleBand().domain(yrs).range([L,W-6]).padding(.12);
   ccs.forEach((cc,i)=>{ const c=DATA.countries[cc]; const yy=i*(rowH+gap);
@@ -169,7 +177,9 @@ function geoNameKey(){ const b=baseCC(S.cc); return b==='IN'?'st_nm':b==='BR'?'u
 function admin1ForFeature(f){ const key=norm(f.properties[geoNameKey()]); return country().admin1.find(a=>norm(a.geoKey||a.name)===key)||null; }
 function featureForAdmin1(a){ const key=norm(a.geoKey||a.name); return GEO[baseCC(S.cc)].states.features.find(f=>norm(f.properties[geoNameKey()])===key)||null; }
 function metricOf(st){ if(S.metric==='yield') return {v:st.yieldMean,sig:true}; const p=S.metric==='nina'?'La Niña':'El Niño'; return {v:st[p].nUnits>=3?st[p].diff:null,sig:!!st[p].sig}; }
-function renderMap(){
+function levelLabels(){ const b=baseCC(S.cc); const L={US:['Counties','States'],BR:['Municipalities','States'],IN:['Districts','States'],AR:['Departments','Provinces'],CN:['Provinces','Zones'],PK:['Districts','Provinces'],AU:['States','States']}[b]||['Areas','States'];
+  const q=document.querySelectorAll('#showSeg button'); if(q.length===2){ q[0].textContent=L[0]; q[1].textContent=L[1]; } }
+function renderMap(){ levelLabels();
   const c=country(); const host=document.getElementById('map'); host.innerHTML=''; const W=host.clientWidth||600,H=Math.max(440,Math.round(W*0.8));
   const svg=d3.select(host).append('svg').attr('width','100%').attr('viewBox',`0 0 ${W} ${H}`); const base=baseCC(S.cc); const geo=GEO[base].states; const root=svg.append('g');
   const f=cur(); const stateView=!!S.a1; const a1=stateView?admin1Of(S.a1):null; const a1feat=a1?featureForAdmin1(a1):null;
@@ -320,9 +330,9 @@ function renderEventPanel(){
 function renderEventCountries(){ const tl=document.getElementById('evcTitle'); if(tl){ const e=S.event?DATA.events.find(x=>x.id===S.event):null; tl.textContent=e?`${e.type} ${e.label} · every country`:'Same event, every country'; }
   const el=document.getElementById('evCountries'); if(!S.event){ el.innerHTML='<div class="banner">Pick an event to compare its footprint across countries.</div>'; return; }
   const e=DATA.events.find(x=>x.id===S.event); const rows=[]; let wsum=0,wa=0;
-  for(const cc of ORDER){ const c=DATA.countries[cc]; if(!c) continue; const ys=eventYears(e.id,cc); const nat=c.national; const a=ys.length?mean(ys.map(y=>anomAt(nat,y)).filter(x=>x!=null)):NaN; const prodW=nat.prod?mean(nat.prod.slice(-10)):0; const rank=c.regions.map(g=>({g,a:mean(ys.map(y=>anomAt(g,y)).filter(x=>x!=null))})).filter(d=>!isNaN(d.a)).sort((a,b)=>a.a-b.a); const w=rank[0]; rows.push({cc,c,ys,a,prodW,w}); if(!isNaN(a)&&prodW){ wsum+=prodW; wa+=a*prodW; } }
+  for(const cc of ORDERX()){ const c=DATA.countries[cc]; if(!c) continue; const ys=eventYears(e.id,cc); const nat=c.national; const a=ys.length?mean(ys.map(y=>anomAt(nat,y)).filter(x=>x!=null)):NaN; const prodW=nat.prod?mean(nat.prod.slice(-10)):0; const rank=c.regions.map(g=>({g,a:mean(ys.map(y=>anomAt(g,y)).filter(x=>x!=null))})).filter(d=>!isNaN(d.a)).sort((a,b)=>a.a-b.a); const w=rank[0]; rows.push({cc,c,ys,a,prodW,w}); if(!isNaN(a)&&prodW){ wsum+=prodW; wa+=a*prodW; } }
   const sup=wsum?wa/wsum:NaN;
-  el.innerHTML=`<div class="cards">${rows.map(d=>`<div class="cc"><div class="t"><span><span class="flag">${META[d.cc].flag}</span> ${d.c.name}</span><span class="muted" style="font-weight:500;font-size:11.5px">${d.ys.length?'crop '+d.ys.join(', '):'no overlap'}</span></div><div class="big ${isNaN(d.a)?'muted':d.a<0?'neg':'pos'}">${isNaN(d.a)?'–':fmt1(d.a)+'%'}</div><div class="muted" style="font-size:12px">national, vs trend${d.w?`<br>hardest hit: <b style="color:var(--ink)">${d.w.g.name}</b> ${fmt1(d.w.a)}%`:''}<br><span class="muted">window ${d.c.window.replace(/\s*\(.*?\)/g,'')}</span></div></div>`).join('')}</div><div class="banner" style="margin-top:10px">Across the four countries, weighting each by its average production over its last decade, the <b>${e.type} ${e.label}</b> crop years came in at <b class="${sup<0?'neg':'pos'}">${isNaN(sup)?'–':fmt1(sup)+'%'}</b> versus trend — a rough read on the combined supply shock (these four grow roughly 60% of world cotton).</div>`;
+  el.innerHTML=`<div class="cards">${rows.map(d=>`<div class="cc"><div class="t"><span><span class="flag">${META[d.cc].flag}</span> ${d.c.name}</span><span class="muted" style="font-weight:500;font-size:11.5px">${d.ys.length?'crop '+d.ys.join(', '):'no overlap'}</span></div><div class="big ${isNaN(d.a)?'muted':d.a<0?'neg':'pos'}">${isNaN(d.a)?'–':fmt1(d.a)+'%'}</div><div class="muted" style="font-size:12px">national, vs trend${d.w?`<br>hardest hit: <b style="color:var(--ink)">${d.w.g.name}</b> ${fmt1(d.w.a)}%`:''}<br><span class="muted">window ${d.c.window.replace(/\s*\(.*?\)/g,'')}</span></div></div>`).join('')}</div><div class="banner" style="margin-top:10px">Across the ${ORDERX().length} countries, weighting each by its average production over its last decade, the <b>${e.type} ${e.label}</b> crop years came in at <b class="${sup<0?'neg':'pos'}">${isNaN(sup)?'–':fmt1(sup)+'%'}</b> versus trend — a rough read on the combined supply shock (these four grow roughly 60% of world cotton).</div>`;
 }
 
 window.selectId=function(id){ S.sel=id; setTab('map'); };
@@ -359,35 +369,40 @@ function renderFindings(){
 window.goTo=function(st){ if(st.cc) S.cc=st.cc; S.zoom=null; if(st.sel==='NAT'){ S.a1=null; S.sel=null; } else if(st.level==='admin1'){ S.a1=st.sel; S.sel=null; } else if(st.sel){ S.sel=st.sel; } if(st.event) S.event=st.event; setTab(st.tab||'map'); };
 
 // ---------- hemispheres
-const QUADS=[['NW','North-west','US'],['NE','North-east','India'],['SW','South-west','Brazil · Argentina'],['SE','South-east','']];
+const QUADS=[['NW','North-west','US'],['NE','North-east','India · Pakistan · China'],['SW','South-west','Brazil · Argentina'],['SE','South-east','Australia']];
 const quadOf=(lat,lon)=>(lat>=0?'N':'S')+(lon>=0?'E':'W');
-function hemStats(p){
-  // Point estimate and range come from each country's area-weighted yearly series of the quadrant's areas, so the
+function groupStats(p,keyOf,keys){
+  // Point estimate and range come from each country's area-weighted yearly series of the group's areas, so the
   // uncertainty reflects the number of event years (neighbouring areas share weather and are not independent).
-  const out={}; for(const [k] of QUADS){
+  // Countries are then combined by cotton area (Welch–Satterthwaite degrees of freedom).
+  const out={}; for(const k of keys){
     const parts=[]; let nAreas=0, below=0; const ccs=[];
-    for(const cc of ORDER){ const c=DATA.countries[cc]; if(!c) continue;
-      const areas=c.regions.filter(r=>quadOf(r.lat,r.lon)===k).map(r=>({r,st:statsFor(r,cc)})).filter(x=>x.st[p].nUnits>=3&&x.st.neutral.n>=5);
-      if(!areas.length) continue; nAreas+=areas.length; below+=areas.filter(x=>x.st[p].diff<0).length; ccs.push(cc);
+    for(const cc of ORDERX()){ const c=DATA.countries[cc]; if(!c) continue;
+      const areas=c.regions.filter(r=>keyOf(cc,r)===k).map(r=>({r,st:statsFor(r,cc)})).filter(x=>x.st[p].nUnits>=3&&x.st.neutral.n>=5);
+      if(!areas.length) continue;
       const ph=c.phases; const yrs=new Map();
       for(const {r} of areas) r.years.forEach((y,i)=>{ if(y<S.minYear) return; const o=yrs.get(y)||{s:0,w:0}; o.s+=r.anom[i]*r.areaMean; o.w+=r.areaMean; yrs.set(y,o); });
       const rows=[...yrs].map(([y,o])=>{ const q=ph[y]||{phase:'Neutral'}; return {y,a:o.s/o.w,phase:passes(q)?q.phase:'Weak event',event:q.event}; });
       const neu=rows.filter(d=>d.phase==='Neutral').map(d=>d.a); let g=rows.filter(d=>d.phase===p);
       let a=g.map(d=>d.a); if(S.weight==='event') a=[...d3.group(g,d=>d.event).values()].map(x=>mean(x.map(d=>d.a)));
-      if(a.length<3||neu.length<3) continue; const w=d3.sum(areas,x=>x.r.areaMean); parts.push({...welchParts(a,neu),w});
+      if(a.length<3||neu.length<3) continue;
+      nAreas+=areas.length; below+=areas.filter(x=>x.st[p].diff<0).length; ccs.push(cc);
+      const w=d3.sum(areas,x=>x.r.areaMean); const wp=welchParts(a,neu); parts.push({...wp,w,cc,nY:a.length});
     }
     if(!parts.length){ out[k]=null; continue; }
     const W=d3.sum(parts,x=>x.w); const d=d3.sum(parts,x=>x.d*x.w)/W; const comps=parts.map(x=>((x.w/W)**2)*x.v); const v=d3.sum(comps);
     const df=v*v/d3.sum(parts.map((x,i)=>comps[i]*comps[i]/x.df)); const h=tInv(0.10,df)*Math.sqrt(v);
-    out[k]={mean:d,ci:[d-h,d+h],n:nAreas,countries:ccs,below};
+    out[k]={mean:d,ci:[d-h,d+h],n:nAreas,countries:ccs,below,parts:parts.map(x=>({cc:x.cc,d:x.d,share:x.w/W,nY:x.nY}))};
   }
   return out;
 }
+function hemStats(p){ return groupStats(p,(cc,r)=>quadOf(r.lat,r.lon),QUADS.map(q=>q[0])); }
+function contStats(p){ return groupStats(p,(cc)=>CONTINENT[cc],CONTS.map(q=>q[0])); }
 function renderHemis(){
   const p=S.hemPhase; const hs=hemStats(p); const host=document.getElementById('hemMap'); host.innerHTML=''; const W=host.clientWidth||600,H=Math.round(W*0.52); const svg=d3.select(host).append('svg').attr('width','100%').attr('viewBox',`0 0 ${W} ${H}`);
   const proj=d3.geoNaturalEarth1().fitExtent([[4,4],[W-4,H-4]],{type:'Sphere'}); const path=d3.geoPath(proj);
   svg.append('path').datum({type:'Sphere'}).attr('d',path).attr('fill',css('--panel-2')).attr('stroke',css('--line-2'));
-  const nat={}; for(const cc of ORDER){ if(DATA.countries[cc]) nat[cc]=statsFor(DATA.countries[cc].national,cc)[p]; }
+  const nat={}; for(const cc of ORDERX()){ if(DATA.countries[cc]) nat[cc]=statsFor(DATA.countries[cc].national,cc)[p]; }
   const col=d3.scaleDiverging().domain([-15,0,15]).interpolator(t=>d3.interpolateRgbBasis([css('--neg'),css('--mid'),css('--pos')])(t));
   svg.append('g').selectAll('path').data(GEO.WORLD.features).enter().append('path').attr('d',path).attr('fill',f=>f.id&&nat[f.id]?col(nat[f.id].diff):css('--line')).attr('fill-opacity',f=>f.id?(nat[f.id]&&nat[f.id].sig?.95:.5):.6).attr('stroke',css('--bg')).attr('stroke-width',.5)
     .on('mousemove',(ev,f)=>{ if(f.id&&nat[f.id]) showTip(`<b>${META[f.id].name}</b> · ${p}<br>national <b>${fmt1(nat[f.id].diff)}%</b> vs neutral (${nat[f.id].nUnits} ${UNITS()}) · ${nat[f.id].sig?'confident':'uncertain'}`,ev); }).on('mouseleave',hideTip);
@@ -401,9 +416,37 @@ function renderHemis(){
     g.append('text').attr('y',8).attr('text-anchor','middle').style('font-size','15px').style('font-weight',800).attr('fill',h?(h.mean<0?css('--neg'):css('--pos')):css('--ink-3')).text(h?fmt1(h.mean)+'%':'no data'); }
   for(const cc of Object.keys(nat)){ const c=DATA.countries[cc]; const [x,y]=proj([mean(c.regions.map(r=>r.lon)),mean(c.regions.map(r=>r.lat))]); svg.append('text').attr('x',x).attr('y',y-8).attr('text-anchor','middle').style('font-size','12px').style('font-weight',800).attr('fill',css('--ink')).attr('stroke',css('--bg')).attr('stroke-width',3).attr('paint-order','stroke').text(`${fmt1(nat[cc].diff)}%`); }
   svg.append('text').attr('x',W/2).attr('y',H-6).attr('text-anchor','middle').attr('fill',css('--ink-3')).style('font-size','10.5px').text(`${p} years vs neutral · countries coloured by national effect · dashed lines split the globe into four quadrants`);
-  const cell=(k,name,who)=>{ const h=hs[k]; return `<div class="cc" style="min-height:118px"><div class="t"><span>${k} · ${name}</span><span class="muted" style="font-size:11px;font-weight:500">${h?h.countries.map(c=>META[c].flag).join(' '):''}</span></div><div class="big ${h?(h.mean<0?'neg':'pos'):'muted'}">${h?fmt1(h.mean)+'%':'—'}</div><div class="muted" style="font-size:12px">${h?`${who} · ${h.n} areas, ${h.below} with a loss<br>90% range ${fmt1(h.ci[0])} to ${fmt1(h.ci[1])}% · ${(h.ci[0]>0||h.ci[1]<0)?'<b>confident</b>':'uncertain'}`:'No cotton areas in this dataset yet<br>(Australia would sit here)'}</div></div>`; };
+  const cell=(k,name,who)=>{ const h=hs[k]; return `<div class="cc" style="min-height:118px"><div class="t"><span>${k} · ${name}</span><span class="muted" style="font-size:11px;font-weight:500">${h?h.countries.map(c=>META[c].flag).join(' '):''}</span></div><div class="big ${h?(h.mean<0?'neg':'pos'):'muted'}">${h?fmt1(h.mean)+'%':'—'}</div><div class="muted" style="font-size:12px">${h?`${who} · ${h.n} areas, ${h.below} with a loss<br>90% range ${fmt1(h.ci[0])} to ${fmt1(h.ci[1])}% · ${(h.ci[0]>0||h.ci[1]<0)?'<b>confident</b>':'uncertain'}`:'No cotton areas here in the current selection'}</div></div>`; };
   const have=QUADS.filter(([k])=>hs[k]).map(([k,n])=>({k,n,v:hs[k].mean})).sort((x,y)=>x.v-y.v);
   document.getElementById('hemStats').innerHTML=`<div class="cards" style="grid-template-columns:1fr 1fr">${QUADS.map(([k,n,w])=>cell(k,n,w)).join('')}</div><div class="banner" style="margin-top:10px">In ${p} years the <b>${have[0].k}</b> quadrant fares worst (${fmt1(have[0].v)}%) and the <b>${have[have.length-1].k}</b> best (${fmt1(have[have.length-1].v)}%). North vs south is mostly a timing story — northern cotton grows during an event's build-up, southern cotton through its peak. Each quadrant is effectively one or two countries, so read it alongside the country cards.</div>`;
+}
+
+// ---------- continents
+function renderContinents(){
+  const host=document.getElementById('contMap'); if(!host) return; const p=S.contPhase||'La Niña'; const cs=contStats(p); host.innerHTML='';
+  const W=host.clientWidth||600,H=Math.round(W*0.52); const svg=d3.select(host).append('svg').attr('width','100%').attr('viewBox',`0 0 ${W} ${H}`);
+  const proj=d3.geoNaturalEarth1().fitExtent([[4,4],[W-4,H-4]],{type:'Sphere'}); const path=d3.geoPath(proj);
+  svg.append('path').datum({type:'Sphere'}).attr('d',path).attr('fill',css('--panel-2')).attr('stroke',css('--line-2'));
+  const col=d3.scaleDiverging().domain([-15,0,15]).interpolator(t=>d3.interpolateRgbBasis([css('--neg'),css('--mid'),css('--pos')])(t));
+  const inUse=new Set(ORDERX());
+  svg.append('g').selectAll('path').data(GEO.WORLD.features).enter().append('path').attr('d',path)
+    .attr('fill',f=>{ const k=f.id&&inUse.has(f.id)?CONTINENT[f.id]:null; return k&&cs[k]?col(cs[k].mean):css('--line'); })
+    .attr('fill-opacity',f=>{ const k=f.id&&inUse.has(f.id)?CONTINENT[f.id]:null; return k&&cs[k]?((cs[k].ci[0]>0||cs[k].ci[1]<0)?.95:.55):.6; })
+    .attr('stroke',css('--bg')).attr('stroke-width',.5)
+    .on('mousemove',(ev,f)=>{ const k=f.id&&inUse.has(f.id)?CONTINENT[f.id]:null; if(k&&cs[k]) showTip(`<b>${META[f.id].name}</b> → ${k}<br>${k} · ${p}: <b>${fmt1(cs[k].mean)}%</b> vs neutral`,ev); }).on('mouseleave',hideTip);
+  // cotton areas as dots
+  const dots=[]; for(const cc of ORDERX()){ for(const r of DATA.countries[cc].regions){ const xy=proj([r.lon,r.lat]); if(xy) dots.push(xy); } }
+  svg.append('g').selectAll('circle').data(dots).enter().append('circle').attr('cx',d=>d[0]).attr('cy',d=>d[1]).attr('r',1.3).attr('fill',css('--ink-2')).attr('fill-opacity',.55);
+  for(const [k,ic,pos] of CONTS){ const h=cs[k]; const [x,y]=proj(pos); const g=svg.append('g').attr('transform',`translate(${x},${y})`);
+    g.append('rect').attr('x',-62).attr('y',-26).attr('width',124).attr('height',40).attr('rx',9).attr('fill',css('--panel')).attr('fill-opacity',.88).attr('stroke',css('--line-2'));
+    g.append('text').attr('y',-11).attr('text-anchor','middle').style('font-size','10.5px').style('font-weight',700).attr('fill',css('--ink-3')).text(k.toLowerCase());
+    g.append('text').attr('y',8).attr('text-anchor','middle').style('font-size','15px').style('font-weight',800).attr('fill',h?(h.mean<0?css('--neg'):css('--pos')):css('--ink-3')).text(h?fmt1(h.mean)+'%':'no data'); }
+  svg.append('text').attr('x',W/2).attr('y',H-6).attr('text-anchor','middle').attr('fill',css('--ink-3')).style('font-size','10.5px').text(`${p} years vs neutral · countries coloured by their continent's effect · dots = mapped cotton areas`);
+  const cell=([k,ic])=>{ const h=cs[k]; const conf=h&&(h.ci[0]>0||h.ci[1]<0);
+    const mix=h?h.parts.map(x=>`${META[x.cc].flag} ${META[x.cc].name}${isExpl(x.cc)?'<sup class="xb">β</sup>':''} ${fmt1(x.d)}% <span class="mut">(${Math.round(x.share*100)}% of area, ${x.nY} ${UNITS()})</span>`).join('<br>'):'';
+    return `<div class="cc" style="min-height:130px"><div class="t"><span>${ic} ${k}</span><span class="muted" style="font-size:11px;font-weight:500">${h?h.countries.map(c=>META[c].flag).join(' '):''}</span></div><div class="big ${h?(h.mean<0?'neg':'pos'):'muted'}">${h?fmt1(h.mean)+'%':'—'}</div><div class="muted" style="font-size:12px">${h?`${h.n} areas, ${h.below} with a loss · 90% range ${fmt1(h.ci[0])} to ${fmt1(h.ci[1])}% · ${conf?'<b>confident</b>':'uncertain'}<div style="margin-top:6px;line-height:1.5">${mix}</div>`:'No countries in the current selection'}</div></div>`; };
+  const have=CONTS.filter(([k])=>cs[k]).map(([k])=>({k,v:cs[k].mean})).sort((a,b)=>a.v-b.v);
+  document.getElementById('contStats').innerHTML=`<div class="cards" style="grid-template-columns:1fr 1fr">${CONTS.map(cell).join('')}</div>`+(have.length>1?`<div class="banner" style="margin-top:10px">In ${p} years <b>${have[0].k}</b> fares worst (${fmt1(have[0].v)}%) and <b>${have[have.length-1].k}</b> best (${fmt1(have[have.length-1].v)}%). A continent's figure is mostly its biggest grower — check the country mix in each card before reading it as a continent-wide pattern.</div>`:'');
 }
 
 // ---------- ENSO on the globe (animation)
@@ -415,7 +458,7 @@ function sstField(year,season){ const k=season+year; if(SSTcache[k]!==undefined)
 function sstAt(arr,lat,lon){ // bilinear on the 4° grid; lon 0..360; returns °C or NaN
   let x=(((lon%360)+360)%360-SST.lon0)/SST.dlon, y=(lat-SST.lat0)/SST.dlat; if(y<0||y>SST.nlat-1) return NaN; x=((x%SST.nlon)+SST.nlon)%SST.nlon; const x0=Math.floor(x),y0=Math.floor(y),x1=(x0+1)%SST.nlon,y1=Math.min(SST.nlat-1,y0+1),fx=x-x0,fy=y-y0; const g=(yy,xx)=>{ const v=arr[yy*SST.nlon+xx]; return v===-128?NaN:v/10; }; const a=g(y0,x0),b=g(y0,x1),c=g(y1,x0),d=g(y1,x1); const vals=[a,b,c,d]; if(vals.every(isNaN)) return NaN; const w=[(1-fx)*(1-fy),fx*(1-fy),(1-fx)*fy,fx*fy]; let s=0,ws=0; for(let i=0;i<4;i++) if(!isNaN(vals[i])){ s+=vals[i]*w[i]; ws+=w[i]; } return ws?s/ws:NaN; }
 const G={zones:true,str:'all',year:2025,season:'NDJ',playing:false,timer:null,nodes:null,proj:null,path:null,zoneG:null,tongue:null,px:null,canvas:null};
-function globeYears(){ const ys=[]; for(let y=Math.max(1950,S.minYear);y<=2025;y++){ if(G.str==='all'){ ys.push(y); continue; } let hit=false; for(const cc of ORDER){ const c=DATA.countries[cc]; if(!c) continue; const p=c.phases[y]; if(p&&p.event&&(G.str==='strong'?/strong/.test(p.intensity):p.intensity===G.str)) hit=true; } if(hit) ys.push(y); } return ys; }
+function globeYears(){ const ys=[]; for(let y=Math.max(1950,S.minYear);y<=2025;y++){ if(G.str==='all'){ ys.push(y); continue; } let hit=false; for(const cc of ORDERX()){ const c=DATA.countries[cc]; if(!c) continue; const p=c.phases[y]; if(p&&p.event&&(G.str==='strong'?/strong/.test(p.intensity):p.intensity===G.str)) hit=true; } if(hit) ys.push(y); } return ys; }
 function oniAt(year,sidx){ const i=DATA.oni.year.findIndex((y,k)=>y===year&&DATA.oni.season[k]===['DJF','JFM','FMA','MAM','AMJ','MJJ','JJA','JAS','ASO','SON','OND','NDJ'][sidx]); return i>=0?DATA.oni.v[i]:null; }
 function renderGlobe(){
   const host=document.getElementById('globeMap'); if(!host) return; host.innerHTML=`<div class="globe-badge" id="globeBadge"><div class="r1"><span class="yr" id="gbYear">—</span><span class="tag" id="gbSeason">Nov–Jan</span></div><div class="ev" id="gbEvent">—</div><div class="kv2"><div><span>ONI</span><b id="gbOni">—</b></div><div><span>Event peak</span><b id="gbPeak">—</b></div><div><span>Event</span><b id="gbLabel">—</b></div></div><div class="meter"><i id="gbMark" style="left:50%"></i></div><div class="ticks"><span>La Niña −2.5</span><span>0</span><span>+2.5 El Niño</span></div></div>`; const W=host.clientWidth||1000,H=Math.round(W*0.5);
@@ -434,7 +477,7 @@ function renderGlobe(){
   const [lx,ly]=proj([-145,6.5]); svg.append('text').attr('x',lx).attr('y',ly).attr('text-anchor','middle').style('font-size','11px').style('font-weight',700).attr('fill',css('--accent')).attr('stroke',css('--bg')).attr('stroke-width',3).attr('paint-order','stroke').text('Niño 3.4 box — ONI measured here');
   const [tx,ty]=proj([-130,-12]); G.tongue=svg.append('text').attr('x',tx).attr('y',ty).attr('text-anchor','middle').style('font-size','22px').style('font-weight',800).style('letter-spacing','-.01em').attr('stroke',css('--bg')).attr('stroke-width',5).attr('paint-order','stroke');
   // cotton dots
-  const dots=[]; for(const cc of ORDER){ const c=DATA.countries[cc]; if(!c) continue; for(const r of c.regions) dots.push({cc,r,xy:proj([r.lon,r.lat])}); }
+  const dots=[]; for(const cc of ORDERX()){ const c=DATA.countries[cc]; if(!c) continue; for(const r of c.regions) dots.push({cc,r,xy:proj([r.lon,r.lat])}); }
   G.nodes=svg.append('g').selectAll('circle').data(dots).enter().append('circle').attr('cx',d=>d.xy[0]).attr('cy',d=>d.xy[1]).attr('r',2.2).attr('fill',css('--neutral')).attr('fill-opacity',.8).attr('stroke','none')
     .on('mousemove',(ev,d)=>{ const an=anomAt(d.r,G.year); showTip(`<b>${d.r.name}</b> · ${d.r.admin1}<br>crop year ${G.year}: ${an==null?'no data':`<b class="${an<0?'neg':'pos'}">${fmt1(an)}%</b> from trend`}`,ev); }).on('mouseleave',hideTip);
   G.zoneLabG=svg.append('g').attr('pointer-events','none');
@@ -457,7 +500,7 @@ function globeFrame(){
   const $=id=>document.getElementById(id); if($('gbYear')){ $('gbYear').textContent=y; $('gbSeason').textContent=G.season==='NDJ'?'Nov–Jan':'Jul–Sep'; const evEl=$('gbEvent'); evEl.textContent=ev?`${ev.type} · ${ev.intensity}`:kind; evEl.style.color=colr; $('gbOni').textContent=oni==null?'—':(oni>0?'+':'')+oni.toFixed(2)+' °C'; $('gbPeak').textContent=ev?(ev.peak>0?'+':'')+ev.peak.toFixed(2)+' °C':'—'; $('gbLabel').textContent=ev?ev.label:(kind.endsWith('-like')?'short spell':'none'); $('gbMark').style.left=pos+'%'; }
   if(G.tongue) G.tongue.text(ev?ev.type.toUpperCase():(kind==='Neutral'?'NEUTRAL':'')).attr('fill',colr).attr('opacity',ev?1:.55);
   G.curEvent=ev?ev.id:null; drawZones(ev?ev.type:null,ev?ev.intensity:null); movePlayhead();
-  const evs=[]; for(const cc of ORDER){ const c=DATA.countries[cc]; if(!c) continue; const p=c.phases[y]; if(p&&p.event) evs.push(`${META[cc].flag} ${p.phase} ${p.intensity}`); }
+  const evs=[]; for(const cc of ORDERX()){ const c=DATA.countries[cc]; if(!c) continue; const p=c.phases[y]; if(p&&p.event) evs.push(`${META[cc].flag} ${p.phase} ${p.intensity}`); }
   document.getElementById('globeLabel').textContent=`Cotton harvests tied to an event this year: ${evs.length?evs.join(' · '):'none'}`;
 }
 function paintSST(year){
@@ -522,15 +565,25 @@ function renderSources(){
      {ic:'🇮🇳',nm:'ICRISAT District Level Database (DLD)',pub:'International Crops Research Institute for the Semi-Arid Tropics',use:'Cotton area and production by district, compiled by ICRISAT from Indian government statistics and harmonised to fixed district boundaries.',
       kv:[['Coverage',`${n('IN')} districts, ${yr('IN')}`],['Unit','170-kg bales → tonnes → kg lint/ha'],['Files','1966–2017 apportioned + 1990–2019 series']],
       links:[L('http://data.icrisat.org/dld/index.html','ICRISAT DLD',true),L('https://github.com/2026ak05087/ML','1966–2017 mirror'),L('https://github.com/KalaRenganathan/causal-ml-crop-yield','1990–2019 mirror'),L(RAWDIR('data/raw/icrisat'),'Our copy')],
-      notes:[['','The two series are joined at 1990 only where district codes and names match.']]},
+      notes:[['','The two series are joined at 1990 only where district codes and names match.'],['','<b>2020–2024 extension:</b> Ministry of Agriculture UPAg district data, matched to ICRISAT districts and calibrated on the 2013–2019 overlap (median yield and area ratios; extended only where the overlap agrees closely) — 100 of 146 districts, 91% of mapped area. '+L('https://indiadataportal.com/','India Data Portal')+' '+L(RAWDIR('data/raw/india_des'),'Our copy & match report')],['warn','<b>Corrected:</b> ICRISAT Rajasthan production for 2012, 2013, 2014, 2015 and 2017 is too small by 1000/170 (a bales/tonnes slip, confirmed against Ministry data) and is multiplied back.']]},
      {ic:'🇦🇷',nm:'Estimaciones Agrícolas — algodón',pub:'Ministerio de Economía (Argentina), Dirección de Estimaciones Agrícolas',use:'Area sown and harvested, production and yield of cotton by departamento for every campaign.',
       kv:[['Coverage',`${n('AR')} departments, ${yr('AR')}`],['Unit','t seed cotton → × 0.33 ginning turnout → kg lint/ha'],['Season label','harvest year (2019/20 campaign → 2020)']],
       links:[L('https://datos.magyp.gob.ar/dataset/estimaciones-agricolas','Open-data portal',true),L(RAWDIR('data/raw/magyp'),'Our copy')],
-      notes:[['','Rows with an undefined department ("sin definir") are excluded because they can\'t be mapped.']]}
+      notes:[['','Rows with an undefined department ("sin definir") are excluded because they can\'t be mapped.']]},
+     ...(C.CN?[{ic:'🇨🇳',nm:'China — National Bureau of Statistics (β exploratory)',pub:'National Bureau of Statistics of China; Mendeley Data bms88fv7zz for 1961–2017',use:'Provincial sown area, yield and output of ginned cotton. 2019–2025 from the yearly <i>Bulletin on the National Cotton Output</i> (2021 via a verbatim republication); 2006–2013 from the China Statistical Yearbooks; 1961–2017 provincial yields from a published compilation of <i>China Agricultural Statistics</i>.',
+      kv:[['Coverage',`${n('CN')} provinces, ${yr('CN')} (2018 missing)`],['Unit','kg lint/ha as published'],['Zones (map states)','Northwest inland · Yellow River valley · Yangtze River valley']],
+      links:[L('https://www.stats.gov.cn/english/PressRelease/202512/t20251229_1962174.html','2025 bulletin',true),L('https://www.stats.gov.cn/english/PressRelease/202412/t20241227_1957916.html','2024 bulletin'),L('https://data.mendeley.com/datasets/bms88fv7zz','1961–2017 compilation'),L(RAWDIR('data/raw/china'),'Our copy')],
+      notes:[['warn','Where NBS and the compilation overlap (2006–2013) they mostly agree, but a few province-years differ by 30–60%; we use the NBS value there. Provincial <b>area</b> is official only for 2001, 2006–2013 and 2019–2025 and is interpolated in between (held before 2001) — it is used only to weight aggregates. Rebuilt national yield matches NBS within ~1% in 2001, 2010, 2013 and 2019–2025.'],['','Xinjiang (fully irrigated, far from the main ENSO teleconnections) is now ~85% of China\'s cotton area.']]}]:[]),
+     ...(C.PK?[{ic:'🇵🇰',nm:'Pakistan — district crop statistics (β exploratory)',pub:'Pakistan Bureau of Statistics; Punjab Bureau of Statistics / Crop Reporting Service; Sindh Bureau of Statistics; Ministry of National Food Security & Research',use:'Cotton area and production (bales) by district for Punjab and Sindh (over 95% of the crop).',
+      kv:[['Coverage',`${n('PK')} district units, 1981–2008, 2010–2018, 2021–2023`],['Unit','000 bales × 170.09 kg → kg lint/ha'],['Units','Districts split after 1981 are merged back (e.g. Multan + Khanewal + Lodhran)']],
+      links:[L('https://www.pbs.gov.pk/wp-content/uploads/2020/07/area_and_production_by_districts_for_28_years.pdf','PBS 1981–2008',true),L('https://opendata.com.pk/dataset/f805d202-015a-4702-bfdd-d580514c4393','Punjab BoS (2011–2018)'),L('https://sbos.sindh.gov.pk/development-statistics-of-sindh','Sindh BoS (2010–2018)'),L('https://mnfsr.gov.pk/','MNFSR (2021–2023)'),L(RAWDIR('data/raw/pakistan'),'Our copy')],
+      notes:[['warn','Every year\'s district rows were checked against the published Punjab and Sindh totals (exact match except 1.2 of 1,815 thousand ha in Punjab 2016). Sindh 2011-12 (flood year) is dropped: its published area implies impossible yields. 2009 and 2019–2020 are not yet digitised. The national series uses only years with both provinces.'],['','Some reports label production "000 Tons" or "M. Tons" but the values are bales (they reproduce national bale totals).']]}]:[]),
+     ...(C.AU?[{ic:'🇦🇺',nm:'ABARES Australian Crop Report — state data (β exploratory)',pub:'Australian Bureau of Agricultural and Resource Economics and Sciences (sources: ABARES, ABS, Cotton Australia)',use:'Harvested area and lint production of cotton by state, from the state data tables of the September 2026 Australian Crop Report (No. 219).',kv:[['Coverage',`${n('AU')} states (NSW, Queensland), harvest years ${yr('AU')}`],['Unit','kt lint → kg/ha'],['Season label','harvest year (2024–25 → 2025)']],links:[L('https://www.agriculture.gov.au/abares/research-topics/agricultural-outlook/data','ABARES crop & trade data',true),L(RAWDIR('data/raw/australia'),'Our copy')],notes:[['warn','2026–27 is an ABARES forecast and is left out; 2023–24 to 2025–26 are ABARES estimates. NSW + Queensland are 97–100% of national area in every year.'],['','About 90% of the crop is irrigated, so planted area responds to water allocations more than yield does — a yield-only view understates ENSO\'s effect on Australian cotton.']]}]:[])
    ]},
    {t:'Maps & boundaries',items:[
      {ic:'🧭',nm:'U.S. counties and states',pub:'U.S. Census Bureau via us-atlas',use:'County shapes and centroids for the US map.',kv:[['Scale','1:10,000,000']],links:[L('https://github.com/topojson/us-atlas','us-atlas',true)]},
      {ic:'🌍',nm:'World countries',pub:'Natural Earth via world-atlas',use:'Country outlines on the globe and quadrant maps.',kv:[['Scale','1:110,000,000']],links:[L('https://github.com/topojson/world-atlas','world-atlas',true),L('https://www.naturalearthdata.com/','Natural Earth')]},
+     {ic:'🧭',nm:'China provinces · Pakistan districts',pub:'Natural Earth admin-1 (1:10m) · geoBoundaries PAK ADM2',use:'Province outlines for China (grouped into cotton zones) and district outlines for Pakistan (dissolved into the stable 1981 units).',kv:[['Format','GeoJSON, simplified']],links:[L('https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/','Natural Earth admin-1',true),L('https://www.geoboundaries.org/','geoBoundaries')]},
      {ic:'🧭',nm:'Brazil municipalities & states',pub:'IBGE boundaries, via pam-dashboard',use:'Município shapes and state outlines for Brazil.',kv:[['Format','GeoJSON']],links:[L('https://github.com/rschapo/pam-dashboard','pam-dashboard',true),L(RAWDIR('data/raw/boundaries'),'Our copy')]},
      {ic:'🧭',nm:'India districts',pub:'Census 2011 boundaries, via india-maps-data',use:'District shapes, matched to ICRISAT districts by census code.',kv:[['Format','GeoJSON']],links:[L('https://github.com/udit-001/india-maps-data','india-maps-data',true),L(RAWDIR('data/raw/boundaries'),'Our copy')]},
      {ic:'🧭',nm:'Argentina departments',pub:'via departamentos_argentina',use:'Department shapes and province outlines, matched by province and name.',kv:[['Format','GeoJSON']],links:[L('https://github.com/mgaitan/departamentos_argentina','departamentos_argentina',true),L(RAWDIR('data/raw/boundaries'),'Our copy')]}
@@ -548,7 +601,7 @@ function renderSources(){
 }
 
 // ---------- compare tab
-function renderCompare(){ renderHemis();
+function renderCompare(){ renderHemis(); renderContinents();
   const host=document.getElementById('pinCards'); const chart=document.getElementById('pinChart');
   if(!S.pins.length){ host.innerHTML='<div class="banner">Nothing pinned yet. In Explore, open a country, state or county and press 📌 Pin. Pins work across countries.</div>'; chart.innerHTML=''; }
   else {
@@ -563,12 +616,12 @@ function renderCompare(){ renderHemis();
     svg.append('text').attr('x',W-m.r).attr('y',m.t+10).attr('text-anchor','end').attr('fill',css('--ink-3')).style('font-size','10.5px').text(`% from trend · shading = ${country().name} event years`);
   }
   // ranking
-  const p=S.rankPhase; const all=[]; for(const cc of ORDER){ const c=DATA.countries[cc]; if(!c) continue; for(const r of c.regions){ const st=statsFor(r,cc); if(st[p].nUnits>=5&&st.neutral.n>=5&&st[p].sig) all.push({cc,r,d:st[p].diff,n:st[p].nUnits,ci:st[p].ci}); } }
+  const p=S.rankPhase; const all=[]; for(const cc of ORDERX()){ const c=DATA.countries[cc]; if(!c) continue; for(const r of c.regions){ const st=statsFor(r,cc); if(st[p].nUnits>=5&&st.neutral.n>=5&&st[p].sig) all.push({cc,r,d:st[p].diff,n:st[p].nUnits,ci:st[p].ci}); } }
   all.sort((a,b)=>a.d-b.d); const li=(d,i)=>`<li onclick="S.cc='${d.cc}';S.sel='${d.r.id}';S.zoom=null;setTab('map')"><span><span class="n">${i+1}</span>${META[d.cc].flag} ${d.r.name} <span class="muted">${d.r.admin1}</span></span><b class="${d.d<0?'neg':'pos'}">${fmt1(d.d)}%</b></li>`;
   document.getElementById('rankWorst').innerHTML=all.slice(0,12).map(li).join(''); document.getElementById('rankBest').innerHTML=all.slice(-12).reverse().map(li).join('');
-  { let tested=0; for(const cc of ORDER){ const c=DATA.countries[cc]; if(c) tested+=c.regions.filter(r=>{ const s=statsFor(r,cc); return s[p].nUnits>=5&&s.neutral.n>=5; }).length; } document.getElementById('rankNote').textContent=`${all.length} of ${tested} areas have a confident ${p} effect (≥5 ${p} and ≥5 neutral years, 90% range excludes zero); about ${Math.round(tested*0.1)} would by chance alone, so read single areas with caution · click to open`; }
+  { let tested=0; for(const cc of ORDERX()){ const c=DATA.countries[cc]; if(c) tested+=c.regions.filter(r=>{ const s=statsFor(r,cc); return s[p].nUnits>=5&&s.neutral.n>=5; }).length; } document.getElementById('rankNote').textContent=`${all.length} of ${tested} areas have a confident ${p} effect (≥5 ${p} and ≥5 neutral years, 90% range excludes zero); about ${Math.round(tested*0.1)} would by chance alone, so read single areas with caution · click to open`; }
   // national cards + chart
-  const nats=ORDER.filter(cc=>DATA.countries[cc]).map(cc=>({cc,c:DATA.countries[cc],st:statsFor(DATA.countries[cc].national,cc)}));
+  const nats=ORDERX().map(cc=>({cc,c:DATA.countries[cc],st:statsFor(DATA.countries[cc].national,cc)}));
   document.getElementById('natCards').innerHTML=nats.map(d=>`<div class="cc"><div class="t"><span><span class="flag">${META[d.cc].flag}</span> ${d.c.name}</span></div><div style="display:flex;gap:12px;margin-top:6px"><div><div class="muted" style="font-size:11px">El Niño</div><div class="big ${d.st['El Niño'].diff<0?'neg':'pos'}" style="font-size:20px">${fmt1(d.st['El Niño'].diff)}%</div></div><div><div class="muted" style="font-size:11px">La Niña</div><div class="big ${d.st['La Niña'].diff<0?'neg':'pos'}" style="font-size:20px">${fmt1(d.st['La Niña'].diff)}%</div></div></div><div class="muted" style="font-size:11px">n = ${d.st['El Niño'].n} / ${d.st['La Niña'].n} · ${d.c.yearRange[0]}–${d.c.yearRange[1]}</div></div>`).join('');
   const nc=document.getElementById('natChart'); nc.innerHTML=''; const W=nc.clientWidth||600,H=200,m={t:14,r:16,b:28,l:44}; const svg=d3.select(nc).append('svg').attr('width','100%').attr('viewBox',`0 0 ${W} ${H}`);
   const x=d3.scaleLinear().domain([Math.max(1950,S.minYear),2025]).range([m.l,W-m.r]); const y=d3.scaleLinear().domain([-30,30]).range([H-m.b,m.t]); axisY(svg,y,m,W,d=>(d>0?'+':'')+d+'%'); svg.append('line').attr('x1',m.l).attr('x2',W-m.r).attr('y1',y(0)).attr('y2',y(0)).attr('stroke',css('--ink-3'));
@@ -596,7 +649,7 @@ function renderFoot(){
   <b>Confidence.</b> 90% Welch t-interval for the difference between the phase observations and the neutral years (unequal variances, exact and repeatable); "confident" when the range excludes zero. Checked by shuffling each place's years at random: about 10% of places are then flagged, as a 90% range should give. Small n widens the range — a county with 6 La Niña years will rarely be confident; states and countries usually are.<br>
   <b>After the event.</b> The one and two crop years following each event's last affected year, averaged over events. They can overlap the next event, so treat them as indicative.<br>
   <b>Aggregates.</b> State and national series = production ÷ harvested area over all reporting areas, not only those mapped. Cross-country reads weight each country by its average production over its last ten years.<br>
-  <b>Units.</b> Everything is shown as kg of lint per hectare. ${ORDER.filter(cc=>DATA.countries[cc]).map(cc=>`<b>${cc}</b> ${DATA.countries[cc].crop}`).join(' · ')}. Brazil and Argentina report seed cotton, converted with a fixed ginning turnout; levels there are approximate, % deviations are exact.<br>
+  <b>Units.</b> Everything is shown as kg of lint per hectare. ${ORDERX().map(cc=>`<b>${cc}</b> ${DATA.countries[cc].crop}`).join(' · ')}. Brazil and Argentina report seed cotton, converted with a fixed ginning turnout; levels there are approximate, % deviations are exact.<br>
   <b>Inclusion.</b> Places need ≥25 (US), ≥20 (India) or ≥15 (Brazil, Argentina, US practice splits) seasons and a minimum average harvested area. Yields above 3,500 kg lint/ha or below 5% of a place's median are treated as reporting errors.
   <h4>Sources</h4>${Object.values(DATA.sources).map(s=>'• '+s).join('<br>')}<br>• NOAA PSL — ERSST v5 monthly sea-surface temperature, 2° grid; seasonal anomalies vs 1991–2020 shown at 4° in "ENSO on the globe"<br>Built ${DATA.generated}. Inspired by the ENSO-Yield Explorer (corn/soy, US) and the AgroENSO project.`;
 }
@@ -642,6 +695,8 @@ seg('showSeg','l',v=>{ S.showLevel=v; renderMap(); });
 seg('trendSeg','v',v=>{ S.trendView=v; const f=cur(); renderTrend(f.r,statsFor(f.r)); });
 seg('rankSeg','p',v=>{ S.rankPhase=v; renderCompare(); });
 seg('hemSeg','p',v=>{ S.hemPhase=v; renderHemis(); });
+seg('contSeg','p',v=>{ S.contPhase=v; renderContinents(); });
+seg('exSeg','x',v=>{ S.explore=v==='on'; renderAll(); });
 const sb=document.getElementById('settingsBtn'), sp=document.getElementById('settings'); sb.onclick=e=>{ e.stopPropagation(); sp.classList.toggle('open'); }; document.addEventListener('click',e=>{ if(!sp.contains(e.target)&&e.target!==sb) sp.classList.remove('open'); });
 document.getElementById('themeBtn').onclick=()=>{ const h=document.documentElement; h.dataset.theme=h.dataset.theme==='dark'?'light':'dark'; try{localStorage.setItem('enso-theme',h.dataset.theme);}catch(e){} renderAll(); };
 document.getElementById('clearPins').onclick=()=>{ S.pins=[]; renderCompare(); renderCrumbs(); };

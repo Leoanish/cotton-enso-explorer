@@ -67,11 +67,11 @@ for _, r in a[['provincia', 'departamento', 'departamento_id']].drop_duplicates(
     if k in cent: out[str(r.departamento_id)] = cent[k]
 json.dump(out, open(GEO / 'ar_dept_centroids.json', 'w'))
 
-# World outline (Natural Earth 110m via world-atlas), four study countries tagged
+# World outline (Natural Earth 110m via world-atlas), study countries tagged
 node("""
 const tc=require('topojson-client'),fs=require('fs');
 const w=JSON.parse(fs.readFileSync('node_modules/world-atlas/countries-110m.json')); const land=tc.feature(w,w.objects.countries);
-const keep={'840':'US','076':'BR','356':'IN','032':'AR'}; const r=x=>Math.round(x*100)/100;
+const keep={'840':'US','076':'BR','356':'IN','032':'AR','156':'CN','586':'PK','036':'AU'}; const r=x=>Math.round(x*100)/100;
 const feats=land.features.filter(f=>f.properties.name!=='Antarctica').map(f=>({type:'Feature',id:keep[f.id]||null,properties:{name:f.properties.name},
   geometry:{type:f.geometry.type,coordinates:f.geometry.type==='Polygon'?f.geometry.coordinates.map(rg=>rg.map(p=>[r(p[0]),r(p[1])])):f.geometry.coordinates.map(pg=>pg.map(rg=>rg.map(p=>[r(p[0]),r(p[1])])))}}));
 fs.writeFileSync('data/geo/world.json',JSON.stringify({type:'FeatureCollection',features:feats}));

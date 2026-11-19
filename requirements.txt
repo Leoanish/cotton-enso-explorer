@@ -2,3 +2,9 @@ pandas>=2.0
 numpy>=1.24
 statsmodels>=0.14
 netCDF4>=1.6
+pdfplumber
+matplotlib>=3.7
+scipy>=1.10
+xlrd>=2.0
+lxml
+html5lib

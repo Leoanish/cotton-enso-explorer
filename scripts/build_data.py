@@ -98,6 +98,13 @@ for df,cc in ((br,'BR'),(ar,'AR')):
     df['yield']=df['yield']*TURNOUT[cc]; df['prod']=df['prod']*TURNOUT[cc]
 us,us_irr,us_non,ind=[clean(x,3500) for x in (us,us_irr,us_non,ind)]; br,ar=[clean(x,3500) for x in (br,ar)]
 
+exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'new_countries.py')).read())
+cn=load_cn(); pk=clean(load_pk(),1500); au=load_au()
+# centroids for new regions
+_ne=RAW/'boundaries'/'ne_10m_admin1_chn_pak_aus.geojson'
+cent_cn=centroids_from(_ne, lambda f: 'CN-'+f['properties']['name_en'].replace(' ','') if f['properties']['adm0_a3']=='CHN' else None)
+cent_pk=centroids_from(RAW/'boundaries'/'pak_adm2.geojson', lambda f: 'PK-'+_k(pk_unit(f['properties']['shapeName'])))
+cent_au=centroids_from(_ne, lambda f: 'AU-'+_k(f['properties']['name']) if f['properties']['adm0_a3']=='AUS' else None)
 countries={
  'US': build_country('US','United States','County','kg lint/ha',us,None,min_years=25,min_area=400),
  'US_IRR': build_country('US_IRR','United States · irrigated','County','kg lint/ha',us_irr,None,min_years=15,min_area=400),
@@ -105,7 +112,19 @@ countries={
  'BR': build_country('BR','Brazil','Municipality','kg lint/ha',br,cent,min_years=15,min_area=300),
  'IN': build_country('IN','India','District','kg lint/ha',ind,None,min_years=20,min_area=5000),
  'AR': build_country('AR','Argentina','Department','kg lint/ha',ar,None,min_years=15,min_area=500),
+ 'CN': build_country('CN','China','Province','kg lint/ha',cn,cent_cn,min_years=20,min_area=3000),
+ 'PK': build_country('PK','Pakistan','District','kg lint/ha',pk,cent_pk,min_years=15,min_area=3000),
 }
+# Pakistan national series only from years where both Punjab and Sindh are reported (2010: Sindh only; 2011: Punjab only)
+_both=pk.groupby('year').admin1.nunique(); _both=set(_both[_both==2].index)
+_nat=aggregate(pk[pk.year.isin(_both)].assign(k=1),['k']).sort_values('year')
+countries['PK']['national']=dict(id='NAT',name='Pakistan',areaMean=round(float(_nat.area.mean()),0),**series_block(_nat.year,_nat['yield'],_nat.area,_nat['prod']))
+if au is not None: countries['AU']=build_country('AU','Australia','State','kg lint/ha',au,cent_au,min_years=15,min_area=1000)
+countries['CN']['crop']='Ginned cotton (lint), NBS / provincial statistics, kg/ha'
+countries['PK']['crop']='Cotton lint (170.09-kg bales → tonnes); later district splits merged back to 1981 units'
+if 'AU' in countries: countries['AU']['crop']='Cotton lint (ABARES), tonnes → kg/ha'
+for cc in ('CN','PK','AU'):
+    if cc in countries: countries[cc]['exploratory']=True
 countries['US']['variants']=[['US','All upland'],['US_IRR','Irrigated'],['US_NON','Non-irrigated']]
 for v in ['US_IRR','US_NON']: countries[v]['variantOf']='US'
 countries['US']['crop']='Upland cotton lint · lb/acre × 1.121 → kg/ha'
@@ -131,18 +150,22 @@ c2011={str(int(r['Indian census District Code 2011'])):str(r['Dist Code']) for _
 inids=set(r['id'] for r in countries['IN']['regions'])
 polygons('IN',inids,F['in_dist'],lambda f: c2011.get(str(int(f['properties']['dt_code'])) if f['properties'].get('dt_code') else None),'10%')
 
+build_new_geo(countries)
 out=dict(
   generated=pd.Timestamp.now('UTC').strftime('%Y-%m-%d'),
   oni=dict(t=[round(float(x),3) for x in oni.t], v=[round(float(x),2) for x in oni.anom_c], year=[int(x) for x in oni.year], season=list(oni.season)),
   events=[{k:v for k,v in e.items() if k not in ('a','b')} for e in events],
-  windows={k:v['desc'] for k,v in WINDOWS.items() if k in ('US','BR','IN','AR')},
+  windows={k:v['desc'] for k,v in WINDOWS.items() if k in ('US','BR','IN','AR','CN','PK','AU')},
   countries=countries,
   sources=dict(
     oni='NOAA Climate Prediction Center — Oceanic Niño Index (ERSSTv5, Niño 3.4, 3-month running mean)',
     US='USDA NASS Quick Stats — upland cotton yield (lb/acre) and acres harvested by county, incl. irrigated / non-irrigated practice splits (1972–2018), survey program, 1950–2025',
     BR='IBGE — Produção Agrícola Municipal (PAM), tables 1612 & 5457: algodão herbáceo em caroço, área colhida and quantidade produzida by municipality, 1974–2025',
-    IN='ICRISAT District Level Database — cotton area and production by district, 1966–2019',
-    AR='Ministerio de Economía (Argentina), Dirección de Estimaciones Agrícolas — algodón by departamento, campañas 1969/70–2024/25'),
+    IN='ICRISAT District Level Database — cotton area and production by district, 1966–2019 (Rajasthan 2012–15, 2017 unit-corrected); extended 2020–2024 with Ministry of Agriculture UPAg district data calibrated on 2013–2019',
+    AR='Ministerio de Economía (Argentina), Dirección de Estimaciones Agrícolas — algodón by departamento, campañas 1969/70–2024/25',
+    CN='National Bureau of Statistics of China — yearly Bulletins on National Cotton Output (2019–2025, provincial tables) and China Statistical Yearbooks (2002, 2007–2014); 1961–2017 provincial yields from Mendeley Data bms88fv7zz (compiled from China Agricultural Statistics)',
+    PK='Pakistan Bureau of Statistics — Crops Area & Production by Districts 1981-82 to 2008-09; Punjab Bureau of Statistics / Crop Reporting Service (Punjab Development Statistics 2017; Final Estimates of Kharif Crops 2016-17 to 2018-19); Sindh Bureau of Statistics, Development Statistics of Sindh 2014–2020; Ministry of National Food Security & Research, Crops Area and Production (District-wise) 2022-23 and 2023-24',
+    AU='ABARES Australian Crop Report — state cotton area and lint production'),
 )
 json.dump(out, open(OUT,'w'), separators=(',',':'), ensure_ascii=False)
 print('bytes', os.path.getsize(OUT))

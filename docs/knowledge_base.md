@@ -24,25 +24,30 @@ Anyone curious about how a Pacific Ocean climate pattern reaches a cotton field:
 
 Keywords: audience, users, beginners, farmers, students, researchers, how to start
 
-### 1.3 Countries covered — and why China and Australia are missing
+### 1.3 Countries covered — core four plus exploratory layers
 
-| Country | Smallest unit mapped | Number of areas | States/provinces | Crop years | Average national yield |
+| Country | Smallest unit mapped | Number of areas | States/zones | Crop years | Status |
 |---|---|---|---|---|---|
-| 🇺🇸 United States | County | 622 | 16 states | 1950–2025 | 705 kg lint/ha |
-| 🇧🇷 Brazil | Municipality (município) | 147 | 13 states | 1974–2025 | 1,759 kg lint/ha |
-| 🇮🇳 India | District | 144 | 13 states | 1966–2019 | 251 kg lint/ha |
-| 🇦🇷 Argentina | Department (departamento) | 72 | 12 provinces | 1970–2025 | 479 kg lint/ha |
+| 🇺🇸 United States | County | 622 | 16 states | 1950–2025 | core |
+| 🇧🇷 Brazil | Municipality (município) | 147 | 13 states | 1974–2025 | core |
+| 🇮🇳 India | District (1966 boundaries) | 146 | 13 states | 1966–2024 | core |
+| 🇦🇷 Argentina | Department (departamento) | 72 | 12 provinces | 1970–2025 | core |
+| 🇨🇳 China | Province | 15 | 3 cotton zones | 1961–2025 (2018 missing) | **exploratory β** |
+| 🇵🇰 Pakistan | District unit (1981 boundaries) | 27 | 2 provinces (Punjab, Sindh) | 1981–2008, 2010–2018, 2021–2023 | **exploratory β** |
+| 🇦🇺 Australia | State | 2 (New South Wales, Queensland) | 2 states | 1990–2026 (harvest years) | **exploratory β** |
 
 There are also two extra US views — **US · irrigated** (135 counties, 1972–2018) and **US · non-irrigated** (233 counties, 1972–2018) — built from USDA counties that report cotton yield separately by irrigation practice.
 
-**China and Australia** were in the original plan because they are major producers, but neither publishes free, long, consistent yield records at the county/district level that could be downloaded and checked. Rather than mix in national-only numbers or unreliable sources, they were left out. (India's district data also stops in 2019 because that is where the public ICRISAT database ends.)
+**Exploratory (β) layers** were added on 17 November 2026. They are marked β in the country picker and on every card. Compared with the core four, they have coarser units (whole provinces in China, whole states in Australia), gaps in the record (Pakistan), area weights that are partly interpolated (China), or mostly irrigated cotton whose yields barely respond to rain (Australia, Xinjiang). Treat their results as leads to follow up, not findings. Under ⚙ **Settings → Exploratory countries** you can switch them off ("Core 4 only"), which removes them from every cross-country view (quadrants, continents, rankings, event cards, the assistant).
 
-Keywords: countries, US, USA, United States, Brazil, India, Argentina, China, Australia, missing countries, why not China, coverage, number of counties, districts, municipalities, departments, years covered, irrigated, non-irrigated, dryland
+India now runs to **2024** (see 3.4), so the 2023–24 El Niño is included.
+
+Keywords: countries, US, USA, United States, Brazil, India, Argentina, China, Pakistan, Australia, exploratory, beta, β, core four, coverage, number of counties, districts, provinces, municipalities, departments, years covered, irrigated, non-irrigated, dryland, missing countries
 
 ### 1.4 The three-step way to read any number
 
 1. **Pick a place** — the whole country, a state, or a county.
-2. **Read the effect** — a percentage such as **−12.5%**. It means: *in El Niño (or La Niña) years, this place's cotton yield landed, on average, 12.5% further below its own normal level than it did in neutral years.* Negative = worse than a normal year, positive = better.
+2. **Read the effect** — a percentage such as **−11.9%**. It means: *in El Niño (or La Niña) years, this place's cotton yield landed, on average, 12.5% further below its own normal level than it did in neutral years.* Negative = worse than a normal year, positive = better.
 3. **Check the confidence** — each effect comes with a *90% confidence range*. If the whole range is on one side of zero (for example −19.2% to −5.7%) the result is labelled **confident**. If the range crosses zero (for example −4.7% to +6.6%) it is **uncertain**: the data cannot tell the effect apart from no effect.
 
 Keywords: how to read, interpretation, percentage meaning, negative positive, effect, confident, uncertain, quick start, three steps
@@ -210,7 +215,10 @@ Keywords: timing, hemisphere, northern hemisphere, southern hemisphere, growing 
 | Produção Agrícola Municipal (PAM), tables 1612 & 5457 | IBGE (Brazil) | Brazilian municipalities |
 | District Level Database | ICRISAT (India) | Indian districts |
 | Estimaciones agrícolas — algodón by departamento | Ministerio de Economía / MAGyP (Argentina) | Argentine departments |
-| Boundaries (maps) | US counties & states: us-atlas (US Census); world: world-atlas (Natural Earth); Brazil municipalities & states: IBGE via the `rschapo/pam-dashboard` repo; India districts: `udit-001/india-maps-data`; Argentina departments: `mgaitan/departamentos_argentina` | Map shapes |
+| UPAg district Area–Production–Yield (via India Data Portal) | Ministry of Agriculture & Farmers Welfare (India) | Indian districts 2020–2024 (extension) |
+| Bulletin on the National Cotton Output (2019–2025); China Statistical Yearbooks; provincial yield compilation 1961–2017 | National Bureau of Statistics of China; Mendeley Data bms88fv7zz | Chinese provinces (β) |
+| District crop area & production | Pakistan Bureau of Statistics; Punjab and Sindh Bureaus of Statistics; Ministry of National Food Security & Research | Pakistani districts (β) |
+| Boundaries (maps) | US counties & states: us-atlas (US Census); world: world-atlas (Natural Earth); Brazil municipalities & states: IBGE via the `rschapo/pam-dashboard` repo; India districts: `udit-001/india-maps-data`; Argentina departments: `mgaitan/departamentos_argentina`; China provinces and Pakistan provinces: Natural Earth admin-1 (1:10m); Pakistan districts: geoBoundaries PAK ADM2 | Map shapes |
 
 All sources are public. The **Sources** tab links each to the publisher, the exact file or query used, and the copy stored in the GitHub repository (`data/raw/…`).
 
@@ -238,13 +246,15 @@ Keywords: Brazil data, IBGE, PAM, Produção Agrícola Municipal, SIDRA 1612, 54
 
 ### 3.4 India data (ICRISAT District Level Database)
 
-- **What:** cotton **area (1000 ha)** and **production** by district from ICRISAT's District Level Database (DLD), 1966–2019. Production is in bales of 170 kg lint, converted to tonnes, so Indian yields are **lint**.
+- **What:** cotton **area (1000 ha)** and **production** by district from ICRISAT's District Level Database (DLD), 1966–2019, extended to **2024** (see below). Production is in bales of 170 kg lint, converted to tonnes, so Indian yields are **lint**.
+- **Extension to 2024 (added 17 Nov 2026):** the Ministry of Agriculture's UPAg district data (2013–2024) are matched to ICRISAT districts by state and name. Districts created after 1966 are added back to their parent (e.g. Washim → Akola; Telangana's 2016 districts → their old parents). For each district, UPAg is **calibrated** to ICRISAT over the 2013–2019 overlap: we take the median ratio of yields and of areas. A district is extended only if the overlap is close: ≥ 4 years, median yield ratio between 0.75 and 1.33, and year-to-year scatter of the ratio (median absolute deviation of its log) ≤ 0.12. That holds for 100 of the 146 mapped districts, covering **91% of India's mapped cotton area**. The rest stop in 2019. The file `data/raw/india_des/india_ext_match_report.csv` lists every district's match and ratios.
+- **Correction of an ICRISAT unit error (17 Nov 2026):** for **Rajasthan, crop years 2012, 2013, 2014, 2015 and 2017**, ICRISAT's production is too small by a factor of 1000/170 (≈5.9). That is a bales-vs-tonnes slip. Both the Ministry of Agriculture's own figures and Rajasthan's neighbouring years show it, so these values are multiplied by 1000/170. This changed Rajasthan's results: El Niño is now −15.6% (confident), and the earlier "confident La Niña gain" for Rajasthan (+16.9%) disappears (+5.5%, uncertain).
 - **District boundaries change** over time (districts split). ICRISAT keeps districts at their **1966 boundaries** ("apportioned"), which makes long series consistent. Some district names are therefore historical, e.g. *North Arcot Vellore* (Tamil Nadu), *Mahabubnagar* and *Rangareddy* (now in Telangana).
 - **Inclusion:** ≥ 20 seasons and ≥ 5,000 ha average area; yields ≥ 3,000 kg/ha were dropped as implausible.
-- India's yields are low by world standards (national average 251 kg lint/ha over 1966–2019) because most cotton is rain-fed and smallholder; Bt cotton after 2002 lifted yields sharply — again absorbed by the trend.
+- India's yields are low by world standards (national average 269 kg lint/ha over 1966–2024) because most cotton is rain-fed and smallholder; Bt cotton after 2002 lifted yields sharply — again absorbed by the trend.
 - Main states: Maharashtra, Gujarat, Telangana, Karnataka, Punjab, Madhya Pradesh, Haryana, Rajasthan, Andhra Pradesh, Tamil Nadu.
 
-Keywords: India data, ICRISAT, District Level Database, DLD, district, bales, 170 kg, apportioned, 1966 boundaries, Bt cotton, rain-fed, Maharashtra, Gujarat, why India ends 2019
+Keywords: India data, ICRISAT, District Level Database, DLD, district, bales, 170 kg, apportioned, 1966 boundaries, Bt cotton, rain-fed, Maharashtra, Gujarat, India 2024, UPAg, extension, calibration, Rajasthan unit error, bales tonnes error
 
 ### 3.5 Argentina data (Ministerio de Economía / MAGyP)
 
@@ -254,6 +264,62 @@ Keywords: India data, ICRISAT, District Level Database, DLD, district, bales, 17
 - Main provinces: Chaco, Santiago del Estero, Santa Fe, Formosa, Corrientes, Salta.
 
 Keywords: Argentina data, MAGyP, Ministerio de Economía, estimaciones agrícolas, departamento, campaña, seed cotton, algodón en bruto, 0.33 turnout, Chaco, Santiago del Estero
+
+### 3.5a China data (β exploratory)
+
+- **Sources:** National Bureau of Statistics (NBS) of China.
+  - *Bulletin on the National Cotton Output* for 2019–2025, with provincial tables of sown area (1,000 ha), yield (kg/ha) and output (10,000 t). The 2021 table is taken from a verbatim republication.
+  - *China Statistical Yearbooks* 2007–2014 (provincial output and yield per hectare, data years 2006–2013), and the 2002 Yearbook (provincial sown area, 2001).
+  - 1961–2017 provincial yields from a published compilation of *China Agricultural Statistics* (Mendeley Data `bms88fv7zz`).
+- **Order of preference for yield:** NBS bulletin, then NBS yearbook, then the compilation. 2018 is missing (no provincial bulletin found).
+  - The yearbook's 2008 yield column is not cotton (its implied national yield is 1,829 kg/ha against the true ~1,300), so 2008 uses the compilation's yield.
+- **Area:** official only in 2001, 2006–2013 and 2019–2025. It is interpolated between those years and held at the 2001 value before 2001. It is used **only** to weight state and national aggregates; each province's own yield series doesn't depend on it.
+- **Checks:**
+  - The rebuilt national yield matches NBS within about 1% in 2001, 2010, 2013 and 2019–2025.
+  - The bulletin's provincial areas add up to its national total in every year.
+  - Where the yearbooks and the compilation overlap they mostly agree, but a few province-years differ by 30–60% (e.g. Hebei 2007). NBS is used there.
+- **Units:** ginned cotton (lint), kg/ha, as published.
+- **Zones (the "states" level):**
+  - *Northwest inland*: Xinjiang, Gansu, Ningxia, Inner Mongolia.
+  - *Yellow River valley*: Hebei, Shandong, Henan, Shanxi, Shaanxi, Tianjin, Beijing.
+  - *Yangtze River valley*: Jiangsu, Anhui, Hubei, Hunan, Jiangxi, Zhejiang, Shanghai, Sichuan, Chongqing.
+- **Growing window:** May–Oct of the crop year (same as the US).
+- **Inclusion:** ≥ 20 seasons and ≥ 3,000 ha average; 15 provinces qualify.
+- **Caveat:** Xinjiang (fully irrigated) is now ~85% of China's cotton area, so the national figure increasingly reflects one irrigated region. The Yellow River and Yangtze provinces are more informative for rain-fed responses.
+
+Keywords: China data, NBS, National Bureau of Statistics, cotton bulletin, statistical yearbook, provinces, Xinjiang, Yellow River, Yangtze, zones, exploratory, beta, area interpolation, 2018 missing
+
+### 3.5b Pakistan data (β exploratory)
+
+- **Sources:**
+  - Pakistan Bureau of Statistics, *Crops Area and Production (by Districts) 1981-82 to 2008-09*.
+  - Punjab Bureau of Statistics / Crop Reporting Service: *Punjab Development Statistics 2017* (district tables for 2011-12 to 2015-16) and *Final Estimates of Major Kharif Crops* 2016-17, 2017-18 and 2018-19.
+  - Sindh Bureau of Statistics, *Development Statistics of Sindh* (2014, 2017, 2019 and 2020 editions; district tables for 2010-11 to 2018-19).
+  - Ministry of National Food Security & Research, *Crops Area and Production (District-wise)* 2022-23 and 2023-24 (crop years 2021–2023).
+- **Years:** 1981–2008, 2010–2018 (Punjab from 2011) and 2021–2023. 2009, 2019 and 2020 are not yet digitised.
+- **Checks:**
+  - In every year the district rows add up exactly to the published Punjab and Sindh totals. The one exception is Punjab 2016: 1.2 of 1,815 thousand ha is unaccounted for.
+  - Where two editions overlap they agree exactly.
+  - National bale totals match the Pakistan Economic Survey (e.g. 2008-09: 11.8 million bales).
+- **Units:** production is in thousand bales of 170.09 kg lint, converted to tonnes. Several reports label the column "000 Tons" or "M. Tons", but the values are bales: they reproduce the bale totals.
+- **Stable units:** districts split after 1981 are merged back so each unit means the same land throughout. Examples: Multan + Khanewal + Lodhran; Hyderabad + Matiari + Tando Allahyar + Tando Muhammad Khan; Khairpur + Nawabshah + Naushahro Feroze; Muzaffargarh + Kot Addu.
+- **Removed:** Sindh 2011-12 (the flood year). Its published area implies lint yields above 1.5 t/ha, which is impossible.
+- **National series:** uses only years when both Punjab and Sindh are reported, so a missing province can't fake a national swing.
+- **Growing window:** May–Oct (kharif).
+- **Inclusion:** ≥ 15 seasons and ≥ 3,000 ha average; 27 units qualify.
+
+Keywords: Pakistan data, PBS, Punjab, Sindh, MNFSR, bales, district units, Multan, Bahawalpur, Rahim Yar Khan, Sanghar, 2022 floods, 2015 whitefly, exploratory, beta, gaps
+
+### 3.5c Australia data (β exploratory)
+
+- **Source:** ABARES *Australian Crop Report* No. 219 (September 2026), state data tables. These tables draw on ABARES, ABS and Cotton Australia. The sheet lists *Cotton lint*: area ('000 ha, estimated **harvested** area) and production (kt lint).
+- **Years:** seasons 1989–90 to 2025–26, labelled by harvest year, so 1990–2026. The 2026–27 **forecast** is left out. 2023–24 to 2025–26 are ABARES estimates.
+- **Units:** New South Wales and Queensland. Together they are 97–100% of national area in every year; the other states grow little or no cotton, or only recently (e.g. northern WA).
+- **Growing window:** Nov (previous year)–Apr of the harvest year (sown Oct–Nov, picked Apr–Jun), as for Argentina.
+- **Caveat:** about 90% of Australian cotton is irrigated. Drought cuts **planted area** (water allocations) much more than yield, so a yield-only view understates ENSO's effect on Australian cotton.
+- **Results:** El Niño +2.0% (−8.7 to +12.8), La Niña −4.4% (−10.4 to +1.6) — both uncertain, from only two state series.
+
+Keywords: Australia data, ABARES, Australian Crop Report, state data, New South Wales, Queensland, irrigated, water allocation, harvested area, exploratory, beta
 
 ### 3.6 Units: everything is kg of lint per hectare
 
@@ -355,7 +421,7 @@ For a place, put each year's deviation into a bucket: El Niño, La Niña or neut
 
 Why subtract neutral years? Because even after detrending, neutral years do not average exactly 0%; subtracting the neutral mean gives a clean "compared with a normal year" number.
 
-**Worked example (India, El Niño, default settings):** India has 11 El Niño crop years (from 10 events), averaging about −10.9% from trend; its 29 neutral years average +1.6%. Effect = −10.9 − (+1.6) = **−12.5%**. Read: *India's cotton yield in El Niño years runs about 12.5% below a normal year.*
+**Worked example (India, El Niño, default settings):** India has 12 El Niño crop years (from 11 events), averaging about −10.1% from trend; its 30 neutral years average +1.8%. Effect = −10.1 − (+1.8) = **−11.9%**. Read: *India's cotton yield in El Niño years runs about 12% below a normal year.*
 
 **Worked example (US, La Niña):** 15 La Niña years; effect **−1.2%**: on average slightly lower, but small.
 
@@ -370,7 +436,7 @@ Averages from a handful of years can be lucky or unlucky. A **90% confidence ran
 2. Measure how much each group varies (its variance) and divide by its size. Adding the two gives the *uncertainty of the difference* (its squared standard error, SE²).
 3. The range is **effect ± t × SE**, where *t* comes from Student's t-distribution for 90% two-sided confidence with the Welch–Satterthwaite degrees of freedom. *t* is larger when there are few years (about 2.35 with 3 degrees of freedom, about 1.7 with 30), which automatically widens the range for small samples.
 
-**Worked example (India, El Niño):** effect −12.5%, standard error ≈ 3.9 percentage points, about 19 degrees of freedom so t ≈ 1.73 → range **−19.2% to −5.7%**. The whole range is below zero → **confident**.
+**Worked example (India, El Niño):** effect −11.9%, standard error ≈ 3.8 percentage points, about 21 degrees of freedom so t ≈ 1.72 → range **−18.4% to −5.4%**. The whole range is below zero → **confident**.
 **US, La Niña:** −1.2%, range **−7.0% to +4.6%** → crosses zero → **uncertain**.
 
 **Why Welch and not the bootstrap?** Earlier versions resampled the years 400 times (a "percentile bootstrap"). An audit on 12 November 2026 showed that method was **too generous with few years**: when each place's years were shuffled at random — so there was no real ENSO effect — it still called 17–22% of places with 3–7 event years "confident", instead of the 10% a 90% range should give. The Welch interval gave **about 10% at every sample size** (11.2% with 3–4 years, 9.5–9.8% otherwise), so the dashboard switched to it. It is also exact: the same data always give the same range, with no random draws. Effects (the main numbers) did not change; only ranges and some confident/uncertain labels did. The dashboard's numbers were checked against an independent calculation in Python/SciPy: 14,244 ranges, 0 differences.
@@ -446,12 +512,12 @@ Keywords: phase trends, slope, linear trend, regression, OLS, standard error, yi
 
 ### 4.11 Quadrants of the globe
 
-The Compare tab splits the world by the **equator** and the **prime meridian** into four quadrants: **NW** (north-west), **NE**, **SW**, **SE**. Each mapped cotton area falls into one by its coordinates: US → NW, India → NE, Brazil and Argentina → SW (no areas in SE because Australia is not included).
+The Compare tab splits the world by the **equator** and the **prime meridian** into four quadrants: **NW** (north-west), **NE**, **SW**, **SE**. Each mapped cotton area falls into one by its coordinates: US → NW; India, Pakistan and China → NE; Brazil and Argentina → SW; Australia → SE.
 
 How the figure is computed: areas need ≥ 3 phase observations and ≥ 5 neutral years. For each country in the quadrant, the dashboard builds a **harvested-area-weighted yearly series** of those areas' deviations, then computes the phase effect and its Welch range on that series (so the uncertainty reflects the **number of event years**). Countries in the same quadrant (Brazil and Argentina in SW) are combined by their total harvested area. Earlier versions resampled *areas* instead, which treated hundreds of neighbouring counties as independent evidence and made the ranges far too narrow; that was corrected on 12 November 2026.
 
-**Results (default settings), El Niño:** NW **+2.2%** (−2.5 to +7.0, uncertain; 622 US counties), NE **−14.3%** (−21.2 to −7.5, **confident**; 144 Indian districts), SW **−0.3%** (−7.0 to +6.4, uncertain; 202 Brazilian and Argentine areas).
-**La Niña:** NW −0.4% (−6.5 to +5.7), NE −1.3% (−9.0 to +6.4), SW −2.4% (−7.2 to +2.4) — all uncertain.
+**Results (default settings, exploratory countries included), El Niño:** NW **+2.2%** (−2.5 to +7.0, uncertain; 622 US counties), NE **−6.6%** (−11.1 to −2.1, **confident**; 188 areas in India, China and Pakistan — India alone −13.9%), SW **−0.3%** (−7.0 to +6.4, uncertain; 202 Brazilian and Argentine areas).
+**La Niña:** NW −0.4% (−6.5 to +5.7), NE −0.1% (−4.6 to +4.4), SW −2.4% (−7.2 to +2.4) — all uncertain. With "Core 4 only", NE is India alone.
 
 The card also counts how many areas in the quadrant have a negative effect ("with a loss"). The hemisphere *timing* (4.1, 2.8) matters more than east/west.
 
@@ -475,18 +541,43 @@ Keywords: Overview cards, findings, how cards are chosen, most affected state, h
 
 ---
 
+### 4.13 Continents
+
+The Compare tab also groups countries by continent: **North America** = United States; **South America** = Brazil + Argentina; **Asia** = India + Pakistan + China; **Australia** = Australia (New South Wales and Queensland).
+
+How it's computed is the same as the quadrants (4.11):
+1. Areas need ≥ 3 phase observations and ≥ 5 neutral years.
+2. For each country, build the **harvested-area-weighted yearly series** of its areas' deviations.
+3. Take phase mean minus neutral mean on that series, with a 90% Welch range.
+4. Combine the countries in a continent by their share of cotton area, with Welch–Satterthwaite degrees of freedom.
+
+Each continent card lists every country's own effect, its area share and how many phase years it rests on, because **a continent figure is mostly its biggest grower**.
+
+**Results (default settings, exploratory included):**
+- **El Niño:** North America +2.2% (−2.5 to +7.0, uncertain). South America −0.3% (−7.0 to +6.4, uncertain; Brazil −1.2%, Argentina +1.7%). **Asia −6.6% (−11.1 to −2.1, confident)**: India −13.9% (57% of area), China β +3.3% (27%), Pakistan β +3.1% (16%).
+- **La Niña:** North America −0.4%, South America −2.4% (Brazil −4.2%, Argentina +1.7%), Asia −0.1%, Australia −4.4% (−10.4 to +1.6) — all uncertain. Australia in El Niño years: +2.0% (−8.7 to +12.8), uncertain.
+
+**How to read it:** Asia's El Niño loss is India's monsoon signal diluted by irrigated Xinjiang and Pakistan, which show no loss. A continent is a geographic grouping, not a climate zone. Each country uses its own growing window, so "El Niño years" are not the same calendar years everywhere. These figures were checked by an independent Python re-computation (identical to one decimal).
+
+Keywords: continents, North America, South America, Asia, Australia, continent effect, grouping, area share, country mix, Compare tab, Asia El Niño, exploratory
+
 ## Part 5 · Key results (default settings: all years, all events, per year)
 
-### 5.1 Headline: the four countries side by side
+### 5.1 Headline: the countries side by side
 
 | Country | El Niño effect (90% range) | La Niña effect (90% range) |
 |---|---|---|
-| 🇮🇳 India | **−12.5%** (−19.2 to −5.7) **confident** · 11 years, 10 events | −1.6% (−9.1 to +6.0) uncertain · 14 years |
+| 🇮🇳 India | **−11.9%** (−18.4 to −5.4) **confident** · 12 years, 11 events | −2.0% (−8.8 to +4.8) uncertain · 17 years |
 | 🇧🇷 Brazil | −1.7% (−8.2 to +4.9) uncertain · 12 years | −2.8% (−8.0 to +2.4) uncertain · 17 years |
 | 🇺🇸 United States | +0.9% (−4.7 to +6.6) uncertain · 15 years | −1.2% (−7.0 to +4.6) uncertain · 15 years |
 | 🇦🇷 Argentina | +2.5% (−6.2 to +11.2) uncertain · 16 years | +1.3% (−6.4 to +9.1) uncertain · 19 years |
+| 🇨🇳 China β | +2.4% (−4.4 to +9.2) uncertain · 12 years | +1.9% (−2.7 to +6.5) uncertain · 13 years |
+| 🇵🇰 Pakistan β | +2.2% (−11.7 to +16.1) uncertain · 7 years | −7.8% (−24.5 to +8.8) uncertain · 6 years |
+| 🇦🇺 Australia β | +1.7% (−9.0 to +12.4) uncertain · 11 years | −4.4% (−10.6 to +1.7) uncertain · 12 years |
 
-**The clearest, most robust finding:** **El Niño hurts Indian cotton** — about 12.5% below a normal year nationally, confident, and negative for weak, moderate and strong events alike. This matches El Niño's known tendency to weaken the Indian summer monsoon. It is also a genuine *cluster*: 113 of 144 Indian districts have a negative El Niño effect and **30 are confidently negative**, against about 7 expected by chance. Gujarat, Maharashtra and Telangana are each confident at state level.
+**The clearest, most robust finding:** **El Niño hurts Indian cotton** — about 12% below a normal year nationally, confident, and still confident when only moderate+ (−10.6%) or strong+ (−11.8%) events count. This matches El Niño's known tendency to weaken the Indian summer monsoon. It is also a genuine *cluster*: 110 of 138 tested Indian districts have a negative El Niño effect and **31 are confidently negative**, against about 5 expected by chance (a shuffle test of the event labels puts this at p ≈ 0.002). Gujarat, Maharashtra, Telangana and Rajasthan are each confident at state level. The 2023–24 El Niño — new data, never used to build the method — came in close to normal nationally (−0.6%), a reminder that the average hides big event-to-event differences.
+
+China, Pakistan and Australia (β) show **no clear ENSO signal in yield** nationally. That's plausible for heavily irrigated cotton (Xinjiang, the Indus canals, Australian river valleys), but their records are shorter, patchier or coarser, so it's not strong evidence either way.
 
 For the US, Brazil and Argentina, **national** effects are small and uncertain. At county level the number of confident areas is close to what chance alone would give (for example US La Niña: 40 confident losses of 622 counties versus ≈31 by chance), so individual county results there should be read as hints, not findings.
 
@@ -506,15 +597,21 @@ Keywords: United States results, US findings, Texas, Florida, Tennessee, Arizona
 
 ### 5.3 India results
 
-- National: **El Niño −12.5% (−19.2 to −5.7, confident)**; La Niña −1.6% (−9.1 to +6.0, uncertain). Neutral mean +1.6%; national mean yield 251 kg/ha.
-- **Worst ENSO harvest:** El Niño 2002–03 (crop year 2002, **−34.9%**), then El Niño 2014–16 (2015, −24.6%), La Niña 1998–2000 (−18.9%), El Niño 1997 (−14.2%). Best: La Niña 2007–08 (2007, +25.9%).
-- **States, El Niño (confident):** Gujarat **−21.6%** (−35.8 to −7.4), Maharashtra **−18.6%**, Telangana **−15.1%**. Uncertain: Andhra Pradesh −12.0%, Rajasthan −10.3%, Punjab −9.0%.
-- **States, La Niña:** Rajasthan +16.9% and Karnataka +15.6% (confident gains); Orissa −13.2% fares worst (uncertain).
-- **Districts:** 30 of 144 are confidently negative in El Niño years (≈7 expected by chance) — a real cluster. Largest: **Latur, Maharashtra −55.0%** (−80.1 to −30.0), North Arcot Vellore, Tamil Nadu −41.2%, Nasik, Maharashtra −40.2%. In La Niña years only 6 are confidently negative (about chance).
-- **Around El Niño:** during −10.7% → 1 yr after +0.8% → 2 yrs after +4.5% (recovers).
-- **By strength (El Niño):** weak −15.1% (uncertain, 3 years), moderate −9.0% (confident), strong+ −13.9% (confident).
+- **National:** El Niño **−11.9% (−18.4 to −5.4, confident)**; La Niña −2.0% (−8.8 to +4.8, uncertain). The neutral mean is +1.8%; the national mean yield is 269 kg/ha (1966–2024).
+- **Worst ENSO harvests:**
+  1. El Niño 2002 (**−35.7%**)
+  2. La Niña 2000 (−32.4%)
+  3. El Niño 2015 (−22.3%)
+  4. La Niña 1999 (−16.8%)
+  5. El Niño 1997 (−16.5%)
+  - Best: La Niña 2007 (+26.7%). The **2023 El Niño: −0.6%**.
+- **States, El Niño (confident):** Gujarat **−19.2%** (−32.6 to −5.9), Maharashtra **−17.0%** (−29.6 to −4.5), Rajasthan **−15.6%** (−29.3 to −1.9), Telangana **−15.5%** (−23.3 to −7.6). Uncertain: Andhra Pradesh −15.1%, Haryana −8.2%, Punjab −8.0%.
+- **States, La Niña:** Karnataka **+13.7%** (confident gain); Telangana −10.6% and Orissa −13.2% fare worst (both uncertain). Rajasthan's earlier "La Niña gain" was an artefact of an ICRISAT unit error, now corrected (3.4).
+- **Districts:** 31 of 138 tested are confidently negative in El Niño years (≈5 expected by chance). Largest: **Latur, Maharashtra −49.2%** (−72.4 to −25.9), North Arcot Vellore, Tamil Nadu −41.2%, Nasik, Maharashtra −40.2%, Osmanabad, Maharashtra −35.6%. In La Niña years only 8 are confidently negative (about chance).
+- **Around El Niño:** −10.0% during → 0.0% one year after → +4.9% two years after (recovers).
+- **By strength (El Niño):** moderate+ −10.6% (confident, 9 years), strong+ −11.8% (confident, 5 years).
 
-Keywords: India results, Indian cotton, monsoon, Gujarat, Maharashtra, Telangana, Latur, 2002 drought, El Niño India, worst year India, Indian districts, Rajasthan, Karnataka
+Keywords: India results, Indian cotton, monsoon, Gujarat, Maharashtra, Telangana, Rajasthan, Latur, 2002 drought, 2023 El Niño, El Niño India, worst year India, Indian districts, Karnataka
 
 ### 5.4 Brazil results
 
@@ -565,7 +662,7 @@ Keywords: same event, across countries, compare countries, 1997-98 impact, 2015 
 - **Yield per harvested area** hides abandoned fields (important for US dryland).
 - **Seed-cotton conversion** in Brazil/Argentina uses a fixed turnout.
 - **Year after events** overlaps other events.
-- **India ends in 2019**; China and Australia are absent.
+- **India now runs to 2024** (100 of 146 districts extended, 91% of area); China, Pakistan and Australia are exploratory (β).
 - **ONI v5** rather than RONI (2.3).
 
 For a paper, one would add: field-significance tests (false discovery rate), controls for other climate indices, rainfall/temperature mechanisms, and possibly area abandonment.
@@ -578,11 +675,11 @@ Keywords: limitations, caveats, publishable, research quality, causation, correl
 
 ### 6.1 Header, country picker and settings
 
-- **Title bar:** "Cotton × ENSO Explorer". The **flag buttons** (🇺🇸 🇧🇷 🇮🇳 🇦🇷) choose the country for the *By country* tabs. **☾ / ☀** toggles dark/light theme.
+- **Title bar:** "Cotton × ENSO Explorer". The **flag buttons** (🇺🇸 🇧🇷 🇮🇳 🇦🇷 🇨🇳β 🇵🇰β 🇦🇺β) choose the country for the *By country* tabs. **☾ / ☀** toggles dark/light theme.
 - **Tabs, two groups:**
   - *By country* (follow the chosen flag): **Overview**, **Explore**, **Trends**, **Data**.
   - *All countries* (flag picker hides): **Events**, **Compare**, **Sources**.
-- **⚙ Settings** button (shows a summary like "All years · all events"): *Years* (All / 1980→ / 2000→), *Which events count* (All / Moderate+ / Strong+), *Count a multi-year event as* (per year / per event), *US practice* (all / irrigated / non-irrigated). Every number on every tab updates instantly.
+- **⚙ Settings** button (shows a summary like "All years · all events"): *Years* (All / 1980→ / 2000→), *Which events count* (All / Moderate+ / Strong+), *Count a multi-year event as* (per year / per event), *Exploratory countries β* (Include / Core 4 only — whether China, Pakistan and Australia enter cross-country views), *US practice* (all / irrigated / non-irrigated). Every number on every tab updates instantly.
 - **Breadcrumbs** (e.g. United States › Texas › Lubbock) show where you are; click a level to go back up.
 - **Search box:** type a county/state/district name to jump to it.
 - **The URL** remembers the country, tab, place, event and settings, so you can copy the address bar to share an exact view.
@@ -636,8 +733,9 @@ Global (not country-specific):
 - **Event chips** to pick an event.
 - **Oceanic Niño Index chart 1950 → today:** orange area above +0.5 °C, blue below −0.5 °C; events outlined; a **gold playhead** marks the season the globe shows. Click anywhere to jump the globe.
 - **ENSO on the globe:** an animated globe of the **observed sea-surface temperature anomaly** (ERSST v5 vs the 1991–2020 average, 4° grid) — a red tongue along the equator = El Niño, blue = La Niña. The **Niño 3.4 box** is outlined. **Dots** are cotton areas coloured by that crop year's deviation (green above trend, red below). A **badge** names the event and season. **Ocean in Nov–Jan / Jul–Sep** chooses the season (Nov–Jan = event peak, best for Brazil/Argentina; Jul–Sep = US/India growing season). **Play: All years / Weak / Moderate / Strong+** animates through years with those events; **▶ Play** starts/stops. **Typical impact zones** toggles dashed circles marking usual wetter/drier regions for the event type, with a list of the zones.
+- **76 winters in under a minute (video):** a 52-second animation (MP4, plus a GIF) of every winter 1950–51 to 2025–26. The ocean shows the observed Nov–Jan sea-surface temperature anomaly. **Every mapped cotton area is a dot**, sized by its cotton area and coloured by its yield deviation from trend in the crop year that winter touches: the northern crop harvested that autumn (US, India, China, Pakistan) and the southern crop harvested the next autumn (Brazil, Argentina, Australia). Hollow dots have no data that year. Labels give each country's national deviation, and an ONI strip marks the current winter. Built by `scripts/build_video.py`, stored in `media/`.
 - **How often, how long, how strong:** a histogram of *years between same-type events* and a scatter of *duration vs peak*.
-- **Which crop years count, by country:** four stacked strips (US, Brazil, India, Argentina), one square per crop year coloured by the window-mean ONI — line up a column to see one event landing on different harvests.
+- **Which crop years count, by country:** one strip per country (US, Brazil, India, Argentina, China, Pakistan, Australia), one square per crop year coloured by the window-mean ONI — line up a column to see one event landing on different harvests.
 - **Same event, every country:** after picking an event, the national % from trend in each country's affected crop year(s).
 
 Keywords: Events tab, KPI, latest ONI, ONI chart, timeline, playhead, globe, animation, sea surface temperature map, SST anomaly, red tongue, Niño 3.4 box, badge, play button, Nov–Jan, Jul–Sep, impact zones, histogram, duration vs peak, phase strip, which crop years count, same event every country
@@ -645,11 +743,12 @@ Keywords: Events tab, KPI, latest ONI, ONI chart, timeline, playhead, globe, ani
 ### 6.7 Compare tab
 
 - **Four quadrants of the globe:** a world map with NW/NE/SW/SE figures for La Niña or El Niño (toggle) — see 4.11.
+- **Continents:** a world map and four cards (North America, South America, Asia, Australia), each with the country mix behind it, for La Niña or El Niño — see 4.13.
 - **Pinned places:** cards and a line chart of % from trend over time for up to four pinned places (shading = event years of the current country). **Clear** removes pins.
 - **Most sensitive places · all countries:** two ranked lists, **Biggest losses** and **Biggest gains**, of areas with a confident effect (≥ 5 phase and ≥ 5 neutral observations), for La Niña or El Niño. Click to open on the map.
 - **Countries side by side:** national El Niño and La Niña cards and a chart of the four national % from trend series.
 
-Keywords: Compare tab, quadrants, pinned places, pins, most sensitive places, ranking, biggest losses, biggest gains, countries side by side, national chart, cross-country
+Keywords: Compare tab, quadrants, continents, pinned places, pins, most sensitive places, ranking, biggest losses, biggest gains, countries side by side, national chart, cross-country
 
 ### 6.8 Sources tab
 
@@ -682,7 +781,7 @@ Keywords: colours, colors, legend, symbols, orange, blue, red, green, grey, fade
 
 ### 7.1 What the assistant can do
 
-The **✦ Ask** button opens a chat panel. The assistant is an open-weight language model (OpenAI's **gpt-oss-120b**, served by Groq) that has **tools**: it can search this guide, look up any place's statistics under the current settings, list events, check a single year, rank places, compute quadrant figures, change the settings and **open views in the dashboard for you** (e.g. "show me Gujarat in El Niño years" opens the map there). It is instructed to answer only from these tools and to say so when something is not in the data.
+The **✦ Ask** button opens a chat panel. The assistant is an open-weight language model (OpenAI's **gpt-oss-120b**, served by Groq) that has **tools**: it can search this guide, look up any place's statistics under the current settings, list events, check a single year, rank places, compute quadrant and continent figures, change the settings and **open views in the dashboard for you** (e.g. "show me Gujarat in El Niño years" opens the map there). It is instructed to answer only from these tools and to say so when something is not in the data.
 
 Good questions: "Why is India hurt by El Niño?", "How did the 2015 El Niño affect Texas?", "Which Brazilian municipalities lose most in La Niña?", "What does the confidence range mean?", "Does the result hold since 2000?", "Compare irrigated and dryland cotton."
 
@@ -751,7 +850,7 @@ Keywords: glossary, definitions, terms, dictionary, jargon, what does it mean
 
 **Q: What is a "neutral year" yield?** The average actual yield in neutral years, shown as the baseline card.
 
-**Q: Why does −12.5% not equal the average El Niño-year deviation?** Because the neutral-year average (+1.6% for India) is subtracted.
+**Q: Why does −11.9% not equal the average El Niño-year deviation?** Because the neutral-year average (+1.8% for India) is subtracted.
 
 **Q: Why are Brazil's yields much higher than India's?** Brazil's centre-west cotton is high-input and well-managed; India's is mostly rain-fed smallholder cotton. Brazil's figures are also converted from seed cotton with a fixed factor.
 

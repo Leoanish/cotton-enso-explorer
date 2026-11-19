@@ -1,0 +1,253 @@
+province,district,year,area_000ha,prod_000bales,src
+Punjab,Attock,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Dadu,2021,12.34,53.84,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Jamshoro,2021,13.23,76.04,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Hyderabad,2021,4.94,30.71,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Matiari,2021,38.72,234.23,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,T.M.Khan,2021,2.98,14.53,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Badin,2021,12.34,52.93,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Thatta,2021,5.13,16.76,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Tando Allahyar,2021,22.55,137.37,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Karachi,2021,0.39,1.18,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Umarkot,2021,27.8,156.71,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Mirpurkhas,2021,37.96,215.49,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Shaheed Benazir,2021,64.9,286.93,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Jacobabad,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Kashmore,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Shikarpur,2021,0.11,0.24,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Kambar Shahdat,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Sanghar,2021,104.94,593.97,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Tharparkar,2021,0.89,4.86,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Larkana,2021,0.16,0.71,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Bannu,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Mardan,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Sawabi,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Bunir,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Chitral,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Dir Lower,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Dir Upper,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Shangla,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Malakand,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Hangu,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Karak,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,D.Ikhan,2021,0.17,0.51,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Tank,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Abbottabad,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Battagram,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Haripur,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Kohistan,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Mansehra,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Kohat,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,N. Feroze,2021,38.5,227.57,mnfsr_2022_23_cotton_p32-33.pdf
+Khyber Pakhtunkhwa,Lakki Marwat,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Sukkur,2021,33.94,174.27,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Jhang,2021,4.45,14.56,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Chiniot,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Gujrat,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,M.B. Din,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Sialkot,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Narowal,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Gujranwala,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Hafizabad,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Faisalabad,2021,4.86,21.94,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Bhakkar,2021,3.24,11.52,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Rawalpindi,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Islamabad,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Jhelum,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Sargodha,2021,1.62,2.67,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Khushab,2021,0.4,0.64,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Mianwali,2021,30.35,125.63,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Chakwal,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Sheikhupura,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Toba Tek Singh,2021,6.47,22.75,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Nankana Sahib,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Layyah,2021,31.97,111.26,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,D.G. Khan,2021,45.73,163.85,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Bahawalpur,2021,217.72,871.06,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Rahimyar Khan,2021,180.08,736.1,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Bahawalnagar,2021,250.12,1023.98,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Khairpur,2021,82.47,311.15,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Ghotki,2021,89.61,408.93,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,M. Garh,2021,89.43,324.13,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Rajanpur,2021,77.29,301.3,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Vehari,2021,46.54,179.5,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Lahore,2021,0.0,0.0,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Kasur,2021,1.21,1.75,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Okara,2021,3.24,17.78,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Sahiwal,2021,15.78,65.49,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Multan,2021,81.34,354.93,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Lodhran,2021,95.5,469.25,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Khanewal,2021,88.62,334.34,mnfsr_2022_23_cotton_p32-33.pdf
+Punjab,Pakpattan,2021,3.24,13.57,mnfsr_2022_23_cotton_p32-33.pdf
+Sindh,Umarkot,2023,27.9,184.9,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Hyderabad,2023,6.93,49.13,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Dadu,2022,12.68,26.38,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Dadu,2023,11.07,67.88,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Jamshoro,2022,15.78,55.15,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Jamshoro,2023,15.62,104.66,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Hyderabad,2022,4.99,21.77,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Matiari,2022,39.5,142.69,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Thatta,2022,5.19,20.12,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Tando Allahyar,2022,23.88,99.63,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Tando Allahyar,2023,22.11,152.66,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,T.M.Khan,2022,3.89,11.48,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,T.M.Khan,2023,3.97,24.67,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Badin,2022,12.69,42.57,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Thatta,2023,5.59,26.9,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Badin,2023,18.95,114.74,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Umarkot,2022,27.96,98.1,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Matiari,2023,42.21,291.76,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Mirpurkhas,2023,38.23,253.37,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,N. Feroze,2022,38.61,65.75,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Tharparkar,2023,1.41,9.04,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Sukkur,2023,27.98,189.3,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Karachi,2022,0.39,1.51,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,N. Feroze,2023,37.09,253.27,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Shaheed Benazir,2022,66.34,108.84,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Shaheed Benazir,2023,66.89,419.65,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Jacobabad,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Jacobabad,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Kashmore,2022,0.03,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Mirpurkhas,2022,37.87,127.04,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Kashmore,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Shikarpur,2023,0.29,1.99,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Larkana,2022,0.27,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Larkana,2023,1.42,8.87,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Kambar Shahdat,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Kambar Shahdat,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Sanghar,2022,79.68,384.34,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Sanghar,2023,130.95,904.27,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Tharparkar,2022,0.95,2.99,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Shikarpur,2022,0.28,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Karachi,2023,0.74,4.68,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Shangla,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Bannu,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Mardan,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Mardan,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Sawabi,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Sawabi,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Bunir,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Bunir,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Chitral,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Chitral,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Hangu,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Malakand,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Dir Lower,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Dir Lower,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Dir Upper,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Dir Upper,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Shangla,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Swat,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Swat,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Sukkur,2022,40.67,109.58,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Malakand,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Bannu,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Hangu,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Karak,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Lakki Marwat,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Lakki Marwat,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,D.Ikhan,2022,0.18,0.54,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,D.Ikhan,2023,0.04,0.12,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Tank,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Tank,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Abbottabad,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Abbottabad,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Karak,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Battagram,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Haripur,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Haripur,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Kohistan,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Kohistan,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Mansehra,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Mansehra,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Kohat,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Kohat,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Battagram,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Ghotki,2023,84.97,479.08,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Muree,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Khairpur,2023,81.46,338.85,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Faisalabad,2022,10.52,44.7,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Faisalabad,2023,14.16,62.88,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Toba Tek Singh,2022,12.14,32.8,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Toba Tek Singh,2023,14.97,55.18,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Jhang,2022,12.55,31.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Jhang,2023,16.59,65.29,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Chiniot,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Chiniot,2023,0.81,2.97,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Gujrat,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Gujrat,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,M.B. Din,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,M.B. Din,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Hafizabad,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Hafizabad,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Wazirabad,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Wazirabad,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Gujranwala,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Bhakkar,2023,17.4,61.63,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Bhakkar,2022,8.5,27.1,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Mianwali,2023,61.11,240.72,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Mianwali,2022,42.49,163.3,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Attock,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Attock,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Rawalpindi,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Rawalpindi,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Muree,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Peshawar,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Islamabad,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Islamabad,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Gujranwala,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Jhelum,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Chakwal,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Chakwal,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Talagang,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Talagang,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Sargodha,2022,1.62,2.7,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Sargodha,2023,3.24,5.47,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Khushab,2022,0.81,1.8,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Khushab,2023,1.21,3.73,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Jhelum,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Sialkot,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Sialkot,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Narowal,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Vehari,2023,66.37,250.51,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,M. Garh,2022,90.65,126.6,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,M. Garh,2023,60.3,167.25,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Kot Addu,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Kot Addu,2023,12.95,29.65,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Layyah,2022,40.87,94.9,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Layyah,2023,48.16,155.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,D.G. Khan,2022,46.54,50.9,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Vehari,2022,65.96,168.3,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,D.G. Khan,2023,50.99,148.79,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Rajanpur,2023,128.28,324.13,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Bahawalpur,2022,233.9,525.5,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Bahawalpur,2023,265.06,1022.89,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Rahimyar Khan,2022,189.79,362.7,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Rahimyar Khan,2023,228.24,753.88,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Bahawalnagar,2022,263.85,593.2,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Bahawalnagar,2023,314.03,1244.7,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Khairpur,2022,88.57,123.55,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Rajanpur,2022,110.07,133.7,mnfsr_2023_24_cotton_p41-42.pdf
+Sindh,Ghotki,2022,89.62,144.83,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Khanewal,2023,106.43,450.17,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Lodhran,2023,114.52,380.16,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Narowal,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Sheikhupura,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Sheikhupura,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Nankana Sahib,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Nankana Sahib,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Lahore,2022,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Lahore,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Kasur,2022,2.02,3.6,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Khanewal,2022,106.03,255.5,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Kasur,2023,2.83,5.49,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Okara,2023,4.86,23.62,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Sahiwal,2022,28.33,86.4,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Sahiwal,2023,29.14,145.02,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Pakpattan,2022,8.9,32.8,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Pakpattan,2023,8.9,45.98,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Multan,2022,97.53,189.0,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Multan,2023,109.67,383.01,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Lodhran,2022,107.64,264.5,mnfsr_2023_24_cotton_p41-42.pdf
+Punjab,Okara,2022,4.45,19.3,mnfsr_2023_24_cotton_p41-42.pdf
+Khyber Pakhtunkhwa,Peshawar,2023,0.0,0.0,mnfsr_2023_24_cotton_p41-42.pdf

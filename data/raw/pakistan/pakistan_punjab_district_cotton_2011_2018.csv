@@ -1,0 +1,290 @@
+district,year,area_000ha,prod_000bales,province
+Attock,2011,0.0,0.0,Punjab
+Attock,2012,0.0,0.0,Punjab
+Attock,2013,0.0,0.0,Punjab
+Attock,2014,0.0,0.0,Punjab
+Attock,2015,0.0,0.0,Punjab
+Attock,2016,0.0,0.0,Punjab
+Attock,2017,0.0,0.0,Punjab
+Attock,2018,0.0,0.0,Punjab
+Bahawalnagar,2011,251.0,1240.0,Punjab
+Bahawalnagar,2012,229.0,1082.0,Punjab
+Bahawalnagar,2013,228.0,1085.0,Punjab
+Bahawalnagar,2014,239.0,1119.0,Punjab
+Bahawalnagar,2015,219.0,810.0,Punjab
+Bahawalnagar,2016,205.99,842.05,Punjab
+Bahawalnagar,2017,240.39,866.68,Punjab
+Bahawalnagar,2018,212.05,686.32,Punjab
+Bahawalpur,2011,284.0,1364.0,Punjab
+Bahawalpur,2012,273.0,1176.0,Punjab
+Bahawalpur,2013,268.0,1152.0,Punjab
+Bahawalpur,2014,280.0,1287.0,Punjab
+Bahawalpur,2015,273.0,905.0,Punjab
+Bahawalpur,2016,241.99,1062.05,Punjab
+Bahawalpur,2017,267.5,1124.57,Punjab
+Bahawalpur,2018,265.47,991.96,Punjab
+Bhakkar,2011,25.0,83.0,Punjab
+Bhakkar,2012,24.0,86.0,Punjab
+Bhakkar,2013,25.0,75.0,Punjab
+Bhakkar,2014,48.0,158.0,Punjab
+Bhakkar,2015,44.0,86.0,Punjab
+Bhakkar,2016,29.54,68.95,Punjab
+Bhakkar,2017,23.47,71.25,Punjab
+Bhakkar,2018,16.59,55.97,Punjab
+Chakwal,2011,0.0,0.0,Punjab
+Chakwal,2012,0.0,0.0,Punjab
+Chakwal,2013,0.0,0.0,Punjab
+Chakwal,2014,0.0,1.0,Punjab
+Chakwal,2015,0.0,0.0,Punjab
+Chakwal,2016,0.0,0.0,Punjab
+Chakwal,2017,0.0,0.0,Punjab
+Chakwal,2018,0.0,0.0,Punjab
+Chiniot,2011,4.0,10.0,Punjab
+Chiniot,2012,4.0,7.0,Punjab
+Chiniot,2013,3.0,6.0,Punjab
+Chiniot,2014,2.0,5.0,Punjab
+Chiniot,2015,2.0,3.0,Punjab
+Chiniot,2016,1.61,2.77,Punjab
+Chiniot,2017,1.22,2.61,Punjab
+Chiniot,2018,1.21,2.66,Punjab
+D. G. Khan,2011,98.0,392.0,Punjab
+D. G. Khan,2012,73.0,242.0,Punjab
+D. G. Khan,2013,88.0,317.0,Punjab
+D. G. Khan,2014,109.0,471.0,Punjab
+D. G. Khan,2015,95.0,245.0,Punjab
+D.G. Khan,2016,72.84,245.79,Punjab
+D.G. Khan,2017,90.24,415.65,Punjab
+D.G. Khan,2018,96.72,346.23,Punjab
+Faisalabad,2011,61.0,170.0,Punjab
+Faisalabad,2012,45.0,117.0,Punjab
+Faisalabad,2013,33.0,81.0,Punjab
+Faisalabad,2014,30.0,100.0,Punjab
+Faisalabad,2015,30.0,63.0,Punjab
+Faisalabad,2016,18.62,50.47,Punjab
+Faisalabad,2017,24.69,77.33,Punjab
+Faisalabad,2018,15.78,43.54,Punjab
+Gujranwala,2011,0.0,0.0,Punjab
+Gujranwala,2012,0.0,0.0,Punjab
+Gujranwala,2013,0.0,0.0,Punjab
+Gujranwala,2014,0.0,0.0,Punjab
+Gujranwala,2015,0.0,0.0,Punjab
+Gujranwala,2016,0.0,0.0,Punjab
+Gujranwala,2017,0.0,0.0,Punjab
+Gujranwala,2018,0.0,0.0,Punjab
+Gujrat,2011,0.0,0.0,Punjab
+Gujrat,2012,0.0,0.0,Punjab
+Gujrat,2013,0.0,0.0,Punjab
+Gujrat,2014,0.0,0.0,Punjab
+Gujrat,2015,1.0,1.0,Punjab
+Gujrat,2016,0.0,0.0,Punjab
+Gujrat,2017,0.0,0.0,Punjab
+Gujrat,2018,0.0,0.0,Punjab
+Hafizabad,2011,0.0,0.0,Punjab
+Hafizabad,2012,0.0,0.0,Punjab
+Hafizabad,2013,0.0,0.0,Punjab
+Hafizabad,2014,0.0,0.0,Punjab
+Hafizabad,2015,0.0,0.0,Punjab
+Hafizabad,2016,0.0,0.0,Punjab
+Hafizabad,2017,0.0,0.0,Punjab
+Hafizabad,2018,0.0,0.0,Punjab
+Islamabad,2016,0.0,0.0,Punjab
+Islamabad,2017,0.0,0.0,Punjab
+Islamabad,2018,0.0,0.0,Punjab
+Jhang,2011,74.0,215.0,Punjab
+Jhang,2012,59.0,150.0,Punjab
+Jhang,2013,46.0,116.0,Punjab
+Jhang,2014,36.0,98.0,Punjab
+Jhang,2015,38.0,80.0,Punjab
+Jhang,2016,27.52,69.32,Punjab
+Jhang,2017,21.85,51.48,Punjab
+Jhang,2018,17.0,39.22,Punjab
+Jhelum,2011,0.0,0.0,Punjab
+Jhelum,2012,0.0,0.0,Punjab
+Jhelum,2013,0.0,1.0,Punjab
+Jhelum,2014,0.0,1.0,Punjab
+Jhelum,2015,0.0,0.0,Punjab
+Jhelum,2016,0.4,0.4,Punjab
+Jhelum,2017,0.4,0.4,Punjab
+Jhelum,2018,0.4,0.38,Punjab
+Kasur,2011,19.0,49.0,Punjab
+Kasur,2012,12.0,30.0,Punjab
+Kasur,2013,12.0,29.0,Punjab
+Kasur,2014,11.0,28.0,Punjab
+Kasur,2015,9.0,16.0,Punjab
+Kasur,2016,5.26,11.95,Punjab
+Kasur,2017,5.68,14.39,Punjab
+Kasur,2018,4.86,11.97,Punjab
+Khanewal,2011,209.0,1053.0,Punjab
+Khanewal,2012,200.0,940.0,Punjab
+Khanewal,2013,196.0,956.0,Punjab
+Khanewal,2014,191.0,893.0,Punjab
+Khanewal,2015,188.0,431.0,Punjab
+Khanewal,2016,142.04,539.24,Punjab
+Khanewal,2017,179.68,769.41,Punjab
+Khanewal,2018,167.13,622.85,Punjab
+Khushab,2011,3.0,6.0,Punjab
+Khushab,2012,3.0,6.0,Punjab
+Khushab,2013,2.0,3.0,Punjab
+Khushab,2014,1.0,2.0,Punjab
+Khushab,2015,3.0,7.0,Punjab
+Khushab,2016,2.42,4.24,Punjab
+Khushab,2017,0.8,0.96,Punjab
+Khushab,2018,0.4,0.47,Punjab
+Lahore,2011,0.0,0.0,Punjab
+Lahore,2012,0.0,0.0,Punjab
+Lahore,2013,0.0,0.0,Punjab
+Lahore,2014,0.0,0.0,Punjab
+Lahore,2015,0.0,0.0,Punjab
+Lahore,2016,0.0,0.0,Punjab
+Lahore,2017,0.0,0.0,Punjab
+Lahore,2018,0.0,0.0,Punjab
+Layyah,2011,48.0,147.0,Punjab
+Layyah,2012,53.0,154.0,Punjab
+Layyah,2013,51.0,146.0,Punjab
+Layyah,2014,54.0,172.0,Punjab
+Layyah,2015,45.0,141.0,Punjab
+Layyah,2016,42.9,139.54,Punjab
+Layyah,2017,49.38,200.64,Punjab
+Layyah,2018,37.23,102.79,Punjab
+Lodhran,2011,211.0,971.0,Punjab
+Lodhran,2012,191.0,803.0,Punjab
+Lodhran,2013,184.0,755.0,Punjab
+Lodhran,2014,199.0,908.0,Punjab
+Lodhran,2015,196.0,470.0,Punjab
+Lodhran,2016,150.94,600.11,Punjab
+Lodhran,2017,182.91,691.71,Punjab
+Lodhran,2018,162.28,676.34,Punjab
+M.B.Din,2017,0.81,0.9,Punjab
+M.B.Din,2018,0.81,0.65,Punjab
+Mandi Baha-ud-Din,2011,2.0,4.0,Punjab
+Mandi Baha-ud-Din,2012,2.0,3.0,Punjab
+Mandi Baha-ud-Din,2013,1.0,1.0,Punjab
+Mandi Baha-ud-Din,2014,1.0,2.0,Punjab
+Mandi Baha-ud-Din,2015,0.0,0.0,Punjab
+Mianwali,2011,34.0,95.0,Punjab
+Mianwali,2012,41.0,109.0,Punjab
+Mianwali,2013,42.0,128.0,Punjab
+Mianwali,2014,58.0,174.0,Punjab
+Mianwali,2015,55.0,128.0,Punjab
+Mianwali,2016,48.16,144.91,Punjab
+Mianwali,2017,42.9,137.73,Punjab
+Mianwali,2018,31.16,98.85,Punjab
+Multan,2011,180.0,870.0,Punjab
+Multan,2012,169.0,775.0,Punjab
+Multan,2013,158.0,690.0,Punjab
+Multan,2014,146.0,663.0,Punjab
+Multan,2015,164.0,354.0,Punjab
+Multan,2016,141.23,495.28,Punjab
+Multan,2017,157.42,622.52,Punjab
+Multan,2018,140.02,530.57,Punjab
+Muzaffargarh,2011,171.0,661.0,Punjab
+Muzaffargarh,2012,164.0,608.0,Punjab
+Muzaffargarh,2013,153.0,549.0,Punjab
+Muzaffargarh,2014,142.0,631.0,Punjab
+Muzaffargarh,2015,146.0,318.0,Punjab
+Muzaffargarh,2016,135.97,429.84,Punjab
+Muzaffargarh,2017,140.02,497.52,Punjab
+Muzaffargarh,2018,142.04,430.63,Punjab
+Nankana Sahib,2011,2.0,3.0,Punjab
+Nankana Sahib,2012,1.0,2.0,Punjab
+Nankana Sahib,2013,1.0,2.0,Punjab
+Nankana Sahib,2014,1.0,1.0,Punjab
+Nankana Sahib,2015,0.0,0.0,Punjab
+Nankana Sahib,2017,0.4,0.48,Punjab
+Nankana Sahib,2018,0.0,0.0,Punjab
+Narowal,2011,0.0,0.0,Punjab
+Narowal,2012,0.0,0.0,Punjab
+Narowal,2013,0.0,0.0,Punjab
+Narowal,2014,0.0,0.0,Punjab
+Narowal,2015,0.0,0.0,Punjab
+Narowal,2016,0.0,0.0,Punjab
+Narowal,2017,0.0,0.0,Punjab
+Narowal,2018,0.0,0.0,Punjab
+Okara,2011,35.0,150.0,Punjab
+Okara,2012,28.0,139.0,Punjab
+Okara,2013,23.0,100.0,Punjab
+Okara,2014,20.0,93.0,Punjab
+Okara,2015,22.0,66.0,Punjab
+Okara,2016,16.59,64.08,Punjab
+Okara,2017,11.33,36.67,Punjab
+Okara,2018,9.71,32.98,Punjab
+Pakpattan,2011,55.0,264.0,Punjab
+Pakpattan,2012,42.0,180.0,Punjab
+Pakpattan,2013,39.0,169.0,Punjab
+Pakpattan,2014,51.0,226.0,Punjab
+Pakpattan,2015,44.0,107.0,Punjab
+Pakpattan,2016,23.87,82.82,Punjab
+Pakpattan,2017,25.89,85.13,Punjab
+Pakpattan,2018,21.85,81.14,Punjab
+R. Y. Khan,2011,244.0,1125.0,Punjab
+R. Y. Khan,2012,222.0,914.0,Punjab
+R. Y. Khan,2013,206.0,910.0,Punjab
+R. Y. Khan,2014,219.0,1034.0,Punjab
+R. Y. Khan,2015,207.0,744.0,Punjab
+R.Y. Khan,2016,169.56,754.81,Punjab
+R.Y. Khan,2017,157.42,611.5,Punjab
+R.Y. Khan,2018,165.92,674.75,Punjab
+Rajanpur,2011,124.0,475.0,Punjab
+Rajanpur,2012,107.0,378.0,Punjab
+Rajanpur,2013,99.0,459.0,Punjab
+Rajanpur,2014,144.0,700.0,Punjab
+Rajanpur,2015,142.0,636.0,Punjab
+Rajanpur,2016,135.16,620.25,Punjab
+Rajanpur,2017,134.35,695.71,Punjab
+Rajanpur,2018,143.26,625.24,Punjab
+Rawalpindi,2011,0.0,0.0,Punjab
+Rawalpindi,2012,0.0,0.0,Punjab
+Rawalpindi,2013,0.0,0.0,Punjab
+Rawalpindi,2014,0.0,0.0,Punjab
+Rawalpindi,2015,0.0,0.0,Punjab
+Rawalpindi,2016,0.0,0.0,Punjab
+Rawalpindi,2017,0.0,0.0,Punjab
+Rawalpindi,2018,0.0,0.0,Punjab
+Sahiwal,2011,97.0,446.0,Punjab
+Sahiwal,2012,87.0,406.0,Punjab
+Sahiwal,2013,82.0,327.0,Punjab
+Sahiwal,2014,81.0,350.0,Punjab
+Sahiwal,2015,86.0,185.0,Punjab
+Sahiwal,2016,55.84,177.58,Punjab
+Sahiwal,2017,64.74,200.19,Punjab
+Sahiwal,2018,57.06,187.57,Punjab
+Sargodha,2011,13.0,33.0,Punjab
+Sargodha,2012,11.0,26.0,Punjab
+Sargodha,2013,8.0,9.0,Punjab
+Sargodha,2014,8.0,15.0,Punjab
+Sargodha,2015,7.0,9.0,Punjab
+Sargodha,2016,5.26,7.93,Punjab
+Sargodha,2017,5.66,10.25,Punjab
+Sargodha,2018,3.64,6.25,Punjab
+Sheikhupura,2011,0.0,0.0,Punjab
+Sheikhupura,2012,0.0,2.0,Punjab
+Sheikhupura,2013,0.0,0.0,Punjab
+Sheikhupura,2014,0.0,1.0,Punjab
+Sheikhupura,2015,0.0,0.0,Punjab
+Sheikhupura,2016,0.4,0.87,Punjab
+Sheikhupura,2017,0.4,0.79,Punjab
+Sheikhupura,2018,0.0,0.0,Punjab
+Sialkot,2011,0.0,0.0,Punjab
+Sialkot,2012,0.0,0.0,Punjab
+Sialkot,2013,0.0,0.0,Punjab
+Sialkot,2014,0.0,0.0,Punjab
+Sialkot,2015,0.0,0.0,Punjab
+Sialkot,2016,0.0,0.0,Punjab
+Sialkot,2017,0.0,0.0,Punjab
+Sialkot,2018,0.0,0.0,Punjab
+T.T. Singh,2016,24.28,84.07,Punjab
+T.T. Singh,2017,31.16,88.27,Punjab
+T.T. Singh,2018,21.04,47.91,Punjab
+Toba Tek Singh,2011,59.0,192.0,Punjab
+Toba Tek Singh,2012,44.0,142.0,Punjab
+Toba Tek Singh,2013,42.0,141.0,Punjab
+Toba Tek Singh,2014,43.0,197.0,Punjab
+Toba Tek Singh,2015,37.0,90.0,Punjab
+Vehari,2011,230.0,1111.0,Punjab
+Vehari,2012,224.0,1050.0,Punjab
+Vehari,2013,209.0,938.0,Punjab
+Vehari,2014,208.0,947.0,Punjab
+Vehari,2015,190.0,448.0,Punjab
+Vehari,2016,115.74,477.26,Punjab
+Vehari,2017,192.22,802.26,Punjab
+Vehari,2018,154.18,528.76,Punjab
