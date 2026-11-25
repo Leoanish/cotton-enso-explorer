@@ -525,7 +525,7 @@ Keywords: quadrants, NW, NE, SW, SE, hemisphere, north south, east west, globe s
 
 ### 4.12 How the "Overview" cards are chosen
 
-Overview shows about eight to ten tiles for the selected country, grouped into El Niño, La Niña and context rows, all computed live from the settings. Each tile shows the number; its hover card carries a headline worded to match the evidence (anything not confident says so).
+Overview shows up to 17 tiles for the selected country in three columns (El Niño, La Niña, Context), all computed live from the settings. Each tile shows the number; its hover card carries a headline worded to match the evidence (anything not confident says so).
 1. **La Niña · national** and 2. **El Niño · national** — the national effect, with its range, number of years, how many fell below trend, worst and best year.
 3. **States** — for each phase, the state with the most negative effect (among states with ≥ 5 phase observations and ≥ 8 neutral years), flagged "uncertain" when its range crosses zero.
 4. **Hardest-hit local area** — the most negative *confident* county/municipality/district/department (≥ 5 observations), for whichever phase has more confident losses. The card also says how many areas are confidently negative and how many would be **expected by chance** (5% of those tested), so you can judge whether there is a real cluster.
@@ -694,12 +694,18 @@ The starting page for a country, designed to be read in seconds.
 
 - **"How to read" line** (dismiss with ×): −12% means yield vs a normal (neutral) year; **✓ confident** means the 90% range excludes zero, and faded numbers are uncertain; hover or tap any number for the story.
 - **Country strip:** one row of key numbers: mapped areas, crop years, number of El Niño and La Niña events, neutral years, average yield and the growing window. Hover (or focus) any of them for details: events by strength, the data source, the crop calendar.
-- **"What the data says":** compact number tiles in three rows:
-  - *El Niño years:* national effect, worst state, worst local area (when one is confident), and the country's continent (when it has more than one country).
-  - *La Niña years:* national effect, worst state, effect by strength, the year after, irrigation (US only) and the quadrant.
-  - *Events & context:* the country's worst ENSO harvest.
+- **"What the data says": three side-by-side columns.**
+  - **El Niño years** and **La Niña years** are mirror images: the same rows in the same order, so each row compares the two phases directly. The rows are *National* (the national effect), *Worst state* (or province / zone), *Worst local area* with a confident loss (county, municipality, district…), *Worst event* of that type, *By strength* (weak / moderate / strong+) and *Year after* (event year → next year). Where a country's local areas are its states (Australia), the local-area row is left out of both columns.
+  - **Context** holds the cards that use both phases (EN = El Niño, LN = La Niña):
+    - *Right now*: the latest ONI and the ongoing event, with what that phase has historically meant for this country; it's a past average, not a forecast.
+    - *Normal (neutral) year*: the baseline yield.
+    - *Areas with a confident loss* against the number expected by chance.
+    - *Quadrant of the globe*.
+    - *Continent*: shown only when it differs from the quadrant.
+    - *Dryland vs irrigated*: US only.
+  - On narrow screens the three columns stack: El Niño, then La Niña, then Context.
 - **Each tile shows only the number,** a short tag (the place or event) and **✓ confident** or **uncertain**. Uncertain numbers are drawn faded so confident ones stand out.
-- **Hovering a tile** (after a short pause) **expands it in place**: the tile grows downward to show the one-line headline, the full explanation (years, how many below trend, 90% range, worst and best year) and "See the evidence →", and the tiles below slide down to make room, so nothing is covered. **Clicking** a tile opens the tab that holds its evidence. On phones and tablets, the **first tap opens the details and a second tap opens the evidence**. Tiles also work from the keyboard (Tab to focus shows the details, Enter opens the evidence).
+- **Hovering a tile** (after a short pause) **expands it in place**: the tile grows downward to show the one-line headline, the full explanation (years, how many below trend, 90% range, worst and best year) and "See the evidence →"; the tiles below it in the same column slide down to make room, so nothing is covered. **Clicking** a tile opens the tab that holds its evidence. On phones and tablets, the **first tap opens the details and a second tap opens the evidence**. Tiles also work from the keyboard (Tab to focus shows the details, Enter opens the evidence).
 
 **Look:** the explorer keeps its plain near-black (dark) and warm off-white (light) colours, with a light glass finish: slightly translucent, frosted panels with a soft top sheen and a fine highlight edge. People who turn on *reduce transparency* in their system settings get solid panels instead.
 
