@@ -32,7 +32,7 @@ geo = json.dumps({
     'AU': {'states': L('au_states.json'), 'polys': L('au_polys.json')},
     'WORLD': L('world.json'),
 }, separators=(',', ':'))
-app = open(SRC / 'outlook.js').read() + '\n' + open(SRC / 'app.js').read()
+app = open(SRC / 'outlook.js').read() + '\n' + open(SRC / 'guide.js').read() + '\n' + open(SRC / 'app.js').read()
 # AI assistant: the guide it searches, and the URL of the key-holding proxy (chat-proxy/PROXY_URL, one line; blank = off)
 kb = json.dumps(open(ROOT / 'docs' / 'knowledge_base.md').read(), ensure_ascii=False)
 purl_f = ROOT / 'chat-proxy' / 'PROXY_URL'

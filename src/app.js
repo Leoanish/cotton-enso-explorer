@@ -9,7 +9,7 @@ const isExpl = cc => !!(DATA.countries[cc]&&DATA.countries[cc].exploratory);
 // countries used by cross-country views (exploratory ones can be switched off in Settings)
 const ORDERX = () => ORDER.filter(cc=>S.explore||!isExpl(cc));
 const TABS = ['findings','map','area','wx','events','compare','data','sources'];
-const S = { cc:'US', a1:null, sel:null, metric:'yield', mapStyle:'choro', showLevel:'region', minYear:0, explore:true, event:null, minInt:'weak', hemPhase:'La Niña', tab:'findings', trendView:'yield', rankPhase:'La Niña', pins:[], sort:{col:'year',dir:-1}, weight:'year', mask:true, zoom:null };
+const S = { cc:'US', a1:null, sel:null, metric:'yield', mvar:'yield', mph:'all', dIdx:'spei', mapStyle:'choro', showLevel:'region', minYear:0, explore:true, event:null, minInt:'weak', hemPhase:'La Niña', tab:'findings', trendView:'yield', rankPhase:'La Niña', pins:[], sort:{col:'year',dir:-1}, weight:'year', mask:true, zoom:null };
 const INT_RANK={weak:0,moderate:1,strong:2,'very strong':3};
 const passes=p=> !p.event || INT_RANK[p.intensity]>=INT_RANK[S.minInt];
 const eventPasses=e=> INT_RANK[e.intensity]>=INT_RANK[S.minInt];
@@ -176,7 +176,7 @@ function renderPhaseStrip(){
 function geoNameKey(){ const b=baseCC(S.cc); return b==='IN'?'st_nm':b==='BR'?'uf':'name'; }
 function admin1ForFeature(f){ const key=norm(f.properties[geoNameKey()]); return country().admin1.find(a=>norm(a.geoKey||a.name)===key)||null; }
 function featureForAdmin1(a){ const key=norm(a.geoKey||a.name); return GEO[baseCC(S.cc)].states.features.find(f=>norm(f.properties[geoNameKey()])===key)||null; }
-function metricOf(st,r,lvl){ if(S.metric==='fc'||S.metric==='dry') return metricWx(r,lvl); if(S.metric==='yield') return {v:st.yieldMean,sig:true}; const p=S.metric==='nina'?'La Niña':'El Niño'; return {v:st[p].nUnits>=3?st[p].diff:null,sig:!!st[p].sig}; }
+function metricOf(st,r,lvl){ if(S.metric==='wx') return metricWxVar(r); if(S.metric==='fc'||S.metric==='dry') return metricWx(r,lvl); if(S.metric==='yield') return {v:st.yieldMean,sig:true}; const p=S.metric==='nina'?'La Niña':'El Niño'; return {v:st[p].nUnits>=3?st[p].diff:null,sig:!!st[p].sig}; }
 function levelLabels(){ const b=baseCC(S.cc); const L={US:['Counties','States'],BR:['Municipalities','States'],IN:['Districts','States'],AR:['Departments','Provinces'],CN:['Provinces','Zones'],PK:['Districts','Provinces'],AU:['States','States']}[b]||['Areas','States'];
   const q=document.querySelectorAll('#showSeg button'); if(q.length===2){ q[0].textContent=L[0]; q[1].textContent=L[1]; } }
 function renderMap(){ levelLabels();
@@ -192,12 +192,13 @@ function renderMap(){ levelLabels();
   const items= stateView ? c.regions.filter(r=>r.admin1===S.a1).map(r=>({r,lvl:'region',...metricOf(statsFor(r),r,'region')})) : countyMode ? c.regions.map(r=>({r,lvl:'region',...metricOf(statsFor(r),r,'region')})) : c.admin1.map(a=>({r:a,lvl:'admin1',...metricOf(statsFor(a),a,'admin1')}));
   const a1stats=new Map(c.admin1.map(a=>[norm(a.geoKey||a.name),{r:a,lvl:'admin1',...metricOf(statsFor(a),a,'admin1')}]));
   let color,legend;
-  if(S.metric==='fc'||S.metric==='dry'){ const wl=wxLegend(items); color=wl.color; legend=wl.html; }
+  if(S.metric==='wx'){ const wl=wxVarLegend(items); color=wl.color; legend=wl.html; }
+  else if(S.metric==='fc'||S.metric==='dry'){ const wl=wxLegend(items); color=wl.color; legend=wl.html; }
   else if(S.metric==='yield'){ const ext=d3.extent(items.map(d=>d.v).filter(x=>x!=null)); color=d3.scaleSequential(d3.interpolateYlGnBu).domain([ext[1],ext[0]]); legend=`<b>Average yield</b> · ${c.unit}<div class="ramp" style="background:linear-gradient(90deg,${d3.interpolateYlGnBu(1)},${d3.interpolateYlGnBu(.5)},${d3.interpolateYlGnBu(0)})"></div><div class="rl"><span>${fmt0(Math.round(ext[1]||0))}</span><span>${fmt0(Math.round(ext[0]||0))}</span></div>`; }
   else { const lim=Math.min(30,Math.max(10,d3.quantile(items.map(d=>Math.abs(d.v)).filter(x=>x!=null).sort(d3.ascending),0.9)||15)); const L=Math.ceil(lim/5)*5; color=d3.scaleDiverging().domain([-L,0,L]).interpolator(t=>d3.interpolateRgbBasis([css('--neg'),css('--mid'),css('--pos')])(t)); legend=`<b>${S.metric==='nina'?'La Niña':'El Niño'} years vs neutral</b><br>average % from trend<div class="ramp"></div><div class="rl"><span>−${L}%</span><span>0</span><span>+${L}%</span></div><div style="margin-top:6px"><span class="sw" style="background:var(--pos);opacity:.28"></span>faded = not confident (90% range crosses 0)</div><div><span class="sw" style="background:var(--neutral)"></span>grey = fewer than 3 ${S.metric==='nina'?'La Niña':'El Niño'} years</div>`; }
   document.getElementById('mapLegend').innerHTML=legend;
   const fill=d=>d.v==null?css('--neutral'):color(d.v); const fade=d=>(S.mask&&!d.sig)?0.28:0.92;
-  const tipHtml=d=>{ const st=statsFor(d.r); return `<b>${d.r.name}</b>${d.lvl==='region'?' · '+d.r.admin1:''}<br><span class="mut">${fmt0(Math.round(d.r.areaMean))} ha · ${st.n} seasons${d.lvl==='admin1'?` · ${d.r.nRegions} ${c.level.toLowerCase()} areas`:''}</span><br>El Niño <b>${st['El Niño'].n?fmt1(st['El Niño'].diff)+'%':'n/a'}</b> (${st['El Niño'].nUnits}) · La Niña <b>${st['La Niña'].n?fmt1(st['La Niña'].diff)+'%':'n/a'}</b> (${st['La Niña'].nUnits})${wxTip(d.r)}<br><span class="mut">avg yield ${fmt0(Math.round(st.yieldMean))} · ${d.lvl==='admin1'?'click to open the state':(!S.a1?'click to open '+d.r.admin1:(S.sel===d.r.id?'click again to deselect':'click to select'))}</span>`; };
+  const tipHtml=d=>{ const st=statsFor(d.r); return `<b>${d.r.name}</b>${d.lvl==='region'?' · '+d.r.admin1:''}<br><span class="mut">${fmt0(Math.round(d.r.areaMean))} ha · ${st.n} seasons${d.lvl==='admin1'?` · ${d.r.nRegions} ${c.level.toLowerCase()} areas`:''}</span><br>El Niño <b>${st['El Niño'].n?fmt1(st['El Niño'].diff)+'%':'n/a'}</b> (${st['El Niño'].nUnits}) · La Niña <b>${st['La Niña'].n?fmt1(st['La Niña'].diff)+'%':'n/a'}</b> (${st['La Niña'].nUnits})${S.metric==='wx'?wxVarTip(d.r):wxTip(d.r)}<br><span class="mut">avg yield ${fmt0(Math.round(st.yieldMean))} · ${d.lvl==='admin1'?'click to open the state':(!S.a1?'click to open '+d.r.admin1:(S.sel===d.r.id?'click again to deselect':'click to select'))}</span>`; };
   // base state outlines
   const byA1=new Map(); for(const d of items) if(d.lvl==='admin1') byA1.set(norm(d.r.geoKey||d.r.name),d);
   const hasA1=key=>a1stats.has(key);
@@ -763,12 +764,14 @@ function setupSearch(){
 // ---------- tabs & controls
 window.setTab=function(t){ if(G.playing){ G.playing=false; clearInterval(G.timer); const b=document.getElementById('globePlay'); if(b) b.textContent='▶ Play'; } S.tab=t; document.querySelectorAll('#subtabs button').forEach(b=>b.classList.toggle('active',b.dataset.t===t)); document.querySelectorAll('section[data-tab]').forEach(s=>s.classList.toggle('active',s.dataset.tab===t)); window.scrollTo({top:0}); renderTab(); writeHash(); };
 document.getElementById('subtabs').onclick=e=>{ const b=e.target.closest('button'); if(b) setTab(b.dataset.t); };
-function renderTab(){ const t=S.tab; const glob=(t==='events'||t==='compare'||t==='sources'); document.body.classList.toggle('global',glob); cur(); renderCrumbs(); if(t==='findings') renderFindings(); else if(t==='map'){ renderSelection(); renderMap(); } else if(t==='area') renderSelection(); else if(t==='wx'){ renderSelection(); renderWx(); } else if(t==='events'){ renderKPIs(); renderONI(); renderEventsStrip(); renderGlobe(); renderCadence(); renderPhaseStrip(); renderEventCountries(); } else if(t==='compare') renderCompare(); else if(t==='sources') renderSources(); else if(t==='data'){ renderSelection(); renderFoot(); } }
+function renderTab(){ renderPurpose(); syncMapControls(); const t=S.tab; const glob=(t==='events'||t==='compare'||t==='sources'); document.body.classList.toggle('global',glob); cur(); renderCrumbs(); if(t==='findings') renderFindings(); else if(t==='map'){ renderSelection(); renderMap(); } else if(t==='area') renderSelection(); else if(t==='wx'){ renderSelection(); renderWx(); } else if(t==='events'){ renderKPIs(); renderONI(); renderEventsStrip(); renderGlobe(); renderCadence(); renderPhaseStrip(); renderEventCountries(); } else if(t==='compare') renderCompare(); else if(t==='sources') renderSources(); else if(t==='data'){ renderSelection(); renderFoot(); } }
 function seg(id,attr,fn){ document.getElementById(id).onclick=e=>{ const b=e.target.closest('button'); if(!b||b.disabled) return; document.querySelectorAll('#'+id+' button').forEach(x=>x.classList.toggle('active',x===b)); fn(b.dataset[attr]); }; }
 seg('rangeSeg','r',v=>{ S.minYear=v==='all'?0:+v; renderAll(); });
 seg('intSeg','i',v=>{ S.minInt=v; renderAll(); });
 seg('wSeg','w',v=>{ S.weight=v; renderAll(); });
-seg('metricSeg','m',v=>{ S.metric=v; renderMap(); });
+document.querySelectorAll('#mvarSeg button').forEach(b=>b.onclick=()=>{ S.mvar=b.dataset.v; syncMapControls(); renderMap(); });
+document.querySelectorAll('#mphSeg button').forEach(b=>b.onclick=()=>{ S.mph=b.dataset.p; syncMapControls(); renderMap(); });
+document.querySelectorAll('#dIdxSeg button').forEach(b=>b.onclick=()=>{ S.dIdx=b.dataset.d; syncMapControls(); renderMap(); });
 seg('styleSeg','s',v=>{ S.mapStyle=v; renderMap(); });
 seg('showSeg','l',v=>{ S.showLevel=v; renderMap(); });
 seg('trendSeg','v',v=>{ S.trendView=v; const f=cur(); renderTrend(f.r,statsFor(f.r)); });
@@ -784,10 +787,10 @@ document.querySelectorAll('[data-png]').forEach(b=>b.onclick=()=>svgToPng(docume
 let rt; window.addEventListener('resize',()=>{ clearTimeout(rt); rt=setTimeout(renderTab,150); });
 window.addEventListener('hashchange',()=>{ if(applyHash()) renderAll(); });
 document.addEventListener('keydown',e=>{ if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){ e.preventDefault(); document.getElementById('regionSearch').focus(); } });
-function syncControls(){ document.querySelectorAll('#rangeSeg button').forEach(b=>b.classList.toggle('active',(b.dataset.r==='all'?0:+b.dataset.r)===S.minYear)); document.querySelectorAll('#intSeg button').forEach(b=>b.classList.toggle('active',b.dataset.i===S.minInt)); document.querySelectorAll('#wSeg button').forEach(b=>b.classList.toggle('active',b.dataset.w===S.weight)); document.querySelectorAll('#styleSeg button').forEach(b=>b.classList.toggle('active',b.dataset.s===S.mapStyle)); document.querySelectorAll('#showSeg button').forEach(b=>b.classList.toggle('active',b.dataset.l===S.showLevel)); document.querySelectorAll('#metricSeg button').forEach(b=>b.classList.toggle('active',b.dataset.m===S.metric)); document.querySelectorAll('#subtabs button').forEach(b=>b.classList.toggle('active',b.dataset.t===S.tab)); document.querySelectorAll('section[data-tab]').forEach(s=>s.classList.toggle('active',s.dataset.tab===S.tab)); }
+function syncControls(){ syncMapControls(); renderPurpose(); document.querySelectorAll('#rangeSeg button').forEach(b=>b.classList.toggle('active',(b.dataset.r==='all'?0:+b.dataset.r)===S.minYear)); document.querySelectorAll('#intSeg button').forEach(b=>b.classList.toggle('active',b.dataset.i===S.minInt)); document.querySelectorAll('#wSeg button').forEach(b=>b.classList.toggle('active',b.dataset.w===S.weight)); document.querySelectorAll('#styleSeg button').forEach(b=>b.classList.toggle('active',b.dataset.s===S.mapStyle)); document.querySelectorAll('#showSeg button').forEach(b=>b.classList.toggle('active',b.dataset.l===S.showLevel)); document.querySelectorAll('#metricSeg button').forEach(b=>b.classList.toggle('active',b.dataset.m===S.metric)); document.querySelectorAll('#subtabs button').forEach(b=>b.classList.toggle('active',b.dataset.t===S.tab)); document.querySelectorAll('section[data-tab]').forEach(s=>s.classList.toggle('active',s.dataset.tab===S.tab)); }
 function renderAll(){ statCache.clear(); renderTabs(); syncControls(); cur(); renderTab(); writeHash(); }
 try{ const th=localStorage.getItem('enso-theme'); if(th) document.documentElement.dataset.theme=th; }catch(e){}
 document.addEventListener('click',ev=>{ if(!ev.target.closest('.fc')) document.querySelectorAll('.fc.open').forEach(o=>o.classList.remove('open')); });
 window.dismissIntro=function(){ document.getElementById('intro').style.display='none'; try{localStorage.setItem('enso-intro','1');}catch(e){} };
 try{ if(localStorage.getItem('enso-intro')) document.getElementById('intro').style.display='none'; }catch(e){}
-setupSearch(); applyHash(); renderAll();
+setupSearch(); applyHash(); addInfoButtons(); renderAll();

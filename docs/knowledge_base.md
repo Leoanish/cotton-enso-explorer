@@ -734,8 +734,10 @@ Keywords: weather results, drought results, outlook results, forecast 2026, Indi
 
 - **Title bar:** "Cotton × ENSO Explorer". The **flag buttons** (🇺🇸 🇧🇷 🇮🇳 🇦🇷 🇨🇳β 🇵🇰β 🇦🇺β) choose the country for the *By country* tabs. **☾ / ☀** toggles dark/light theme.
 - **Tabs, two groups:**
-  - *By country* (follow the chosen flag): **Overview**, **Explore**, **Trends**, **Data**.
-  - *All countries* (flag picker hides): **Events**, **Compare**, **Sources**.
+  - *By country* (follow the chosen flag): **Overview**, **Map**, **Trends**, **Weather & outlook**, **Data**.
+  - *All countries* (flag picker hides): **ENSO events**, **Compare**, **Sources & method**.
+- **Purpose line** under the tabs says in one sentence what the current view is for; **ⓘ About this view** opens a card with what it shows, how it is calculated and how to use it.
+- **ⓘ buttons** next to every panel title open the same kind of card for that panel (What you see · How it is calculated · How to use it). Press Esc or click outside to close.
 - **⚙ Settings** button (shows a summary like "All years · all events"): *Years* (All / 1980→ / 2000→), *Which events count* (All / Moderate+ / Strong+), *Count a multi-year event as* (per year / per event), *Exploratory countries β* (Include / Core 4 only — whether China, Pakistan and Australia enter cross-country views), *US practice* (all / irrigated / non-irrigated). Every number on every tab updates instantly.
 - **Breadcrumbs** (e.g. United States › Texas › Lubbock) show where you are; click a level to go back up.
 - **Search box:** type a county/state/district name to jump to it.
@@ -768,19 +770,21 @@ The starting page for a country, designed to be read in seconds.
 
 Keywords: Overview tab, findings tab, country strip, tiles, what the data says, hover for details, tap, cards, headline, start page, how to read, confident, faded, uncertain
 
-### 6.3 Explore tab — the map
+### 6.3 Map tab (formerly "Explore")
 
-- **Metric toggle:** **Mean yield** (average kg/ha, the default), **La Niña** (La Niña effect vs neutral), **El Niño**.
-- **Counties / States toggle:** colour individual areas or whole states. (The word changes by country: municipalities, districts, departments.)
-- **Fill / Bubbles:** *Fill* colours the shapes; *Bubbles* draws a circle per area, sized by harvested area.
-- **Colours:** for effects, **red = below neutral (loss)**, **green/teal = above (gain)**, scale shown in the legend (e.g. −15% … +15%). For mean yield, darker = higher yield.
-- **Faded areas** = the effect is **not confident** (its 90% range crosses zero). **Grey** = fewer than 3 years of that phase — not enough to compute.
-- **Navigation hierarchy:** the map opens on the whole country → click a state to zoom into it and see its counties → click a county to select it → click it again to deselect. **↩** returns to the whole country; **＋ / － / ⌂** zoom in, out and reset. The map fits each country to the frame.
-- **Hover** any area for a tooltip with its name, yield, effects and number of years.
-- **Selection panel (right/below):** the place's name and size; a **coverage line** (years, seasons, number of El Niño/La Niña events and years, neutral years, typical recurrence); a **story sentence**; three **phase cards** — *Neutral years* (baseline yield), *El Niño years*, *La Niña years* — each with effect, 90% range, confident/uncertain, how many years below trend, average yield, worst and best year; an **after** grid (event year, 1 yr after, 2 yrs after); and a **ranked list** of states or counties inside, most hurt by La Niña first (columns: El Niño, La Niña, ✓ = confident).
-- **Buttons:** "Trends for this place →" and "📌 Pin to compare" (up to four places, across countries, shown in Compare).
+**Choose what to colour, then which seasons.**
+- **Show:** **Yield**, **Temperature**, **Rainfall**, **Drought** or **Outlook**.
+- **In:** **All years** (yield: the average yield) or **this season** (weather: the latest growing season, 2026; scPDSI 2025), **El Niño seasons** or **La Niña seasons**.
+  - *Yield in El Niño / La Niña seasons* = the effect vs neutral seasons (% from trend), exactly as before.
+  - *Weather in El Niño / La Niña seasons* = that phase's average growing-season temperature (°C), rainfall (% points) or drought index minus the neutral-season average — the weather ENSO brings to each place.
+- **Drought index:** SPEI (rain minus evaporative demand), SPI (rain only) or scPDSI (Palmer soil moisture, to 2025).
+- **The sentence above the map** always says exactly what is coloured; **ⓘ How is this calculated?** opens a card explaining the method.
+- **Colours:** yield effects red = loss / green = gain; temperature blue = cooler / red = hotter; rainfall and drought brown = drier / teal = wetter. In El Niño / La Niña mode, **faded** = not confident (90% range crosses zero); grey = not enough data.
+- **Districts / States**, **Fill / Bubbles**, zoom (＋ － ⌂), click a state to zoom in, click a local area to select it, ↩ back to the country.
+- **Hover** any area for its yield, El Niño and La Niña effects, and the value currently mapped.
+- **Selection panel (right):** the place's coverage, a one-line story, neutral / El Niño / La Niña cards with 90% ranges, years after events, this season's weather and outlook, and a ranked list of the areas inside. "Trends for this place →" and "📌 Pin to compare".
 
-Keywords: Explore tab, map, choropleth, fill, bubbles, metric, mean yield, colours, red green, faded, grey areas, legend, zoom, click county, deselect, back to country, tooltip, selection panel, phase cards, pin, ranked list, counties toggle, states toggle
+Keywords: Map tab, Explore tab, map, show, in, yield map, temperature map, rainfall map, drought map, outlook map, El Niño seasons, La Niña seasons, SPEI, SPI, scPDSI, choropleth, colours, faded, legend, zoom, selection panel, pin
 
 ### 6.4 Trends tab
 
