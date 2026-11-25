@@ -561,6 +561,37 @@ Each continent card lists every country's own effect, its area share and how man
 
 Keywords: continents, North America, South America, Asia, Australia, continent effect, grouping, area share, country mix, Compare tab, Asia El Niño, exploratory
 
+### 4.14 Weather behind the yields (temperature, rainfall, drought indices)
+
+ENSO only matters to cotton through the weather it brings, so every area also gets its growing-season weather. Monthly gridded data (0.5°) are averaged over the cells inside each area's outline (cos-latitude weights; the nearest cell for areas too small to contain one), for exactly the same growing window that decides the ENSO phase. States/zones and countries are the cotton-area-weighted mean of their areas' monthly values.
+
+- **Temperature anomaly (°C)** — GHCN-CAMS 2 m air temperature (NOAA CPC/PSL), season mean minus the 1991–2020 mean.
+- **Rainfall anomaly (%)** — PREC/L land precipitation (NOAA CPC/PSL), season total as % above/below the 1991–2020 mean.
+- **SPI** — Standardized Precipitation Index of the season rainfall total (gamma distribution; McKee et al. 1993). Rain only.
+- **SPEI** — Standardized Precipitation-Evapotranspiration Index: season rainfall minus Thornthwaite potential evapotranspiration, fitted with a 3-parameter log-logistic distribution by L-moments (Vicente-Serrano et al. 2010). Captures heat-driven drought. −1 = moderate drought, −2 = severe; +1.3 or more = unusually wet.
+- **scPDSI** — self-calibrating Palmer Drought Severity Index from CRU TS 4.10 (UEA), an independent soil-moisture index; ends December 2025.
+
+SPI and SPEI are fitted on 1950–2025 and the current season is scored against that distribution. Weather is observed through October 2026, so the 2026 growing windows of the US, China, Pakistan (May–Oct) and the Southern-Hemisphere 2026 harvests are complete; India's Jun–Nov 2026 window is missing November (scaled from five months).
+
+A season is tagged **drought** when SPEI ≤ −1, **very wet** when SPEI ≥ +1.3, **hot** when ≥ +0.8 °C and **cool** when ≤ −0.8 °C.
+
+Keywords: weather, climate, temperature, rainfall, precipitation, drought, SPI, SPEI, PDSI, scPDSI, Palmer, heat, GHCN-CAMS, PREC/L, CRU, anomaly, mechanism
+
+### 4.15 The yield outlook (2026 crop; Australia 2027)
+
+For every area, state and country, yield deviation from trend (%) is modelled as a **ridge regression** on six standardised drivers of the growing window: window ONI and its La Niña part (min(ONI,0), so El Niño and La Niña can act differently); temperature anomaly; SPEI; squared drought (min(SPEI,0)²) and squared wetness (max(SPEI,0)²), because both extremes can hurt.
+
+**How much the model trusts the drivers is learnt from hindcasts.** For each country and level (areas, states, country), the ridge strength λ is chosen from 1, 3, 10, 30, 100 and 10⁶ by leave-one-year-out cross-validation: drop a year, fit on the rest, predict the dropped year, repeat. λ = 10⁶ means "trust nothing" — predict the area's average deviation, i.e. the trend. So where ENSO and weather never helped in past years, the outlook automatically falls back to the trend.
+
+- **Outlook yield** = trend projected to the target year (straight line through the last ten trend values) × (1 + predicted deviation).
+- **90% range** = predicted deviation ± 1.645 × the area's hindcast RMSE.
+- **Hindcast skill** = mean-square skill score of the left-out predictions against the area's average deviation: 0% = no better than the trend line, 100% = perfect. Shown as *useful* (≥ 10%), *some* (3–10%), *little* or *none — trend only*.
+- **What moves the estimate** splits the predicted deviation into ENSO, heat and drought/wetness parts (standardised coefficient × this season's standardised value).
+- **Target year:** 2026 for every country (US, China, Pakistan, India: crop being picked now; Brazil and Argentina: 2026 harvest, not yet in the yield statistics). Australia's 2026 harvest is already in the data, so its outlook is the **2027** crop, with ENSO carried forward from the latest ONI (ASO 2026, +2.46 °C) and normal weather assumed.
+- Areas need data within six years of the country's latest season and at least 15 seasons with weather.
+
+Keywords: forecast, prediction, outlook, 2026, 2027, predict yield, model, ridge, hindcast, cross-validation, skill, leave-one-year-out, uncertainty, range, this year
+
 ## Part 5 · Key results (default settings: all years, all events, per year)
 
 ### 5.1 Headline: the countries side by side
@@ -671,6 +702,30 @@ Keywords: limitations, caveats, publishable, research quality, causation, correl
 
 ---
 
+### 5.8 Weather results and the 2026 outlook
+
+National growing-season weather in event years minus neutral years (all years, all events, per year), the yield–SPEI correlation, out-of-sample skill and the outlook:
+
+| Country | El Niño vs neutral: temp · rain · SPEI | La Niña vs neutral: temp · rain · SPEI | Yield–SPEI r | Skill: ENSO / weather / model | Outlook |
+|---|---|---|---|---|---|
+| United States | -0.02 °C · +0% · +0.02 | +0.10 °C · -4% · -0.26 | -0.01 | 0% / 0% / 0% | 2026: 985 kg/ha (+0.3% vs trend 983; 90% -16 to +17%) |
+| Brazil | +0.49 °C · -5% · -0.84 | -0.14 °C · -1% · -0.01 | +0.28 | 0% / 0% / 0% | 2026: 1785 kg/ha (-1.5% vs trend 1812; 90% -18 to +15%) |
+| India | +0.33 °C · -14% · -0.92 | -0.09 °C · +5% · +0.30 | +0.34 | 6% / 11% / 11% | 2026: 427 kg/ha (-7.5% vs trend 461; 90% -27 to +12%) |
+| Argentina | -0.03 °C · +16% · +0.82 | -0.20 °C · -5% · -0.19 | +0.02 | 0% / 0% / 0% | 2026: 769 kg/ha (+0.3% vs trend 767; 90% -24 to +24%) |
+| China | -0.11 °C · -3% · -0.07 | -0.06 °C · +3% · +0.35 | -0.05 | 0% / 0% / 0% | 2026: 2203 kg/ha (-0.9% vs trend 2223; 90% -21 to +19%) |
+| Pakistan | +0.04 °C · -23% · -0.83 | +0.11 °C · +8% · -0.13 | -0.52 | 0% / 12% / 12% | 2026: 727 kg/ha (+1.2% vs trend 719; 90% -21 to +24%) |
+| Australia | +0.34 °C · +2% · -0.21 | -0.24 °C · +20% · +0.80 | -0.01 | 0% / 0% / 0% | 2027: 2299 kg/ha (-1.8% vs trend 2342; 90% -23 to +19%) |
+
+**What this says.**
+- **El Niño dries the monsoon belt.** India's El Niño seasons are 14% drier (SPEI −0.92, confident) and 0.3 °C warmer, and India's yields track SPEI (r = +0.34). Of India's 12 worst seasons, 6 were droughts. This is the mechanism behind India's −11.9% El Niño effect. Pakistan's El Niño seasons are 23% drier, but Pakistani cotton is hurt by *wet* seasons (r = −0.52 with SPEI: floods, waterlogging, pests — 2010, 2022), so dry El Niño seasons do not cost it.
+- **Brazil's El Niño seasons run hotter and drier** (+0.49 °C, SPEI −0.84), and yields rise with SPEI (r = +0.28), but the national effect is small because most Brazilian cotton is grown in the reliably wet Cerrado.
+- **Argentina's El Niño seasons are 16% wetter**; **Australia's La Niña seasons 20% wetter**, which suits its irrigated cotton (more water in storage).
+- **US yields barely track season-wide drought** (r ≈ 0). US yields are per *harvested* acre: in Texas droughts the worst dryland fields are abandoned, which props up the yield of what is picked. Six of Lubbock County's worst seasons include two with no weather extreme at all.
+- **How predictable is a season?** Out of sample, ENSO plus season-average weather explain about 11–12% of year-to-year swings nationally in India and Pakistan, and nothing reliable elsewhere. Within India the signal is strong in rain-fed states: Gujarat 39%, Rajasthan 24%, Karnataka 18%. The rest of cotton's swings come from things a season average cannot see — floods at picking, pests (pink bollworm hit India 2000–2002), prices, policy and irrigation.
+- **2026 outlook.** India: about **427 kg/ha, −7.5% vs trend** (El Niño −2.4, heat −2.9, drought −1.0 points; 90% range −27% to +12%), with Karnataka (−22%), Rajasthan (−19%) and Gujarat (−13%) lowest. Pakistan +1%. Everywhere else the model sees no reliable signal, so the outlook is the trend yield, with a wide range (roughly ±16–24%).
+
+Keywords: weather results, drought results, outlook results, forecast 2026, India forecast, Gujarat, Pakistan floods, predictability, skill
+
 ## Part 6 · Every tab and on-screen element
 
 ### 6.1 Header, country picker and settings
@@ -736,6 +791,20 @@ For the selected place:
 6. **Before → during → after** — thick lines = average across events, thin lines = individual events, from 2 years before to 2 years after.
 
 Keywords: Trends tab, area tab, yield history, bar chart, gold line, phase trends, strength chart, one event, event picker, before during after chart, lag chart, thick thin lines
+
+### 6.4a Weather & outlook tab
+
+For whatever place is selected (country, state or local area):
+- **Outlook card** — outlook yield (kg lint/ha), % vs the projected trend, a bar with the 90% range, the **hindcast skill badge**, bars for what moves the estimate (El Niño/La Niña, heat, drought/wetness), and this season's weather so far.
+- **Would it have called past years?** — bars = actual % from trend, gold line = the leave-one-year-out prediction. Local areas show their state's chart.
+- **Yield and weather, season by season** — top: % from trend, coloured by phase; bottom: SPEI bars (brown = drought, teal = wet) and temperature anomaly line. Hover any year for temperature, rainfall, SPI, SPEI and scPDSI. The note below counts how many of the worst seasons had a drought, heat or very wet season.
+- **The weather ENSO brings** — temperature, rainfall, SPI, SPEI and scPDSI in El Niño and La Niña seasons minus neutral seasons, with 90% ranges (✓ = confident).
+- **Worst seasons and what went wrong** — the six biggest losses with weather tags.
+- **How predictable is each country?** — skill of ENSO-only, weather-only and the model used, for every country, plus its national outlook. Click a row to switch country.
+
+The Explore map has two extra layers: **Drought** (SPEI of the latest growing season) and **Outlook** (predicted % vs trend; faded where there is no skill). The Overview adds a **Weather** row to the El Niño and La Niña columns and an **Outlook** card to Context.
+
+Keywords: weather tab, outlook tab, forecast tab, drought map, outlook map, skill badge, hindcast chart
 
 ### 6.5 Data tab
 

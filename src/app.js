@@ -8,7 +8,7 @@ const CONTS = [['North America','🌎',[-100,40]],['South America','🌎',[-58,-
 const isExpl = cc => !!(DATA.countries[cc]&&DATA.countries[cc].exploratory);
 // countries used by cross-country views (exploratory ones can be switched off in Settings)
 const ORDERX = () => ORDER.filter(cc=>S.explore||!isExpl(cc));
-const TABS = ['findings','map','area','events','compare','data','sources'];
+const TABS = ['findings','map','area','wx','events','compare','data','sources'];
 const S = { cc:'US', a1:null, sel:null, metric:'yield', mapStyle:'choro', showLevel:'region', minYear:0, explore:true, event:null, minInt:'weak', hemPhase:'La Niña', tab:'findings', trendView:'yield', rankPhase:'La Niña', pins:[], sort:{col:'year',dir:-1}, weight:'year', mask:true, zoom:null };
 const INT_RANK={weak:0,moderate:1,strong:2,'very strong':3};
 const passes=p=> !p.event || INT_RANK[p.intensity]>=INT_RANK[S.minInt];
@@ -176,7 +176,7 @@ function renderPhaseStrip(){
 function geoNameKey(){ const b=baseCC(S.cc); return b==='IN'?'st_nm':b==='BR'?'uf':'name'; }
 function admin1ForFeature(f){ const key=norm(f.properties[geoNameKey()]); return country().admin1.find(a=>norm(a.geoKey||a.name)===key)||null; }
 function featureForAdmin1(a){ const key=norm(a.geoKey||a.name); return GEO[baseCC(S.cc)].states.features.find(f=>norm(f.properties[geoNameKey()])===key)||null; }
-function metricOf(st){ if(S.metric==='yield') return {v:st.yieldMean,sig:true}; const p=S.metric==='nina'?'La Niña':'El Niño'; return {v:st[p].nUnits>=3?st[p].diff:null,sig:!!st[p].sig}; }
+function metricOf(st,r,lvl){ if(S.metric==='fc'||S.metric==='dry') return metricWx(r,lvl); if(S.metric==='yield') return {v:st.yieldMean,sig:true}; const p=S.metric==='nina'?'La Niña':'El Niño'; return {v:st[p].nUnits>=3?st[p].diff:null,sig:!!st[p].sig}; }
 function levelLabels(){ const b=baseCC(S.cc); const L={US:['Counties','States'],BR:['Municipalities','States'],IN:['Districts','States'],AR:['Departments','Provinces'],CN:['Provinces','Zones'],PK:['Districts','Provinces'],AU:['States','States']}[b]||['Areas','States'];
   const q=document.querySelectorAll('#showSeg button'); if(q.length===2){ q[0].textContent=L[0]; q[1].textContent=L[1]; } }
 function renderMap(){ levelLabels();
@@ -189,14 +189,15 @@ function renderMap(){ levelLabels();
   const path=d3.geoPath(proj);
   // colour scale over the items shown
   const countyMode=!stateView&&S.showLevel==='region';
-  const items= stateView ? c.regions.filter(r=>r.admin1===S.a1).map(r=>({r,lvl:'region',...metricOf(statsFor(r))})) : countyMode ? c.regions.map(r=>({r,lvl:'region',...metricOf(statsFor(r))})) : c.admin1.map(a=>({r:a,lvl:'admin1',...metricOf(statsFor(a))}));
-  const a1stats=new Map(c.admin1.map(a=>[norm(a.geoKey||a.name),{r:a,lvl:'admin1',...metricOf(statsFor(a))}]));
+  const items= stateView ? c.regions.filter(r=>r.admin1===S.a1).map(r=>({r,lvl:'region',...metricOf(statsFor(r),r,'region')})) : countyMode ? c.regions.map(r=>({r,lvl:'region',...metricOf(statsFor(r),r,'region')})) : c.admin1.map(a=>({r:a,lvl:'admin1',...metricOf(statsFor(a),a,'admin1')}));
+  const a1stats=new Map(c.admin1.map(a=>[norm(a.geoKey||a.name),{r:a,lvl:'admin1',...metricOf(statsFor(a),a,'admin1')}]));
   let color,legend;
-  if(S.metric==='yield'){ const ext=d3.extent(items.map(d=>d.v).filter(x=>x!=null)); color=d3.scaleSequential(d3.interpolateYlGnBu).domain([ext[1],ext[0]]); legend=`<b>Average yield</b> · ${c.unit}<div class="ramp" style="background:linear-gradient(90deg,${d3.interpolateYlGnBu(1)},${d3.interpolateYlGnBu(.5)},${d3.interpolateYlGnBu(0)})"></div><div class="rl"><span>${fmt0(Math.round(ext[1]||0))}</span><span>${fmt0(Math.round(ext[0]||0))}</span></div>`; }
+  if(S.metric==='fc'||S.metric==='dry'){ const wl=wxLegend(items); color=wl.color; legend=wl.html; }
+  else if(S.metric==='yield'){ const ext=d3.extent(items.map(d=>d.v).filter(x=>x!=null)); color=d3.scaleSequential(d3.interpolateYlGnBu).domain([ext[1],ext[0]]); legend=`<b>Average yield</b> · ${c.unit}<div class="ramp" style="background:linear-gradient(90deg,${d3.interpolateYlGnBu(1)},${d3.interpolateYlGnBu(.5)},${d3.interpolateYlGnBu(0)})"></div><div class="rl"><span>${fmt0(Math.round(ext[1]||0))}</span><span>${fmt0(Math.round(ext[0]||0))}</span></div>`; }
   else { const lim=Math.min(30,Math.max(10,d3.quantile(items.map(d=>Math.abs(d.v)).filter(x=>x!=null).sort(d3.ascending),0.9)||15)); const L=Math.ceil(lim/5)*5; color=d3.scaleDiverging().domain([-L,0,L]).interpolator(t=>d3.interpolateRgbBasis([css('--neg'),css('--mid'),css('--pos')])(t)); legend=`<b>${S.metric==='nina'?'La Niña':'El Niño'} years vs neutral</b><br>average % from trend<div class="ramp"></div><div class="rl"><span>−${L}%</span><span>0</span><span>+${L}%</span></div><div style="margin-top:6px"><span class="sw" style="background:var(--pos);opacity:.28"></span>faded = not confident (90% range crosses 0)</div><div><span class="sw" style="background:var(--neutral)"></span>grey = fewer than 3 ${S.metric==='nina'?'La Niña':'El Niño'} years</div>`; }
   document.getElementById('mapLegend').innerHTML=legend;
   const fill=d=>d.v==null?css('--neutral'):color(d.v); const fade=d=>(S.mask&&!d.sig)?0.28:0.92;
-  const tipHtml=d=>{ const st=statsFor(d.r); return `<b>${d.r.name}</b>${d.lvl==='region'?' · '+d.r.admin1:''}<br><span class="mut">${fmt0(Math.round(d.r.areaMean))} ha · ${st.n} seasons${d.lvl==='admin1'?` · ${d.r.nRegions} ${c.level.toLowerCase()} areas`:''}</span><br>El Niño <b>${st['El Niño'].n?fmt1(st['El Niño'].diff)+'%':'n/a'}</b> (${st['El Niño'].nUnits}) · La Niña <b>${st['La Niña'].n?fmt1(st['La Niña'].diff)+'%':'n/a'}</b> (${st['La Niña'].nUnits})<br><span class="mut">avg yield ${fmt0(Math.round(st.yieldMean))} · ${d.lvl==='admin1'?'click to open the state':(!S.a1?'click to open '+d.r.admin1:(S.sel===d.r.id?'click again to deselect':'click to select'))}</span>`; };
+  const tipHtml=d=>{ const st=statsFor(d.r); return `<b>${d.r.name}</b>${d.lvl==='region'?' · '+d.r.admin1:''}<br><span class="mut">${fmt0(Math.round(d.r.areaMean))} ha · ${st.n} seasons${d.lvl==='admin1'?` · ${d.r.nRegions} ${c.level.toLowerCase()} areas`:''}</span><br>El Niño <b>${st['El Niño'].n?fmt1(st['El Niño'].diff)+'%':'n/a'}</b> (${st['El Niño'].nUnits}) · La Niña <b>${st['La Niña'].n?fmt1(st['La Niña'].diff)+'%':'n/a'}</b> (${st['La Niña'].nUnits})${wxTip(d.r)}<br><span class="mut">avg yield ${fmt0(Math.round(st.yieldMean))} · ${d.lvl==='admin1'?'click to open the state':(!S.a1?'click to open '+d.r.admin1:(S.sel===d.r.id?'click again to deselect':'click to select'))}</span>`; };
   // base state outlines
   const byA1=new Map(); for(const d of items) if(d.lvl==='admin1') byA1.set(norm(d.r.geoKey||d.r.name),d);
   const hasA1=key=>a1stats.has(key);
@@ -249,6 +250,7 @@ function renderSelection(){
   else ch.innerHTML='';
   renderCrumbs(); const pb=document.getElementById('pinBtn'); if(pb){ const pinned=S.pins.some(p=>p.cc===S.cc&&p.id===r.id); pb.textContent=pinned?'📌 Pinned':'📌 Pin to compare'; pb.onclick=togglePin; }
   if(S.tab==='area'){ renderHist(r,st); renderTrend(r,st); renderStrength(r); renderLag(r,st); } if(S.tab==='data') renderTable(r); if(S.tab==='area'){ renderEventsStrip(); renderEventPanel(); }
+  if(S.tab==='map') renderWxLine();
 }
 function renderTrendMini(){ const host=document.getElementById('trendMini'); if(!host) return; host.innerHTML=''; const W=220,H=80; const svg=d3.select(host).append('svg').attr('width',W).attr('height',H); const pts=[[0,60],[20,52],[40,58],[60,42],[80,48],[100,30],[120,40],[140,26],[160,18],[180,28],[200,12]]; const tr=d3.line().x(d=>d[0]+10).y(d=>d[1]+8).curve(d3.curveBasis)(pts.map((p,i)=>[p[0],62-i*5])); svg.append('path').attr('d',tr).attr('fill','none').attr('stroke',css('--accent')).attr('stroke-width',2); pts.forEach((p,i)=>{ const ty=62-i*5+8; const y=p[1]+8; svg.append('line').attr('x1',p[0]+10).attr('x2',p[0]+10).attr('y1',ty).attr('y2',y).attr('stroke',y>ty?css('--neg'):css('--pos')).attr('stroke-width',2); svg.append('circle').attr('cx',p[0]+10).attr('cy',y).attr('r',3).attr('fill',y>ty?css('--neg'):css('--pos')); }); svg.append('text').attr('x',W-2).attr('y',H-2).attr('text-anchor','end').attr('fill',css('--ink-3')).style('font-size','12px').text('bars = distance from trend'); }
 function renderHist(r,st){ renderTrendMini();
@@ -385,6 +387,7 @@ function renderFindings(){
     // 6 the year after
     { const l=o.lagMean; if(l&&l[0].n&&l[1].n) L.push({k:'Year after',big:`${sp(l[0].mean)}<i class="sl">→</i>${sp(l[1].mean)}`,cls:'multi',conf:null,tag:'event year → next year',h:(l[0].mean<-3&&l[1].mean>l[0].mean+3)?`${c.name} bounces back the year after a ${p}`:(l[1].mean<-3&&l[1].mean<l[0].mean)?`${c.name} is still below trend the year after a ${p}`:`No clear dip or rebound around ${p}`,d:`Event year ${fx(l[0].mean)}, one year after ${fx(l[1].mean)}${l[2].n?`, two after ${fx(l[2].mean)}`:''} (${l[0].n} events). Raw deviations from trend; the year after often overlaps the next event.`,go:{cc,tab:'area',sel:'NAT'}});
       else L.push(none('Year after','Not enough events','',{cc,tab:'area',sel:'NAT'})); }
+    { const t=wxTile(p,cc); if(t) L.push(t); }
   }
   // ---- context column (both phases side by side)
   { const li=DATA.oni.v.length-1, lv=DATA.oni.v[li]; const ph=lv>=0.5?'El Niño':lv<=-0.5?'La Niña':null; const ev=DATA.events.find(e=>e.ongoing)||null; const seas=`${DATA.oni.season[li]} ${DATA.oni.year[li]}`;
@@ -392,6 +395,7 @@ function renderFindings(){
     col.ctx.push({k:`Right now · ONI ${seas}`,big:`<span style="color:${lv>=0.5?'var(--nino)':lv<=-0.5?'var(--nina)':'var(--ink-2)'}">${lv>0?'+':''}${lv.toFixed(2)} °C</span>`,cls:'multi',conf:null,tag,
       h:ph?`${ph} conditions now — in past ${ph} years ${c.name} ran ${fx(o.diff)}${o.sig?'':' (uncertain)'}`:`ENSO-neutral now`,
       d:ph?`The latest Oceanic Niño Index is ${lv>0?'+':''}${lv.toFixed(2)} °C (${seas}). Historically, ${c.name}'s ${ph} crop years averaged ${fx(o.diff)} vs normal years (${pct(o)}, ${o.nUnits} ${U}). That is the past average, not a forecast: individual events ranged from ${fx(o.worst.anom)} to ${fx(o.best.anom)}. Which ${c.name} crop year this event touches depends on its growing window (${c.window.replace(/\s*\(.*?\)/g,'')}).`:`No El Niño or La Niña is under way. See the Events tab for the full ONI record.`,go:{tab:'events',event:ev?ev.id:undefined}}); }
+  { const t=outlookTile(cc); if(t) col.ctx.push(t); }
   { const nb=nat.neutral; col.ctx.push({k:'Normal (neutral) year',big:`${fmt0(Math.round(nb.yieldMean||nat.yieldMean))}<span class="u"> kg/ha</span>`,cls:'',conf:null,tag:`${nb.n} neutral years · the baseline`,h:'The yardstick every effect is measured against',d:`Neutral crop years average ${fmt0(Math.round(nb.yieldMean||nat.yieldMean))} kg lint/ha and ${fx(nb.mean)} from trend. Every El Niño / La Niña number on this page is that phase's average minus this neutral average.`,go:{cc,tab:'area',sel:'NAT'}}); }
   const two=(e,l,ue,ul)=>`<span class="pl" style="color:var(--nino)">EN</span>${sp(e,ue)}<i class="sl">·</i><span class="pl" style="color:var(--nina)">LN</span>${sp(l,ul)}`;
   if(!sameLevel&&tested('El Niño').length+tested('La Niña').length>=20){ const T=PH.map(p=>tested(p)); const cn=PH.map((p,i)=>T[i].filter(r=>{const s=statsFor(r,cc)[p]; return s.sig&&s.diff<0;}).length); const ch=T.map(t=>Math.round(t.length*0.05));
@@ -614,6 +618,7 @@ function renderSources(){
   const L=(href,label,primary)=>`<a href="${href}" target="_blank" rel="noopener"${primary?' class="primary"':''}>${label} ↗</a>`;
   document.getElementById('srcHeroLinks').innerHTML=L(REPO,'GitHub repository',true)+L(`${REPO}/tree/main/data/raw`,'All raw data')+L(`${REPO}/blob/main/docs/knowledge_base.md`,'Full guide: every method, step by step')+L(`${REPO}#rebuilding`,'How to rebuild');
   const groups=[
+   WX_SOURCES(L),
    {t:'ENSO — the climate signal',items:[
      {ic:'🌊',nm:'Oceanic Niño Index (ONI)',pub:'NOAA Climate Prediction Center',use:'3-month running mean of sea-surface temperature anomaly in the Niño 3.4 region. Defines every El Niño and La Niña event, its strength, and which crop years it touched.',
       kv:[['Coverage',`${DATA.oni.year[0]} → ${DATA.oni.season[DATA.oni.season.length-1]} ${DATA.oni.year[DATA.oni.year.length-1]}, every season`],['Unit','°C anomaly'],['Threshold','±0.5 °C for ≥ 5 seasons = event']],
@@ -758,7 +763,7 @@ function setupSearch(){
 // ---------- tabs & controls
 window.setTab=function(t){ if(G.playing){ G.playing=false; clearInterval(G.timer); const b=document.getElementById('globePlay'); if(b) b.textContent='▶ Play'; } S.tab=t; document.querySelectorAll('#subtabs button').forEach(b=>b.classList.toggle('active',b.dataset.t===t)); document.querySelectorAll('section[data-tab]').forEach(s=>s.classList.toggle('active',s.dataset.tab===t)); window.scrollTo({top:0}); renderTab(); writeHash(); };
 document.getElementById('subtabs').onclick=e=>{ const b=e.target.closest('button'); if(b) setTab(b.dataset.t); };
-function renderTab(){ const t=S.tab; const glob=(t==='events'||t==='compare'||t==='sources'); document.body.classList.toggle('global',glob); cur(); renderCrumbs(); if(t==='findings') renderFindings(); else if(t==='map'){ renderSelection(); renderMap(); } else if(t==='area') renderSelection(); else if(t==='events'){ renderKPIs(); renderONI(); renderEventsStrip(); renderGlobe(); renderCadence(); renderPhaseStrip(); renderEventCountries(); } else if(t==='compare') renderCompare(); else if(t==='sources') renderSources(); else if(t==='data'){ renderSelection(); renderFoot(); } }
+function renderTab(){ const t=S.tab; const glob=(t==='events'||t==='compare'||t==='sources'); document.body.classList.toggle('global',glob); cur(); renderCrumbs(); if(t==='findings') renderFindings(); else if(t==='map'){ renderSelection(); renderMap(); } else if(t==='area') renderSelection(); else if(t==='wx'){ renderSelection(); renderWx(); } else if(t==='events'){ renderKPIs(); renderONI(); renderEventsStrip(); renderGlobe(); renderCadence(); renderPhaseStrip(); renderEventCountries(); } else if(t==='compare') renderCompare(); else if(t==='sources') renderSources(); else if(t==='data'){ renderSelection(); renderFoot(); } }
 function seg(id,attr,fn){ document.getElementById(id).onclick=e=>{ const b=e.target.closest('button'); if(!b||b.disabled) return; document.querySelectorAll('#'+id+' button').forEach(x=>x.classList.toggle('active',x===b)); fn(b.dataset[attr]); }; }
 seg('rangeSeg','r',v=>{ S.minYear=v==='all'?0:+v; renderAll(); });
 seg('intSeg','i',v=>{ S.minInt=v; renderAll(); });

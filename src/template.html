@@ -167,6 +167,33 @@ input[type=checkbox]{accent-color:var(--accent)}
 .strip .tipx{width:290px;background:var(--panel-solid);backdrop-filter:none;-webkit-backdrop-filter:none;color:var(--ink-2);box-shadow:0 14px 40px rgba(0,0,0,.45)} .fc .tg{flex-wrap:wrap} .fc .tt{white-space:normal;overflow:visible} .strip .sk:nth-last-child(-n+3) .tipx{left:auto;right:0}
 .fcol{container-type:inline-size}
 @container (max-width:400px){ .fc .big{font-size:27px} .fc .big.multi{font-size:17.5px} .fc .big .pl{font-size:11.5px} .fc .big .sl{font-size:13.5px} .fc .big .u{font-size:13px} .fc:has(.big.multi){grid-template-columns:minmax(0,1fr)} .fc:has(.big.multi) .big.multi{justify-content:flex-start;margin-top:4px;font-size:19.5px} }
+
+header.top #countryTabs{margin-left:auto}
+.wxline{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-top:12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel-2);font-size:15px}
+.wxline .btn{margin-left:auto}
+.wxt{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 8px;border-radius:99px;margin:1px 4px 1px 0;white-space:nowrap}
+.wxt.dry{background:rgba(194,124,58,.18);color:#c27c3a}.wxt.wet{background:rgba(47,159,179,.18);color:#2f9fb3}.wxt.hot{background:rgba(232,90,60,.16);color:var(--nino)}.wxt.cool{background:rgba(80,140,230,.16);color:var(--nina)}.wxt.none{background:transparent;color:var(--ink-3);font-weight:500;white-space:normal;padding:0}
+.ol-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.ol-big{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1}.ol-big span{font-size:17px;font-weight:600;color:var(--ink-3);letter-spacing:0}
+.ol-sub{color:var(--ink-2);margin-top:6px}
+.skill{display:flex;flex-direction:column;align-items:flex-end;padding:8px 12px;border-radius:12px;border:1px solid var(--line);background:var(--panel-2);cursor:help}
+.skill span{font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}.skill b{font-size:26px;line-height:1.1}.skill i{font-style:normal;font-size:13.5px;color:var(--ink-2)}
+.skill.y b{color:var(--pos)}.skill.m b{color:var(--accent)}.skill.n b{color:var(--ink-3)}
+.ol-range{margin:16px 0 6px}.ol-range .track{position:relative;height:12px;border-radius:99px;background:var(--panel-2);border:1px solid var(--line)}
+.ol-range .rng{position:absolute;top:2px;bottom:2px;border-radius:99px;background:var(--accent);opacity:.35}.ol-range .pt{position:absolute;top:-4px;width:4px;height:20px;margin-left:-2px;border-radius:2px;background:var(--accent)}.ol-range .zero{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--ink-3)}
+.ol-range .rl{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-3);margin-top:4px}
+.drvs{margin-top:12px}.ol-h{font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.drv{display:grid;grid-template-columns:150px 1fr 64px;gap:10px;align-items:center;font-size:15px;margin:5px 0}.drv b{text-align:right}
+.dbar{position:relative;height:10px;border-radius:99px;background:var(--panel-2);border:1px solid var(--line)}.dbar i{position:absolute;top:1px;bottom:1px;border-radius:99px}
+.dbar::after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--ink-3)}
+.ol-say{font-size:15.5px;line-height:1.55;color:var(--ink-2);margin:14px 0 0}
+.wxnote{font-size:15.5px;color:var(--ink-2);margin-top:8px;line-height:1.5}
+.wxtab{width:100%;border-collapse:collapse;font-size:15px}.wxtab th,.wxtab td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.wxtab thead th{font-size:13.5px;color:var(--ink-2);font-weight:600}
+.wxtab tbody th{font-weight:600}.wxtab .ci{font-size:12.5px;color:var(--ink-3);font-weight:400;margin-top:2px}
+.worst{list-style:none;margin:0;padding:0}.worst li{display:grid;grid-template-columns:52px 12px 70px 1fr;gap:8px;align-items:center;padding:9px 4px;border-bottom:1px solid var(--line);font-size:15px}.worst .yr{font-weight:700}
+.skilltab{width:100%;border-collapse:collapse;font-size:15px}.skilltab th,.skilltab td{padding:8px;border-bottom:1px solid var(--line);text-align:left}.skilltab thead th{font-size:13.5px;color:var(--ink-2);font-weight:600}.skilltab tbody tr{cursor:pointer}.skilltab tbody tr:hover{background:var(--panel-2)}
+.sbar{position:relative;height:18px;border-radius:6px;background:var(--panel-2);min-width:90px}.sbar i{position:absolute;left:0;top:0;bottom:0;border-radius:6px;opacity:.75}.sbar i.en{background:var(--nino)}.sbar i.wx{background:#2f9fb3}.sbar i.bo{background:var(--accent)}.sbar span{position:relative;padding-left:6px;font-size:13px;font-weight:700;line-height:18px}
+@media (max-width:700px){ .skilltab .sbar{min-width:54px} .skilltab th,.skilltab td{padding:6px 4px;font-size:13.5px} .drv{grid-template-columns:110px 1fr 56px} .worst li{grid-template-columns:46px 10px 62px 1fr} .ol-big{font-size:36px} }
 </style>
 </head>
 <body>
@@ -179,7 +206,7 @@ input[type=checkbox]{accent-color:var(--accent)}
   </header>
   <div class="ctrlbar">
     <nav class="subtabs" id="subtabs">
-      <span class="navgrp">By country</span><button data-t="findings" class="active">Overview</button><button data-t="map">Explore</button><button data-t="area">Trends</button><button data-t="data">Data</button><span class="navsep"></span><span class="navgrp">All countries</span><button data-t="events">Events</button><button data-t="compare">Compare</button><button data-t="sources">Sources</button>
+      <span class="navgrp">By country</span><button data-t="findings" class="active">Overview</button><button data-t="map">Explore</button><button data-t="area">Trends</button><button data-t="wx">Weather &amp; outlook</button><button data-t="data">Data</button><span class="navsep"></span><span class="navgrp">All countries</span><button data-t="events">Events</button><button data-t="compare">Compare</button><button data-t="sources">Sources</button>
     </nav>
     <div class="globals">
       <div class="search"><input type="search" id="regionSearch" placeholder="Search place…  ⌘K" autocomplete="off"><ul id="searchList"></ul></div>
@@ -206,7 +233,7 @@ input[type=checkbox]{accent-color:var(--accent)}
     <div class="row">
       <div class="card">
         <div class="card-title"><h2 id="mapTitle">Map</h2>
-          <div class="controls"><div class="seg" id="metricSeg"><button data-m="yield" class="active">Mean yield</button><button data-m="nina">La Niña</button><button data-m="nino">El Niño</button></div><div class="seg" id="showSeg" title="What to draw at country level"><button data-l="region" class="active">Counties</button><button data-l="admin1">States</button></div><div class="seg" id="styleSeg"><button data-s="choro" class="active">Fill</button><button data-s="bubble">Bubbles</button></div><button class="btn sm" data-png="map">⤓</button></div></div>
+          <div class="controls"><div class="seg" id="metricSeg"><button data-m="yield" class="active">Mean yield</button><button data-m="nina">La Niña</button><button data-m="nino">El Niño</button><button data-m="dry" title="Drought (SPEI) in the latest growing season">Drought</button><button data-m="fc" title="Predicted yield vs trend for the coming crop">Outlook</button></div><div class="seg" id="showSeg" title="What to draw at country level"><button data-l="region" class="active">Counties</button><button data-l="admin1">States</button></div><div class="seg" id="styleSeg"><button data-s="choro" class="active">Fill</button><button data-s="bubble">Bubbles</button></div><button class="btn sm" data-png="map">⤓</button></div></div>
         <div class="map-wrap"><div id="map"></div><div class="map-legend" id="mapLegend"></div><div class="zoomctl"><button id="zIn" title="Zoom in">＋</button><button id="zOut" title="Zoom out">－</button><button id="zReset" title="Reset zoom">⌂</button><button id="zUp" title="Back to the whole country" style="display:none">↩</button></div></div>
         <div class="muted" style="font-size:15px;margin-top:6px" id="mapNote"></div>
       </div>
@@ -217,6 +244,7 @@ input[type=checkbox]{accent-color:var(--accent)}
         <div class="impact" id="impact"></div>
         <div class="after" id="after"></div>
         <div class="muted" style="font-size:15px;margin-top:10px" id="impactNote"></div>
+        <div id="wxLine"></div>
         <div id="children" style="margin-top:12px"></div>
         <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" onclick="setTab('area')">Trends for this place →</button><button class="btn" id="pinBtn">📌 Pin to compare</button></div>
       </div>
@@ -236,6 +264,22 @@ input[type=checkbox]{accent-color:var(--accent)}
     <div class="card" style="margin-top:14px"><div class="card-title"><h2 id="evTitle">One event in this place</h2><span class="hint">Pick an event to see how it played out here</span></div><div class="events-strip" id="eventsStrip2" style="margin:0 0 12px"></div><div id="evPanel"></div></div>
     <div class="card" style="margin-top:14px"><div class="card-title"><h2>Before → during → after</h2><span class="hint">Two years before, the event, two years after</span><div class="controls"><button class="btn sm" data-png="lagChart">⤓</button></div></div>
       <div id="lagChart"></div><div id="lagText" class="muted" style="font-size:15.5px;margin-top:6px"></div><div class="cap">Thick lines are the average across events; thin lines are single events. Years after an event can overlap the next event, so read the "after" values as indicative.</div></div>
+  </section>
+
+  <section data-tab="wx">
+    <div class="row">
+      <div class="card"><div class="card-title"><h2>Outlook · <span class="wxName"></span></h2><span class="hint">Trend + ENSO + this season's weather · hover the skill badge</span></div><div id="wxOutlook"></div></div>
+      <div class="card"><div class="card-title"><h2>Would it have called past years?</h2><span class="hint">Leave-one-year-out hindcast</span><div class="controls"><button class="btn sm" data-png="wxHind">⤓</button></div></div><div id="wxHind"></div><div class="muted" style="font-size:14.5px;margin-top:6px" id="wxHindNote"></div></div>
+    </div>
+    <div class="card" style="margin-top:14px"><div class="card-title"><h2>Yield and weather, season by season · <span class="wxName"></span></h2><span class="hint">Top: % from trend, coloured by phase · bottom: drought and heat in the growing window · hover a year</span><div class="controls"><button class="btn sm" data-png="wxChart">⤓</button></div></div>
+      <div id="wxChart"></div><div class="wxnote" id="wxChartNote"></div>
+      <div class="cap">Weather is averaged over the area's cotton land for the same growing window that decides the ENSO phase. <b>SPEI</b> (rainfall minus evaporative demand) and <b>SPI</b> (rainfall only) are standardised: −1 is a moderate drought, −2 severe, +1.3 or more unusually wet. <b>scPDSI</b> is an independent soil-moisture drought index from CRU. Temperature and rainfall are anomalies against 1991–2020.</div></div>
+    <div class="row" style="margin-top:14px">
+      <div class="card"><div class="card-title"><h2>The weather ENSO brings · <span class="wxName"></span></h2><span class="hint">Growing-season weather in event years minus neutral years</span></div><div id="wxPhase"></div></div>
+      <div class="card"><div class="card-title"><h2>Worst seasons and what went wrong</h2><span class="hint">Six biggest losses with their season's weather</span></div><ul class="worst" id="wxWorst"></ul></div>
+    </div>
+    <div class="card" style="margin-top:14px"><div class="card-title"><h2>How predictable is each country?</h2><span class="hint">Share of year-to-year swings called out of sample (mean-square skill) · click a row</span></div><div id="wxSkill" style="overflow-x:auto"></div>
+      <div class="cap">Each bar is a leave-one-year-out test on the national yield series: fit on every other year, predict the missing one, repeat. 0% = no better than the trend line. <b>Model used</b> is the ridge regression on ENSO + heat + drought/wetness whose strength was picked by the same test, so it falls back to the trend where the drivers never helped. Season-average weather and ENSO explain only a modest share of cotton's ups and downs; floods at picking, pests, prices, policy and irrigation make up much of the rest.</div></div>
   </section>
 
   <section data-tab="events">
@@ -296,6 +340,8 @@ input[type=checkbox]{accent-color:var(--accent)}
 <script id="DATA" type="application/json">/*DATA*/</script>
 <script id="GEO" type="application/json">/*GEO*/</script>
 <script id="SST" type="application/json">/*SST*/</script>
+<script id="CLIM" type="application/json">/*CLIM*/</script>
+<script id="OUTL" type="application/json">/*OUTL*/</script>
 <script>
 /*APP*/
 </script>

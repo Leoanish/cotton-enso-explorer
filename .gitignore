@@ -7,3 +7,4 @@ data/geo/_*.json
 data/raw/_original_downloads/
 .transfer/
 .wrangler/
+data/raw/climate/

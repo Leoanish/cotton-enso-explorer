@@ -28,6 +28,10 @@ An interactive, single-file dashboard that links 75 years of the El Niño–Sout
 
 Settings (years, which event strengths count, per-year vs per-event weighting, exploratory countries on/off, US irrigated / non-irrigated) apply everywhere. Links encode the current view, so you can share an exact state of the dashboard.
 
+### Weather and the 2026 outlook
+
+Every area also gets its growing-season **temperature, rainfall, SPI, SPEI and scPDSI** (NOAA GHCN-CAMS and PREC/L, 0.5°, through Oct 2026; CRU TS 4.10 scPDSI through 2025), to show *why* a season went badly. A ridge regression on ENSO + heat + drought/wetness, whose strength is chosen by leave-one-year-out hindcasts, gives a **2026 yield outlook** for every county, district, state and country (Australia: 2027), with a 90% range and an honest skill score. Where ENSO and weather never beat the trend in past years, the outlook is the trend. See *Weather & outlook* in the dashboard and §4.14–4.15 of the guide.
+
 ## Coverage
 
 | Country | Unit | Areas mapped | Crop years | Growing window used for ENSO phase |
@@ -123,6 +127,7 @@ pip install -r requirements.txt
 npm install
 make all          # geo → data → page   (writes index.html)
 make sst          # optional: refresh sea-surface fields (downloads ~160 MB first)
+make climate      # optional: refresh weather + 2026 outlook (downloads ~830 MB first; ~2 min)
 python scripts/build_video.py   # optional: re-render media/enso_cotton_1950_2025.mp4 and .gif (~8 min)
 ```
 

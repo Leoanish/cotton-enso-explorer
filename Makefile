@@ -1,6 +1,6 @@
 PY ?= python3
 
-.PHONY: all geo data page sst install sources video
+.PHONY: all geo data page sst install sources video climate
 
 all: geo data page
 
@@ -32,3 +32,8 @@ sources:   # re-parse the raw China / Pakistan / India-extension files (only nee
 
 video:
 	$(PY) scripts/build_video.py
+
+climate:   # weather + outlook (downloads ~830 MB of gridded climate on first run)
+	@test -f data/raw/climate/air.nc || scripts/fetch_climate.sh
+	$(PY) scripts/build_climate.py
+	$(PY) scripts/build_outlook.py
