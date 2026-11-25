@@ -577,20 +577,23 @@ A season is tagged **drought** when SPEI ≤ −1, **very wet** when SPEI ≥ +1
 
 Keywords: weather, climate, temperature, rainfall, precipitation, drought, SPI, SPEI, PDSI, scPDSI, Palmer, heat, GHCN-CAMS, PREC/L, CRU, anomaly, mechanism
 
-### 4.15 The yield outlook (2026 crop; Australia 2027)
+### 4.15 The yield outlook and the model benchmark
 
-For every area, state and country, yield deviation from trend (%) is modelled as a **ridge regression** on six standardised drivers of the growing window: window ONI and its La Niña part (min(ONI,0), so El Niño and La Niña can act differently); temperature anomaly; SPEI; squared drought (min(SPEI,0)²) and squared wetness (max(SPEI,0)²), because both extremes can hurt.
+**Drivers tested (one row per area and crop year, all over the country's growing window):**
+- *ENSO and other oceans* — window ONI and its La Niña part; ONI in the 3 months before sowing and its trend across the season; Niño 1+2 and Niño 4 (eastern vs central-Pacific "flavour"); Indian Ocean Dipole (DMI); Atlantic Niño (ATL3); tropical North Atlantic; Pacific Decadal Oscillation. Computed from ERSST v5 vs 1991–2020 (PDO from NCEI).
+- *Season weather* — temperature anomaly, rainfall, SPI, SPEI, squared drought and squared wetness.
+- *Timing and soil water* — temperature and rainfall in the early, middle and late third of the window (sowing, flowering, boll opening/picking); the hottest month; CPC soil moisture over the season and in the month before sowing.
+- *Memory* — last year's yield deviation.
 
-**How much the model trusts the drivers is learnt from hindcasts.** For each country and level (areas, states, country), the ridge strength λ is chosen from 1, 3, 10, 30, 100 and 10⁶ by leave-one-year-out cross-validation: drop a year, fit on the rest, predict the dropped year, repeat. λ = 10⁶ means "trust nothing" — predict the area's average deviation, i.e. the trend. So where ENSO and weather never helped in past years, the outlook automatically falls back to the trend.
+**Algorithms:** ridge regression, lasso, partial least squares, per-area ridge, random forest and gradient boosting. Pooled models share coefficients across the areas of a country (with each area's own average), and tree models also see latitude and longitude.
 
-- **Outlook yield** = trend projected to the target year (straight line through the last ten trend values) × (1 + predicted deviation).
-- **90% range** = predicted deviation ± 1.645 × the area's hindcast RMSE.
-- **Hindcast skill** = mean-square skill score of the left-out predictions against the area's average deviation: 0% = no better than the trend line, 100% = perfect. Shown as *useful* (≥ 10%), *some* (3–10%), *little* or *none — trend only*.
-- **What moves the estimate** splits the predicted deviation into ENSO, heat and drought/wetness parts (standardised coefficient × this season's standardised value).
-- **Target year:** 2026 for every country (US, China, Pakistan, India: crop being picked now; Brazil and Argentina: 2026 harvest, not yet in the yield statistics). Australia's 2026 harvest is already in the data, so its outlook is the **2027** crop, with ENSO carried forward from the latest ONI (ASO 2026, +2.46 °C) and normal weather assumed.
-- Areas need data within six years of the country's latest season and at least 15 seasons with weather.
+**How they are tested — like a real forecast.** For every year from 1996 to 2025, each model × driver set is trained only on earlier years and forecasts that year (rolling origin). Skill = 1 − (squared forecast errors ÷ squared errors of the trend), area-weighted: 0% = no better than the trend line, negative = worse. The three best combinations on **1996–2015** are averaged into an ensemble, and that ensemble is then judged on **2016–2025**, which played no part in choosing it. **The outlook uses the ensemble only if it beats the trend in both periods**; otherwise it is the trend. This is done separately for countries, states and local areas; a country can also take the sum of its state forecasts if that scores better.
 
-Keywords: forecast, prediction, outlook, 2026, 2027, predict yield, model, ridge, hindcast, cross-validation, skill, leave-one-year-out, uncertainty, range, this year
+**The outlook:** the chosen ensemble is refitted on every season up to 2025 and applied to this season's drivers. Outlook yield = trend projected to the target year (line through the last ten trend values) × (1 + predicted deviation). 90% range = ± 1.645 × that area's forecast error over 1996–2025 (shrunk towards its level's average). **What moves the estimate** shows how much the forecast changes when each driver group (ENSO & oceans, heat, rain & soil water, last year) is held at its average — an approximate split that works for any model. Target year: 2026 everywhere except Australia, whose 2027 crop has no observed weather until April 2027, so its outlook is the trend.
+
+Pipeline: `build_features.py` → `model_benchmark.py` (≈20 min) → `select_models.py` → `build_outlook.py`; `make climate` runs it all.
+
+Keywords: forecast, prediction, outlook, 2026, model, machine learning, random forest, gradient boosting, lasso, ridge, PLS, ensemble, benchmark, rolling origin, out of sample, test set, skill, IOD, Indian Ocean Dipole, PDO, Atlantic, Niño 1+2, Niño 4, soil moisture, timing, overfitting, which model is best
 
 ## Part 5 · Key results (default settings: all years, all events, per year)
 
@@ -721,8 +724,7 @@ National growing-season weather in event years minus neutral years (all years, a
 - **Brazil's El Niño seasons run hotter and drier** (+0.49 °C, SPEI −0.84), and yields rise with SPEI (r = +0.28), but the national effect is small because most Brazilian cotton is grown in the reliably wet Cerrado.
 - **Argentina's El Niño seasons are 16% wetter**; **Australia's La Niña seasons 20% wetter**, which suits its irrigated cotton (more water in storage).
 - **US yields barely track season-wide drought** (r ≈ 0). US yields are per *harvested* acre: in Texas droughts the worst dryland fields are abandoned, which props up the yield of what is picked. Six of Lubbock County's worst seasons include two with no weather extreme at all.
-- **How predictable is a season?** Out of sample, ENSO plus season-average weather explain about 11–12% of year-to-year swings nationally in India and Pakistan, and nothing reliable elsewhere. Within India the signal is strong in rain-fed states: Gujarat 39%, Rajasthan 24%, Karnataka 18%. The rest of cotton's swings come from things a season average cannot see — floods at picking, pests (pink bollworm hit India 2000–2002), prices, policy and irrigation.
-- **2026 outlook.** India: about **427 kg/ha, −7.5% vs trend** (El Niño −2.4, heat −2.9, drought −1.0 points; 90% range −27% to +12%), with Karnataka (−22%), Rajasthan (−19%) and Gujarat (−13%) lowest. Pakistan +1%. Everywhere else the model sees no reliable signal, so the outlook is the trend yield, with a wide range (roughly ±16–24%).
+- **US yields per harvested acre can *rise* in droughts.** In 2022 (SPEI −1.5, severe drought) US yield was +11% above trend: Texas abandoned most dryland fields, so only the better, largely irrigated ones were picked. No weather model can call that from yield alone — it needs planted-area data.
 
 Keywords: weather results, drought results, outlook results, forecast 2026, India forecast, Gujarat, Pakistan floods, predictability, skill
 
@@ -792,15 +794,53 @@ For the selected place:
 
 Keywords: Trends tab, area tab, yield history, bar chart, gold line, phase trends, strength chart, one event, event picker, before during after chart, lag chart, thick thin lines
 
+### 5.9 Model benchmark: which models and drivers predict best
+
+Skill of forecasts made each year from earlier years only (0% = no better than the trend line; negative shown as 0%):
+
+| Country | Level | ENSO only | + season weather | Best ensemble 1996–2015 | Unseen 2016–2025 | All 1996–2025 | Outlook uses |
+|---|---|---|---|---|---|---|---|
+| US | country | 0% | 0% | 28% | 0% | 19% | trend |
+| US | states | 0% | 0% | 29% | 2% | 22% | ensemble (ridge/weather, lasso/weather, unit-ridge/weather) |
+| US | local areas | 0% | 0% | 17% | 2% | 13% | ensemble (ridge/weather, ridge/all, ridge/all+lag) |
+| BR | country | 0% | 0% | 18% | 0% | 9% | trend |
+| BR | states | 0% | 0% | 3% | 0% | 0% | trend |
+| BR | local areas | 0% | 0% | 2% | 0% | 0% | trend |
+| IN | country | 0% | 2% | 21% | 2% | 20% | ensemble (gbm/season, rf/season, lasso/all+lag) |
+| IN | states | 5% | 11% | 21% | 0% | 16% | ensemble (rf/weather, rf/enso+season, gbm/all+lag) |
+| IN | local areas | 1% | 7% | 13% | 0% | 8% | trend |
+| AR | country | 0% | 0% | 8% | 0% | 0% | trend |
+| AR | states | 0% | 0% | 3% | 0% | 0% | trend |
+| AR | local areas | 0% | 0% | 0% | 0% | 0% | trend |
+| CN | country | 0% | 0% | 0% | 0% | 0% | trend |
+| CN | states | 0% | 0% | 2% | 0% | 2% | trend |
+| CN | local areas | 0% | 3% | 8% | 0% | 5% | trend |
+| PK | country | 0% | 13% | 0% | 0% | 0% | from_admin1 (unit-ridge/season, unit-ridge/weather, unit-ridge/enso+season) |
+| PK | states | 0% | 3% | 3% | 7% | 5% | ensemble (unit-ridge/season, unit-ridge/weather, unit-ridge/enso+season) |
+| PK | local areas | 0% | 1% | 0% | 0% | 0% | trend |
+| AU | country | 0% | 0% | 32% | 7% | 17% | trend |
+| AU | states | 0% | 0% | 32% | 2% | 14% | trend |
+
+**What this says.**
+- **Weather carries the predictable signal; ENSO alone hardly does.** ENSO-only models beat the trend only for Indian states (5%). Adding within-season timing (heat and rain at sowing, flowering and picking) and soil moisture lifts skill on 1996–2015 to 20–30% for US states, India and Australia.
+- **More ocean indices and last year's yield add noise.** Models on all ocean indices (IOD, PDO, Atlantic, Niño 1+2/4) do worse than the trend on average; they overfit.
+- **Simple regularised models are the most reliable.** Ridge and lasso hold up best across countries; random forests and boosting win in places (India) but overfit more often.
+- **The gain shrinks on unseen years.** On 2016–2025 the chosen ensembles beat the trend by only 0–7%. Ten test years is a small sample, but the honest reading is that season-scale weather explains roughly a fifth of cotton's year-to-year swings at best; pests (pink bollworm in India, whitefly in Pakistan), floods at picking, prices, policy and abandoned fields explain much of the rest.
+- **Brazil, Argentina and China:** no combination beat the trend reliably, so their outlooks are the trend.
+
+**2026 outlook (chosen models):** India **437 kg/ha, −5.3%** vs trend (heat −3.6, rain & soil water −2.9, ENSO & oceans −1.4 points; 90% range −29% to +18%); Indian states lowest: Karnataka −28%, Tamil Nadu −24%, Andhra Pradesh −23%, Maharashtra −20%. United States: the national model failed the unseen test, so the national outlook is the trend (985 kg/ha), but the state models — which passed — all point lower (New Mexico −14%, Florida, Louisiana and Arkansas about −12%), driven by a hot, dry-soil 2026 season. Pakistan −0.4%. Everywhere else: the trend.
+
+Keywords: benchmark results, best model, model comparison, random forest vs ridge, machine learning results, predictability, skill table, overfitting, 2026 outlook, India 2026, Texas 2026, US states 2026
+
 ### 6.4a Weather & outlook tab
 
 For whatever place is selected (country, state or local area):
-- **Outlook card** — outlook yield (kg lint/ha), % vs the projected trend, a bar with the 90% range, the **hindcast skill badge**, bars for what moves the estimate (El Niño/La Niña, heat, drought/wetness), and this season's weather so far.
-- **Would it have called past years?** — bars = actual % from trend, gold line = the leave-one-year-out prediction. Local areas show their state's chart.
+- **Outlook card** — outlook yield (kg lint/ha), % vs the projected trend, a bar with the 90% range, the **forecast skill badge** (hover for the unseen-test skill), the models used, bars for what moves the estimate (ENSO & oceans, heat, rain & soil water, last year), and this season's weather so far.
+- **Would it have called past years?** — bars = actual % from trend, gold line = the forecast made each year 1996–2025 from earlier years only. Local areas show their state's chart.
 - **Yield and weather, season by season** — top: % from trend, coloured by phase; bottom: SPEI bars (brown = drought, teal = wet) and temperature anomaly line. Hover any year for temperature, rainfall, SPI, SPEI and scPDSI. The note below counts how many of the worst seasons had a drought, heat or very wet season.
 - **The weather ENSO brings** — temperature, rainfall, SPI, SPEI and scPDSI in El Niño and La Niña seasons minus neutral seasons, with 90% ranges (✓ = confident).
 - **Worst seasons and what went wrong** — the six biggest losses with weather tags.
-- **How predictable is each country?** — skill of ENSO-only, weather-only and the model used, for every country, plus its national outlook. Click a row to switch country.
+- **How predictable is cotton?** — for countries, states or local areas (toggle): skill of ENSO only, ENSO + season weather, the best ensemble on 1996–2015 and on the unseen 2016–2025 years, and whether the outlook uses the model or the trend. Below it, a colour grid of every model × driver set for the selected country (outlined = the three picked).
 
 The Explore map has two extra layers: **Drought** (SPEI of the latest growing season) and **Outlook** (predicted % vs trend; faded where there is no skill). The Overview adds a **Weather** row to the El Niño and La Niña columns and an **Outlook** card to Context.
 

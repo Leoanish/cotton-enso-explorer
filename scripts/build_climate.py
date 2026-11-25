@@ -113,6 +113,7 @@ dim = np.array([[31, 28 + (y % 4 == 0 and (y % 100 != 0 or y % 400 == 0)), 31, 3
 P = P * dim[:, None]                                  # mm/day → mm/month
 dm, Dr = extract('scpdsi.nc', 'scpdsi', 'latitude', 'longitude'); Dr = fill_coastal(Dr, 'PDSI')
 Dr[(Dr < -20) | (Dr > 20)] = np.nan
+sm_m, SM = extract('soilw.nc', 'soilw', 'lat', 'lon'); SM = fill_coastal(SM, 'SM'); assert sm_m == tm
 cidx = {c: k for k, c in enumerate(allcells)}
 MI = {ym: k for k, ym in enumerate(tm)}; DI = {ym: k for k, ym in enumerate(dm)}
 LAST = tm[-1]; print('climate through', LAST, 'pdsi through', dm[-1])
@@ -122,7 +123,7 @@ def area_monthly(cells):
     k = [cidx[c] for c in cells]; w = np.cos(np.radians([LA[i] for i, j in cells]))
     def avg(M):
         X = M[:, k]; m = ~np.isnan(X); return np.where(m.any(1), np.nansum(X * w, 1) / np.maximum((m * w).sum(1), 1e-9), np.nan)
-    return avg(T), avg(P), avg(Dr)
+    return avg(T), avg(P), avg(Dr), avg(SM)
 
 
 def thornthwaite(t, lat):
@@ -196,26 +197,32 @@ def pack(ix):
     return {'t': r(ix['t'], 2), 'p': r(ix['p'], 1), 'spi': r(ix['spi'], 2), 'spei': r(ix['spei'], 2), 'pdsi': r(ix['pdsi'], 2)}
 
 
+MONTHLY = {}
 out = {'years': list(range(Y0, Y1 + 1)), 'through': f'{LAST[0]}-{LAST[1]:02d}', 'pdsiThrough': f'{dm[-1][0]}-{dm[-1][1]:02d}',
        'baseline': '1991–2020', 'countries': {}, 'partial': {}}
 for cc in WIN:
     c = D['countries'][cc]; res = {'regions': {}, 'admin1': {}, 'national': None}
     mon = {}
     for r in c['regions']:
-        cells, lat, am = AREAS[cc][r['id']]; t, p, d = area_monthly(cells); mon[r['id']] = (t, p, d, lat, am)
+        cells, lat, am = AREAS[cc][r['id']]; t, p, d, sm = area_monthly(cells); mon[r['id']] = (t, p, d, lat, am, sm)
+        MONTHLY[f"{cc}|R|{r['id']}"] = np.stack([t, p, thornthwaite(t, lat), sm]).astype(np.float32)
         ix = indices(cc, t, p, d, lat); res['regions'][r['id']] = pack(ix)
-    def agg(ids):
+    def agg(ids, key=''):
         ws = np.array([mon[i][4] for i in ids], float); ws = ws / ws.sum()
         st = lambda k: np.nansum([mon[i][k] * w for i, w in zip(ids, ws)], 0)
+        MONTHLY[f"{cc}|{'A' if len(ids) < len(c['regions']) else 'N'}|{key}"] = np.stack([st(0), st(1), np.nansum([mon[i][0] * 0 + thornthwaite(mon[i][0], mon[i][3]) * w for i, w in zip(ids, ws)], 0), st(5)]).astype(np.float32)
         return st(0), st(1), np.where(np.isnan(np.array([mon[i][2] for i in ids])).all(0), np.nan, np.nansum([np.nan_to_num(mon[i][2]) * w for i, w in zip(ids, ws)], 0)), float(np.sum([mon[i][3] * w for i, w in zip(ids, ws)]))
     for a in c['admin1']:
         ids = [r['id'] for r in c['regions'] if r['admin1'] == a['name']]
         if not ids: continue
-        t, p, d, lat = agg(ids); res['admin1'][a['name']] = pack(indices(cc, t, p, d, lat))
-    t, p, d, lat = agg([r['id'] for r in c['regions']]); ixn = indices(cc, t, p, d, lat); res['national'] = pack(ixn)
+        t, p, d, lat = agg(ids, a['name']); res['admin1'][a['name']] = pack(indices(cc, t, p, d, lat))
+    t, p, d, lat = agg([r['id'] for r in c['regions']], 'NAT'); ixn = indices(cc, t, p, d, lat); res['national'] = pack(ixn)
     out['partial'][cc] = [y for y, f in zip(out['years'], ixn['_full']) if not f and np.isfinite(ixn['t'][y - Y0])]
     out['countries'][cc] = res
     n26 = res['national']; k = 2026 - Y0
     print(cc, 'national 2026: t', n26['t'][k], 'p', n26['p'][k], 'spei', n26['spei'][k], '| 2025 pdsi', n26['pdsi'][k - 1], 'partial', out['partial'][cc])
 json.dump(out, open(PROC / 'climate.json', 'w'), separators=(',', ':'))
 print('climate.json', round(os.path.getsize(PROC / 'climate.json') / 1e6, 2), 'MB')
+
+np.savez_compressed(PROC / '_area_monthly.npz', months=np.array(tm), **{k: v for k, v in MONTHLY.items()})   # T, P, PET, soil moisture per unit (not committed)
+print('monthly units', len(MONTHLY))

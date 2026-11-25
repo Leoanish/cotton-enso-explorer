@@ -30,7 +30,7 @@ Settings (years, which event strengths count, per-year vs per-event weighting, e
 
 ### Weather and the 2026 outlook
 
-Every area also gets its growing-season **temperature, rainfall, SPI, SPEI and scPDSI** (NOAA GHCN-CAMS and PREC/L, 0.5°, through Oct 2026; CRU TS 4.10 scPDSI through 2025), to show *why* a season went badly. A ridge regression on ENSO + heat + drought/wetness, whose strength is chosen by leave-one-year-out hindcasts, gives a **2026 yield outlook** for every county, district, state and country (Australia: 2027), with a 90% range and an honest skill score. Where ENSO and weather never beat the trend in past years, the outlook is the trend. See *Weather & outlook* in the dashboard and §4.14–4.15 of the guide.
+Every area also gets its growing-season **temperature, rainfall, SPI, SPEI and scPDSI** (NOAA GHCN-CAMS and PREC/L, 0.5°, through Oct 2026; CRU TS 4.10 scPDSI through 2025), to show *why* a season went badly. Six algorithms × seven driver sets (ocean indices, season weather, within-season timing, soil moisture, last year's yield) are tested as real forecasts (each year 1996–2025 from earlier years only; chosen on 1996–2015, judged on unseen 2016–2025), and the winning ensemble gives a **2026 yield outlook** for every county, district, state and country (Australia: 2027), with a 90% range and an honest skill score. Where ENSO and weather never beat the trend in past years, the outlook is the trend. See *Weather & outlook* in the dashboard and §4.14–4.15 of the guide.
 
 ## Coverage
 
@@ -127,7 +127,7 @@ pip install -r requirements.txt
 npm install
 make all          # geo → data → page   (writes index.html)
 make sst          # optional: refresh sea-surface fields (downloads ~160 MB first)
-make climate      # optional: refresh weather + 2026 outlook (downloads ~830 MB first; ~2 min)
+make climate      # optional: refresh weather, model benchmark + 2026 outlook (downloads ~1.3 GB first; ~25 min)
 python scripts/build_video.py   # optional: re-render media/enso_cotton_1950_2025.mp4 and .gif (~8 min)
 ```
 

@@ -8,3 +8,4 @@ data/raw/_original_downloads/
 .transfer/
 .wrangler/
 data/raw/climate/
+data/processed/_*

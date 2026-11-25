@@ -36,4 +36,7 @@ video:
 climate:   # weather + outlook (downloads ~830 MB of gridded climate on first run)
 	@test -f data/raw/climate/air.nc || scripts/fetch_climate.sh
 	$(PY) scripts/build_climate.py
+	$(PY) scripts/build_features.py
+	rm -rf data/processed/_bench_parts && $(PY) scripts/model_benchmark.py
+	$(PY) scripts/select_models.py
 	$(PY) scripts/build_outlook.py
