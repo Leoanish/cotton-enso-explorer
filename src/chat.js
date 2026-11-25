@@ -240,8 +240,8 @@ function el(t,c){ const e=document.createElement(t); if(c) e.className=c; return
 const CSS=`
 .cx-fab{position:fixed;right:18px;bottom:18px;z-index:60;border:0;border-radius:999px;padding:11px 17px 11px 14px;background:var(--accent);color:#111;font:inherit;font-weight:700;font-size:13.5px;display:flex;gap:8px;align-items:center;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .15s}
 .cx-fab:hover{transform:translateY(-2px)} .cx-fab .sp{font-size:16px} body.cx-open .cx-fab{opacity:0;pointer-events:none}
-.cx{position:fixed;top:0;right:0;height:100%;width:min(440px,100vw);z-index:70;background:var(--panel);border-left:1px solid var(--line-2);box-shadow:-20px 0 50px rgba(0,0,0,.35);display:flex;flex-direction:column;transform:translateX(105%);transition:transform .22s ease}
-body.cx-open .cx{transform:none}
+.cx{position:fixed;top:0;right:0;height:100%;width:min(440px,100vw);z-index:70;background:var(--panel-pop);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border-left:1px solid var(--line-2);box-shadow:-20px 0 50px rgba(0,0,0,.35);display:flex;flex-direction:column;transform:translateX(105%);visibility:hidden;transition:transform .22s ease,visibility 0s linear .22s}
+body.cx-open .cx{transform:none;visibility:visible;transition:transform .22s ease}
 .cx-h{display:flex;align-items:center;gap:10px;padding:14px 14px 12px 18px;border-bottom:1px solid var(--line)} .cx-h .t{flex:1;min-width:0} .cx-h b{font-size:15px;display:block} .cx-h small{color:var(--ink-3);font-size:11.5px}
 .cx-h button{border:1px solid var(--line);background:var(--panel-2);color:var(--ink-2);width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:14px} .cx-h button:hover{color:var(--ink)}
 .cx-b{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:14px 16px 6px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}

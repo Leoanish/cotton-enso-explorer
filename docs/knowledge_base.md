@@ -525,7 +525,7 @@ Keywords: quadrants, NW, NE, SW, SE, hemisphere, north south, east west, globe s
 
 ### 4.12 How the "Overview" cards are chosen
 
-Overview shows about nine cards for the selected country, all computed live from the settings. Headlines are worded to match the evidence: anything not confident says so.
+Overview shows about eight to ten tiles for the selected country, grouped into El Niño, La Niña and context rows, all computed live from the settings. Each tile shows the number; its hover card carries a headline worded to match the evidence (anything not confident says so).
 1. **La Niña · national** and 2. **El Niño · national** — the national effect, with its range, number of years, how many fell below trend, worst and best year.
 3. **States** — for each phase, the state with the most negative effect (among states with ≥ 5 phase observations and ≥ 8 neutral years), flagged "uncertain" when its range crosses zero.
 4. **Hardest-hit local area** — the most negative *confident* county/municipality/district/department (≥ 5 observations), for whichever phase has more confident losses. The card also says how many areas are confidently negative and how many would be **expected by chance** (5% of those tested), so you can judge whether there is a real cluster.
@@ -690,9 +690,20 @@ Keywords: header, tabs, navigation, settings, gear, flags, country picker, theme
 
 ### 6.2 Overview tab
 
-The starting page for a country. A short three-step intro (Pick a place · Read the effect · Trust it the right amount) can be dismissed with "Got it". The **country card** shows the number of areas and states, crop years, how many El Niño and La Niña events (by strength) touched the country's harvests, and the average yield. Below, **"What the data says"** cards (see 4.12): each has a short label, a big number (red = loss, green = gain), a one-line headline and a detail line. Click a card → evidence.
+The starting page for a country, designed to be read in seconds.
 
-Keywords: Overview tab, findings tab, country card, what the data says, cards, headline, start page, intro
+- **"How to read" line** (dismiss with ×): −12% means yield vs a normal (neutral) year; **✓ confident** means the 90% range excludes zero, and faded numbers are uncertain; hover or tap any number for the story.
+- **Country strip:** one row of key numbers: mapped areas, crop years, number of El Niño and La Niña events, neutral years, average yield and the growing window. Hover (or focus) any of them for details: events by strength, the data source, the crop calendar.
+- **"What the data says":** compact number tiles in three rows:
+  - *El Niño years:* national effect, worst state, worst local area (when one is confident), and the country's continent (when it has more than one country).
+  - *La Niña years:* national effect, worst state, effect by strength, the year after, irrigation (US only) and the quadrant.
+  - *Events & context:* the country's worst ENSO harvest.
+- **Each tile shows only the number,** a short tag (the place or event) and **✓ confident** or **uncertain**. Uncertain numbers are drawn faded so confident ones stand out.
+- **Hovering a tile** (after a short pause) **expands it in place**: the tile grows downward to show the one-line headline, the full explanation (years, how many below trend, 90% range, worst and best year) and "See the evidence →", and the tiles below slide down to make room, so nothing is covered. **Clicking** a tile opens the tab that holds its evidence. On phones and tablets, the **first tap opens the details and a second tap opens the evidence**. Tiles also work from the keyboard (Tab to focus shows the details, Enter opens the evidence).
+
+**Look:** the explorer keeps its plain near-black (dark) and warm off-white (light) colours, with a light glass finish: slightly translucent, frosted panels with a soft top sheen and a fine highlight edge. People who turn on *reduce transparency* in their system settings get solid panels instead.
+
+Keywords: Overview tab, findings tab, country strip, tiles, what the data says, hover for details, tap, cards, headline, start page, how to read, confident, faded, uncertain
 
 ### 6.3 Explore tab — the map
 
